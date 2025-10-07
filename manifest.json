@@ -1,0 +1,18 @@
+{
+  "short_name": "Serene",
+  "name": "Serene | Your Personalized Anxiety Relief Assistant",
+  "description": "An AI-powered application that analyzes your anxiety symptoms and provides personalized, evidence-based coping exercises to help you find calm and relief.",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#0d9488",
+  "background_color": "#f0fdfa",
+  "scope": "/"
+}

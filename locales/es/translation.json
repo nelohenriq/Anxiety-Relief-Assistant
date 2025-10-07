@@ -1,0 +1,464 @@
+{
+  "header": {
+    "title": "Serene",
+    "settings_aria_label": "Abrir perfil de usuario y configuración",
+    "crisis_support_aria_label": "Abrir recursos de apoyo en crisis"
+  },
+  "hero": {
+    "title": "Encuentra Tu Calma.",
+    "subtitle": "Describe cómo te sientes y deja que nuestra IA cree un plan personalizado con ejercicios de afrontamiento para guiarte hacia el alivio.",
+    "get_started_button": "Empezar"
+  },
+  "symptom_input": {
+    "title": "¿Cómo te sientes ahora mismo?",
+    "placeholder": "p. ej., 'Mi corazón se acelera y no puedo dejar de preocuparme por mi presentación de mañana.'",
+    "aria_label": "Describe tus síntomas aquí o selecciona de las opciones a continuación.",
+    "submit_button": "Obtener Mi Plan Personalizado",
+    "loading_button": "Analizando...",
+    "symptoms_suffix": "Síntomas"
+  },
+  "symptom_selector": {
+    "helper_text": "O selecciona síntomas comunes a continuación para agregarlos a tu descripción."
+  },
+  "symptom_categories": {
+    "physical": "Físicos",
+    "cognitive": "Cognitivos",
+    "mood": "Anímicos",
+    "behavioral": "Conductuales"
+  },
+  "symptoms": {
+    "heart_palpitations": "Palpitaciones",
+    "shortness_of_breath": "Falta de aire",
+    "muscle_tension": "Tensión muscular",
+    "sweating": "Sudoración",
+    "dizziness": "Mareos",
+    "stomach_ache": "Dolor de estómago",
+    "headache": "Dolor de cabeza",
+    "shaking_or_trembling": "Temblores",
+    "constant_worrying": "Preocupación constante",
+    "catastrophic_thinking": "Pensamiento catastrófico",
+    "poor_concentration": "Falta de concentración",
+    "racing_thoughts": "Pensamientos acelerados",
+    "feeling_of_dread": "Sensación de pavor",
+    "overthinking": "Pensar demasiado",
+    "mind_going_blank": "Mente en blanco",
+    "nervousness": "Nerviosismo",
+    "irritability": "Irritabilidad",
+    "fear_or_panic": "Miedo o pánico",
+    "frustration": "Frustración",
+    "feeling_overwhelmed": "Sentirse abrumado/a",
+    "restlessness": "Inquietud",
+    "avoiding_situations": "Evitar situaciones",
+    "fidgeting": "Inquietud motora",
+    "pacing": "Caminar de un lado a otro",
+    "difficulty_sleeping": "Dificultad para dormir",
+    "social_withdrawal": "Aislamiento social",
+    "procrastination": "Procrastinación"
+  },
+  "exercise_card": {
+    "duration_minutes": "{{duration}} min",
+    "steps_title": "Pasos:",
+    "rating_prompt": "Valora este ejercicio",
+    "rating_aria_label": "Valorar con {{star}} estrella"
+  },
+  "exercise_history": {
+    "title": "Historial de Ejercicios Completados",
+    "empty_state": "Aún no has completado ningún ejercicio. Tu historial aparecerá aquí una vez que valores un ejercicio.",
+    "completed_on": "Completado el",
+    "your_rating": "Tu valoración"
+  },
+  "feedback_history": {
+    "title": "Mi Historial de Comentarios",
+    "empty_state": "Aún no has enviado ningún comentario. Tus envíos se registrarán aquí."
+  },
+  "loading_spinner": {
+    "message": "Encontrando los mejores ejercicios para ti..."
+  },
+  "disclaimer": {
+    "title": "Descargo de responsabilidad:",
+    "body": "Esta herramienta es solo para fines informativos y no sustituye el consejo, diagnóstico o tratamiento médico profesional. Siempre busca el consejo de tu médico u otro proveedor de salud calificado si tienes preguntas sobre una condición médica."
+  },
+  "personalized_plan": {
+    "title": "Tu Plan Personalizado"
+  },
+  "plan_history": {
+    "title": "Historial de Planes Generados",
+    "subtitle": "Un registro de tus planes generados anteriormente para referencia futura.",
+    "empty_state": "Aún no has generado ningún plan. Describe tus síntomas arriba para empezar."
+  },
+  "plan_history_card": {
+    "your_input": "Lo que ingresaste",
+    "generated_plan": "Plan Generado",
+    "sources": "Fuentes"
+  },
+  "for_you": {
+    "title": "Un Momento Para Ti"
+  },
+  "live_coach": {
+    "title": "Coach en Vivo",
+    "subtitle": "Habla con un guía de IA en tiempo real.",
+    "description": "Para momentos en que necesites apoyo inmediato, inicia una sesión de voz en vivo. Nuestro coach de IA te escuchará y te guiará con técnicas de relajación.",
+    "start_button": "Iniciar Sesión en Vivo",
+    "end_button": "Finalizar Sesión",
+    "status_connecting": "Conectando...",
+    "status_listening": "Escuchando...",
+    "status_speaking": "Hablando...",
+    "status_error": "Error de conexión. Por favor, inténtalo de nuevo.",
+    "transcripts_you": "Tú",
+    "transcripts_coach": "Coach"
+  },
+  "breathing_exercises": {
+    "title": "Calma Rápida",
+    "subtitle": "Elige una sesión de respiración guiada.",
+    "start_button": "Iniciar Sesión",
+    "box_breathing": {
+      "name": "Respiración de Caja",
+      "description": "Una técnica simple para calmar tu sistema nervioso inhalando, sosteniendo, exhalando y sosteniendo por tiempos iguales."
+    },
+    "478_breathing": {
+      "name": "Respiración 4-7-8",
+      "description": "Conocida como la \"respiración relajante\", esta técnica ayuda a reducir la ansiedad y puede ayudar a conciliar el sueño."
+    },
+    "cyclic_sighing": {
+      "name": "Suspiro Cíclico",
+      "description": "Una técnica respaldada por la investigación para reducir rápidamente el estrés realizando dos inhalaciones seguidas de una exhalación larga."
+    },
+    "steps": {
+      "breathe_in": "Inhala",
+      "hold": "Sostén",
+      "breathe_out": "Exhala",
+      "inhale": "Inhala",
+      "inhale_again": "Inhala de Nuevo",
+      "exhale_long": "Exhala (Largo)"
+    }
+  },
+  "breathing_visualizer": {
+    "close_aria_label": "Cerrar ejercicio de respiración",
+    "instruction": "Sigue el ritmo. Acompasa tu respiración con la guía."
+  },
+  "breathing_visualizer_tooltips": {
+    "inhale": "Propósito: Energizar el cuerpo. Consejo: Inhala lentamente por la nariz, dejando que tu abdomen se expanda como un globo.",
+    "hold": "Propósito: Calmar el sistema nervioso. Consejo: Sostén la respiración suavemente sin ninguna tensión.",
+    "exhale": "Propósito: Liberar la tensión. Consejo: Exhala lentamente por la boca, más largo que tu inhalación."
+  },
+  "journal": {
+    "title": "Diario Privado",
+    "subtitle": "Reflexiona sobre tus pensamientos. Guardado solo en este dispositivo.",
+    "placeholder": "Escribe lo que tengas en mente...",
+    "save_button": "Guardar Entrada",
+    "saved_button": "¡Guardado!",
+    "past_entries_title": "Entradas Anteriores"
+  },
+  "journal_card": {
+    "analyzing": "Analizando tu entrada...",
+    "ai_reflection_title": "Reflexión de la IA",
+    "get_ai_reflection_button": "Obtener Reflexión de IA"
+  },
+  "cognitive_tools": {
+    "title": "Herramientas Cognitivas",
+    "subtitle": "Desafía patrones de pensamiento inútiles.",
+    "thought_record_title": "Registro de Pensamientos TCC",
+    "thought_record_description": "Un ejercicio guiado para identificar, desafiar y reformular pensamientos negativos.",
+    "start_button": "Iniciar Ejercicio"
+  },
+  "thought_record_history": {
+    "title": "Tus Registros Anteriores"
+  },
+  "thought_record": {
+    "title": "Registro de Pensamientos TCC",
+    "step_prefix": "Paso {{step}}:",
+    "steps": {
+      "situation": "Situación",
+      "negative_thought": "Pensamiento Negativo",
+      "challenge": "Desafío",
+      "alternative": "Alternativa",
+      "outcome": "Resultado"
+    },
+    "situation_label": "¿Cuál fue la situación que desencadenó el sentimiento?",
+    "situation_placeholder": "p. ej., Cometí un error durante una presentación en el trabajo.",
+    "negative_thought_label": "¿Cuál fue el pensamiento negativo automático?",
+    "negative_thought_placeholder": "p. ej., 'Soy tan incompetente. Todos deben pensar que soy un idiota.'",
+    "distortions_label": "¿Aplica alguna de estas distorsiones cognitivas?",
+    "challenge_label": "Desafía el pensamiento. ¿Cuál es la evidencia en su contra?",
+    "challenge_placeholder": "p. ej., Mi jefe elogió mi último proyecto. Un colega dijo que mi presentación le pareció interesante.",
+    "ai_help_button": "Obtener Ayuda de IA",
+    "ai_help_loading": "Obteniendo sugerencias...",
+    "alternative_label": "¿Cuál es un pensamiento más equilibrado o alternativo?",
+    "alternative_placeholder": "p. ej., 'Cometí un error, pero no significa que sea incompetente. Puedo aprender de ello y mejorar la próxima vez.'",
+    "outcome_label": "¿Cómo te sientes ahora? Valora tu creencia en el pensamiento original (0-100%).",
+    "outcome_placeholder": "p. ej., Me siento menos ansioso/a. Ahora creo que el pensamiento negativo es solo un 20% cierto.",
+    "previous_button": "Anterior",
+    "next_button": "Siguiente",
+    "save_button": "Guardar Registro"
+  },
+  "cognitive_distortions": {
+    "all_or_nothing": {
+      "name": "Pensamiento de Todo o Nada",
+      "description": "Ver situaciones en categorías absolutas, en blanco y negro, sin término medio."
+    },
+    "overgeneralization": {
+      "name": "Sobregeneralización",
+      "description": "Ver un solo evento negativo como un patrón interminable de derrota."
+    },
+    "mental_filter": {
+      "name": "Filtro Mental",
+      "description": "Centrarse en un solo detalle negativo y pensar exclusivamente en él, filtrando todos los aspectos positivos."
+    },
+    "catastrophizing": {
+      "name": "Catastrofización",
+      "description": "Esperar que ocurra el peor de los casos, sin considerar resultados más probables."
+    },
+    "personalization": {
+      "name": "Personalización",
+      "description": "Creer que eres la causa de algún evento externo negativo del cual, en realidad, no eras el principal responsable."
+    },
+    "mind_reading": {
+      "name": "Lectura de Mente",
+      "description": "Asumir que sabes lo que otras personas están pensando sin tener suficiente evidencia de sus pensamientos."
+    },
+    "fortune_telling": {
+      "name": "Adivinación del Futuro",
+      "description": "Anticipar que las cosas saldrán mal y sentirse convencido de que tu predicción es un hecho ya establecido."
+    },
+    "emotional_reasoning": {
+      "name": "Razonamiento Emocional",
+      "description": "Asumir que tus emociones negativas necesariamente reflejan la realidad: \"Lo siento, por lo tanto, debe ser verdad\"."
+    },
+    "should_statements": {
+      "name": "Declaraciones con \"Debería\"",
+      "description": "Usar palabras críticas como \"debería\", \"tengo que\" o \"es obligatorio\", que pueden hacerte sentir culpable o como un fracaso."
+    }
+  },
+  "guided_programs": {
+    "title": "Programas Guiados",
+    "subtitle": "Sigue un plan estructurado para desarrollar habilidades."
+  },
+  "guided_meditations": {
+    "title": "Meditaciones Guiadas",
+    "subtitle": "Encuentra la quietud con guías de texto.",
+    "start_button": "Iniciar Meditación"
+  },
+  "meditations": {
+    "body_scan": {
+      "title": "Escaneo Corporal de 5 Minutos",
+      "description": "Aumenta la conciencia corporal y libera la tensión guiando suavemente tu atención a las sensaciones físicas.",
+      "guidance": [
+        "Encuentra una posición cómoda, ya sea sentado o acostado. Cierra suavemente los ojos y toma algunas respiraciones profundas y tranquilizadoras.",
+        "Lleva tu conciencia a la parte superior de tu cabeza. Nota cualquier sensación aquí sin juzgar. Hormigueo, presión o nada en absoluto, todo está bien.",
+        "Mueve lentamente tu enfoque hacia tu cara. Suaviza la mandíbula, las mejillas y los pequeños músculos alrededor de los ojos. Suelta cualquier tensión que encuentres.",
+        "Continúa este suave escaneo por tu cuello y hombros, bajando por los brazos hasta las yemas de los dedos, a través del pecho y el abdomen, y por la espalda.",
+        "Mueve tu conciencia hacia abajo a través de las piernas, hacia los pies y hasta la punta de los dedos de los pies. Nota la sensación de tus pies en contacto con el suelo o la superficie debajo de ellos.",
+        "Finalmente, toma una respiración profunda más, trayendo una sensación de totalidad a todo tu cuerpo. Cuando estés listo/a, abre lentamente los ojos."
+      ]
+    },
+    "loving_kindness": {
+      "title": "Amor Benevolente de 7 Minutos",
+      "description": "Cultiva sentimientos de calidez, amabilidad y compasión por ti mismo/a y por los demás.",
+      "guidance": [
+        "Siéntate en una posición cómoda y relajada. Cierra los ojos y lleva tu conciencia al espacio de tu corazón.",
+        "Repite en silencio las siguientes frases, dirigiéndolas hacia ti mismo/a: 'Que yo sea feliz. Que yo esté sano/a. Que yo esté a salvo. Que yo viva con facilidad.' Siente la intención detrás de las palabras.",
+        "Ahora, trae a la mente a alguien a quien quieras profundamente, como un amigo cercano o un familiar. Dirige estas frases hacia ellos: 'Que seas feliz. Que estés sano/a. Que estés a salvo. Que vivas con facilidad.'",
+        "A continuación, piensa en una persona neutral, alguien que no te gusta ni te disgusta, quizás un cajero de una tienda o un vecino que ves ocasionalmente. Ofréceles los mismos buenos deseos: 'Que seas feliz. Que estés sano/a. Que estés a salvo. Que vivas con facilidad.'",
+        "Si te sientes capaz, trae a la mente a alguien con quien tienes dificultades. Intenta extenderle estos deseos, aunque sea un poco: 'Que seas feliz. Que estés sano/a. Que estés a salvo. Que vivas con facilidad.'",
+        "Finalmente, expande tu conciencia para incluir a todos los seres vivos en todas partes, sin excepción: 'Que todos los seres sean felices. Que todos los seres estén sanos/as. Que todos los seres estén a salvo. Que todos los seres vivan con facilidad.'",
+        "Descansa en este sentimiento de corazón abierto por unos momentos antes de devolver suavemente tu conciencia a la habitación y abrir los ojos."
+      ]
+    }
+  },
+  "program_viewer": {
+    "day_of_total": "Día {{day}} de {{total}}:",
+    "todays_focus": "Enfoque de Hoy",
+    "todays_exercise": "Ejercicio de Hoy"
+  },
+  "meditation_player": {
+    "finish_button": "Finalizar Meditación"
+  },
+  "programs": {
+    "mindfulness_intro": {
+      "title": "Introducción de 3 Días a la Atención Plena",
+      "description": "Aprende los fundamentos de la atención plena con este breve programa introductorio diseñado para ayudarte a construir una base de conciencia del momento presente.",
+      "day1": {
+        "title": "Respiración Consciente",
+        "concept": "La atención plena comienza con la respiración. Es nuestra ancla al momento presente. Hoy, nos centraremos en simplemente observar el ritmo natural de nuestra respiración sin intentar cambiarlo.",
+        "exercise": {
+          "title": "Respiración Consciente de 3 Minutos",
+          "description": "Un breve ejercicio para anclarte en el presente centrándote en tu respiración.",
+          "steps": [
+            "Encuentra una posición sentada cómoda. Cierra los ojos suavemente.",
+            "Lleva tu atención a la sensación de tu respiración. Nota el aire entrando por tus fosas nasales y llenando tus pulmones.",
+            "Observa la sensación de tu pecho o abdomen subiendo y bajando.",
+            "Si tu mente divaga, con suavidad y sin juzgar, guía tu enfoque de nuevo a tu respiración.",
+            "Continúa durante 3 minutos. Cuando estés listo/a, abre lentamente los ojos."
+          ]
+        }
+      },
+      "day2": {
+        "title": "El Escaneo Corporal",
+        "concept": "Nuestros cuerpos guardan mucha información. Un escaneo corporal es una práctica de prestar atención cercana y sin prejuicios a las sensaciones físicas, lo que puede aumentar la conciencia corporal y liberar tensión.",
+        "exercise": {
+          "title": "Escaneo Corporal de 5 Minutos",
+          "description": "Guía suavemente tu atención a través de tu cuerpo para notar sensaciones sin juzgarlas.",
+          "steps": [
+            "Acuéstate o siéntate cómodamente. Cierra los ojos.",
+            "Lleva tu atención a los dedos de tu pie izquierdo. Nota cualquier sensación—calor, frío, hormigueo—sin necesidad de cambiarlas.",
+            "Mueve lentamente tu atención hacia arriba por tu pierna izquierda, a tu pierna derecha, a través de tu torso y hacia abajo por tus brazos hasta las yemas de tus dedos.",
+            "Finalmente, lleva tu enfoque a tu cuello, cara y cabeza.",
+            "Toma una última respiración profunda y abre suavemente los ojos."
+          ]
+        }
+      },
+      "day3": {
+        "title": "Escucha Consciente",
+        "concept": "La atención plena no se trata solo de sensaciones internas. También podemos ser conscientes de nuestro entorno. La escucha consciente implica prestar atención a los sonidos a tu alrededor sin etiquetarlos ni juzgarlos.",
+        "exercise": {
+          "title": "Ejercicio de Escucha Consciente",
+          "description": "Sintoniza con los sonidos de tu entorno para practicar la conciencia externa.",
+          "steps": [
+            "Siéntate en silencio y cierra los ojos.",
+            "Primero, nota los sonidos más obvios a tu alrededor. Reconócelos sin perderte en pensamientos sobre ellos.",
+            "A continuación, intenta escuchar sonidos más sutiles y distantes que podrías haber filtrado antes.",
+            "Ahora, escucha los sonidos más cercanos a ti, quizás el sonido de tu propia respiración o el roce de tu ropa.",
+            "Simplemente recibe estos sonidos como pura sensación. Después de unos minutos, regresa suavemente tu conciencia a la habitación."
+          ]
+        }
+      }
+    }
+  },
+  "user_profile": {
+    "title": "Perfil y Configuración",
+    "tabs": {
+      "settings": "Configuración",
+      "activity_log": "Registro de Actividad",
+      "feedback_history": "Mis Comentarios"
+    },
+    "close_aria_label": "Cerrar configuración",
+    "consent_title": "Consentimiento de Datos",
+    "consent_subtitle": "Niveles de consentimiento más altos permiten a la IA generar ejercicios más personalizados utilizando los datos del perfil que proporciones a continuación.",
+    "consent_essential": "Esencial: Sin personalización. El perfil está deshabilitado.",
+    "consent_enhanced": "Mejorado: Habilita la personalización con datos no sensibles.",
+    "consent_complete": "Completo: Habilita la personalización total con todos los campos disponibles.",
+    "form_disabled_message": "La personalización está deshabilitada. Para habilitarla, selecciona un nivel de consentimiento de datos mejorado.",
+    "about_you_title": "Sobre Ti",
+    "age_label": "Edad",
+    "location_label": "Ubicación / Zona Horaria",
+    "location_placeholder": "p. ej., Madrid / CET",
+    "wellness_profile_title": "Perfil de Bienestar",
+    "sleep_label": "¿Promedio de sueño por noche (horas)?",
+    "caffeine_label": "Consumo Típico de Cafeína",
+    "caffeine_options": {
+      "none": "Nada",
+      "low": "Bajo",
+      "moderate": "Moderado",
+      "high": "Alto"
+    },
+    "conditions_label": "Condiciones de Ansiedad o Ánimo Diagnosticadas (opcional)",
+    "conditions_placeholder": "p. ej., TAG, Trastorno de Pánico. Sé general.",
+    "conditions_help_text": "Esta información se almacena solo en tu dispositivo y puede ayudar a generar ejercicios más específicos.",
+    "lifestyle_title": "Estilo de Vida y Preferencias",
+    "work_env_label": "Entorno Laboral/Escolar",
+    "work_env_options": {
+      "office": "Oficina / Interior",
+      "remote": "Trabajo desde casa",
+      "student": "Estudiante",
+      "outdoors_manual": "Exterior / Trabajo Manual",
+      "other": "Otro"
+    },
+    "nature_access_label": "Acceso a la Naturaleza/Parques",
+    "nature_access_options": {
+      "yes": "Acceso fácil",
+      "limited": "Acceso limitado",
+      "no": "Sin acceso"
+    },
+    "activity_level_label": "Nivel de Actividad Típico",
+    "activity_level_options": {
+      "sedentary": "Sedentario (mayormente sentado)",
+      "lightly_active": "Ligeramente Activo (algo de caminata/estar de pie)",
+      "moderately_active": "Moderadamente Activo (ejercicio 3-5 veces/semana)",
+      "very_active": "Muy Activo (ejercicio intenso la mayoría de los días)"
+    },
+    "coping_styles_label": "¿Qué te ha ayudado en el pasado?",
+    "coping_styles_placeholder": "p. ej., hablar con amigos, salir a caminar, apps de mindfulness",
+    "learning_style_label": "Estilo de Aprendizaje Preferido",
+    "learning_style_options": {
+      "visual": "Visual",
+      "auditory": "Auditivo",
+      "kinesthetic": "Kinestésico"
+    },
+    "reminders_title": "Recordatorios Diarios",
+    "reminders_enable_label": "Habilitar Recordatorios",
+    "reminders_permission_denied": "Las notificaciones están bloqueadas. Por favor, habilítalas en la configuración de tu navegador para recibir recordatorios.",
+    "reminders_time_label": "Hora del Recordatorio",
+    "reminders_type_label": "Tipo de Recordatorio",
+    "reminders_type_options": {
+      "gentle": "Recordatorio Amable",
+      "motivational": "Cita Motivacional"
+    },
+    "feedback_title": "Ayúdanos a Mejorar",
+    "feedback_subtitle": "¿Tienes alguna sugerencia o encontraste un error? ¡Cuéntanos!",
+    "provide_feedback_button": "Enviar Comentarios",
+    "data_privacy_title": "Datos y Privacidad",
+    "data_privacy_subtitle": "Todos tus datos (perfil, historial, diario) se almacenan exclusivamente en el almacenamiento local de tu dispositivo. Borrar tus datos es permanente y no se puede deshacer.",
+    "download_log_subtitle": "Para ayudar a mejorar la aplicación, puedes descargar voluntariamente tu registro de interacciones anónimas y compartirlo con el equipo de desarrollo.",
+    "download_log_button": "Descargar Registro de Interacciones",
+    "clear_data_button": "Borrar Mis Datos...",
+    "clear_data_confirm_title": "¿Estás seguro/a?",
+    "clear_data_confirm_body": "Esto eliminará permanentemente todas tus entradas e información de perfil.",
+    "clear_data_confirm_button": "Sí, borrar todo",
+    "language_title": "Idioma",
+    "cancel_button": "Cancelar",
+    "save_button": "Guardar Cambios"
+  },
+  "feedback_modal": {
+    "title": "Enviar Comentarios",
+    "type_label": "Tipo de Comentario",
+    "types": {
+      "suggestion": "Sugerencia",
+      "bug": "Informe de Error",
+      "general": "Comentario General"
+    },
+    "message_label": "Mensaje",
+    "message_placeholder": "Por favor, proporciona tantos detalles como sea posible...",
+    "submit_button": "Enviar Comentario",
+    "submitted_message": "¡Gracias!"
+  },
+  "crisis_modal": {
+    "title": "Parece que estás pasando por mucho.",
+    "body": "Si te encuentras en peligro o angustia inmediata, por favor, busca ayuda. No estás solo/a.",
+    "cta_button_call": "Llamar a {{name}} ({{number}})",
+    "cta_button_web": "Visitar {{name}}",
+    "close_button": "Cerrar esta ventana"
+  },
+  "theme_toggle": {
+    "aria_label_light": "Cambiar a modo claro",
+    "aria_label_dark": "Cambiar a modo oscuro"
+  },
+  "search": {
+    "placeholder": "Buscar ejercicios, entradas de diario...",
+    "aria_label": "Buscar todo el contenido"
+  },
+  "tooltip": {
+    "expand_details": "Mostrar detalles",
+    "collapse_details": "Ocultar detalles",
+    "view_source": "Ver sitio web de origen",
+    "close": "Cerrar",
+    "get_ai_help": "Obtener ayuda de la IA para desafiar este pensamiento"
+  },
+  "mood_tracker": {
+    "title": "Registro de Ánimo",
+    "subtitle": "Registra tu estado emocional actual.",
+    "prompt": "¿Cómo te sientes en este momento?",
+    "logged_confirmation": "¡Ánimo registrado!",
+    "moods": {
+      "awful": "Terrible",
+      "bad": "Mal",
+      "okay": "Normal",
+      "good": "Bien",
+      "great": "Genial"
+    }
+  },
+  "mood_chart": {
+    "title": "Tu Semana en Ánimos",
+    "empty_state": "Registra tu estado de ánimo para ver tus tendencias aquí.",
+    "avg_mood": "Ánimo Prom."
+  }
+}

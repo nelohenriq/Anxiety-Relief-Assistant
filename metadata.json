@@ -1,0 +1,7 @@
+{
+  "name": "Anxiety Relief Assistant",
+  "description": "An AI-powered application that analyzes your anxiety symptoms and provides personalized, evidence-based coping exercises to help you find calm and relief.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

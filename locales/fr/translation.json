@@ -1,0 +1,464 @@
+{
+  "header": {
+    "title": "Serene",
+    "settings_aria_label": "Ouvrir le profil utilisateur et les paramètres",
+    "crisis_support_aria_label": "Ouvrir les ressources de soutien en cas de crise"
+  },
+  "hero": {
+    "title": "Trouvez Votre Calme.",
+    "subtitle": "Décrivez ce que vous ressentez, et laissez notre IA créer un plan personnalisé avec des exercices d'adaptation pour vous guider vers le soulagement.",
+    "get_started_button": "Commencer"
+  },
+  "symptom_input": {
+    "title": "Comment vous sentez-vous en ce moment ?",
+    "placeholder": "p. ex. 'Mon cœur bat la chamade et je ne peux pas m'empêcher de m'inquiéter pour ma présentation de demain.'",
+    "aria_label": "Décrivez vos symptômes ici ou sélectionnez parmi les options ci-dessous.",
+    "submit_button": "Obtenir Mon Plan Personnalisé",
+    "loading_button": "Analyse en cours...",
+    "symptoms_suffix": "Symptômes"
+  },
+  "symptom_selector": {
+    "helper_text": "Ou, sélectionnez des symptômes courants ci-dessous pour les ajouter à votre description."
+  },
+  "symptom_categories": {
+    "physical": "Physiques",
+    "cognitive": "Cognitifs",
+    "mood": "Humeur",
+    "behavioral": "Comportementaux"
+  },
+  "symptoms": {
+    "heart_palpitations": "Palpitations cardiaques",
+    "shortness_of_breath": "Essoufflement",
+    "muscle_tension": "Tension musculaire",
+    "sweating": "Transpiration",
+    "dizziness": "Vertiges",
+    "stomach_ache": "Maux d'estomac",
+    "headache": "Maux de tête",
+    "shaking_or_trembling": "Tremblements",
+    "constant_worrying": "Inquiétude constante",
+    "catastrophic_thinking": "Pensée catastrophique",
+    "poor_concentration": "Manque de concentration",
+    "racing_thoughts": "Pensées qui défilent",
+    "feeling_of_dread": "Sentiment d'effroi",
+    "overthinking": "Rumination mentale",
+    "mind_going_blank": "Le vide dans l'esprit",
+    "nervousness": "Nervosité",
+    "irritability": "Irritabilité",
+    "fear_or_panic": "Peur ou panique",
+    "frustration": "Frustration",
+    "feeling_overwhelmed": "Sentiment d'être dépassé(e)",
+    "restlessness": "Agitation",
+    "avoiding_situations": "Évitement des situations",
+    "fidgeting": "Gigotement",
+    "pacing": "Faire les cent pas",
+    "difficulty_sleeping": "Difficultés de sommeil",
+    "social_withdrawal": "Retrait social",
+    "procrastination": "Procrastination"
+  },
+  "exercise_card": {
+    "duration_minutes": "{{duration}} min",
+    "steps_title": "Étapes :",
+    "rating_prompt": "Évaluez cet exercice",
+    "rating_aria_label": "Noter {{star}} étoile"
+  },
+  "exercise_history": {
+    "title": "Historique des Exercices Terminés",
+    "empty_state": "Vous n'avez encore terminé aucun exercice. Votre historique apparaîtra ici une fois que vous aurez noté un exercice.",
+    "completed_on": "Terminé le",
+    "your_rating": "Votre note"
+  },
+  "feedback_history": {
+    "title": "Mon Historique de Feedback",
+    "empty_state": "Vous n'avez pas encore soumis de feedback. Vos soumissions seront enregistrées ici."
+  },
+  "loading_spinner": {
+    "message": "Recherche des meilleurs exercices pour vous..."
+  },
+  "disclaimer": {
+    "title": "Avis de non-responsabilité :",
+    "body": "Cet outil est à titre informatif uniquement et ne remplace pas un avis, un diagnostic ou un traitement médical professionnel. Demandez toujours l'avis de votre médecin ou d'un autre professionnel de la santé qualifié pour toute question que vous pourriez avoir concernant une condition médicale."
+  },
+  "personalized_plan": {
+    "title": "Votre Plan Personnalisé"
+  },
+  "plan_history": {
+    "title": "Historique de Génération de Plan",
+    "subtitle": "Un journal de vos plans générés précédemment pour référence future.",
+    "empty_state": "Vous n'avez encore généré aucun plan. Décrivez vos symptômes ci-dessus pour commencer."
+  },
+  "plan_history_card": {
+    "your_input": "Votre Saisie",
+    "generated_plan": "Plan Généré",
+    "sources": "Sources"
+  },
+  "for_you": {
+    "title": "Un Moment Pour Vous"
+  },
+  "live_coach": {
+    "title": "Coach en Direct",
+    "subtitle": "Parlez avec un guide IA en temps réel.",
+    "description": "Pour les moments où vous avez besoin d'un soutien immédiat, lancez une session vocale en direct. Notre coach IA vous écoutera et vous guidera avec des techniques apaisantes.",
+    "start_button": "Démarrer la Session en Direct",
+    "end_button": "Terminer la Session",
+    "status_connecting": "Connexion...",
+    "status_listening": "Écoute...",
+    "status_speaking": "Parle...",
+    "status_error": "Erreur de connexion. Veuillez réessayer.",
+    "transcripts_you": "Vous",
+    "transcripts_coach": "Coach"
+  },
+  "breathing_exercises": {
+    "title": "Calme Rapide",
+    "subtitle": "Choisissez une séance de respiration guidée.",
+    "start_button": "Démarrer la Séance",
+    "box_breathing": {
+      "name": "Respiration en Carré",
+      "description": "Une technique simple pour calmer votre système nerveux en inspirant, retenant, expirant et retenant pendant des durées égales."
+    },
+    "478_breathing": {
+      "name": "Respiration 4-7-8",
+      "description": "Connue comme la \"respiration relaxante\", cette technique aide à réduire l'anxiété et peut faciliter l'endormissement."
+    },
+    "cyclic_sighing": {
+      "name": "Soupir Cyclique",
+      "description": "Une technique prouvée par la recherche pour réduire rapidement le stress en effectuant deux inspirations suivies d'une longue expiration."
+    },
+    "steps": {
+      "breathe_in": "Inspirez",
+      "hold": "Retenez",
+      "breathe_out": "Expirez",
+      "inhale": "Inspirez",
+      "inhale_again": "Inspirez Encore",
+      "exhale_long": "Expirez (Long)"
+    }
+  },
+  "breathing_visualizer": {
+    "close_aria_label": "Fermer l'exercice de respiration",
+    "instruction": "Suivez le rythme. Synchronisez votre respiration avec le guide."
+  },
+  "breathing_visualizer_tooltips": {
+    "inhale": "Objectif : Énergiser le corps. Conseil : Inspirez lentement par le nez, en laissant votre ventre se gonfler comme un ballon.",
+    "hold": "Objectif : Calmer le système nerveux. Conseil : Retenez doucement sans forcer.",
+    "exhale": "Objectif : Relâcher la tension. Conseil : Expirez lentement par la bouche, plus longtemps que votre inspiration."
+  },
+  "journal": {
+    "title": "Journal Privé",
+    "subtitle": "Réfléchissez à vos pensées. Enregistré uniquement sur cet appareil.",
+    "placeholder": "Écrivez tout ce qui vous passe par la tête...",
+    "save_button": "Enregistrer l'Entrée",
+    "saved_button": "Enregistré !",
+    "past_entries_title": "Entrées Précédentes"
+  },
+  "journal_card": {
+    "analyzing": "Analyse de votre entrée en cours...",
+    "ai_reflection_title": "Réflexion de l'IA",
+    "get_ai_reflection_button": "Obtenir la Réflexion de l'IA"
+  },
+  "cognitive_tools": {
+    "title": "Outils Cognitifs",
+    "subtitle": "Remettez en question les schémas de pensée inutiles.",
+    "thought_record_title": "Journal de Pensées TCC",
+    "thought_record_description": "Un exercice guidé pour identifier, remettre en question et recadrer les pensées négatives.",
+    "start_button": "Démarrer l'Exercice"
+  },
+  "thought_record_history": {
+    "title": "Vos Anciens Journaux"
+  },
+  "thought_record": {
+    "title": "Journal de Pensées TCC",
+    "step_prefix": "Étape {{step}} :",
+    "steps": {
+      "situation": "Situation",
+      "negative_thought": "Pensée Négative",
+      "challenge": "Remise en Question",
+      "alternative": "Alternative",
+      "outcome": "Résultat"
+    },
+    "situation_label": "Quelle était la situation qui a déclenché le sentiment ?",
+    "situation_placeholder": "p. ex., J'ai fait une erreur lors d'une présentation au travail.",
+    "negative_thought_label": "Quelle était la pensée négative automatique ?",
+    "negative_thought_placeholder": "p. ex., 'Je suis tellement incompétent(e). Tout le monde doit penser que je suis idiot(e).'",
+    "distortions_label": "L'une de ces distorsions cognitives s'applique-t-elle ?",
+    "challenge_label": "Remettez en question la pensée. Quelles sont les preuves contre elle ?",
+    "challenge_placeholder": "p. ex., Mon patron a fait l'éloge de mon dernier projet. Un collègue a dit qu'il avait trouvé ma présentation perspicace.",
+    "ai_help_button": "Obtenir l'Aide de l'IA",
+    "ai_help_loading": "Obtention de suggestions...",
+    "alternative_label": "Quelle est une pensée plus équilibrée ou alternative ?",
+    "alternative_placeholder": "p. ex., 'J'ai fait une erreur, mais ça ne veut pas dire que je suis incompétent(e). Je peux en tirer des leçons et faire mieux la prochaine fois.'",
+    "outcome_label": "Comment vous sentez-vous maintenant ? Évaluez votre croyance en la pensée originale (0-100%).",
+    "outcome_placeholder": "p. ex., Je me sens moins anxieux(se). Je crois maintenant que la pensée négative n'est vraie qu'à 20%.",
+    "previous_button": "Précédent",
+    "next_button": "Suivant",
+    "save_button": "Enregistrer le Journal"
+  },
+  "cognitive_distortions": {
+    "all_or_nothing": {
+      "name": "Pensée Tout ou Rien",
+      "description": "Voir les situations en catégories absolues, en noir et blanc, sans juste milieu."
+    },
+    "overgeneralization": {
+      "name": "Surgénéralisation",
+      "description": "Voir un seul événement négatif comme un schéma de défaite sans fin."
+    },
+    "mental_filter": {
+      "name": "Filtre Mental",
+      "description": "Se concentrer sur un seul détail négatif et s'y attarder exclusively, en filtrant tous les aspects positifs."
+    },
+    "catastrophizing": {
+      "name": "Catastrophisme",
+      "description": "S'attendre au pire scénario, sans considérer des issues plus probables."
+    },
+    "personalization": {
+      "name": "Personnalisation",
+      "description": "Croire que vous êtes la cause d'un événement extérieur négatif dont vous n'étiez pas principalement responsable."
+    },
+    "mind_reading": {
+      "name": "Lecture de Pensées",
+      "description": "Supposer que vous savez ce que les autres pensent sans avoir de preuves suffisantes de leurs pensées."
+    },
+    "fortune_telling": {
+      "name": "Voyance",
+      "description": "Anticiper que les choses vont mal tourner et être convaincu que votre prédiction est un fait déjà établi."
+    },
+    "emotional_reasoning": {
+      "name": "Raisonnement Émotionnel",
+      "description": "Supposer que vos émotions négatives reflètent nécessairement la réalité : \"Je le sens, donc ça doit être vrai.\""
+    },
+    "should_statements": {
+      "name": "Déclarations \"Je devrais\"",
+      "description": "Utiliser des mots critiques comme \"je devrais\", \"il faut\", ou \"je dois\", qui peuvent vous faire sentir coupable ou comme un échec."
+    }
+  },
+  "guided_programs": {
+    "title": "Programmes Guidés",
+    "subtitle": "Suivez un plan structuré pour acquérir des compétences."
+  },
+  "guided_meditations": {
+    "title": "Méditations Guidées",
+    "subtitle": "Trouvez le calme avec un guidage textuel.",
+    "start_button": "Démarrer la Méditation"
+  },
+  "meditations": {
+    "body_scan": {
+      "title": "Scan Corporel de 5 Minutes",
+      "description": "Augmentez la conscience de votre corps et relâchez les tensions en guidant doucement votre attention sur les sensations physiques.",
+      "guidance": [
+        "Trouvez une position confortable, assis ou allongé. Fermez doucement les yeux et prenez quelques respirations profondes et apaisantes.",
+        "Portez votre attention sur le sommet de votre tête. Remarquez les sensations sans jugement. Picotements, pression, ou rien du tout - tout est acceptable.",
+        "Déplacez lentement votre attention vers votre visage. Détendez votre mâchoire, vos joues, et les petits muscles autour de vos yeux. Lâchez toute tension que vous y trouvez.",
+        "Continuez ce balayage doux le long de votre cou et de vos épaules, le long de vos bras jusqu'au bout de vos doigts, à travers votre poitrine et votre abdomen, et le long de votre dos.",
+        "Déplacez votre conscience le long de vos jambes, vers vos pieds, et jusqu'au bout de vos orteils. Remarquez la sensation de vos pieds en contact avec le sol ou la surface sous-jacente.",
+        "Enfin, prenez une dernière respiration profonde, apportant un sentiment d'unité à tout votre corps. Quand vous êtes prêt(e), ouvrez lentement les yeux."
+      ]
+    },
+    "loving_kindness": {
+      "title": "Bienveillance Amour-propre de 7 Minutes",
+      "description": "Cultivez des sentiments de chaleur, de gentillesse et de compassion pour vous-même et pour les autres.",
+      "guidance": [
+        "Asseyez-vous dans une position confortable et détendue. Fermez les yeux et portez votre attention sur l'espace de votre cœur.",
+        "Répétez silencieusement les phrases suivantes, dirigées vers vous-même : 'Puissé-je être heureux(se). Puissé-je être en bonne santé. Puissé-je être en sécurité. Puissé-je vivre avec aisance.' Ressentez l'intention derrière les mots.",
+        "Maintenant, pensez à quelqu'un que vous aimez profondément, comme un ami proche ou un membre de votre famille. Adressez-lui ces phrases : 'Puisses-tu être heureux(se). Puisses-tu être en bonne santé. Puisses-tu être en sécurité. Puisses-tu vivre avec aisance.'",
+        "Ensuite, pensez à une personne neutre, quelqu'un que vous n'aimez ni ne détestez, peut-être un caissier de magasin ou un voisin que vous voyez occasionnellement. Offrez-lui les mêmes vœux bienveillants : 'Puissiez-vous être heureux(se). Puissiez-vous être en bonne santé. Puissiez-vous être en sécurité. Puissiez-vous vivre avec aisance.'",
+        "Si vous vous en sentez capable, pensez à quelqu'un avec qui vous avez des difficultés. Voyez si vous pouvez leur étendre ces vœux, même un petit peu : 'Puissiez-vous être heureux(se). Puissiez-vous être en bonne santé. Puissiez-vous être en sécurité. Puissiez-vous vivre avec aisance.'",
+        "Enfin, élargissez votre conscience pour inclure tous les êtres vivants, partout, sans exception : 'Puissent tous les êtres être heureux. Puissent tous les êtres être en bonne santé. Puissent tous les êtres être en sécurité. Puissent tous les êtres vivre avec aisance.'",
+        "Reposez-vous dans ce sentiment de cœur ouvert pendant quelques instants avant de ramener doucement votre conscience dans la pièce et d'ouvrir les yeux."
+      ]
+    }
+  },
+  "program_viewer": {
+    "day_of_total": "Jour {{day}} sur {{total}} :",
+    "todays_focus": "Objectif du Jour",
+    "todays_exercise": "Exercice du Jour"
+  },
+  "meditation_player": {
+    "finish_button": "Terminer la Méditation"
+  },
+  "programs": {
+    "mindfulness_intro": {
+      "title": "Introduction de 3 Jours à la Pleine Conscience",
+      "description": "Apprenez les bases de la pleine conscience avec ce court programme d'introduction conçu pour vous aider à construire une fondation de conscience du moment présent.",
+      "day1": {
+        "title": "Respiration Consciente",
+        "concept": "La pleine conscience commence par la respiration. C'est notre ancre dans le moment présent. Aujourd'hui, nous nous concentrerons simplement sur l'observation du rythme naturel de notre respiration sans essayer de le changer.",
+        "exercise": {
+          "title": "Respiration Consciente de 3 Minutes",
+          "description": "Un court exercice pour vous ancrer dans le présent en vous concentrant sur votre respiration.",
+          "steps": [
+            "Trouvez une position assise confortable. Fermez doucement les yeux.",
+            "Portez votre attention sur la sensation de votre respiration. Remarquez l'air qui entre par vos narines et remplit vos poumons.",
+            "Observez la sensation de votre poitrine ou de votre ventre qui se soulève et s'abaisse.",
+            "Si votre esprit s'égare, ramenez doucement et sans jugement votre attention sur votre respiration.",
+            "Continuez pendant 3 minutes. Quand vous êtes prêt(e), ouvrez lentement les yeux."
+          ]
+        }
+      },
+      "day2": {
+        "title": "Le Scan Corporel",
+        "concept": "Nos corps détiennent beaucoup d'informations. Un scan corporel est une pratique consistant à prêter une attention particulière et sans jugement aux sensations physiques, ce qui peut augmenter la conscience corporelle et libérer les tensions.",
+        "exercise": {
+          "title": "Scan Corporel de 5 Minutes",
+          "description": "Guidez doucement votre attention à travers votre corps pour remarquer les sensations sans jugement.",
+          "steps": [
+            "Allongez-vous ou asseyez-vous confortablement. Fermez les yeux.",
+            "Portez votre attention sur les orteils de votre pied gauche. Remarquez les sensations — chaleur, fraîcheur, picotements — sans avoir besoin de les changer.",
+            "Déplacez slowly votre attention le long de votre jambe gauche, vers votre jambe droite, à travers votre torse, et le long de vos bras jusqu'au bout des doigts.",
+            "Enfin, portez votre attention sur votre cou, votre visage et votre tête.",
+            "Prenez une dernière respiration profonde et ouvrez doucement les yeux."
+          ]
+        }
+      },
+      "day3": {
+        "title": "Écoute Consciente",
+        "concept": "La pleine conscience ne concerne pas seulement les sensations internes. Nous pouvons aussi être conscients de notre environnement. L'écoute consciente consiste à prêter attention aux sons qui vous entourent sans les étiqueter ni les juger.",
+        "exercise": {
+          "title": "Exercice d'Écoute Consciente",
+          "description": "Connectez-vous aux sons de votre environnement pour pratiquer la conscience externe.",
+          "steps": [
+            "Asseyez-vous tranquillement et fermez les yeux.",
+            "Remarquez d'abord les sons les plus évidents autour de vous. Reconnaissez-les sans vous perdre dans des pensées à leur sujet.",
+            "Ensuite, essayez d'écouter des sons plus subtils et lointains que vous auriez pu filtrer auparavant.",
+            "Maintenant, écoutez les sons les plus proches de vous — peut-être le son de votre propre respiration ou le froissement de vos vêtements.",
+            "Recevez simplement ces sons comme de pures sensations. Après quelques minutes, ramenez doucement votre conscience dans la pièce."
+          ]
+        }
+      }
+    }
+  },
+  "user_profile": {
+    "title": "Profil et Paramètres",
+    "tabs": {
+      "settings": "Paramètres",
+      "activity_log": "Journal d'Activité",
+      "feedback_history": "Mon Feedback"
+    },
+    "close_aria_label": "Fermer les paramètres",
+    "consent_title": "Consentement des Données",
+    "consent_subtitle": "Des niveaux de consentement plus élevés permettent à l'IA de générer des exercices plus personnalisés en utilisant les données de profil que vous fournissez ci-dessous.",
+    "consent_essential": "Essentiel : Pas de personnalisation. Le profil est désactivé.",
+    "consent_enhanced": "Amélioré : Active la personnalisation avec des données non sensibles.",
+    "consent_complete": "Complet : Active la personnalisation complète avec tous les champs disponibles.",
+    "form_disabled_message": "La personnalisation est désactivée. Pour l'activer, veuillez sélectionner un niveau de consentement de données amélioré.",
+    "about_you_title": "À Propos de Vous",
+    "age_label": "Âge",
+    "location_label": "Lieu / Fuseau Horaire",
+    "location_placeholder": "p. ex., Paris / CET",
+    "wellness_profile_title": "Profil de Bien-être",
+    "sleep_label": "Sommeil moyen par nuit (heures) ?",
+    "caffeine_label": "Consommation Typique de Caféine",
+    "caffeine_options": {
+      "none": "Aucune",
+      "low": "Faible",
+      "moderate": "Modérée",
+      "high": "Élevée"
+    },
+    "conditions_label": "Conditions d'Anxiété ou d'Humeur Diagnostiquées (facultatif)",
+    "conditions_placeholder": "p. ex., TAG, Trouble panique. Restez général.",
+    "conditions_help_text": "Ces informations sont stockées uniquement sur votre appareil et peuvent aider à générer des exercices plus spécifiques.",
+    "lifestyle_title": "Style de Vie et Préférences",
+    "work_env_label": "Environnement de Travail/Scolaire",
+    "work_env_options": {
+      "office": "Bureau / Intérieur",
+      "remote": "Télétravail",
+      "student": "Étudiant",
+      "outdoors_manual": "Extérieur / Travail Manuel",
+      "other": "Autre"
+    },
+    "nature_access_label": "Accès à la Nature/Parcs",
+    "nature_access_options": {
+      "yes": "Accès facile",
+      "limited": "Accès limité",
+      "no": "Pas d'accès"
+    },
+    "activity_level_label": "Niveau d'Activité Typique",
+    "activity_level_options": {
+      "sedentary": "Sédentaire (principalement assis)",
+      "lightly_active": "Légèrement Actif (un peu de marche/station debout)",
+      "moderately_active": "Modérément Actif (exercice 3-5 fois/semaine)",
+      "very_active": "Très Actif (exercice intense la plupart des jours)"
+    },
+    "coping_styles_label": "Qu'est-ce qui vous a aidé par le passé ?",
+    "coping_styles_placeholder": "p. ex., parler à des amis, faire une promenade, applications de pleine conscience",
+    "learning_style_label": "Style d'Apprentissage Préféré",
+    "learning_style_options": {
+      "visual": "Visuel",
+      "auditory": "Auditif",
+      "kinesthetic": "Kinesthésique"
+    },
+    "reminders_title": "Rappels Quotidiens",
+    "reminders_enable_label": "Activer les Rappels",
+    "reminders_permission_denied": "Les notifications sont bloquées. Veuillez les activer dans les paramètres de votre navigateur pour recevoir des rappels.",
+    "reminders_time_label": "Heure du Rappel",
+    "reminders_type_label": "Type de Rappel",
+    "reminders_type_options": {
+      "gentle": "Rappel Doux",
+      "motivational": "Citation de Motivation"
+    },
+    "feedback_title": "Aidez-nous à nous améliorer",
+    "feedback_subtitle": "Vous avez une suggestion ou avez trouvé un bug ? Faites-le nous savoir !",
+    "provide_feedback_button": "Donner mon avis",
+    "data_privacy_title": "Données et Confidentialité",
+    "data_privacy_subtitle": "Toutes vos données (profil, historique, journal) sont stockées exclusivement dans le stockage local de votre appareil. La suppression de vos données est permanente et ne peut être annulée.",
+    "download_log_subtitle": "Pour aider à améliorer l'application, vous pouvez volontairement télécharger votre journal d'interactions anonymes et le partager avec l'équipe de développement.",
+    "download_log_button": "Télécharger le Journal d'Interactions",
+    "clear_data_button": "Effacer Mes Données...",
+    "clear_data_confirm_title": "Êtes-vous sûr(e) ?",
+    "clear_data_confirm_body": "Cela supprimera définitivement toutes vos entrées et informations de profil.",
+    "clear_data_confirm_button": "Oui, tout supprimer",
+    "language_title": "Langue",
+    "cancel_button": "Annuler",
+    "save_button": "Enregistrer les Modifications"
+  },
+  "feedback_modal": {
+    "title": "Donner mon Avis",
+    "type_label": "Type de Feedback",
+    "types": {
+      "suggestion": "Suggestion",
+      "bug": "Rapport de Bug",
+      "general": "Feedback Général"
+    },
+    "message_label": "Message",
+    "message_placeholder": "Veuillez fournir autant de détails que possible...",
+    "submit_button": "Envoyer le Feedback",
+    "submitted_message": "Merci !"
+  },
+  "crisis_modal": {
+    "title": "Il semble que vous traversiez une période difficile.",
+    "body": "Si vous êtes en détresse ou en danger immédiat, veuillez chercher de l'aide. Vous n'êtes pas seul(e).",
+    "cta_button_call": "Appeler {{name}} ({{number}})",
+    "cta_button_web": "Visiter {{name}}",
+    "close_button": "Fermer cette fenêtre"
+  },
+  "theme_toggle": {
+    "aria_label_light": "Passer au mode clair",
+    "aria_label_dark": "Passer au mode sombre"
+  },
+  "search": {
+    "placeholder": "Rechercher des exercices, des entrées, des programmes...",
+    "aria_label": "Rechercher tout le contenu"
+  },
+  "tooltip": {
+    "expand_details": "Afficher les détails",
+    "collapse_details": "Masquer les détails",
+    "view_source": "Voir le site source",
+    "close": "Fermer",
+    "get_ai_help": "Obtenir l'aide de l'IA pour remettre en question cette pensée"
+  },
+  "mood_tracker": {
+    "title": "Suivi d'Humeur",
+    "subtitle": "Enregistrez votre état émotionnel actuel.",
+    "prompt": "Comment vous sentez-vous en ce moment ?",
+    "logged_confirmation": "Humeur enregistrée !",
+    "moods": {
+      "awful": "Très mal",
+      "bad": "Mal",
+      "okay": "Ça va",
+      "good": "Bien",
+      "great": "Très bien"
+    }
+  },
+  "mood_chart": {
+    "title": "Votre Semaine en Humeurs",
+    "empty_state": "Enregistrez votre humeur pour voir vos tendances ici.",
+    "avg_mood": "Humeur Moy."
+  }
+}
