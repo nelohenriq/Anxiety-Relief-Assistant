@@ -123,13 +123,46 @@
       "name": "Cyclic Sighing",
       "description": "A research-backed technique to quickly reduce stress by performing two inhales followed by a long exhale."
     },
+    "coherent_breathing": {
+      "name": "Coherent Breathing",
+      "description": "A simple rhythm of breathing in for 5 seconds and out for 5 seconds to promote balance and calm."
+    },
+    "pursed_lip_breathing": {
+      "name": "Pursed-Lip Breathing",
+      "description": "Slows your breathing rate, reducing the work of breathing by keeping your airways open longer."
+    },
+    "diaphragmatic_breathing": {
+      "name": "Diaphragmatic Breathing",
+      "description": "Also known as \"belly breathing,\" this foundational technique encourages deep, full breaths to activate the body's relaxation response."
+    },
+    "slow_paced_breathing": {
+      "name": "Slow-Paced Breathing",
+      "description": "Intentionally slow your breathing to a calming rhythm, helping to reduce heart rate and promote a state of deep relaxation."
+    },
+    "alternate_nostril_breathing": {
+      "name": "Alternate Nostril Breathing",
+      "description": "A calming yogic breath practice that balances the mind and body by alternating airflow through each nostril."
+    },
+    "humming_bee_breath": {
+      "name": "Humming Bee Breath",
+      "description": "Reduces stress and soothes the mind by creating a gentle humming vibration on the exhale."
+    },
     "steps": {
       "breathe_in": "Breathe In",
       "hold": "Hold",
       "breathe_out": "Breathe Out",
       "inhale": "Inhale",
       "inhale_again": "Inhale Again",
-      "exhale_long": "Exhale (Long)"
+      "exhale_long": "Exhale (Long)",
+      "breathe_in_nose": "Breathe in (Nose)",
+      "breathe_out_lips": "Breathe out (Lips)",
+      "breathe_in_belly": "In (Belly Rise)",
+      "breathe_out_belly": "Out (Belly Fall)",
+      "inhale_left": "Inhale (Left)",
+      "exhale_right": "Exhale (Right)",
+      "inhale_right": "Inhale (Right)",
+      "exhale_left": "Exhale (Left)",
+      "hum_out": "Hum Out"
     }
   },
   "breathing_visualizer": {
@@ -257,11 +290,58 @@
       "guidance": [
         "Sit in a comfortable and relaxed position. Close your eyes and bring your awareness to your heart space.",
         "Silently repeat the following phrases, directed toward yourself: 'May I be happy. May I be healthy. May I be safe. May I live with ease.' Feel the intention behind the words.",
-        "Now, bring to mind someone you care about deeply, like a close friend or family member. Direct these phrases toward them: 'May you be happy. May you be healthy. May you be safe. May you live with ease.'",
+        "Now, bring to mind someone you care about deeply, like a close friend or family member. Direct these phrases toward them: 'May you be happy. May you be healthy. May you be safe. May live with ease.'",
         "Next, think of a neutral person, someone you neither like nor dislike, perhaps a cashier at a store or a neighbor you see occasionally. Offer them the same kind wishes: 'May you be happy. May you be healthy. May you be safe. May you live with ease.'",
         "If you feel able, bring to mind someone with whom you have difficulty. See if you can extend these wishes to them, even just a little: 'May you be happy. May you be healthy. May you be safe. May you live with ease.'",
         "Finally, expand your awareness to include all living beings everywhere, without exception: 'May all beings be happy. May all beings be healthy. May all beings be safe. May all beings live with ease.'",
         "Rest in this feeling of open-heartedness for a few moments before gently bringing your awareness back to the room and opening your eyes."
+      ]
+    },
+    "mindful_walk": {
+      "title": "10-Minute Mindful Walk",
+      "description": "Connect with your body and surroundings by bringing gentle awareness to the simple act of walking.",
+      "guidance": [
+        "Begin by standing still for a moment. Feel your feet on the ground. Take a deep breath.",
+        "Start walking at a natural, comfortable pace. Bring your attention to the sensation of your feet touching and leaving the ground. Heel, sole, toes.",
+        "Notice the rhythm of your steps. There's no need to change it, just observe. Feel the gentle swing of your arms.",
+        "Expand your awareness to your surroundings. Notice the colors, the light, the shapes around you without labeling them as 'good' or 'bad'.",
+        "Listen to the sounds. The distant traffic, the birds, the sound of your own footsteps. Let them come and go without getting caught up in them.",
+        "As you come to the end of your walk, stand still again for a moment. Notice how your body feels. Take one final, conscious breath."
+      ]
+    },
+    "gratitude": {
+      "title": "5-Minute Gratitude Meditation",
+      "description": "Shift your focus to the positive by cultivating a sense of gratitude for the good things in your life.",
+      "guidance": [
+        "Find a comfortable seated position and gently close your eyes. Take a few breaths to settle into the present moment.",
+        "Bring to mind one person in your life for whom you are grateful. Picture them in your mind and silently thank them for their presence and kindness.",
+        "Now, think of a place that brings you a sense of peace or happiness. It could be a room, a park, or a vacation spot. Appreciate the feeling this place gives you.",
+        "Consider a simple pleasure you recently enjoyed. It could be the taste of your morning coffee, the warmth of the sun, or a piece of music. Relish that small moment of joy.",
+        "Reflect on a quality or strength within yourself that you are grateful for. It could be your resilience, your creativity, or your kindness.",
+        "Take a final, deep breath, carrying this feeling of gratitude with you. When you're ready, gently open your eyes."
+      ]
+    },
+    "mindful_listening": {
+      "title": "3-Minute Mindful Listening",
+      "description": "Anchor yourself in the present moment by opening your awareness to the soundscape around you, without judgment.",
+      "guidance": [
+        "Sit comfortably with your eyes closed or softly gazed downwards. Allow your body to settle.",
+        "Bring your attention to the world of sound. Notice the most prominent sound in your environment. Simply acknowledge its presence.",
+        "Now, expand your awareness to include sounds that are further away. Listen without straining, just letting the sounds come to you.",
+        "Shift your focus to sounds that are very close, perhaps the sound of your own breathing or the hum of a device in the room.",
+        "Finally, listen to the entire soundscape as a whole symphony of noises, near and far, loud and soft. When you're ready, gently open your eyes."
+      ]
+    },
+    "thought_noting": {
+      "title": "5-Minute Thought Noting",
+      "description": "Practice observing your thoughts as they arise and gently labeling them to create distance and reduce their power.",
+      "guidance": [
+        "Find a comfortable seated position. Close your eyes and take a few deep breaths, letting your attention rest on the physical sensation of breathing.",
+        "As you sit, you will inevitably notice thoughts arising. Instead of following the thought or pushing it away, simply acknowledge its presence.",
+        "Mentally, apply a soft, gentle label to the thought. A simple label like \"thinking\" or \"worrying\" is enough. No need to analyze the content.",
+        "After noting the thought, gently guide your attention back to your breath. Your breath is your anchor.",
+        "Repeat this process each time a thought captures your attention. The goal isn't to stop thinking, but to change your relationship with your thoughts.",
+        "Continue for the duration. When you're ready, bring your awareness back to the room and slowly open your eyes."
       ]
     }
   },
@@ -319,6 +399,179 @@
             "Next, try to listen for more subtle, distant sounds you might have filtered out before.",
             "Now, listen for the sounds closest to you—perhaps the sound of your own breathing or the rustle of your clothes.",
             "Simply receive these sounds as pure sensation. After a few minutes, gently return your awareness to the room."
+          ]
+        }
+      }
+    },
+    "anxious_thoughts": {
+      "title": "5-Day Anxious Thought Challenge",
+      "description": "A 5-day program based on CBT principles to help you identify, understand, and reframe anxious thought patterns.",
+      "day1": {
+        "title": "Identifying Your Thoughts",
+        "concept": "The first step is learning to notice your automatic negative thoughts (ANTs). These thoughts often pop into our heads without us realizing. Today's goal is to become an observer of your own mind, separating yourself from your thoughts. They are just thoughts, not facts.",
+        "exercise": {
+          "title": "Thought Catcher",
+          "description": "A simple observation exercise to practice noticing your thoughts without engaging with them.",
+          "steps": [
+            "Find a quiet moment and close your eyes.",
+            "Imagine you are sitting by the side of a stream. Each thought that comes into your mind is a leaf floating by on the water.",
+            "Your task is not to jump into the water, but to simply watch the leaves (your thoughts) drift past. Notice them, and let them go.",
+            "Do this for 5 minutes. The goal is not to have an empty mind, but to practice the skill of non-judgmental observation."
+          ]
+        }
+      },
+      "day2": {
+        "title": "Spotting Cognitive Distortions",
+        "concept": "Anxious thoughts often follow predictable, unhelpful patterns called 'cognitive distortions.' By learning to name these patterns (like 'Catastrophizing' or 'All-or-Nothing Thinking'), we can rob them of their power. They become less like facts and more like bad mental habits.",
+        "exercise": {
+          "title": "Distortion Detective",
+          "description": "Review an anxious thought and see if you can identify the distortion pattern it follows.",
+          "steps": [
+            "Bring to mind a recent anxious thought you've had.",
+            "Review the list of common cognitive distortions (you can find this in the Cognitive Tools section).",
+            "Does your thought fit into one of these patterns? For example, is it jumping to the worst-case scenario (Catastrophizing)?",
+            "Simply naming the distortion can create powerful distance. Say to yourself, 'Ah, that's just my mind doing some fortune-telling.'"
+          ]
+        }
+      },
+      "day3": {
+        "title": "Questioning the Evidence",
+        "concept": "We often accept our anxious thoughts as 100% true without question. Today, we'll practice acting like a detective. A detective doesn't just accept the first story they hear; they look for hard evidence. We will do the same with our thoughts.",
+        "exercise": {
+          "title": "Fact vs. Fiction",
+          "description": "A guided exercise to question the validity of a specific anxious thought.",
+          "steps": [
+            "Choose one anxious thought. For example: 'I am going to fail my exam.'",
+            "Ask yourself: 'What is the actual, concrete evidence that this thought is true?' Write it down.",
+            "Now, ask: 'What is the evidence that this thought is NOT true?' Look for counter-examples and past successes.",
+            "Compare the two lists. Is the thought as true as it first felt?"
+          ]
+        }
+      },
+      "day4": {
+        "title": "Finding Alternative Perspectives",
+        "concept": "For any given situation, there are many possible ways to view it. Anxious thinking tends to lock us into the most negative perspective. Today's skill is to deliberately practice generating more balanced, helpful, and realistic thoughts.",
+        "exercise": {
+          "title": "Thought Reframing",
+          "description": "Practice creating a more balanced alternative to a negative thought.",
+          "steps": [
+            "Take the anxious thought you worked with yesterday.",
+            "Based on your evidence-gathering, what is a more balanced and compassionate way to see the situation?",
+            "For example, 'I am going to fail my exam' could be reframed as 'I am worried about the exam, but I have been studying. I will do my best, and that is all I can do.'",
+            "Write down this new thought and notice how it feels compared to the original one."
+          ]
+        }
+      },
+      "day5": {
+        "title": "Putting It All Together",
+        "concept": "Today, we'll combine the skills you've learned into a simple, repeatable process that you can use anytime you feel overwhelmed by an anxious thought. Repetition is key to building this new mental habit.",
+        "exercise": {
+          "title": "Mini Thought Record",
+          "description": "A quick, step-by-step review of the skills learned this week.",
+          "steps": [
+            "1. Notice: What is the anxious thought?",
+            "2. Identify: What cognitive distortion might be at play?",
+            "3. Challenge: What is the evidence for and against this thought?",
+            "4. Reframe: What is a more balanced, alternative thought?"
+          ]
+        }
+      }
+    },
+    "sleep_improvement": {
+      "title": "7-Day Sleep Improvement Program",
+      "description": "A week-long program to help you build healthy sleep habits, create a relaxing bedtime routine, and improve your overall sleep quality for better anxiety management.",
+      "day1": {
+        "title": "The Wind-Down Hour",
+        "concept": "Just as you warm up for exercise, your brain needs to cool down for sleep. Creating a 'buffer zone' of 1 hour before bed, free from screens and stimulating activities, signals to your body that it's time to rest.",
+        "exercise": {
+          "title": "Design Your Wind-Down Routine",
+          "description": "Plan a sequence of calming activities to perform each night before bed.",
+          "steps": [
+            "Choose 2-3 relaxing, screen-free activities you enjoy. Examples: reading a physical book, gentle stretching, listening to calm music, sipping herbal tea.",
+            "Decide on the order of these activities.",
+            "Set an alarm for 1 hour before your desired bedtime. This is your signal to begin your routine.",
+            "Tonight, put your plan into action. The goal is consistency."
+          ]
+        }
+      },
+      "day2": {
+        "title": "The Sleep Sanctuary",
+        "concept": "Your bedroom environment has a major impact on your sleep quality. The ideal sleep space is cool, dark, and quiet. This helps your brain associate the bedroom with sleep and only sleep.",
+        "exercise": {
+          "title": "Environmental Checklist",
+          "description": "Assess and optimize your bedroom for sleep.",
+          "steps": [
+            "Temperature: Is your room cool? If possible, lower the thermostat slightly.",
+            "Light: Can you make your room darker? Consider blackout curtains or a sleep mask. Cover or remove electronics with lights.",
+            "Noise: Can you make it quieter? Earplugs or a white noise machine can help block out disruptive sounds.",
+            "Comfort: Is your bed comfortable? Ensure your pillows and bedding support restful sleep."
+          ]
+        }
+      },
+      "day3": {
+        "title": "Caffeine & Alcohol",
+        "concept": "Stimulants like caffeine and depressants like alcohol can significantly disrupt your sleep architecture, even if you fall asleep easily. Caffeine can stay in your system for many hours, while alcohol can cause you to wake up in the second half of the night.",
+        "exercise": {
+          "title": "Set a Caffeine Curfew",
+          "description": "Establish a cut-off time for all caffeine consumption.",
+          "steps": [
+            "Determine your usual bedtime.",
+            "Set your caffeine curfew for at least 8 hours before that time. For a 10 PM bedtime, your last coffee should be before 2 PM.",
+            "Stick to this curfew today. Notice if it makes a difference to how you feel at bedtime."
+          ]
+        }
+      },
+      "day4": {
+        "title": "Mindful Unloading",
+        "concept": "It's hard to sleep when your mind is racing with worries and to-do lists. Getting these thoughts out of your head and onto paper before bed can provide a sense of closure and calm a busy mind.",
+        "exercise": {
+          "title": "Pre-Sleep Journaling",
+          "description": "A brief writing exercise to clear your mind.",
+          "steps": [
+            "About 30 minutes before bed, take a notebook and pen.",
+            "Spend 5 minutes writing down anything that's on your mind: worries, tasks for tomorrow, things you need to remember.",
+            "Close the notebook. Symbolically, you are setting these thoughts aside for the night. You can deal with them tomorrow."
+          ]
+        }
+      },
+      "day5": {
+        "title": "The Power of Light",
+        "concept": "Your body's internal clock (circadian rhythm) is strongly influenced by light. Exposure to bright, natural light in the morning helps to wake you up and regulate your sleep-wake cycle, making it easier to feel sleepy at the right time at night.",
+        "exercise": {
+          "title": "Morning Light Exposure",
+          "description": "Get a dose of natural light shortly after waking up.",
+          "steps": [
+            "Within 30 minutes of waking up, try to get at least 10 minutes of sunlight.",
+            "This could be drinking your coffee by a sunny window, taking a short walk outside, or just stepping out onto a balcony.",
+            "Avoid wearing sunglasses during this time if possible to let the light reach your eyes."
+          ]
+        }
+      },
+      "day6": {
+        "title": "The Body & Sleep",
+        "concept": "Regular physical activity can improve sleep quality, but intense exercise too close to bedtime can be overstimulating. Gentle, mindful movement, however, can help release physical tension and prepare the body for rest.",
+        "exercise": {
+          "title": "Gentle Pre-Bed Stretches",
+          "description": "A short, calming stretching routine to relax your body.",
+          "steps": [
+            "Child's Pose: Kneel on the floor, sit back on your heels, and fold forward, resting your forehead on the floor. Hold for 30 seconds.",
+            "Cat-Cow Stretch: On your hands and knees, arch your back like a cat, then drop your belly and look up like a cow. Repeat 5 times.",
+            "Legs-Up-The-Wall: Lie on your back with your legs extended up a wall. This is very restorative.",
+            "Focus on your breathing throughout the stretches. Move slowly and gently."
+          ]
+        }
+      },
+      "day7": {
+        "title": "When You Can't Sleep",
+        "concept": "Lying in bed feeling frustrated that you can't sleep is counterproductive. It trains your brain to associate bed with anxiety. The rule of thumb is: if you're not asleep after 20-30 minutes, get up and do something calming in low light.",
+        "exercise": {
+          "title": "Quiet Wakefulness Practice",
+          "description": "A plan for what to do when you're awake at night.",
+          "steps": [
+            "If you find yourself wide awake, get out of bed.",
+            "Go to another room and do a quiet, relaxing activity in dim light, like reading a boring book or listening to calm music.",
+            "Do not use your phone or watch TV.",
+            "When you start to feel sleepy again, return to bed. The goal is to re-associate your bed with sleepiness, not frustration."
           ]
         }
       }

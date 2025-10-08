@@ -48,15 +48,15 @@ const BreathingVisualizer: React.FC<BreathingVisualizerProps> = ({ exercise, onC
     // Effect for updating animation, countdown display, and tooltip when step changes
     useEffect(() => {
         setCountdown(Math.ceil(steps[stepIndex].duration));
-        const currentStepLabel = steps[stepIndex].label.toLowerCase();
+        const currentStepType = steps[stepIndex].type;
 
-        if (currentStepLabel.includes('in')) {
+        if (currentStepType === 'inhale') {
             setScaleClass('scale-125');
             setTooltipText(t('breathing_visualizer_tooltips.inhale'));
-        } else if (currentStepLabel.includes('out')) {
+        } else if (currentStepType === 'exhale') {
             setScaleClass('scale-75');
             setTooltipText(t('breathing_visualizer_tooltips.exhale'));
-        } else if (currentStepLabel.includes('hold')) {
+        } else if (currentStepType === 'hold') {
              setTooltipText(t('breathing_visualizer_tooltips.hold'));
         }
         // For 'Hold', the scale class remains unchanged from the previous step

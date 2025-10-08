@@ -20,6 +20,7 @@ export interface ExerciseFeedback {
 export interface BreathingStep {
     label: string;
     duration: number;
+    type: 'inhale' | 'exhale' | 'hold';
 }
 
 export interface BreathingExercise {

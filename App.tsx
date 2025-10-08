@@ -161,7 +161,7 @@ const App: React.FC = () => {
     );
 
     return (
-        <div className="min-h-screen bg-neutral-100 dark:bg-neutral-900 font-sans transition-colors duration-300 text-neutral-800 dark:text-neutral-700">
+        <div className="min-h-screen bg-neutral-100 dark:bg-neutral-900 font-sans transition-colors duration-300 text-neutral-800 dark:text-neutral-300">
             <Header
                 onOpenProfile={() => setIsProfileOpen(true)}
                 showBackground={showHeaderBg}

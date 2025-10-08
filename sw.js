@@ -1,11 +1,11 @@
 const CACHE_NAME = 'serene-cache-v1';
 // This list should include all the core files that make up the app shell.
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/index.tsx', 
-  '/icon.svg',
-  '/manifest.json'
+  './',
+  './index.html',
+  './index.tsx', 
+  './icon.svg',
+  './manifest.json'
 ];
 
 // Install event: opens a cache and adds the app shell files to it.

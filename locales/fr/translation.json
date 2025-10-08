@@ -123,13 +123,46 @@
       "name": "Soupir Cyclique",
       "description": "Une technique prouvée par la recherche pour réduire rapidement le stress en effectuant deux inspirations suivies d'une longue expiration."
     },
+    "coherent_breathing": {
+      "name": "Respiration Cohérente",
+      "description": "Un rythme simple d'inspiration pendant 5 secondes et d'expiration pendant 5 secondes pour favoriser l'équilibre et le calme."
+    },
+    "pursed_lip_breathing": {
+      "name": "Respiration à Lèvres Pincées",
+      "description": "Ralentit votre rythme respiratoire, réduisant le travail de la respiration en gardant vos voies respiratoires ouvertes plus longtemps."
+    },
+    "diaphragmatic_breathing": {
+      "name": "Respiration Diaphragmatique",
+      "description": "Aussi connue sous le nom de \"respiration ventrale\", cette technique fondamentale favorise des respirations profondes et complètes pour activer la réponse de relaxation du corps."
+    },
+    "slow_paced_breathing": {
+      "name": "Respiration Lente",
+      "description": "Ralentissez intentionnellement votre respiration à un rythme apaisant, aidant à réduire la fréquence cardiaque et à promouvoir un état de relaxation profonde."
+    },
+    "alternate_nostril_breathing": {
+      "name": "Respiration Nasale Alternée",
+      "description": "Une pratique de respiration yogique apaisante qui équilibre l'esprit et le corps en alternant le flux d'air dans chaque narine."
+    },
+    "humming_bee_breath": {
+      "name": "Respiration de l'Abeille",
+      "description": "Réduit le stress et apaise l'esprit en créant une douce vibration de bourdonnement à l'expiration."
+    },
     "steps": {
       "breathe_in": "Inspirez",
       "hold": "Retenez",
       "breathe_out": "Expirez",
       "inhale": "Inspirez",
       "inhale_again": "Inspirez Encore",
-      "exhale_long": "Expirez (Long)"
+      "exhale_long": "Expirez (Long)",
+      "breathe_in_nose": "Inspirez (Nez)",
+      "breathe_out_lips": "Expirez (Lèvres)",
+      "breathe_in_belly": "Inspirez (Ventre monte)",
+      "breathe_out_belly": "Expirez (Ventre descend)",
+      "inhale_left": "Inspirez (Gauche)",
+      "exhale_right": "Expirez (Droite)",
+      "inhale_right": "Inspirez (Droite)",
+      "exhale_left": "Expirez (Gauche)",
+      "hum_out": "Bourdonnez en Expirant"
     }
   },
   "breathing_visualizer": {
@@ -202,7 +235,7 @@
     },
     "mental_filter": {
       "name": "Filtre Mental",
-      "description": "Se concentrer sur un seul détail négatif et s'y attarder exclusively, en filtrant tous les aspects positifs."
+      "description": "Se concentrer sur un seul détail négatif et s'y attarder exclusivement, en filtrant tous les aspects positifs."
     },
     "catastrophizing": {
       "name": "Catastrophisme",
@@ -259,9 +292,56 @@
         "Répétez silencieusement les phrases suivantes, dirigées vers vous-même : 'Puissé-je être heureux(se). Puissé-je être en bonne santé. Puissé-je être en sécurité. Puissé-je vivre avec aisance.' Ressentez l'intention derrière les mots.",
         "Maintenant, pensez à quelqu'un que vous aimez profondément, comme un ami proche ou un membre de votre famille. Adressez-lui ces phrases : 'Puisses-tu être heureux(se). Puisses-tu être en bonne santé. Puisses-tu être en sécurité. Puisses-tu vivre avec aisance.'",
         "Ensuite, pensez à une personne neutre, quelqu'un que vous n'aimez ni ne détestez, peut-être un caissier de magasin ou un voisin que vous voyez occasionnellement. Offrez-lui les mêmes vœux bienveillants : 'Puissiez-vous être heureux(se). Puissiez-vous être en bonne santé. Puissiez-vous être en sécurité. Puissiez-vous vivre avec aisance.'",
-        "Si vous vous en sentez capable, pensez à quelqu'un avec qui vous avez des difficultés. Voyez si vous pouvez leur étendre ces vœux, même un petit peu : 'Puissiez-vous être heureux(se). Puissiez-vous être en bonne santé. Puissiez-vous être en sécurité. Puissiez-vous vivre avec aisance.'",
+        "Si vous vous en sentez capable, pensez à quelqu'un avec qui vous avez des dificultades. Voyez si vous pouvez leur étendre ces vœux, même un petit peu : 'Puissiez-vous être heureux(se). Puissiez-vous être en bonne santé. Puissiez-vous être en sécurité. Puissiez-vous vivre avec aisance.'",
         "Enfin, élargissez votre conscience pour inclure tous les êtres vivants, partout, sans exception : 'Puissent tous les êtres être heureux. Puissent tous les êtres être en bonne santé. Puissent tous les êtres être en sécurité. Puissent tous les êtres vivre avec aisance.'",
         "Reposez-vous dans ce sentiment de cœur ouvert pendant quelques instants avant de ramener doucement votre conscience dans la pièce et d'ouvrir les yeux."
+      ]
+    },
+    "mindful_walk": {
+      "title": "Marche Consciente de 10 Minutes",
+      "description": "Connectez-vous à votre corps et à votre environnement en portant une attention douce à l'acte simple de marcher.",
+      "guidance": [
+        "Commencez par vous tenir immobile un instant. Sentez vos pieds sur le sol. Prenez une grande inspiration.",
+        "Commencez à marcher à un rythme naturel et confortable. Portez votre attention sur la sensation de vos pieds qui touchent et quittent le sol. Talon, plante, orteils.",
+        "Remarquez le rythme de vos pas. Il n'est pas nécessaire de le changer, observez-le simplement. Sentez le léger balancement de vos bras.",
+        "Élargissez votre conscience à votre environnement. Remarquez les couleurs, la lumière, les formes autour de vous sans les qualifier de 'bonnes' ou 'mauvaises'.",
+        "Écoutez les sons. Le trafic lointain, les oiseaux, le bruit de vos propres pas. Laissez-les venir et repartir sans vous y attacher.",
+        "À la fin de votre marche, tenez-vous de nouveau immobile un instant. Remarquez comment votre corps se sent. Prenez une dernière respiration consciente."
+      ]
+    },
+    "gratitude": {
+      "title": "Méditation de Gratitude de 5 Minutes",
+      "description": "Déplacez votre attention vers le positif en cultivant un sentiment de gratitude pour les bonnes choses de votre vie.",
+      "guidance": [
+        "Trouvez une position assise confortable et fermez doucement les yeux. Prenez quelques respirations pour vous installer dans le moment présent.",
+        "Pensez à une personne dans votre vie pour laquelle vous êtes reconnaissant(e). Imaginez-la dans votre esprit et remerciez-la silencieusement pour sa présence et sa gentillesse.",
+        "Maintenant, pensez à un endroit qui vous apporte un sentiment de paix ou de bonheur. Ce peut être une pièce, un parc ou un lieu de vacances. Appréciez le sentiment que cet endroit vous procure.",
+        "Pensez à un plaisir simple que vous avez récemment apprécié. Ce pourrait être le goût de votre café du matin, la chaleur du soleil ou un morceau de musique. Savourez ce petit moment de joie.",
+        "Réfléchissez à une qualité ou une force en vous pour laquelle vous êtes reconnaissant(e). Ce pourrait être votre résilience, votre créativité ou votre gentillesse.",
+        "Prenez une dernière, profonde inspiration, en emportant ce sentiment de gratitude avec vous. Quand vous êtes prêt(e), ouvrez doucement les yeux."
+      ]
+    },
+    "mindful_listening": {
+      "title": "Écoute Consciente de 3 Minutes",
+      "description": "Ancrez-vous dans le moment présent en ouvrant votre conscience au paysage sonore qui vous entoure, sans jugement.",
+      "guidance": [
+        "Asseyez-vous confortablement, les yeux fermés ou le regard doucement baissé. Laissez votre corps se détendre.",
+        "Portez votre attention sur le monde des sons. Remarquez le son le plus proéminent dans votre environnement. Reconnaissez simplement sa présence.",
+        "Maintenant, élargissez votre conscience pour inclure les sons plus éloignés. Écoutez sans effort, en laissant simplement les sons venir à vous.",
+        "Déplacez votre attention vers les sons très proches, peut-être le son de votre propre respiration ou le bourdonnement d'un appareil dans la pièce.",
+        "Enfin, écoutez l'ensemble du paysage sonore comme une symphonie de bruits, proches et lointains, forts et faibles. Quand vous êtes prêt(e), ouvrez doucement les yeux."
+      ]
+    },
+    "thought_noting": {
+      "title": "Annotation de Pensées de 5 Minutes",
+      "description": "Entraînez-vous à observer vos pensées à mesure qu'elles apparaissent et à les étiqueter doucement pour créer de la distance et réduire leur pouvoir.",
+      "guidance": [
+        "Trouvez une position assise confortable. Fermez les yeux et prenez quelques respirations profondes, en laissant votre attention se poser sur la sensation physique de la respiration.",
+        "Pendant que vous êtes assis(e), vous remarquerez inévitablement l'apparition de pensées. Au lieu de suivre la pensée ou de la repousser, reconnaissez simplement sa présence.",
+        "Mentalement, appliquez une étiquette douce et légère à la pensée. Une simple étiquette comme \"pensée\" ou \"inquiétude\" suffit. Pas besoin d'analyser le contenu.",
+        "Après avoir noté la pensée, ramenez doucement votre attention sur votre respiration. Votre respiration est votre ancre.",
+        "Répétez ce processus chaque fois qu'une pensée capte votre attention. Le but n'est pas d'arrêter de penser, mais de changer votre relation avec vos pensées.",
+        "Continuez pendant la durée indiquée. Quand vous êtes prêt(e), ramenez votre conscience dans la pièce et ouvrez lentamente les yeux."
       ]
     }
   },
@@ -301,7 +381,7 @@
           "steps": [
             "Allongez-vous ou asseyez-vous confortablement. Fermez les yeux.",
             "Portez votre attention sur les orteils de votre pied gauche. Remarquez les sensations — chaleur, fraîcheur, picotements — sans avoir besoin de les changer.",
-            "Déplacez slowly votre attention le long de votre jambe gauche, vers votre jambe droite, à travers votre torse, et le long de vos bras jusqu'au bout des doigts.",
+            "Déplacez lentement votre attention le long de votre jambe gauche, vers votre jambe droite, à travers votre torse, et le long de vos bras jusqu'au bout des doigts.",
             "Enfin, portez votre attention sur votre cou, votre visage et votre tête.",
             "Prenez une dernière respiration profonde et ouvrez doucement les yeux."
           ]
@@ -319,6 +399,179 @@
             "Ensuite, essayez d'écouter des sons plus subtils et lointains que vous auriez pu filtrer auparavant.",
             "Maintenant, écoutez les sons les plus proches de vous — peut-être le son de votre propre respiration ou le froissement de vos vêtements.",
             "Recevez simplement ces sons comme de pures sensations. Après quelques minutes, ramenez doucement votre conscience dans la pièce."
+          ]
+        }
+      }
+    },
+    "anxious_thoughts": {
+      "title": "Défi de 5 Jours sur les Pensées Anxieuses",
+      "description": "Un programme de 5 jours basé sur les principes de la TCC pour vous aider à identifier, comprendre et recadrer les schémas de pensées anxieuses.",
+      "day1": {
+        "title": "Identifier Vos Pensées",
+        "concept": "La première étape consiste à apprendre à remarquer vos pensées négatives automatiques (PNA). Ces pensées surgissent souvent dans notre esprit sans que nous nous en rendions compte. L'objectif d'aujourd'hui est de devenir un observateur de votre propre esprit, en vous détachant de vos pensées. Ce ne sont que des pensées, pas des faits.",
+        "exercise": {
+          "title": "Attrape-Pensées",
+          "description": "Un simple exercice d'observation pour s'entraîner à remarquer ses pensées sans s'y engager.",
+          "steps": [
+            "Trouvez un moment de calme et fermez les yeux.",
+            "Imaginez que vous êtes assis au bord d'un ruisseau. Chaque pensée qui vous vient à l'esprit est une feuille qui flotte sur l'eau.",
+            "Votre tâche n'est pas de sauter dans l'eau, mais simplement de regarder les feuilles (vos pensées) passer. Remarquez-les, et laissez-les partir.",
+            "Faites cela pendant 5 minutes. Le but n'est pas d'avoir l'esprit vide, mais de pratiquer l'observation sans jugement."
+          ]
+        }
+      },
+      "day2": {
+        "title": "Repérer les Distorsions Cognitives",
+        "concept": "Les pensées anxieuses suivent souvent des schémas prévisibles et inutiles appelés 'distorsions cognitives'. En apprenant à nommer ces schémas (comme le 'Catastrophisme' ou la 'Pensée tout ou rien'), nous pouvons leur ôter leur pouvoir. Elles deviennent moins des faits et plus de mauvaises habitudes mentales.",
+        "exercise": {
+          "title": "Détective des Distorsions",
+          "description": "Examinez une pensée anxieuse et voyez si vous pouvez identifier le schéma de distorsion qu'elle suit.",
+          "steps": [
+            "Pensez à une pensée anxieuse que vous avez eue récemment.",
+            "Passez en revue la liste des distorsions cognitives courantes (vous pouvez la trouver dans la section Outils Cognitifs).",
+            "Votre pensée correspond-elle à l'un de ces schémas ? Par exemple, sautez-vous au pire scénario (Catastrophisme) ?",
+            "Le simple fait de nommer la distorsion peut créer une distance puissante. Dites-vous : 'Ah, c'est juste mon esprit qui fait de la voyance.'"
+          ]
+        }
+      },
+      "day3": {
+        "title": "Questionner les Preuves",
+        "concept": "Nous acceptons souvent nos pensées anxieuses comme étant 100% vraies sans les remettre en question. Aujourd'hui, nous allons nous entraîner à agir comme un détective. Un détective n'accepte pas la première histoire qu'il entend ; il cherche des preuves tangibles. Nous ferons de même avec nos pensées.",
+        "exercise": {
+          "title": "Fait ou Fiction",
+          "description": "Un exercice guidé pour questionner la validité d'une pensée anxieuse spécifique.",
+          "steps": [
+            "Choisissez une pensée anxieuse. Par exemple : 'Je vais rater mon examen.'",
+            "Demandez-vous : 'Quelle est la preuve réelle et concrète que cette pensée est vraie ?' Notez-la.",
+            "Maintenant, demandez : 'Quelle est la preuve que cette pensée n'est PAS vraie ?' Cherchez des contre-exemples et des succès passés.",
+            "Comparez les deux listes. La pensée est-elle aussi vraie qu'elle le paraissait au début ?"
+          ]
+        }
+      },
+      "day4": {
+        "title": "Trouver des Perspectives Alternatives",
+        "concept": "Pour une situation donnée, il existe de nombreuses façons de la voir. La pensée anxieuse a tendance à nous enfermer dans la perspective la plus négative. La compétence d'aujourd'hui est de s'entraîner délibérément à générer des pensées plus équilibrées, utiles et réalistes.",
+        "exercise": {
+          "title": "Recadrage de Pensée",
+          "description": "Entraînez-vous à créer une alternative plus équilibrée à une pensée négative.",
+          "steps": [
+            "Reprenez la pensée anxieuse avec laquelle vous avez travaillé hier.",
+            "Sur la base de votre collecte de preuves, quelle est une manière plus équilibrée et compatissante de voir la situation ?",
+            "Par exemple, 'Je vais rater mon examen' pourrait être recadré en 'Je suis inquiet(e) pour l'examen, mais j'ai étudié. Je ferai de mon mieux, et c'est tout ce que je peux faire.'",
+            "Notez cette nouvelle pensée et remarquez ce que vous ressentez par rapport à l'originale."
+          ]
+        }
+      },
+      "day5": {
+        "title": "Mettre Tout Ensemble",
+        "concept": "Aujourd'hui, nous allons combiner les compétences que vous avez apprises en un processus simple et répétable que vous pouvez utiliser chaque fois que vous vous sentez submergé(e) par une pensée anxieuse. La répétition est la clé pour construire cette nouvelle habitude mentale.",
+        "exercise": {
+          "title": "Mini Journal de Pensées",
+          "description": "Une revue rapide et étape par étape des compétences apprises cette semaine.",
+          "steps": [
+            "1. Remarquez : Quelle est la pensée anxieuse ?",
+            "2. Identifiez : Quelle distorsion cognitive pourrait être en jeu ?",
+            "3. Remettez en question : Quelles sont les preuves pour et contre cette pensée ?",
+            "4. Recadrez : Quelle est une pensée plus équilibrée et alternative ?"
+          ]
+        }
+      }
+    },
+    "sleep_improvement": {
+      "title": "Programme d'Amélioration du Sommeil de 7 Jours",
+      "description": "Un programme d'une semaine pour vous aider à adopter de saines habitudes de sommeil, à créer une routine relaxante au coucher et à améliorer la qualité globale de votre sommeil pour une meilleure gestion de l'anxiété.",
+      "day1": {
+        "title": "L'Heure de Détente",
+        "concept": "Tout comme vous vous échauffez pour faire de l'exercice, votre cerveau a besoin de se calmer pour dormir. Créer une 'zone tampon' d'une heure avant le coucher, sans écrans ni activités stimulantes, signale à votre corps qu'il est temps de se reposer.",
+        "exercise": {
+          "title": "Concevez Votre Routine de Détente",
+          "description": "Planifiez une séquence d'activités apaisantes à effectuer chaque soir avant de vous coucher.",
+          "steps": [
+            "Choisissez 2-3 activités relaxantes et sans écran que vous aimez. Exemples : lire un livre papier, faire des étirements doux, écouter de la musique calme, siroter une tisane.",
+            "Décidez de l'ordre de ces activités.",
+            "Réglez une alarme pour 1 heure avant l'heure de coucher souhaitée. C'est votre signal pour commencer votre routine.",
+            "Ce soir, mettez votre plan en action. Le but est la régularité."
+          ]
+        }
+      },
+      "day2": {
+        "title": "Le Sanctuaire du Sommeil",
+        "concept": "L'environnement de votre chambre a un impact majeur sur la qualité de votre sommeil. L'espace de sommeil idéal est frais, sombre et silencieux. Cela aide votre cerveau à associer la chambre au sommeil et uniquement au sommeil.",
+        "exercise": {
+          "title": "Liste de Contrôle Environnementale",
+          "description": "Évaluez et optimisez votre chambre pour le sommeil.",
+          "steps": [
+            "Température : Votre chambre est-elle fraîche ? Si possible, baissez légèrement le thermostat.",
+            "Lumière : Pouvez-vous rendre votre chambre plus sombre ? Pensez à des rideaux occultants ou à un masque de sommeil. Couvrez ou retirez les appareils électroniques avec des lumières.",
+            "Bruit : Pouvez-vous la rendre plus silencieuse ? Des bouchons d'oreilles ou une machine à bruit blanc peuvent aider à bloquer les sons perturbateurs.",
+            "Confort : Votre lit est-il confortable ? Assurez-vous que vos oreillers et votre literie favorisent un sommeil réparateur."
+          ]
+        }
+      },
+      "day3": {
+        "title": "Caféine et Alcool",
+        "concept": "Les stimulants comme la caféine et les dépresseurs comme l'alcool peuvent perturber considérablement l'architecture de votre sommeil, même si vous vous endormez facilement. La caféine peut rester dans votre système pendant de nombreuses heures, tandis que l'alcool peut vous réveiller dans la seconde moitié de la nuit.",
+        "exercise": {
+          "title": "Fixez un Couvre-feu pour la Caféine",
+          "description": "Établissez une heure limite pour toute consommation de caféine.",
+          "steps": [
+            "Déterminez votre heure de coucher habituelle.",
+            "Fixez votre couvre-feu pour la caféine au moins 8 heures avant cette heure. Pour un coucher à 22h, votre dernier café devrait être avant 14h.",
+            "Respectez ce couvre-feu aujourd'hui. Remarquez si cela fait une différence sur ce que vous ressentez à l'heure du coucher."
+          ]
+        }
+      },
+      "day4": {
+        "title": "Déchargement Mental Conscient",
+        "concept": "Il est difficile de dormir lorsque votre esprit est en ébullition avec des soucis et des listes de choses à faire. Sortir ces pensées de votre tête et les mettre sur papier avant de vous coucher peut procurer un sentiment de clôture et calmer un esprit agité.",
+        "exercise": {
+          "title": "Journal Pré-Sommeil",
+          "description": "Un bref exercice d'écriture pour vous vider l'esprit.",
+          "steps": [
+            "Environ 30 minutes avant de vous coucher, prenez un carnet et un stylo.",
+            "Passez 5 minutes à écrire tout ce qui vous préoccupe : soucis, tâches pour demain, choses à retenir.",
+            "Fermez le carnet. Symboliquement, vous mettez ces pensées de côté pour la nuit. Vous pourrez vous en occuper demain."
+          ]
+        }
+      },
+      "day5": {
+        "title": "Le Pouvoir de la Lumière",
+        "concept": "L'horloge interne de votre corps (rythme circadien) est fortement influencée par la lumière. L'exposition à une lumière naturelle vive le matin aide à vous réveiller et à réguler votre cycle veille-sommeil, ce qui facilite l'endormissement au bon moment le soir.",
+        "exercise": {
+          "title": "Exposition à la Lumière du Matin",
+          "description": "Prenez une dose de lumière naturelle peu de temps après votre réveil.",
+          "steps": [
+            "Dans les 30 minutes suivant votre réveil, essayez d'obtenir au moins 10 minutes de lumière du soleil.",
+            "Cela pourrait être boire votre café près d'une fenêtre ensoleillée, faire une courte promenade à l'extérieur ou simplement sortir sur un balcon.",
+            "Évitez de porter des lunettes de soleil pendant ce temps si possible pour laisser la lumière atteindre vos yeux."
+          ]
+        }
+      },
+      "day6": {
+        "title": "Le Corps et le Sommeil",
+        "concept": "Une activité physique régulière peut améliorer la qualité du sommeil, mais un exercice intense trop près de l'heure du coucher peut être trop stimulant. Cependant, des mouvements doux et conscients peuvent aider à relâcher les tensions physiques et à préparer le corps au repos.",
+        "exercise": {
+          "title": "Étirements Doux Avant le Coucher",
+          "description": "Une routine d'étirements courte et apaisante pour détendre votre corps.",
+          "steps": [
+            "Posture de l'Enfant : Agenouillez-vous sur le sol, asseyez-vous sur vos talons et penchez-vous en avant, en posant votre front sur le sol. Maintenez pendant 30 secondes.",
+            "Étirement Chat-Vache : À quatre pattes, arrondissez votre dos comme un chat, puis creusez votre ventre et levez les yeux comme une vache. Répétez 5 fois.",
+            "Jambes au Mur : Allongez-vous sur le dos avec les jambes étendues contre un mur. C'est très réparateur.",
+            "Concentrez-vous sur votre respiration tout au long des étirements. Bougez lentement et doucement."
+          ]
+        }
+      },
+      "day7": {
+        "title": "Quand Vous ne Pouvez Pas Dormir",
+        "concept": "Rester au lit en se sentant frustré de ne pas pouvoir dormir est contre-productif. Cela entraîne votre cerveau à associer le lit à l'anxiété. La règle d'or est la suivante : si vous n'êtes pas endormi après 20-30 minutes, levez-vous et faites quelque chose de calme dans une faible lumière.",
+        "exercise": {
+          "title": "Pratique de l'Éveil Calme",
+          "description": "Un plan sur ce qu'il faut faire lorsque vous êtes réveillé la nuit.",
+          "steps": [
+            "Si vous vous retrouvez bien réveillé, sortez du lit.",
+            "Allez dans une autre pièce et faites une activité calme et relaxante sous une lumière tamisée, comme lire un livre ennuyeux ou écouter de la musique calme.",
+            "N'utilisez pas votre téléphone et ne regardez pas la télévision.",
+            "Lorsque vous commencez à vous sentir à nouveau somnolent, retournez au lit. Le but est de réassocier votre lit à la somnolence, et non à la frustration."
           ]
         }
       }

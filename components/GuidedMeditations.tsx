@@ -17,17 +17,29 @@ interface TranslatedMeditation {
     guidance: string[];
 }
 
+const shuffleArray = <T,>(array: T[]): T[] => {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+};
+
 const GuidedMeditations: React.FC<GuidedMeditationsProps> = ({ searchQuery }) => {
     const { t, i18n } = useTranslation();
     const [activeMeditation, setActiveMeditation] = useState<TranslatedMeditation | null>(null);
 
-    const translatedMeditations = useMemo(() => guidedMeditationsData.map(meditation => ({
-        id: meditation.id,
-        title: t(meditation.titleKey),
-        description: t(meditation.descriptionKey),
-        duration_minutes: meditation.duration_minutes,
-        guidance: meditation.guidanceKeys.map(key => t(key)),
-    })), [i18n.language]);
+    const translatedMeditations = useMemo(() => {
+        const allMeditations = guidedMeditationsData.map(meditation => ({
+            id: meditation.id,
+            title: t(meditation.titleKey),
+            description: t(meditation.descriptionKey),
+            duration_minutes: meditation.duration_minutes,
+            guidance: meditation.guidanceKeys.map(key => t(key)),
+        }));
+        return shuffleArray(allMeditations).slice(0, 2);
+    }, [i18n.language, t]);
     
     const filteredMeditations = useMemo(() => {
         if (!searchQuery) return translatedMeditations;

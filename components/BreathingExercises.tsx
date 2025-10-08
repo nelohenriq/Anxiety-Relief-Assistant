@@ -1,47 +1,42 @@
 import React, { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import BreathingVisualizer from './BreathingVisualizer';
-import { BreathingExercise } from '../types';
+import { BreathingExercise, BreathingStep } from '../types';
 import { logInteraction } from '../services/interactionLogger';
+import { breathingExercisesData } from '../data/breathingExercises';
 
 interface BreathingExercisesProps {
     searchQuery: string;
 }
 
+const shuffleArray = <T,>(array: T[]): T[] => {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+};
+
+
 const BreathingExercises: React.FC<BreathingExercisesProps> = ({ searchQuery }) => {
     const { t, i18n } = useTranslation();
     const [activeExercise, setActiveExercise] = useState<BreathingExercise | null>(null);
 
-    const exercises: BreathingExercise[] = useMemo(() => [
-        {
-            name: t('breathing_exercises.box_breathing.name'),
-            description: t('breathing_exercises.box_breathing.description'),
-            steps: [
-                { label: t('breathing_exercises.steps.breathe_in'), duration: 4 },
-                { label: t('breathing_exercises.steps.hold'), duration: 4 },
-                { label: t('breathing_exercises.steps.breathe_out'), duration: 4 },
-                { label: t('breathing_exercises.steps.hold'), duration: 4 },
-            ]
-        },
-        {
-            name: t('breathing_exercises.478_breathing.name'),
-            description: t('breathing_exercises.478_breathing.description'),
-            steps: [
-                { label: t('breathing_exercises.steps.breathe_in'), duration: 4 },
-                { label: t('breathing_exercises.steps.hold'), duration: 7 },
-                { label: t('breathing_exercises.steps.breathe_out'), duration: 8 },
-            ]
-        },
-        {
-            name: t('breathing_exercises.cyclic_sighing.name'),
-            description: t('breathing_exercises.cyclic_sighing.description'),
-            steps: [
-                { label: t('breathing_exercises.steps.inhale'), duration: 2 },
-                { label: t('breathing_exercises.steps.inhale_again'), duration: 1.5 },
-                { label: t('breathing_exercises.steps.exhale_long'), duration: 6 },
-            ]
-        }
-    ], [i18n.language]);
+    const exercises: BreathingExercise[] = useMemo(() => {
+        const translated = breathingExercisesData.map(ex => ({
+            name: t(ex.nameKey),
+            description: t(ex.descriptionKey),
+            steps: ex.steps.map(step => ({
+                label: t(step.labelKey),
+                duration: step.duration,
+                // FIX: Cast the stepType to the correct literal union type to resolve the type error.
+                type: step.stepType as BreathingStep['type'],
+            }))
+        }));
+        
+        return shuffleArray(translated).slice(0, 3);
+    }, [i18n.language, t]);
 
     if (activeExercise) {
         return <BreathingVisualizer exercise={activeExercise} onClose={() => setActiveExercise(null)} />;

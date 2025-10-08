@@ -124,11 +124,19 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
             <div>
                 <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 border-b border-neutral-200 dark:border-neutral-600 pb-2 mb-4">{t('user_profile.reminders_title')}</h3>
                 <div className="flex items-center justify-between">
-                    <label htmlFor="isEnabled" className="text-sm font-medium text-neutral-700 dark:text-neutral-300">{t('user_profile.reminders_enable_label')}</label>
-                    <div className="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" id="isEnabled" name="isEnabled" checked={localReminders.isEnabled} onChange={handleReminderChange} className="sr-only peer" />
+                    <span id="reminders-label" className="text-sm font-medium text-neutral-700 dark:text-neutral-300">{t('user_profile.reminders_enable_label')}</span>
+                    <label htmlFor="isEnabled" className="relative inline-flex items-center cursor-pointer">
+                        <input 
+                            type="checkbox" 
+                            id="isEnabled" 
+                            name="isEnabled" 
+                            checked={localReminders.isEnabled} 
+                            onChange={handleReminderChange} 
+                            className="sr-only peer" 
+                            aria-labelledby="reminders-label"
+                        />
                         <div className="w-11 h-6 bg-neutral-200 dark:bg-neutral-700 rounded-full peer peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-neutral-600 peer-checked:bg-primary-600"></div>
-                    </div>
+                    </label>
                 </div>
                  {notificationPermission === 'denied' && localReminders.isEnabled && (
                     <p className="text-xs text-red-600 dark:text-red-400 mt-2">{t('user_profile.reminders_permission_denied')}</p>

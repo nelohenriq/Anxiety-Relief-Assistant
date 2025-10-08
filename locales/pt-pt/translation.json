@@ -48,7 +48,7 @@
     "frustration": "Frustração",
     "feeling_overwhelmed": "Sentir-se sobrecarregado/a",
     "restlessness": "Inquietação",
-    "avoiding_situations": "Evitar situações",
+    "avoiding_situations": "Evitar situaciones",
     "fidgeting": "Inquietação motora",
     "pacing": "Andar de um lado para o outro",
     "difficulty_sleeping": "Dificuldade em dormir",
@@ -117,11 +117,35 @@
     },
     "478_breathing": {
       "name": "Respiração 4-7-8",
-      "description": "Conhecida como a \"respiração relaxante\", esta técnica ajuda a reduzir a ansiedade e pode auxiliar no adormecer."
+      "description": "Conhecida como a \"respiração relaxante\", esta técnica ajuda a reducir a ansiedade e pode auxiliar no adormecer."
     },
     "cyclic_sighing": {
       "name": "Suspiro Cíclico",
-      "description": "Uma técnica com base científica para reduzir rapidamente o stress, realizando duas inspirações seguidas de uma expiração longa."
+      "description": "Uma técnica com base científica para reducir rapidamente o stress, realizando duas inspirações seguidas de uma expiração longa."
+    },
+    "coherent_breathing": {
+      "name": "Respiração Coerente",
+      "description": "Um ritmo simples de inspirar por 5 segundos e expirar por 5 segundos para promover o equilíbrio e a calma."
+    },
+    "pursed_lip_breathing": {
+      "name": "Respiração com Lábios Franzidos",
+      "description": "Diminui o ritmo da tua respiração, reduzindo o esforço respiratório ao manter as vias aéreas abertas por mais tempo."
+    },
+    "diaphragmatic_breathing": {
+      "name": "Respiração Diafragmática",
+      "description": "Também conhecida como \"respiração abdominal\", esta técnica fundamental incentiva respirações profundas e completas para ativar a resposta de relaxamento do corpo."
+    },
+    "slow_paced_breathing": {
+      "name": "Respiração Lenta",
+      "description": "Abranda intencionalmente a tua respiração para um ritmo calmante, ajudando a reduzir a frequência cardíaca e a promover um estado de relaxamento profundo."
+    },
+    "alternate_nostril_breathing": {
+      "name": "Respiração Nasal Alternada",
+      "description": "Uma prática de respiração yogue calmante que equilibra a mente e o corpo, alternando o fluxo de ar por cada narina."
+    },
+    "humming_bee_breath": {
+      "name": "Respiração da Abelha",
+      "description": "Reduz o stress e acalma a mente, criando uma vibração suave de zumbido na expiração."
     },
     "steps": {
       "breathe_in": "Inspira",
@@ -129,7 +153,16 @@
       "breathe_out": "Expira",
       "inhale": "Inspira",
       "inhale_again": "Inspira Novamente",
-      "exhale_long": "Expira (Longo)"
+      "exhale_long": "Expira (Longo)",
+      "breathe_in_nose": "Inspira (Nariz)",
+      "breathe_out_lips": "Expira (Lábios)",
+      "breathe_in_belly": "Inspira (Barriga sobe)",
+      "breathe_out_belly": "Expira (Barriga desce)",
+      "inhale_left": "Inspira (Esq)",
+      "exhale_right": "Expira (Dir)",
+      "inhale_right": "Inspira (Dir)",
+      "exhale_left": "Expira (Esq)",
+      "hum_out": "Zumbir ao Expirar"
     }
   },
   "breathing_visualizer": {
@@ -243,7 +276,7 @@
       "title": "Scan Corporal de 5 Minutos",
       "description": "Aumenta a consciência corporal e liberta a tensão, guiando suavemente a tua atenção para as sensações físicas.",
       "guidance": [
-        "Encontra uma posição confortável, sentado ou deitado. Fecha suavemente os olhos e faz algumas respirações profundas e relaxantes.",
+        "Encontra uma posição confortável, sentado ou deitado. Fecha suavemente os olhos e faz algunas respirações profundas e relaxantes.",
         "Leva a tua atenção para o topo da cabeça. Nota quaisquer sensações aqui sem julgamento. Formigueiro, pressão ou nada - está tudo bem.",
         "Move lentamente o teu foco para o rosto. Suaviza o maxilar, as bochechas e os pequenos músculos à volta dos olhos. Liberta qualquer tensão que encontres.",
         "Continua este scan suave pelo pescoço e ombros, pelos braços até às pontas dos dedos, pelo peito e abdómen, e pelas costas.",
@@ -262,6 +295,53 @@
         "Se te sentires capaz, traz à mente alguém com quem tens dificuldades. Vê se consegues estender estes desejos a essa pessoa, mesmo que seja só um pouco: 'Que sejas feliz. Que tenhas saúde. Que estejas seguro/a. Que vivas com tranquilidade.'",
         "Finalmente, expande a tua consciência para incluir todos os seres vivos em todo o lado, sem exceção: 'Que todos os seres sejam felizes. Que todos os seres tenham saúde. Que todos os seres estejam seguros/as. Que todos os seres vivam com tranquilidade.'",
         "Repousa neste sentimento de coração aberto por alguns momentos antes de trazeres suavemente a tua consciência de volta à sala e abrires os olhos."
+      ]
+    },
+    "mindful_walk": {
+      "title": "Caminhada Consciente de 10 Minutos",
+      "description": "Conecta-te com o teu corpo e o que te rodeia, trazendo uma atenção suave ao simples ato de caminhar.",
+      "guidance": [
+        "Começa por parar por um momento. Sente os teus pés no chão. Respira fundo.",
+        "Começa a caminhar a um ritmo natural e confortável. Presta atenção à sensação dos teus pés a tocar e a deixar o chão. Calcanhar, sola, dedos.",
+        "Nota o ritmo dos teus passos. Não precisas de o alterar, apenas observa. Sente o balanço suave dos teus braços.",
+        "Expande a tua consciência para o que te rodeia. Nota as cores, a luz, as formas à tua volta sem as rotulares como 'boas' ou 'más'.",
+        "Ouve os sons. O trânsito ao longe, os pássaros, o som dos teus próprios passos. Deixa-os vir e ir sem te prenderes a eles.",
+        "Ao chegares ao fim da tua caminhada, para novamente por um momento. Nota como o teu corpo se sente. Faz uma última respiração consciente."
+      ]
+    },
+    "gratitude": {
+      "title": "Meditação de Gratidão de 5 Minutos",
+      "description": "Muda o teu foco para o positivo, cultivando um sentimento de gratidão pelas coisas boas da tua vida.",
+      "guidance": [
+        "Encontra uma posição sentada confortável e fecha os olhos suavemente. Faz algunas respirações para te instalares no momento presente.",
+        "Traz à mente uma pessoa na tua vida pela qual sentes gratidão. Imagina-a e agradece-lhe silenciosamente pela sua presença e bondade.",
+        "Agora, pensa num lugar que te traga uma sensação de paz ou felicidade. Pode ser um quarto, um parque ou um local de férias. Aprecia a sensação que este lugar te proporciona.",
+        "Considera um prazer simples que tenhas desfrutado recentemente. Pode ser o sabor do teu café da manhã, o calor do sol ou uma música. Saboreia esse pequeno momento de alegria.",
+        "Reflete sobre uma qualidade ou força tua pela qual sentes gratidão. Pode ser a tua resiliência, a tua criatividade ou a tua bondade.",
+        "Faz uma última respiração profunda, levando contigo este sentimento de gratidão. Quando estiveres pronto/a, abre suavemente os olhos."
+      ]
+    },
+    "mindful_listening": {
+      "title": "Escuta Atenta de 3 Minutos",
+      "description": "Ancora-te no momento presente, abrindo a tua consciência para a paisagem sonora que te rodeia, sem julgamento.",
+      "guidance": [
+        "Senta-te confortavelmente com os olhos fechados ou o olhar suavemente para baixo. Deixa o teu corpo assentar.",
+        "Leva a tua atenção para o mundo do som. Nota o som mais proeminente no teu ambiente. Simplesmente reconhece a sua presença.",
+        "Agora, expande a tua consciência para incluir sons que estão mais distantes. Ouve sem esforço, apenas deixando os sons chegarem até ti.",
+        "Muda o teu foco para sons que estão muito próximos, talvez o som da tua própria respiração ou o zumbido de um aparelho na sala.",
+        "Finalmente, ouve toda a paisagem sonora como uma sinfonia completa de ruídos, próximos e distantes, altos e baixos. Quando estiveres pronto/a, abre suavemente os olhos."
+      ]
+    },
+    "thought_noting": {
+      "title": "Anotação de Pensamentos de 5 Minutos",
+      "description": "Pratica observar os teus pensamentos à medida que surgem e rotulá-los gentilmente para criar distância e reduzir o seu poder.",
+      "guidance": [
+        "Encontra uma posição sentada confortável. Fecha os olhos e faz algumas respirações profundas, deixando a tua atenção repousar na sensação física da respiração.",
+        "Enquanto estás sentado/a, irás inevitavelmente notar o surgimento de pensamentos. Em vez de seguires o pensamento ou de o afastares, simplesmente reconhece a sua presença.",
+        "Mentalmente, aplica um rótulo suave e gentil ao pensamento. Um rótulo simples como \"a pensar\" ou \"a preocupar-me\" é suficiente. Não há necessidade de analisar o conteúdo.",
+        "Depois de anotares o pensamento, guia gentilmente a tua atenção de volta para a tua respiração. A tua respiração é a tua âncora.",
+        "Repete este processo cada vez que um pensamento capturar a tua atenção. O objetivo não é parar de pensar, mas sim mudar a tua relação com os teus pensamentos.",
+        "Continua durante o tempo indicado. Quando estiveres pronto/a, traz a tua consciência de volta para a sala e abre lentamente os olhos."
       ]
     }
   },
@@ -319,6 +399,179 @@
             "A seguir, tenta ouvir sons mais subtis e distantes que poderias ter filtrado antes.",
             "Agora, ouve os sons mais próximos de ti — talvez o som da tua própria respiração ou o sussurro da tua roupa.",
             "Simplesmente recebe estes sons como pura sensação. Após alguns minutos, retorna suavemente a tua consciência para a sala."
+          ]
+        }
+      }
+    },
+    "anxious_thoughts": {
+      "title": "Desafio de Pensamentos Ansiosos de 5 Dias",
+      "description": "Um programa de 5 dias baseado nos princípios da TCC para te ajudar a identificar, compreender e reformular padrões de pensamento ansiosos.",
+      "day1": {
+        "title": "Identificar os Teus Pensamentos",
+        "concept": "O primeiro passo é aprender a notar os teus pensamentos negativos automáticos (PNAs). Estes pensamentos surgem frequentemente na nossa cabeça sem nos apercebermos. O objetivo de hoje é tornar-te um observador da tua própria mente, separando-te dos teus pensamentos. Eles são apenas pensamentos, não factos.",
+        "exercise": {
+          "title": "Apanhador de Pensamentos",
+          "description": "Um simples exercício de observação para praticares notar os teus pensamentos sem te envolveres com eles.",
+          "steps": [
+            "Encontra um momento tranquilo e fecha os olhos.",
+            "Imagina que estás sentado/a à beira de um riacho. Cada pensamento que te vem à mente é uma folha a flutuar na água.",
+            "A tua tarefa não é saltar para a água, mas simplesmente observar as folhas (os teus pensamentos) a passar. Nota-os e deixa-os ir.",
+            "Faz isto durante 5 minutos. O objetivo não é ter a mente vazia, mas praticar a habilidade de observação sem julgamento."
+          ]
+        }
+      },
+      "day2": {
+        "title": "Detetar Distorções Cognitivas",
+        "concept": "Os pensamentos ansiosos seguem frequentemente padrões previsíveis e inúteis chamados 'distorções cognitivas'. Ao aprendermos a nomear estes padrões (como 'Catastrofização' ou 'Pensamento Tudo ou Nada'), podemos retirar-lhes o poder. Tornam-se menos factos e mais maus hábitos mentais.",
+        "exercise": {
+          "title": "Detetive de Distorções",
+          "description": "Analisa um pensamento ansioso e vê se consegues identificar o padrão de distorção que ele segue.",
+          "steps": [
+            "Traz à mente um pensamento ansioso que tiveste recentemente.",
+            "Revê a lista de distorções cognitivas comuns (podes encontrá-la na secção de Ferramentas Cognitivas).",
+            "O teu pensamento encaixa-se num destes padrões? Por exemplo, estás a saltar para o pior cenário possível (Catastrofização)?",
+            "Simplesmente nomear a distorção pode criar uma distância poderosa. Diz a ti mesmo/a: 'Ah, isto é apenas a minha mente a adivinhar o futuro.'"
+          ]
+        }
+      },
+      "day3": {
+        "title": "Questionar as Evidências",
+        "concept": "Muitas vezes, aceitamos os nossos pensamentos ansiosos como 100% verdadeiros sem questionar. Hoje, vamos praticar agir como um detetive. Um detetive não aceita a primeira história que ouve; ele procura provas concretas. Faremos o mesmo com os nossos pensamentos.",
+        "exercise": {
+          "title": "Facto vs. Ficção",
+          "description": "Um exercício guiado para questionar a validade de um pensamento ansioso específico.",
+          "steps": [
+            "Escolhe um pensamento ansioso. Por exemplo: 'Vou chumbar no meu exame.'",
+            "Pergunta-te: 'Qual é a evidência real e concreta de que este pensamento é verdadeiro?' Escreve-a.",
+            "Agora, pergunta: 'Qual é a evidência de que este pensamento NÃO é verdadeiro?' Procura contraexemplos e sucessos passados.",
+            "Compara as duas listas. O pensamento é tão verdadeiro como pareceu no início?"
+          ]
+        }
+      },
+      "day4": {
+        "title": "Encontrar Perspetivas Alternativas",
+        "concept": "Para qualquer situação, existem muitas maneiras possíveis de a ver. O pensamento ansioso tende a prender-nos na perspetiva mais negativa. A habilidade de hoje é praticar deliberadamente a geração de pensamentos mais equilibrados, úteis e realistas.",
+        "exercise": {
+          "title": "Reenquadramento de Pensamentos",
+          "description": "Pratica a criação de uma alternativa mais equilibrada a um pensamento negativo.",
+          "steps": [
+            "Pega no pensamento ansioso com que trabalhaste ontem.",
+            "Com base na tua recolha de evidências, qual é uma maneira mais equilibrada e compassiva de ver a situação?",
+            "Por exemplo, 'Vou chumbar no meu exame' pode ser reenquadrado como 'Estou preocupado/a com o exame, mas tenho estudado. Vou dar o meu melhor, e é tudo o que posso fazer.'",
+            "Escreve este novo pensamento e nota como te sentes em comparação com o original."
+          ]
+        }
+      },
+      "day5": {
+        "title": "Juntar Tudo",
+        "concept": "Hoje, vamos combinar as competências que aprendeste num processo simples e repetível que podes usar sempre que te sentires sobrecarregado/a por um pensamento ansioso. A repetição é a chave para construir este novo hábito mental.",
+        "exercise": {
+          "title": "Mini Registo de Pensamentos",
+          "description": "Uma revisão rápida e passo a passo das competências aprendidas esta semana.",
+          "steps": [
+            "1. Nota: Qual é o pensamento ansioso?",
+            "2. Identifica: Que distorção cognitiva pode estar em jogo?",
+            "3. Desafia: Quais são as evidências a favor e contra este pensamento?",
+            "4. Reenquadra: Qual é um pensamento mais equilibrado e alternativo?"
+          ]
+        }
+      }
+    },
+    "sleep_improvement": {
+      "title": "Programa de Melhoria do Sono de 7 Dias",
+      "description": "Um programa de uma semana para te ajudar a construir hábitos de sono saudáveis, criar uma rotina relaxante antes de dormir e melhorar a qualidade geral do teu sono para um melhor controlo da ansiedade.",
+      "day1": {
+        "title": "A Hora de Descontrair",
+        "concept": "Tal como aqueces para o exercício, o teu cérebro precisa de arrefecer para dormir. Criar uma 'zona de transição' de 1 hora antes de dormir, livre de ecrãs e atividades estimulantes, sinaliza ao teu corpo que é hora de descansar.",
+        "exercise": {
+          "title": "Cria a Tua Rotina de Relaxamento",
+          "description": "Planeia uma sequência de atividades calmantes para realizares todas as noites antes de dormir.",
+          "steps": [
+            "Escolhe 2-3 atividades relaxantes e sem ecrãs de que gostes. Exemplos: ler um livro físico, fazer alongamentos suaves, ouvir música calma, beber um chá de ervas.",
+            "Decide a ordem destas atividades.",
+            "Define um alarme para 1 hora antes da hora de deitar desejada. Este é o teu sinal para começar a tua rotina.",
+            "Esta noite, põe o teu plano em ação. O objetivo é a consistência."
+          ]
+        }
+      },
+      "day2": {
+        "title": "O Santuário do Sono",
+        "concept": "O ambiente do teu quarto tem um grande impacto na qualidade do teu sono. O espaço ideal para dormir é fresco, escuro e silencioso. Isto ajuda o teu cérebro a associar o quarto com o sono e apenas com o sono.",
+        "exercise": {
+          "title": "Lista de Verificação do Ambiente",
+          "description": "Avalia e otimiza o teu quarto para o sono.",
+          "steps": [
+            "Temperatura: O teu quarto está fresco? Se possível, baixa ligeiramente o termostato.",
+            "Luz: Consegues tornar o teu quarto mais escuro? Considera usar cortinas opacas ou uma máscara de dormir. Cobre ou remove aparelhos eletrónicos com luzes.",
+            "Ruído: Consegues torná-lo mais silencioso? Tampões para os ouvidos ou uma máquina de ruído branco podem ajudar a bloquear sons perturbadores.",
+            "Conforto: A tua cama é confortável? Garante que as tuas almofadas e roupa de cama apoiam um sono reparador."
+          ]
+        }
+      },
+      "day3": {
+        "title": "Cafeína e Álcool",
+        "concept": "Estimulantes como a cafeína e depressores como o álcool podem perturbar significativamente a arquitetura do teu sono, mesmo que adormeças facilmente. A cafeína pode permanecer no teu sistema por muitas horas, enquanto o álcool pode fazer com que acordes na segunda metade da noite.",
+        "exercise": {
+          "title": "Define um 'Recolher Obrigatório' para a Cafeína",
+          "description": "Estabelece uma hora limite para todo o consumo de cafeína.",
+          "steps": [
+            "Determina a tua hora habitual de deitar.",
+            "Define o teu 'recolher obrigatório' para a cafeína para pelo menos 8 horas antes dessa hora. Se te deitas às 22h, o teu último café deve ser antes das 14h.",
+            "Cumpre este horário hoje. Nota se faz alguma diferença na forma como te sentes à hora de deitar."
+          ]
+        }
+      },
+      "day4": {
+        "title": "Descarga Consciente",
+        "concept": "É difícil dormir quando a tua mente está a mil com preocupações e listas de tarefas. Tirar estes pensamentos da cabeça e passá-los para o papel antes de dormir pode proporcionar uma sensação de fecho e acalmar uma mente agitada.",
+        "exercise": {
+          "title": "Diário Pré-Sono",
+          "description": "Um breve exercício de escrita para limpar a mente.",
+          "steps": [
+            "Cerca de 30 minutos antes de dormir, pega num caderno e numa caneta.",
+            "Passa 5 minutos a escrever tudo o que te preocupa: preocupações, tarefas para amanhã, coisas de que precisas de te lembrar.",
+            "Fecha o caderno. Simbolicamente, estás a pôr de lado estes pensamentos para a noite. Podes lidar com eles amanhã."
+          ]
+        }
+      },
+      "day5": {
+        "title": "O Poder da Luz",
+        "concept": "O relógio interno do teu corpo (ritmo circadiano) é fortemente influenciado pela luz. A exposição a luz natural e brilhante de manhã ajuda a acordar e a regular o teu ciclo de sono-vigília, tornando mais fácil sentir sono na hora certa à noite.",
+        "exercise": {
+          "title": "Exposição à Luz Matinal",
+          "description": "Recebe uma dose de luz natural pouco depois de acordares.",
+          "steps": [
+            "Nos 30 minutos seguintes a acordares, tenta apanhar pelo menos 10 minutos de luz solar.",
+            "Isto pode ser beber o teu café junto a uma janela soalheira, dar um pequeno passeio lá fora ou simplesmente sair para uma varanda.",
+            "Evita usar óculos de sol durante este tempo, se possível, para permitir que a luz chegue aos teus olhos."
+          ]
+        }
+      },
+      "day6": {
+        "title": "O Corpo e o Sono",
+        "concept": "A atividade física regular pode melhorar a qualidade do sono, mas o exercício intenso muito perto da hora de deitar pode ser demasiado estimulante. No entanto, o movimento suave e consciente pode ajudar a libertar a tensão física e a preparar o corpo para o descanso.",
+        "exercise": {
+          "title": "Alongamentos Suaves Antes de Dormir",
+          "description": "Uma rotina de alongamentos curta e calmante para relaxar o teu corpo.",
+          "steps": [
+            "Postura da Criança: Ajoelha-te no chão, senta-te nos calcanhares e dobra-te para a frente, descansando a testa no chão. Mantém por 30 segundos.",
+            "Alongamento Gato-Vaca: De quatro, arqueia as costas como um gato, depois baixa a barriga e olha para cima como uma vaca. Repete 5 vezes.",
+            "Pernas na Parede: Deita-te de costas com as pernas estendidas para cima numa parede. Isto é muito restaurador.",
+            "Concentra-te na tua respiração durante os alongamentos. Move-te lenta e suavemente."
+          ]
+        }
+      },
+      "day7": {
+        "title": "Quando Não Consegues Dormir",
+        "concept": "Ficar na cama frustrado por não conseguir dormir é contraproducente. Treina o teu cérebro a associar a cama com ansiedade. A regra geral é: se não adormeceres após 20-30 minutos, levanta-te e faz algo calmante com pouca luz.",
+        "exercise": {
+          "title": "Prática de Vigília Tranquila",
+          "description": "Um plano para o que fazer quando estás acordado/a à noite.",
+          "steps": [
+            "Se te encontrares completamente acordado/a, sai da cama.",
+            "Vai para outra sala e faz uma atividade calma e relaxante com luz fraca, como ler um livro aborrecido ou ouvir música calma.",
+            "Não uses o telemóvel nem vejas televisão.",
+            "Quando começares a sentir sono novamente, volta para a cama. O objetivo é reassociares a tua cama com sonolência, não com frustração."
           ]
         }
       }

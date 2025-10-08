@@ -10,28 +10,40 @@ interface GuidedProgramsProps {
     searchQuery: string;
 }
 
+const shuffleArray = <T,>(array: T[]): T[] => {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+};
+
 const GuidedPrograms: React.FC<GuidedProgramsProps> = ({ searchQuery }) => {
     const { t, i18n } = useTranslation();
     const [activeProgramId, setActiveProgramId] = useLocalStorage<string | null>('activeProgramId', null);
     const [progress, setProgress] = useLocalStorage<ProgramProgress>('programProgress', {});
     
-    const translatedPrograms = useMemo(() => guidedProgramsData.map(program => ({
-        id: program.id,
-        title: t(program.titleKey),
-        description: t(program.descriptionKey),
-        days: program.days.map(day => ({
-            day: day.day,
-            title: t(day.titleKey),
-            concept: t(day.conceptKey),
-            exercise: {
-                title: t(day.exercise.titleKey),
-                description: t(day.exercise.descriptionKey),
-                category: day.exercise.category,
-                duration_minutes: day.exercise.duration_minutes,
-                steps: day.exercise.stepKeys.map(key => t(key))
-            }
-        }))
-    })), [i18n.language]);
+    const translatedPrograms = useMemo(() => {
+        const allPrograms = guidedProgramsData.map(program => ({
+            id: program.id,
+            title: t(program.titleKey),
+            description: t(program.descriptionKey),
+            days: program.days.map(day => ({
+                day: day.day,
+                title: t(day.titleKey),
+                concept: t(day.conceptKey),
+                exercise: {
+                    title: t(day.exercise.titleKey),
+                    description: t(day.exercise.descriptionKey),
+                    category: day.exercise.category,
+                    duration_minutes: day.exercise.duration_minutes,
+                    steps: day.exercise.stepKeys.map(key => t(key))
+                }
+            }))
+        }));
+        return shuffleArray(allPrograms).slice(0, 2);
+    }, [i18n.language, t]);
 
     const activeProgram = translatedPrograms.find(p => p.id === activeProgramId);
     

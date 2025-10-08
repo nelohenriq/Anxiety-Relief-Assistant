@@ -1,3 +1,4 @@
+
 {
   "header": {
     "title": "Serene",
@@ -76,7 +77,7 @@
   },
   "disclaimer": {
     "title": "Haftungsausschluss:",
-    "body": "Dieses Tool dient nur zu Informationszwecken und ist kein Ersatz für professionelle medizinische Beratung, Diagnose oder Behandlung. Holen Sie bei Fragen zu einer Erkrankung immer den Rat Ihres Arztes oder eines anderen qualifizierten Gesundheitsdienstleisters ein."
+    "body": "Dieses Tool dient nur zu Informationszwecken und ist kein Ersatz für professionelle medizinische Beratung, Diagnose oder Behandlung. Hole bei Fragen zu einer Erkrankung immer den Rat deines Arztes oder eines anderen qualifizierten Gesundheitsdienstleisters ein."
   },
   "personalized_plan": {
     "title": "Dein Personalisierter Plan"
@@ -123,13 +124,46 @@
       "name": "Zyklisches Seufzen",
       "description": "Eine wissenschaftlich fundierte Technik zur schnellen Stressreduktion durch zwei Einatmungen gefolgt von einer langen Ausatmung."
     },
+    "coherent_breathing": {
+      "name": "Kohärente Atmung",
+      "description": "Ein einfacher Rhythmus von 5 Sekunden Einatmen und 5 Sekunden Ausatmen, um Gleichgewicht und Ruhe zu fördern."
+    },
+    "pursed_lip_breathing": {
+      "name": "Lippenbremse",
+      "description": "Verlangsamt deine Atemfrequenz und reduziert die Atemanstrengung, indem die Atemwege länger offen gehalten werden."
+    },
+    "diaphragmatic_breathing": {
+      "name": "Bauchatmung",
+      "description": "Auch als \"Zwerchfellatmung\" bekannt, fördert diese grundlegende Technik tiefe, volle Atemzüge, um die Entspannungsreaktion des Körpers zu aktivieren."
+    },
+    "slow_paced_breathing": {
+      "name": "Langsame Atmung",
+      "description": "Verlangsame absichtlich deine Atmung auf einen beruhigenden Rhythmus, um die Herzfrequenz zu senken und einen Zustand tiefer Entspannung zu fördern."
+    },
+    "alternate_nostril_breathing": {
+      "name": "Wechselatmung",
+      "description": "Eine beruhigende yogische Atempraxis, die Geist und Körper durch abwechselnden Luftstrom durch jedes Nasenloch ausgleicht."
+    },
+    "humming_bee_breath": {
+      "name": "Bienen-Atmung",
+      "description": "Reduziert Stress und beruhigt den Geist, indem beim Ausatmen eine sanfte summende Vibration erzeugt wird."
+    },
     "steps": {
       "breathe_in": "Einatmen",
       "hold": "Halten",
       "breathe_out": "Ausatmen",
       "inhale": "Einatmen",
       "inhale_again": "Erneut Einatmen",
-      "exhale_long": "Ausatmen (Lang)"
+      "exhale_long": "Ausatmen (Lang)",
+      "breathe_in_nose": "Einatmen (Nase)",
+      "breathe_out_lips": "Ausatmen (Lippen)",
+      "breathe_in_belly": "Ein (Bauch hebt sich)",
+      "breathe_out_belly": "Aus (Bauch senkt sich)",
+      "inhale_left": "Einatmen (Links)",
+      "exhale_right": "Ausatmen (Rechts)",
+      "inhale_right": "Einatmen (Rechts)",
+      "exhale_left": "Ausatmen (Links)",
+      "hum_out": "Summend Ausatmen"
     }
   },
   "breathing_visualizer": {
@@ -263,6 +297,53 @@
         "Erweitere schließlich dein Bewusstsein, um alle Lebewesen überall, ohne Ausnahme, einzuschließen: 'Mögen alle Wesen glücklich sein. Mögen alle Wesen gesund sein. Mögen alle Wesen sicher sein. Mögen alle Wesen mit Leichtigkeit leben.'",
         "Verweile einige Momente in diesem Gefühl der Offenherzigkeit, bevor du deine Aufmerksamkeit sanft in den Raum zurückbringst und deine Augen öffnest."
       ]
+    },
+    "mindful_walk": {
+      "title": "10-minütiger achtsamer Spaziergang",
+      "description": "Verbinde dich mit deinem Körper und deiner Umgebung, indem du dem einfachen Akt des Gehens sanfte Aufmerksamkeit schenkst.",
+      "guidance": [
+        "Beginne damit, einen Moment still zu stehen. Spüre deine Füße auf dem Boden. Atme tief ein.",
+        "Beginne in einem natürlichen, bequemen Tempo zu gehen. Richte deine Aufmerksamkeit auf das Gefühl deiner Füße, wie sie den Boden berühren und wieder verlassen. Ferse, Sohle, Zehen.",
+        "Nimm den Rhythmus deiner Schritte wahr. Es ist nicht nötig, ihn zu ändern, nur beobachten. Spüre das sanfte Schwingen deiner Arme.",
+        "Erweitere deine Wahrnehmung auf deine Umgebung. Nimm die Farben, das Licht, die Formen um dich herum wahr, ohne sie als 'gut' oder 'schlecht' zu bewerten.",
+        "Lausche den Geräuschen. Dem entfernten Verkehr, den Vögeln, dem Geräusch deiner eigenen Schritte. Lass sie kommen und gehen, ohne dich an sie zu klammern.",
+        "Wenn du am Ende deines Spaziergangs ankommst, bleibe wieder einen Moment stehen. Nimm wahr, wie sich dein Körper anfühlt. Nimm einen letzten, bewussten Atemzug."
+      ]
+    },
+    "gratitude": {
+      "title": "5-Minuten-Dankbarkeitsmeditation",
+      "description": "Richte deinen Fokus auf das Positive, indem du ein Gefühl der Dankbarkeit für die guten Dinge in deinem Leben kultivierst.",
+      "guidance": [
+        "Finde eine bequeme Sitzposition und schließe sanft deine Augen. Nimm ein paar Atemzüge, um im gegenwärtigen Moment anzukommen.",
+        "Denke an eine Person in deinem Leben, für die du dankbar bist. Stelle sie dir vor und danke ihr im Stillen für ihre Anwesenheit und Freundlichkeit.",
+        "Denke nun an einen Ort, der dir ein Gefühl von Frieden oder Glück gibt. Das kann ein Zimmer, ein Park oder ein Urlaubsort sein. Schätze das Gefühl, das dir dieser Ort gibt.",
+        "Denke an eine einfache Freude, die du kürzlich genossen hast. Das könnte der Geschmack deines Morgenkaffees, die Wärme der Sonne oder ein Musikstück sein. Genieße diesen kleinen Moment der Freude.",
+        "Reflektiere über eine Eigenschaft oder Stärke in dir, für die du dankbar bist. Das könnte deine Widerstandsfähigkeit, deine Kreativität oder deine Freundlichkeit sein.",
+        "Nimm einen letzten, tiefen Atemzug und trage dieses Gefühl der Dankbarkeit mit dir. Wenn du bereit bist, öffne sanft deine Augen."
+      ]
+    },
+    "mindful_listening": {
+      "title": "3-Minuten Achtsames Zuhören",
+      "description": "Verankere dich im gegenwärtigen Moment, indem du deine Wahrnehmung für die Klanglandschaft um dich herum öffnest, ohne zu urteilen.",
+      "guidance": [
+        "Setze dich bequem hin, die Augen geschlossen oder den Blick sanft nach unten gerichtet. Lass deinen Körper zur Ruhe kommen.",
+        "Richte deine Aufmerksamkeit auf die Welt der Klänge. Nimm den auffälligsten Klang in deiner Umgebung wahr. Erkenne einfach seine Anwesenheit an.",
+        "Erweitere nun deine Wahrnehmung, um Klänge einzubeziehen, die weiter entfernt sind. Lausche ohne Anstrengung, lass die Klänge einfach zu dir kommen.",
+        "Richte deinen Fokus auf Klänge, die ganz nah sind, vielleicht das Geräusch deines eigenen Atems oder das Summen eines Geräts im Raum.",
+        "Lausche schließlich der gesamten Klanglandschaft als einer Symphonie von Geräuschen, nah und fern, laut und leise. Wenn du bereit bist, öffne sanft deine Augen."
+      ]
+    },
+    "thought_noting": {
+      "title": "5-Minuten Gedanken-Notieren",
+      "description": "Übe, deine Gedanken zu beobachten, wie sie auftauchen, und sie sanft zu benennen, um Distanz zu schaffen und ihre Macht zu verringern.",
+      "guidance": [
+        "Finde eine bequeme Sitzposition. Schließe deine Augen und nimm ein paar tiefe Atemzüge, wobei deine Aufmerksamkeit auf dem körperlichen Gefühl des Atmens ruht.",
+        "Während du sitzt, wirst du unweigerlich Gedanken bemerken. Anstatt dem Gedanken zu folgen oder ihn wegzudrücken, erkenne einfach seine Anwesenheit an.",
+        "Gib dem Gedanken mental ein sanftes, leichtes Etikett. Ein einfaches Etikett wie \"denken\" oder \"sorgen\" genügt. Es ist nicht nötig, den Inhalt zu analysieren.",
+        "Nachdem du den Gedanken notiert hast, lenke deine Aufmerksamkeit sanft zurück zu deinem Atem. Dein Atem ist dein Anker.",
+        "Wiederhole diesen Vorgang jedes Mal, wenn ein Gedanke deine Aufmerksamkeit fesselt. Das Ziel ist nicht, das Denken zu stoppen, sondern deine Beziehung zu deinen Gedanken zu verändern.",
+        "Fahre für die Dauer fort. Wenn du bereit bist, bringe deine Aufmerksamkeit zurück in den Raum und öffne langsam deine Augen."
+      ]
     }
   },
   "program_viewer": {
@@ -322,6 +403,179 @@
           ]
         }
       }
+    },
+    "anxious_thoughts": {
+      "title": "5-tägige Herausforderung für ängstliche Gedanken",
+      "description": "Ein 5-tägiges Programm basierend auf KVT-Prinzipien, das Ihnen hilft, ängstliche Denkmuster zu erkennen, zu verstehen und neu zu formulieren.",
+      "day1": {
+        "title": "Ihre Gedanken identifizieren",
+        "concept": "Der erste Schritt besteht darin, zu lernen, Ihre automatischen negativen Gedanken (ANGs) zu bemerken. Diese Gedanken schleichen sich oft unbemerkt in unseren Kopf. Das heutige Ziel ist es, ein Beobachter Ihres eigenen Geistes zu werden und sich von Ihren Gedanken zu distanzieren. Es sind nur Gedanken, keine Fakten.",
+        "exercise": {
+          "title": "Gedankenfänger",
+          "description": "Eine einfache Beobachtungsübung, um zu üben, Ihre Gedanken zu bemerken, ohne sich mit ihnen zu beschäftigen.",
+          "steps": [
+            "Finden Sie einen ruhigen Moment und schließen Sie die Augen.",
+            "Stellen Sie sich vor, Sie sitzen am Ufer eines Baches. Jeder Gedanke, der Ihnen in den Sinn kommt, ist ein Blatt, das auf dem Wasser vorbeischwimmt.",
+            "Ihre Aufgabe ist es nicht, ins Wasser zu springen, sondern einfach die Blätter (Ihre Gedanken) vorbeiziehen zu sehen. Bemerken Sie sie und lassen Sie sie los.",
+            "Machen Sie dies 5 Minuten lang. Das Ziel ist nicht, einen leeren Geist zu haben, sondern die Fähigkeit der urteilsfreien Beobachtung zu üben."
+          ]
+        }
+      },
+      "day2": {
+        "title": "Kognitive Verzerrungen erkennen",
+        "concept": "Ängstliche Gedanken folgen oft vorhersagbaren, wenig hilfreichen Mustern, die als 'kognitive Verzerrungen' bezeichnet werden. Indem wir lernen, diese Muster zu benennen (wie 'Katastrophisieren' oder 'Alles-oder-Nichts-Denken'), können wir ihnen ihre Macht nehmen. Sie werden weniger zu Fakten und mehr zu schlechten mentalen Gewohnheiten.",
+        "exercise": {
+          "title": "Verzerrungsdetektiv",
+          "description": "Überprüfen Sie einen ängstlichen Gedanken und sehen Sie, ob Sie das Verzerrungsmuster erkennen können, dem er folgt.",
+          "steps": [
+            "Erinnern Sie sich an einen kürzlichen ängstlichen Gedanken.",
+            "Sehen Sie sich die Liste der häufigen kognitiven Verzerrungen an (Sie finden diese im Abschnitt 'Kognitive Werkzeuge').",
+            "Passt Ihr Gedanke in eines dieser Muster? Springen Sie zum Beispiel zum schlimmsten Fall (Katastrophisieren)?",
+            "Schon das Benennen der Verzerrung kann eine starke Distanz schaffen. Sagen Sie sich: 'Ah, das ist nur mein Verstand, der die Zukunft vorhersagt.'"
+          ]
+        }
+      },
+      "day3": {
+        "title": "Beweise hinterfragen",
+        "concept": "Wir akzeptieren unsere ängstlichen Gedanken oft als 100% wahr, ohne sie zu hinterfragen. Heute üben wir, wie ein Detektiv zu handeln. Ein Detektiv akzeptiert nicht einfach die erste Geschichte, die er hört; er sucht nach harten Beweisen. Dasselbe werden wir mit unseren Gedanken tun.",
+        "exercise": {
+          "title": "Fakt oder Fiktion",
+          "description": "Eine geführte Übung zur Überprüfung der Gültigkeit eines bestimmten ängstlichen Gedankens.",
+          "steps": [
+            "Wählen Sie einen ängstlichen Gedanken. Zum Beispiel: 'Ich werde meine Prüfung nicht bestehen.'",
+            "Fragen Sie sich: 'Was sind die tatsächlichen, konkreten Beweise dafür, dass dieser Gedanke wahr ist?' Schreiben Sie sie auf.",
+            "Fragen Sie nun: 'Was sind die Beweise dafür, dass dieser Gedanke NICHT wahr ist?' Suchen Sie nach Gegenbeispielen und vergangenen Erfolgen.",
+            "Vergleichen Sie die beiden Listen. Ist der Gedanke so wahr, wie er sich anfangs anfühlte?"
+          ]
+        }
+      },
+      "day4": {
+        "title": "Alternative Perspektiven finden",
+        "concept": "Für jede gegebene Situation gibt es viele mögliche Sichtweisen. Ängstliches Denken neigt dazu, uns in der negativsten Perspektive einzusperren. Die heutige Fähigkeit besteht darin, bewusst zu üben, ausgewogenere, hilfreichere und realistischere Gedanken zu entwickeln.",
+        "exercise": {
+          "title": "Gedankenumformulierung",
+          "description": "Üben Sie, eine ausgewogenere Alternative zu einem negativen Gedanken zu schaffen.",
+          "steps": [
+            "Nehmen Sie den ängstlichen Gedanken, mit dem Sie gestern gearbeitet haben.",
+            "Was ist auf der Grundlage Ihrer Beweiserhebung eine ausgewogenere und mitfühlendere Art, die Situation zu sehen?",
+            "Zum Beispiel könnte 'Ich werde meine Prüfung nicht bestehen' umformuliert werden in 'Ich mache mir Sorgen um die Prüfung, aber ich habe gelernt. Ich werde mein Bestes geben, und das ist alles, was ich tun kann.'",
+            "Schreiben Sie diesen neuen Gedanken auf und bemerken Sie, wie er sich im Vergleich zum ursprünglichen anfühlt."
+          ]
+        }
+      },
+      "day5": {
+        "title": "Alles zusammenfügen",
+        "concept": "Heute kombinieren wir die gelernten Fähigkeiten zu einem einfachen, wiederholbaren Prozess, den Sie jederzeit anwenden können, wenn Sie sich von einem ängstlichen Gedanken überwältigt fühlen. Wiederholung ist der Schlüssel zum Aufbau dieser neuen mentalen Gewohnheit.",
+        "exercise": {
+          "title": "Mini-Gedankenprotokoll",
+          "description": "Eine schnelle, schrittweise Überprüfung der in dieser Woche gelernten Fähigkeiten.",
+          "steps": [
+            "1. Bemerken: Was ist der ängstliche Gedanke?",
+            "2. Identifizieren: Welche kognitive Verzerrung könnte im Spiel sein?",
+            "3. Hinterfragen: Was sind die Beweise für und gegen diesen Gedanken?",
+            "4. Umformulieren: Was ist ein ausgewogenerer, alternativer Gedanke?"
+          ]
+        }
+      }
+    },
+    "sleep_improvement": {
+      "title": "7-Tage-Schlafverbesserungsprogramm",
+      "description": "Ein einwöchiges Programm, das Ihnen hilft, gesunde Schlafgewohnheiten aufzubauen, eine entspannende Abendroutine zu schaffen und Ihre allgemeine Schlafqualität für ein besseres Angstmanagement zu verbessern.",
+      "day1": {
+        "title": "Die Entspannungsstunde",
+        "concept": "So wie Sie sich für Sport aufwärmen, muss sich Ihr Gehirn zum Schlafen abkühlen. Eine 'Pufferzone' von 1 Stunde vor dem Schlafengehen, frei von Bildschirmen und anregenden Aktivitäten, signalisiert Ihrem Körper, dass es Zeit zum Ausruhen ist.",
+        "exercise": {
+          "title": "Gestalten Sie Ihre Entspannungsroutine",
+          "description": "Planen Sie eine Abfolge von beruhigenden Aktivitäten, die Sie jeden Abend vor dem Schlafengehen durchführen.",
+          "steps": [
+            "Wählen Sie 2-3 entspannende, bildschirmfreie Aktivitäten, die Ihnen Spaß machen. Beispiele: ein physisches Buch lesen, sanftes Dehnen, ruhige Musik hören, Kräutertee trinken.",
+            "Legen Sie die Reihenfolge dieser Aktivitäten fest.",
+            "Stellen Sie einen Wecker für 1 Stunde vor Ihrer gewünschten Schlafenszeit. Dies ist Ihr Signal, mit Ihrer Routine zu beginnen.",
+            "Setzen Sie Ihren Plan heute Abend in die Tat um. Das Ziel ist Beständigkeit."
+          ]
+        }
+      },
+      "day2": {
+        "title": "Das Schlaf-Heiligtum",
+        "concept": "Ihre Schlafzimmerumgebung hat einen großen Einfluss auf Ihre Schlafqualität. Der ideale Schlafraum ist kühl, dunkel und ruhig. Dies hilft Ihrem Gehirn, das Schlafzimmer nur mit Schlaf zu assoziieren.",
+        "exercise": {
+          "title": "Umgebungs-Checkliste",
+          "description": "Bewerten und optimieren Sie Ihr Schlafzimmer für den Schlaf.",
+          "steps": [
+            "Temperatur: Ist Ihr Zimmer kühl? Senken Sie den Thermostat nach Möglichkeit leicht ab.",
+            "Licht: Können Sie Ihr Zimmer dunkler machen? Ziehen Sie Verdunkelungsvorhänge oder eine Schlafmaske in Betracht. Decken Sie Elektronik mit Lichtern ab oder entfernen Sie sie.",
+            "Lärm: Können Sie es leiser machen? Ohrstöpsel oder eine Maschine mit weißem Rauschen können helfen, störende Geräusche auszublenden.",
+            "Komfort: Ist Ihr Bett bequem? Stellen Sie sicher, dass Ihre Kissen und Bettwäsche einen erholsamen Schlaf unterstützen."
+          ]
+        }
+      },
+      "day3": {
+        "title": "Koffein & Alkohol",
+        "concept": "Stimulanzien wie Koffein und Beruhigungsmittel wie Alkohol können Ihre Schlafarchitektur erheblich stören, auch wenn Sie leicht einschlafen. Koffein kann viele Stunden im Körper bleiben, während Alkohol dazu führen kann, dass Sie in der zweiten Nachthälfte aufwachen.",
+        "exercise": {
+          "title": "Legen Sie eine Koffein-Sperrstunde fest",
+          "description": "Legen Sie eine Frist für den gesamten Koffeinkonsum fest.",
+          "steps": [
+            "Bestimmen Sie Ihre übliche Schlafenszeit.",
+            "Legen Sie Ihre Koffein-Sperrstunde auf mindestens 8 Stunden vor dieser Zeit fest. Bei einer Schlafenszeit von 22 Uhr sollte Ihr letzter Kaffee vor 14 Uhr sein.",
+            "Halten Sie sich heute an diese Sperrstunde. Beachten Sie, ob es einen Unterschied macht, wie Sie sich zur Schlafenszeit fühlen."
+          ]
+        }
+      },
+      "day4": {
+        "title": "Achtsames Entladen",
+        "concept": "Es ist schwer zu schlafen, wenn der Kopf voller Sorgen und To-Do-Listen ist. Diese Gedanken vor dem Schlafengehen aus dem Kopf und auf Papier zu bringen, kann ein Gefühl des Abschlusses vermitteln und einen beschäftigten Geist beruhigen.",
+        "exercise": {
+          "title": "Tagebuch vor dem Schlafen",
+          "description": "Eine kurze Schreibübung, um den Kopf frei zu bekommen.",
+          "steps": [
+            "Nehmen Sie sich etwa 30 Minuten vor dem Schlafengehen ein Notizbuch und einen Stift.",
+            "Verbringen Sie 5 Minuten damit, alles aufzuschreiben, was Ihnen durch den Kopf geht: Sorgen, Aufgaben für morgen, Dinge, an die Sie sich erinnern müssen.",
+            "Schließen Sie das Notizbuch. Symbolisch legen Sie diese Gedanken für die Nacht beiseite. Sie können sich morgen damit befassen."
+          ]
+        }
+      },
+      "day5": {
+        "title": "Die Macht des Lichts",
+        "concept": "Die innere Uhr Ihres Körpers (zirkadianer Rhythmus) wird stark vom Licht beeinflusst. Die Exposition gegenüber hellem, natürlichem Licht am Morgen hilft Ihnen aufzuwachen und Ihren Schlaf-Wach-Rhythmus zu regulieren, was es erleichtert, zur richtigen Zeit nachts müde zu werden.",
+        "exercise": {
+          "title": "Morgendliche Lichtexposition",
+          "description": "Holen Sie sich kurz nach dem Aufwachen eine Dosis natürliches Licht.",
+          "steps": [
+            "Versuchen Sie, innerhalb von 30 Minuten nach dem Aufwachen mindestens 10 Minuten Sonnenlicht zu bekommen.",
+            "Das kann sein, Ihren Kaffee an einem sonnigen Fenster zu trinken, einen kurzen Spaziergang draußen zu machen oder einfach auf einen Balkon zu treten.",
+            "Vermeiden Sie es, während dieser Zeit wenn möglich eine Sonnenbrille zu tragen, damit das Licht Ihre Augen erreicht."
+          ]
+        }
+      },
+      "day6": {
+        "title": "Der Körper & der Schlaf",
+        "concept": "Regelmäßige körperliche Aktivität kann die Schlafqualität verbessern, aber intensives Training zu kurz vor dem Schlafengehen kann überstimulierend sein. Sanfte, achtsame Bewegung kann jedoch helfen, körperliche Anspannungen zu lösen und den Körper auf die Ruhe vorzubereiten.",
+        "exercise": {
+          "title": "Sanfte Dehnübungen vor dem Schlafen",
+          "description": "Eine kurze, beruhigende Dehnungsroutine, um Ihren Körper zu entspannen.",
+          "steps": [
+            "Kindeshaltung: Knien Sie auf dem Boden, setzen Sie sich auf Ihre Fersen und beugen Sie sich nach vorne, wobei Sie Ihre Stirn auf dem Boden ablegen. 30 Sekunden halten.",
+            "Katze-Kuh-Dehnung: Auf Händen und Knien, runden Sie Ihren Rücken wie eine Katze, lassen Sie dann Ihren Bauch sinken und schauen Sie nach oben wie eine Kuh. 5 Mal wiederholen.",
+            "Beine an der Wand: Legen Sie sich auf den Rücken und strecken Sie Ihre Beine an einer Wand nach oben. Das ist sehr erholsam.",
+            "Konzentrieren Sie sich während der Dehnungen auf Ihre Atmung. Bewegen Sie sich langsam und sanft."
+          ]
+        }
+      },
+      "day7": {
+        "title": "Wenn Sie nicht schlafen können",
+        "concept": "Im Bett zu liegen und frustriert zu sein, dass man nicht schlafen kann, ist kontraproduktiv. Es trainiert Ihr Gehirn, das Bett mit Angst zu assoziieren. Die Faustregel lautet: Wenn Sie nach 20-30 Minuten nicht eingeschlafen sind, stehen Sie auf und tun Sie etwas Beruhigendes bei gedämpftem Licht.",
+        "exercise": {
+          "title": "Übung der ruhigen Wachheit",
+          "description": "Ein Plan, was zu tun ist, wenn Sie nachts wach sind.",
+          "steps": [
+            "Wenn Sie sich hellwach fühlen, stehen Sie aus dem Bett auf.",
+            "Gehen Sie in ein anderes Zimmer und machen Sie eine ruhige, entspannende Aktivität bei gedämpftem Licht, wie zum Beispiel ein langweiliges Buch lesen oder ruhige Musik hören.",
+            "Benutzen Sie nicht Ihr Telefon und schauen Sie nicht fern.",
+            "Wenn Sie wieder müde werden, gehen Sie zurück ins Bett. Das Ziel ist es, Ihr Bett wieder mit Schläfrigkeit zu assoziieren, nicht mit Frustration."
+          ]
+        }
+      }
     }
   },
   "user_profile": {
@@ -337,7 +591,7 @@
     "consent_essential": "Essenziell: Keine Personalisierung. Profil ist deaktiviert.",
     "consent_enhanced": "Erweitert: Ermöglicht Personalisierung mit nicht-sensiblen Daten.",
     "consent_complete": "Vollständig: Ermöglicht volle Personalisierung mit allen verfügbaren Feldern.",
-    "form_disabled_message": "Personalisierung ist deaktiviert. Um sie zu aktivieren, wählen Sie bitte eine erweiterte Dateneinwilligungsstufe.",
+    "form_disabled_message": "Personalisierung ist deaktiviert. Um sie zu aktivieren, wähle bitte eine erweiterte Dateneinwilligungsstufe.",
     "about_you_title": "Über Dich",
     "age_label": "Alter",
     "location_label": "Standort / Zeitzone",
@@ -353,7 +607,7 @@
     },
     "conditions_label": "Diagnostizierte Angst- oder Stimmungsstörungen (optional)",
     "conditions_placeholder": "z.B. GAS, Panikstörung. Halte es allgemein.",
-    "conditions_help_text": "Diese Informationen werden nur auf Ihrem Gerät gespeichert und können helfen, spezifischere Übungen zu generieren.",
+    "conditions_help_text": "Diese Informationen werden nur auf deinem Gerät gespeichert und können helfen, spezifischere Übungen zu generieren.",
     "lifestyle_title": "Lebensstil & Vorlieben",
     "work_env_label": "Arbeits-/Schulumgebung",
     "work_env_options": {
@@ -386,7 +640,7 @@
     },
     "reminders_title": "Tägliche Erinnerungen",
     "reminders_enable_label": "Erinnerungen Aktivieren",
-    "reminders_permission_denied": "Benachrichtigungen sind blockiert. Bitte aktivieren Sie sie in Ihren Browsereinstellungen, um Erinnerungen zu erhalten.",
+    "reminders_permission_denied": "Benachrichtigungen sind blockiert. Bitte aktiviere sie in deinen Browsereinstellungen, um Erinnerungen zu erhalten.",
     "reminders_time_label": "Erinnerungszeit",
     "reminders_type_label": "Erinnerungstyp",
     "reminders_type_options": {
@@ -397,12 +651,12 @@
     "feedback_subtitle": "Hast du einen Vorschlag oder einen Fehler gefunden? Lass es uns wissen!",
     "provide_feedback_button": "Feedback Geben",
     "data_privacy_title": "Daten & Datenschutz",
-    "data_privacy_subtitle": "Alle Ihre Daten (Profil, Verlauf, Tagebuch) werden ausschließlich im lokalen Speicher Ihres Geräts gespeichert. Das Löschen Ihrer Daten ist endgültig und kann nicht rückgängig gemacht werden.",
-    "download_log_subtitle": "Um die App zu verbessern, können Sie freiwillig Ihr anonymes Interaktionsprotokoll herunterladen und mit dem Entwicklungsteam teilen.",
+    "data_privacy_subtitle": "Alle deine Daten (Profil, Verlauf, Tagebuch) werden ausschließlich im lokalen Speicher deines Geräts gespeichert. Das Löschen deiner Daten ist endgültig und kann nicht rückgängig gemacht werden.",
+    "download_log_subtitle": "Um die App zu verbessern, kannst du freiwillig dein anonymes Interaktionsprotokoll herunterladen und mit dem Entwicklungsteam teilen.",
     "download_log_button": "Interaktionsprotokoll Herunterladen",
     "clear_data_button": "Meine Daten Löschen...",
     "clear_data_confirm_title": "Bist du sicher?",
-    "clear_data_confirm_body": "Dadurch werden alle Ihre Einträge und Profilinformationen dauerhaft gelöscht.",
+    "clear_data_confirm_body": "Dadurch werden alle deine Einträge und Profilinformationen dauerhaft gelöscht.",
     "clear_data_confirm_button": "Ja, alles löschen",
     "language_title": "Sprache",
     "cancel_button": "Abbrechen",
@@ -417,7 +671,7 @@
       "general": "Allgemeines Feedback"
     },
     "message_label": "Nachricht",
-    "message_placeholder": "Bitte geben Sie so viele Details wie möglich an...",
+    "message_placeholder": "Bitte gib so viele Details wie möglich an...",
     "submit_button": "Feedback Senden",
     "submitted_message": "Vielen Dank!"
   },
