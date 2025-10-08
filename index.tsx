@@ -23,15 +23,15 @@ root.render(
   </React.StrictMode>
 );
 
-// Register the service worker for PWA functionality
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      })
-      .catch(error => {
-        console.log('ServiceWorker registration failed: ', error);
-      });
-  });
-}
+// PWA functionality is not fully supported in this environment, so the registration is removed to prevent cross-origin errors.
+// if ('serviceWorker' in navigator) {
+//   window.addEventListener('load', () => {
+//     navigator.serviceWorker.register('/sw.js')
+//       .then(registration => {
+//         console.log('ServiceWorker registration successful with scope: ', registration.scope);
+//       })
+//       .catch(error => {
+//         console.log('ServiceWorker registration failed: ', error);
+//       });
+//   });
+// }

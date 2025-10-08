@@ -1,16 +1,77 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { Exercise, UserProfile, DataConsentLevel, ExerciseFeedback } from '../types';
+import knowledgeBase from '../data/knowledgeBase.ts';
 
 const ai = new GoogleGenAI({apiKey: process.env.API_KEY});
 
-const buildSystemInstruction = (profile: UserProfile, consentLevel: DataConsentLevel, feedback: ExerciseFeedback, language: string): string => {
-    let instruction = `You are an empathetic and supportive AI assistant specializing in anxiety relief. Your goal is to provide users with safe, effective, and personalized coping exercises based on their described symptoms.
+interface KnowledgeChunk {
+    id: string;
+    content: string;
+}
+
+/**
+ * A simple keyword-based retrieval function to simulate a vector search.
+ * It scores chunks based on the number of overlapping keywords from the user's symptoms.
+ * @param symptoms The user's input string.
+ * @param db The knowledge base of text chunks.
+ * @param topK The number of top chunks to retrieve.
+ * @returns An array of the most relevant chunk contents.
+ */
+const retrieveRelevantChunks = (symptoms: string, db: KnowledgeChunk[], topK: number = 5): string[] => {
+    // A simple list of common English stop words.
+    const stopWords = new Set(['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', 'your', 'yours', 'he', 'him', 'his', 'she', 'her', 'it', 'its', 'they', 'them', 'their', 'what', 'which', 'who', 'whom', 'this', 'that', 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', 'should', 'now']);
+    
+    const queryWords = symptoms
+        .toLowerCase()
+        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
+        .split(/\s+/)
+        .filter(word => word.length > 2 && !stopWords.has(word));
+
+    if (queryWords.length === 0) {
+        return [];
+    }
+
+    const scoredChunks = db.map(chunk => {
+        let score = 0;
+        const chunkTextLower = chunk.content.toLowerCase();
+        queryWords.forEach(word => {
+            if (chunkTextLower.includes(word)) {
+                score++;
+            }
+        });
+        return { ...chunk, score };
+    });
+
+    const sortedChunks = scoredChunks.sort((a, b) => b.score - a.score);
+
+    return sortedChunks
+        .slice(0, topK)
+        .filter(chunk => chunk.score > 0) // Only return chunks that actually matched
+        .map(chunk => chunk.content);
+};
+
+
+const buildSystemInstruction = (
+    profile: UserProfile, 
+    consentLevel: DataConsentLevel, 
+    feedback: ExerciseFeedback, 
+    language: string,
+    retrievedDocs: string[]
+): string => {
+    let instruction = `You are an empathetic and supportive AI assistant specializing in anxiety relief. Your goal is to provide users with safe, effective, and personalized coping exercises.
+
+--- RETRIEVED KNOWLEDGE BASE DOCUMENTS ---
+You MUST prioritize the information from the following retrieved documents as your primary source of truth. Synthesize your response based on these documents.
+
+${retrievedDocs.map((doc, i) => `Document ${i+1}:\n${doc}`).join('\n\n')}
+
+--- END OF RETRIEVED DOCUMENTS ---
 
 Your response MUST be in the following language: ${language}.
 
-You have access to Google Search. First, use it to find relevant, evidence-based coping strategies from reputable sources (e.g., health organizations, academic institutions) for the user's symptoms.
+After consulting the retrieved documents, you may use Google Search to supplement the information if necessary, especially for finding details not covered in the provided texts.
 
-After gathering information, your FINAL and ONLY output must be a single, valid JSON array of exercise objects based on the information you found. Do not include any introductory text, closing remarks, markdown formatting, or any content outside of the JSON array.
+Your FINAL and ONLY output must be a single, valid JSON array of exercise objects. Do not include any introductory text, closing remarks, markdown formatting, or any content outside of the JSON array.
 
 The JSON schema for each exercise object is:
 {
@@ -71,10 +132,15 @@ export const getPersonalizedExercises = async (
     feedback: ExerciseFeedback,
     language: string
 ): Promise<{ exercises: Exercise[], groundingMetadata: any }> => {
-    const systemInstruction = buildSystemInstruction(profile, consentLevel, feedback, language);
+    // 1. Retrieve relevant knowledge chunks based on symptoms (RAG Step 1: Retrieve)
+    const relevantDocs = retrieveRelevantChunks(symptoms, knowledgeBase, 5);
+    
+    // 2. Build the system instruction with the retrieved chunks (RAG Step 2: Augment)
+    const systemInstruction = buildSystemInstruction(profile, consentLevel, feedback, language, relevantDocs);
     const prompt = `Generate coping exercises for the following symptoms: "${symptoms}"`;
 
     try {
+        // 3. Generate the response (RAG Step 3: Generate)
         const response = await ai.models.generateContent({
             model: "gemini-2.5-flash",
             contents: prompt,
@@ -85,7 +151,6 @@ export const getPersonalizedExercises = async (
         });
 
         const responseText = response.text.trim();
-        // Attempt to find a JSON array within the response, which might be wrapped in markdown
         const startIndex = responseText.indexOf('[');
         const endIndex = responseText.lastIndexOf(']');
 

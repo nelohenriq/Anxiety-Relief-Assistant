@@ -52,7 +52,7 @@ function createBlob(data: Float32Array): GenAI_Blob {
 // --- Component ---
 
 interface Transcript {
-    id: number;
+    id: string;
     speaker: 'user' | 'coach';
     text: string;
 }
@@ -161,16 +161,14 @@ const LiveCoach: React.FC<{ searchQuery: string }> = ({ searchQuery }) => {
                             const userInput = currentInputRef.current.trim();
                             const coachInput = currentOutputRef.current.trim();
                             
-                            // FIX: Explicitly create new transcript entries with the correct type to resolve TypeScript error.
                             if (userInput || coachInput) {
                                 setTranscripts(prev => {
                                     const newEntries: Transcript[] = [];
-                                    const now = Date.now();
                                     if (userInput) {
-                                        newEntries.push({ id: now, speaker: 'user', text: userInput });
+                                        newEntries.push({ id: crypto.randomUUID(), speaker: 'user', text: userInput });
                                     }
                                     if (coachInput) {
-                                        newEntries.push({ id: now + 1, speaker: 'coach', text: coachInput });
+                                        newEntries.push({ id: crypto.randomUUID(), speaker: 'coach', text: coachInput });
                                     }
                                     return [...prev, ...newEntries];
                                 });
