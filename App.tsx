@@ -19,7 +19,8 @@ import ReminderHandler from './components/ReminderHandler';
 import SearchBar from './components/SearchBar';
 import MotivationalSlider from './components/MotivationalSlider';
 import LiveCoach from './components/LiveCoach';
-import { getPersonalizedExercises } from './services/geminiService';
+import OnboardingModal from './components/OnboardingModal';
+import { getPersonalizedExercises } from './services/llmService';
 import { logInteraction } from './services/interactionLogger';
 import { Exercise, ExerciseFeedback, FeedbackRating, PlanHistoryEntry, CompletedExerciseLog, FeedbackEntry } from './types';
 import { useUser } from './context/UserContext';
@@ -39,8 +40,9 @@ const App: React.FC = () => {
     const [feedbackHistory, setFeedbackHistory] = useLocalStorage<FeedbackEntry[]>('feedbackHistory', []);
     const [showHeaderBg, setShowHeaderBg] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
+    const [hasCompletedOnboarding, setHasCompletedOnboarding] = useLocalStorage('hasCompletedOnboarding', false);
 
-    const { profile, consentLevel } = useUser();
+    const { profile, consentLevel, llmProvider, ollamaModel } = useUser();
 
     const handleScroll = () => {
         if (window.scrollY > 50) {
@@ -68,10 +70,10 @@ const App: React.FC = () => {
         // setExercises([]);
         setSearchQuery(''); // Clear search on new submission
         
-        logInteraction({ type: 'GENERATE_PLAN' });
+        logInteraction({ type: 'GENERATE_PLAN', metadata: { provider: llmProvider } });
 
         try {
-            const { exercises: result, groundingMetadata } = await getPersonalizedExercises(symptoms, profile, consentLevel, feedback, i18n.language);
+            const { exercises: result, sources } = await getPersonalizedExercises(llmProvider, ollamaModel, symptoms, profile, consentLevel, feedback, i18n.language);
             setExercises(result);
 
             const newHistoryEntry: PlanHistoryEntry = {
@@ -79,7 +81,7 @@ const App: React.FC = () => {
                 timestamp: new Date().toISOString(),
                 userInput: symptoms,
                 generatedExercises: result,
-                groundingMetadata: groundingMetadata,
+                sources: sources,
             };
             setPlanHistory([newHistoryEntry, ...planHistory]);
 
@@ -162,6 +164,9 @@ const App: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-neutral-100 dark:bg-neutral-900 font-sans transition-colors duration-300 text-neutral-800 dark:text-neutral-300">
+            {!hasCompletedOnboarding && (
+                <OnboardingModal onComplete={() => setHasCompletedOnboarding(true)} />
+            )}
             <Header
                 onOpenProfile={() => setIsProfileOpen(true)}
                 showBackground={showHeaderBg}

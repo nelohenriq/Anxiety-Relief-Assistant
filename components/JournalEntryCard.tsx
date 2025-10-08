@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { JournalEntry } from '../types';
-import { getJournalAnalysis } from '../services/geminiService';
+import { getJournalAnalysis } from '../services/llmService';
 import { logInteraction } from '../services/interactionLogger';
 import Tooltip from './Tooltip';
+import { useUser } from '../context/UserContext';
 
 interface JournalEntryCardProps {
     entry: JournalEntry;
@@ -11,6 +12,7 @@ interface JournalEntryCardProps {
 
 const JournalEntryCard: React.FC<JournalEntryCardProps> = ({ entry }) => {
     const { t, i18n } = useTranslation();
+    const { llmProvider, ollamaModel } = useUser();
     const [analysis, setAnalysis] = useState<string | null>(null);
     const [isAnalyzing, setIsAnalyzing] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -19,9 +21,9 @@ const JournalEntryCard: React.FC<JournalEntryCardProps> = ({ entry }) => {
         setIsAnalyzing(true);
         setError(null);
         setAnalysis(null);
-        logInteraction({ type: 'REQUEST_JOURNAL_ANALYSIS' });
+        logInteraction({ type: 'REQUEST_JOURNAL_ANALYSIS', metadata: { provider: llmProvider } });
         try {
-            const result = await getJournalAnalysis(entry.text, i18n.language);
+            const result = await getJournalAnalysis(llmProvider, ollamaModel, entry.text, i18n.language);
             setAnalysis(result);
         } catch (err) {
             if (err instanceof Error) {

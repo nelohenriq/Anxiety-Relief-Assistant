@@ -1,6 +1,6 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { Exercise, UserProfile, DataConsentLevel, ExerciseFeedback } from '../../types';
-import knowledgeBase from '../../data/knowledgeBase.ts';
+import knowledgeBase from '../../data/knowledgeBase';
 
 const ai = new GoogleGenAI({apiKey: process.env.API_KEY});
 
@@ -172,7 +172,7 @@ export const getPersonalizedExercises = async (
         const sources = groundingMetadata?.groundingChunks?.map((chunk: any) => ({
             url: chunk.web.uri,
             title: chunk.web.title
-        })) || [];
+        })).filter((s: any) => s.url && s.title) || [];
 
         return { exercises, sources };
 

@@ -9,6 +9,44 @@
     "subtitle": "Describe how you're feeling, and let our AI create a personalized plan with coping exercises to guide you toward relief.",
     "get_started_button": "Get Started"
   },
+  "onboarding": {
+    "welcome": {
+      "title": "Welcome to Serene",
+      "subtitle": "Your personalized anxiety relief assistant, powered by AI.",
+      "body": "This app is designed to help you understand and manage moments of anxiety by providing evidence-based coping strategies tailored just for you."
+    },
+    "features": {
+      "title": "How It Works",
+      "feature1_title": "Describe Your Feelings",
+      "feature1_body": "Use your voice or text to explain how you're feeling in the moment.",
+      "feature2_title": "Get a Personalized Plan",
+      "feature2_body": "Our AI analyzes your input and creates a unique plan with guided exercises.",
+      "feature3_title": "Explore & Grow",
+      "feature3_body": "Discover a library of tools like breathing exercises, a private journal, and guided programs."
+    },
+    "consent": {
+      "title": "Your Data, Your Control",
+      "subtitle": "All your data is stored securely on your device. To improve personalization, you can choose to share anonymous profile data with the AI.",
+      "body": "Higher consent levels enable more tailored exercise recommendations. You can change this at any time in your settings.",
+      "consent_essential_title": "Essential",
+      "consent_essential_body": "No personalization. Your profile data is not used by the AI.",
+      "consent_enhanced_title": "Enhanced (Recommended)",
+      "consent_enhanced_body": "Allows personalization using non-sensitive data like your activity level and work environment.",
+      "consent_complete_title": "Complete",
+      "consent_complete_body": "Enables full personalization using all profile fields you choose to fill out."
+    },
+    "profile": {
+      "title": "Quick Setup (Optional)",
+      "subtitle": "Answering these questions helps us make your first recommendations even better. You can skip this and change it later in your profile settings."
+    },
+    "buttons": {
+      "next": "Next",
+      "back": "Back",
+      "finish": "Finish Setup",
+      "get_started": "Get Started",
+      "skip": "Skip for now"
+    }
+  },
   "symptom_input": {
     "title": "How are you feeling right now?",
     "placeholder": "e.g., 'My heart is racing and I can't stop worrying about my presentation tomorrow.'",
@@ -591,6 +629,15 @@
     "consent_enhanced": "Enhanced: Enables personalization with non-sensitive data.",
     "consent_complete": "Complete: Enables full personalization with all available fields.",
     "form_disabled_message": "Personalization is disabled. To enable it, please select an enhanced data consent level.",
+    "ai_provider_title": "AI Provider",
+    "provider_label": "Provider",
+    "ollama_model_label": "Ollama Model",
+    "ollama_model_helper": "Ensure your local Ollama server is running. The app will attempt to connect to http://localhost:11434.",
+    "ollama_test_connection_tooltip": "Refresh model list",
+    "ollama_status_testing": "Testing connection...",
+    "ollama_status_success": "Connection successful. {{count}} models found.",
+    "ollama_status_error": "Connection failed:",
+    "ollama_no_models": "No models found",
     "about_you_title": "About You",
     "age_label": "Age",
     "location_label": "Location / Time Zone",

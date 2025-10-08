@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getMotivationalQuotes } from '../services/geminiService';
+import { getMotivationalQuotes } from '../services/llmService';
+import { useUser } from '../context/UserContext';
 
 const MotivationalSlider: React.FC = () => {
     const { i18n } = useTranslation();
+    const { llmProvider, ollamaModel } = useUser();
     const [quotes, setQuotes] = useState<string[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFading, setIsFading] = useState(false);
@@ -11,7 +13,7 @@ const MotivationalSlider: React.FC = () => {
     useEffect(() => {
         const fetchQuotes = async () => {
             try {
-                const result = await getMotivationalQuotes(i18n.language);
+                const result = await getMotivationalQuotes(llmProvider, ollamaModel, i18n.language);
                 setQuotes(result);
             } catch (error) {
                 console.error("Failed to fetch motivational quotes:", error);
@@ -19,7 +21,7 @@ const MotivationalSlider: React.FC = () => {
             }
         };
         fetchQuotes();
-    }, [i18n.language]);
+    }, [i18n.language, llmProvider, ollamaModel]);
     
     useEffect(() => {
         if (quotes.length > 1) {

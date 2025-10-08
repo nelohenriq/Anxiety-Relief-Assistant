@@ -2,6 +2,8 @@ import React, { createContext, useContext, ReactNode } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { UserProfile, DataConsentLevel, ReminderSettings } from '../types';
 
+type LlmProvider = 'gemini' | 'ollama';
+
 interface UserContextType {
     profile: UserProfile;
     setProfile: (profile: UserProfile) => void;
@@ -9,6 +11,10 @@ interface UserContextType {
     setConsentLevel: (level: DataConsentLevel) => void;
     reminderSettings: ReminderSettings;
     setReminderSettings: (settings: ReminderSettings) => void;
+    llmProvider: LlmProvider;
+    setLlmProvider: (provider: LlmProvider) => void;
+    ollamaModel: string;
+    setOllamaModel: (model: string) => void;
     clearAllData: () => void;
 }
 
@@ -22,6 +28,8 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         time: '09:00',
         type: 'gentle',
     });
+    const [llmProvider, setLlmProvider] = useLocalStorage<LlmProvider>('llmProvider', 'gemini');
+    const [ollamaModel, setOllamaModel] = useLocalStorage<string>('ollamaModel', 'llama3');
     
     const clearAllData = () => {
         // This is a list of all keys managed by useLocalStorage in the app.
@@ -39,7 +47,9 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             'exerciseHistory',
             'moodLogs',
             'feedbackHistory',
-            'interactionLog'
+            'interactionLog',
+            'llmProvider',
+            'ollamaModel'
         ];
         
         keysToRemove.forEach(key => {
@@ -50,7 +60,7 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         window.location.reload();
     };
 
-    const value = { profile, setProfile, consentLevel, setConsentLevel, reminderSettings, setReminderSettings, clearAllData };
+    const value = { profile, setProfile, consentLevel, setConsentLevel, reminderSettings, setReminderSettings, llmProvider, setLlmProvider, ollamaModel, setOllamaModel, clearAllData };
 
     return (
         <UserContext.Provider value={value}>

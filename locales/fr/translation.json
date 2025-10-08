@@ -9,6 +9,44 @@
     "subtitle": "Décrivez ce que vous ressentez, et laissez notre IA créer un plan personnalisé avec des exercices d'adaptation pour vous guider vers le soulagement.",
     "get_started_button": "Commencer"
   },
+  "onboarding": {
+    "welcome": {
+      "title": "Bienvenue sur Serene",
+      "subtitle": "Votre assistant personnalisé pour le soulagement de l'anxiété, alimenté par l'IA.",
+      "body": "Cette application est conçue pour vous aider à comprendre et à gérer les moments d'anxiété en fournissant des stratégies d'adaptation basées sur des preuves et adaptées spécialement pour vous."
+    },
+    "features": {
+      "title": "Comment Ça Marche",
+      "feature1_title": "Décrivez Vos Sentiments",
+      "feature1_body": "Utilisez votre voix ou du texte pour expliquer ce que vous ressentez sur le moment.",
+      "feature2_title": "Obtenez un Plan Personnalisé",
+      "feature2_body": "Notre IA analyse votre description et crée un plan unique avec des exercices guidés.",
+      "feature3_title": "Explorez et Progressez",
+      "feature3_body": "Découvrez une bibliothèque d'outils comme des exercices de respiration, un journal privé et des programmes guidés."
+    },
+    "consent": {
+      "title": "Vos Données, Votre Contrôle",
+      "subtitle": "Toutes vos données sont stockées en toute sécurité sur votre appareil. Pour améliorer la personnalisation, vous pouvez choisir de partager des données de profil anonymes avec l'IA.",
+      "body": "Des niveaux de consentement plus élevés permettent des recommandations d'exercices plus personnalisées. Vous pouvez modifier cela à tout moment dans vos paramètres.",
+      "consent_essential_title": "Essentiel",
+      "consent_essential_body": "Aucune personnalisation. Vos données de profil ne sont pas utilisées par l'IA.",
+      "consent_enhanced_title": "Amélioré (Recommandé)",
+      "consent_enhanced_body": "Permet la personnalisation à l'aide de données non sensibles comme votre niveau d'activité et votre environnement de travail.",
+      "consent_complete_title": "Complet",
+      "consent_complete_body": "Permet une personnalisation complète en utilisant tous les champs de profil que vous choisissez de remplir."
+    },
+    "profile": {
+      "title": "Configuration Rapide (Optionnel)",
+      "subtitle": "Répondre à ces questions nous aide à rendre vos premières recommandations encore meilleures. Vous pouvez ignorer cette étape et la modifier plus tard dans les paramètres de votre profil."
+    },
+    "buttons": {
+      "next": "Suivant",
+      "back": "Retour",
+      "finish": "Terminer la Configuration",
+      "get_started": "Commencer",
+      "skip": "Ignorer pour l'instant"
+    }
+  },
   "symptom_input": {
     "title": "Comment vous sentez-vous en ce moment ?",
     "placeholder": "p. ex. 'Mon cœur bat la chamade et je ne peux pas m'empêcher de m'inquiéter pour ma présentation de demain.'",
@@ -292,7 +330,7 @@
         "Répétez silencieusement les phrases suivantes, dirigées vers vous-même : 'Puissé-je être heureux(se). Puissé-je être en bonne santé. Puissé-je être en sécurité. Puissé-je vivre avec aisance.' Ressentez l'intention derrière les mots.",
         "Maintenant, pensez à quelqu'un que vous aimez profondément, comme un ami proche ou un membre de votre famille. Adressez-lui ces phrases : 'Puisses-tu être heureux(se). Puisses-tu être en bonne santé. Puisses-tu être en sécurité. Puisses-tu vivre avec aisance.'",
         "Ensuite, pensez à une personne neutre, quelqu'un que vous n'aimez ni ne détestez, peut-être un caissier de magasin ou un voisin que vous voyez occasionnellement. Offrez-lui les mêmes vœux bienveillants : 'Puissiez-vous être heureux(se). Puissiez-vous être en bonne santé. Puissiez-vous être en sécurité. Puissiez-vous vivre avec aisance.'",
-        "Si vous vous en sentez capable, pensez à quelqu'un avec qui vous avez des dificultades. Voyez si vous pouvez leur étendre ces vœux, même un petit peu : 'Puissiez-vous être heureux(se). Puissiez-vous être en bonne santé. Puissiez-vous être en sécurité. Puissiez-vous vivre avec aisance.'",
+        "Si vous vous en sentez capable, pensez à quelqu'un avec qui vous avez des difficultés. Voyez si vous pouvez leur étendre ces vœux, même un petit peu : 'Puissiez-vous être heureux(se). Puissiez-vous être en bonne santé. Puissiez-vous être en sécurité. Puissiez-vous vivre avec aisance.'",
         "Enfin, élargissez votre conscience pour inclure tous les êtres vivants, partout, sans exception : 'Puissent tous les êtres être heureux. Puissent tous les êtres être en bonne santé. Puissent tous les êtres être en sécurité. Puissent tous les êtres vivre avec aisance.'",
         "Reposez-vous dans ce sentiment de cœur ouvert pendant quelques instants avant de ramener doucement votre conscience dans la pièce et d'ouvrir les yeux."
       ]
@@ -341,7 +379,7 @@
         "Mentalement, appliquez une étiquette douce et légère à la pensée. Une simple étiquette comme \"pensée\" ou \"inquiétude\" suffit. Pas besoin d'analyser le contenu.",
         "Après avoir noté la pensée, ramenez doucement votre attention sur votre respiration. Votre respiration est votre ancre.",
         "Répétez ce processus chaque fois qu'une pensée capte votre attention. Le but n'est pas d'arrêter de penser, mais de changer votre relation avec vos pensées.",
-        "Continuez pendant la durée indiquée. Quand vous êtes prêt(e), ramenez votre conscience dans la pièce et ouvrez lentamente les yeux."
+        "Continuez pendant la durée indiquée. Quand vous êtes prêt(e), ramenez votre conscience dans la pièce et ouvrez lentement les yeux."
       ]
     }
   },
@@ -479,30 +517,30 @@
     },
     "sleep_improvement": {
       "title": "Programme d'Amélioration du Sommeil de 7 Jours",
-      "description": "Un programme d'une semaine pour vous aider à adopter de saines habitudes de sommeil, à créer une routine relaxante au coucher et à améliorer la qualité globale de votre sommeil pour une meilleure gestion de l'anxiété.",
+      "description": "Un programme d'une semaine pour vous aider à développer de saines habitudes de sommeil, à créer une routine relaxante au coucher et à améliorer la qualité globale de votre sommeil pour une meilleure gestion de l'anxiété.",
       "day1": {
         "title": "L'Heure de Détente",
-        "concept": "Tout comme vous vous échauffez pour faire de l'exercice, votre cerveau a besoin de se calmer pour dormir. Créer une 'zone tampon' d'une heure avant le coucher, sans écrans ni activités stimulantes, signale à votre corps qu'il est temps de se reposer.",
+        "concept": "Tout comme vous vous échauffez pour l'exercice, votre cerveau a besoin de se calmer avant de dormir. Créer une 'zone tampon' d'une heure avant le coucher, sans écrans ni activités stimulantes, signale à votre corps qu'il est temps de se reposer.",
         "exercise": {
           "title": "Concevez Votre Routine de Détente",
           "description": "Planifiez une séquence d'activités apaisantes à effectuer chaque soir avant de vous coucher.",
           "steps": [
-            "Choisissez 2-3 activités relaxantes et sans écran que vous aimez. Exemples : lire un livre papier, faire des étirements doux, écouter de la musique calme, siroter une tisane.",
+            "Choisissez 2 ou 3 activités relaxantes et sans écran que vous appréciez. Exemples : lire un livre papier, faire des étirements doux, écouter de la musique calme, siroter une tisane.",
             "Décidez de l'ordre de ces activités.",
-            "Réglez une alarme pour 1 heure avant l'heure de coucher souhaitée. C'est votre signal pour commencer votre routine.",
-            "Ce soir, mettez votre plan en action. Le but est la régularité."
+            "Réglez une alarme pour 1 heure avant l'heure de coucher souhaitée. C'est le signal pour commencer votre routine.",
+            "Ce soir, mettez votre plan en action. L'objectif est la régularité."
           ]
         }
       },
       "day2": {
         "title": "Le Sanctuaire du Sommeil",
-        "concept": "L'environnement de votre chambre a un impact majeur sur la qualité de votre sommeil. L'espace de sommeil idéal est frais, sombre et silencieux. Cela aide votre cerveau à associer la chambre au sommeil et uniquement au sommeil.",
+        "concept": "L'environnement de votre chambre a un impact majeur sur la qualité de votre sommeil. L'espace de sommeil idéal est frais, sombre et calme. Cela aide votre cerveau à associer la chambre au sommeil, et uniquement au sommeil.",
         "exercise": {
-          "title": "Liste de Contrôle Environnementale",
+          "title": "Check-list de l'Environnement",
           "description": "Évaluez et optimisez votre chambre pour le sommeil.",
           "steps": [
             "Température : Votre chambre est-elle fraîche ? Si possible, baissez légèrement le thermostat.",
-            "Lumière : Pouvez-vous rendre votre chambre plus sombre ? Pensez à des rideaux occultants ou à un masque de sommeil. Couvrez ou retirez les appareils électroniques avec des lumières.",
+            "Lumière : Pouvez-vous rendre votre chambre plus sombre ? Envisagez des rideaux occultants ou un masque de sommeil. Couvrez ou retirez les appareils électroniques lumineux.",
             "Bruit : Pouvez-vous la rendre plus silencieuse ? Des bouchons d'oreilles ou une machine à bruit blanc peuvent aider à bloquer les sons perturbateurs.",
             "Confort : Votre lit est-il confortable ? Assurez-vous que vos oreillers et votre literie favorisent un sommeil réparateur."
           ]
@@ -517,61 +555,61 @@
           "steps": [
             "Déterminez votre heure de coucher habituelle.",
             "Fixez votre couvre-feu pour la caféine au moins 8 heures avant cette heure. Pour un coucher à 22h, votre dernier café devrait être avant 14h.",
-            "Respectez ce couvre-feu aujourd'hui. Remarquez si cela fait une différence sur ce que vous ressentez à l'heure du coucher."
+            "Respectez ce couvre-feu aujourd'hui. Remarquez si cela fait une différence sur votre état à l'heure du coucher."
           ]
         }
       },
       "day4": {
         "title": "Déchargement Mental Conscient",
-        "concept": "Il est difficile de dormir lorsque votre esprit est en ébullition avec des soucis et des listes de choses à faire. Sortir ces pensées de votre tête et les mettre sur papier avant de vous coucher peut procurer un sentiment de clôture et calmer un esprit agité.",
+        "concept": "Il est difficile de dormir quand votre esprit est en ébullition avec des soucis et des listes de choses à faire. Sortir ces pensées de votre tête et les mettre sur papier avant de vous coucher peut procurer un sentiment de clôture et calmer un esprit agité.",
         "exercise": {
-          "title": "Journal Pré-Sommeil",
+          "title": "Journalisation Avant le Sommeil",
           "description": "Un bref exercice d'écriture pour vous vider l'esprit.",
           "steps": [
             "Environ 30 minutes avant de vous coucher, prenez un carnet et un stylo.",
-            "Passez 5 minutes à écrire tout ce qui vous préoccupe : soucis, tâches pour demain, choses à retenir.",
+            "Passez 5 minutes à écrire tout ce qui vous préoccupe : soucis, tâches pour demain, choses à ne pas oublier.",
             "Fermez le carnet. Symboliquement, vous mettez ces pensées de côté pour la nuit. Vous pourrez vous en occuper demain."
           ]
         }
       },
       "day5": {
         "title": "Le Pouvoir de la Lumière",
-        "concept": "L'horloge interne de votre corps (rythme circadien) est fortement influencée par la lumière. L'exposition à une lumière naturelle vive le matin aide à vous réveiller et à réguler votre cycle veille-sommeil, ce qui facilite l'endormissement au bon moment le soir.",
+        "concept": "L'horloge interne de votre corps (rythme circadien) est fortement influencée par la lumière. L'exposition à une lumière vive et naturelle le matin aide à vous réveiller et à réguler votre cycle veille-sommeil, ce qui facilite l'endormissement au bon moment le soir.",
         "exercise": {
           "title": "Exposition à la Lumière du Matin",
-          "description": "Prenez une dose de lumière naturelle peu de temps après votre réveil.",
+          "description": "Prenez une dose de lumière naturelle peu après votre réveil.",
           "steps": [
-            "Dans les 30 minutes suivant votre réveil, essayez d'obtenir au moins 10 minutes de lumière du soleil.",
-            "Cela pourrait être boire votre café près d'une fenêtre ensoleillée, faire une courte promenade à l'extérieur ou simplement sortir sur un balcon.",
+            "Dans les 30 minutes qui suivent votre réveil, essayez de vous exposer au moins 10 minutes à la lumière du soleil.",
+            "Cela peut être en buvant votre café près d'une fenêtre ensoleillée, en faisant une courte promenade à l'extérieur, ou simplement en sortant sur un balcon.",
             "Évitez de porter des lunettes de soleil pendant ce temps si possible pour laisser la lumière atteindre vos yeux."
           ]
         }
       },
       "day6": {
         "title": "Le Corps et le Sommeil",
-        "concept": "Une activité physique régulière peut améliorer la qualité du sommeil, mais un exercice intense trop près de l'heure du coucher peut être trop stimulant. Cependant, des mouvements doux et conscients peuvent aider à relâcher les tensions physiques et à préparer le corps au repos.",
+        "concept": "Une activité physique régulière peut améliorer la qualité du sommeil, mais un exercice intense trop près de l'heure du coucher peut être surstimulant. Cependant, des mouvements doux et conscients peuvent aider à relâcher les tensions physiques et à préparer le corps au repos.",
         "exercise": {
           "title": "Étirements Doux Avant le Coucher",
-          "description": "Une routine d'étirements courte et apaisante pour détendre votre corps.",
+          "description": "Une courte routine d'étirements apaisants pour détendre votre corps.",
           "steps": [
-            "Posture de l'Enfant : Agenouillez-vous sur le sol, asseyez-vous sur vos talons et penchez-vous en avant, en posant votre front sur le sol. Maintenez pendant 30 secondes.",
-            "Étirement Chat-Vache : À quatre pattes, arrondissez votre dos comme un chat, puis creusez votre ventre et levez les yeux comme une vache. Répétez 5 fois.",
+            "Posture de l'Enfant : Agenouillez-vous sur le sol, asseyez-vous sur vos talons et penchez-vous en avant, en posant votre front sur le sol. Maintenez 30 secondes.",
+            "Étirement Chat-Vache : À quatre pattes, arrondissez votre dos comme un chat, puis creusez votre ventre et levez la tête comme une vache. Répétez 5 fois.",
             "Jambes au Mur : Allongez-vous sur le dos avec les jambes étendues contre un mur. C'est très réparateur.",
             "Concentrez-vous sur votre respiration tout au long des étirements. Bougez lentement et doucement."
           ]
         }
       },
       "day7": {
-        "title": "Quand Vous ne Pouvez Pas Dormir",
-        "concept": "Rester au lit en se sentant frustré de ne pas pouvoir dormir est contre-productif. Cela entraîne votre cerveau à associer le lit à l'anxiété. La règle d'or est la suivante : si vous n'êtes pas endormi après 20-30 minutes, levez-vous et faites quelque chose de calme dans une faible lumière.",
+        "title": "Quand Vous ne Pouvez pas Dormir",
+        "concept": "Rester au lit, frustré(e) de ne pas pouvoir dormir, est contre-productif. Cela apprend à votre cerveau à associer le lit à l'anxiété. La règle d'or est : si vous n'êtes pas endormi(e) après 20-30 minutes, levez-vous et faites quelque chose de calme dans une faible lumière.",
         "exercise": {
           "title": "Pratique de l'Éveil Calme",
-          "description": "Un plan sur ce qu'il faut faire lorsque vous êtes réveillé la nuit.",
+          "description": "Un plan pour savoir quoi faire quand vous êtes éveillé(e) la nuit.",
           "steps": [
-            "Si vous vous retrouvez bien réveillé, sortez du lit.",
-            "Allez dans une autre pièce et faites une activité calme et relaxante sous une lumière tamisée, comme lire un livre ennuyeux ou écouter de la musique calme.",
+            "Si vous vous retrouvez complètement éveillé(e), sortez du lit.",
+            "Allez dans une autre pièce et faites une activité calme et relaxante dans une lumière tamisée, comme lire un livre ennuyeux ou écouter de la musique douce.",
             "N'utilisez pas votre téléphone et ne regardez pas la télévision.",
-            "Lorsque vous commencez à vous sentir à nouveau somnolent, retournez au lit. Le but est de réassocier votre lit à la somnolence, et non à la frustration."
+            "Quand vous commencez à vous sentir à nouveau somnolent(e), retournez au lit. Le but est de réassocier votre lit à la somnolence, et non à la frustration."
           ]
         }
       }
@@ -582,20 +620,29 @@
     "tabs": {
       "settings": "Paramètres",
       "activity_log": "Journal d'Activité",
-      "feedback_history": "Mon Feedback"
+      "feedback_history": "Mes Retours"
     },
     "close_aria_label": "Fermer les paramètres",
     "consent_title": "Consentement des Données",
     "consent_subtitle": "Des niveaux de consentement plus élevés permettent à l'IA de générer des exercices plus personnalisés en utilisant les données de profil que vous fournissez ci-dessous.",
-    "consent_essential": "Essentiel : Pas de personnalisation. Le profil est désactivé.",
-    "consent_enhanced": "Amélioré : Active la personnalisation avec des données non sensibles.",
-    "consent_complete": "Complet : Active la personnalisation complète avec tous les champs disponibles.",
+    "consent_essential": "Essentiel : Aucune personnalisation. Le profil est désactivé.",
+    "consent_enhanced": "Amélioré : Permet la personnalisation avec des données non sensibles.",
+    "consent_complete": "Complet : Permet une personnalisation complète avec tous les champs disponibles.",
     "form_disabled_message": "La personnalisation est désactivée. Pour l'activer, veuillez sélectionner un niveau de consentement de données amélioré.",
+    "ai_provider_title": "Fournisseur d'IA",
+    "provider_label": "Fournisseur",
+    "ollama_model_label": "Modèle Ollama",
+    "ollama_model_helper": "Assurez-vous que votre serveur Ollama local est en cours d'exécution. L'application tentera de se connecter à http://localhost:11434.",
+    "ollama_test_connection_tooltip": "Actualiser la liste des modèles",
+    "ollama_status_testing": "Test de la connexion...",
+    "ollama_status_success": "Connexion réussie. {{count}} modèles trouvés.",
+    "ollama_status_error": "La connexion a échoué :",
+    "ollama_no_models": "Aucun modèle trouvé",
     "about_you_title": "À Propos de Vous",
     "age_label": "Âge",
     "location_label": "Lieu / Fuseau Horaire",
-    "location_placeholder": "p. ex., Paris / CET",
-    "wellness_profile_title": "Profil de Bien-être",
+    "location_placeholder": "ex: Paris / CET",
+    "wellness_profile_title": "Profil Bien-être",
     "sleep_label": "Sommeil moyen par nuit (heures) ?",
     "caffeine_label": "Consommation Typique de Caféine",
     "caffeine_options": {
@@ -604,10 +651,10 @@
       "moderate": "Modérée",
       "high": "Élevée"
     },
-    "conditions_label": "Conditions d'Anxiété ou d'Humeur Diagnostiquées (facultatif)",
-    "conditions_placeholder": "p. ex., TAG, Trouble panique. Restez général.",
+    "conditions_label": "Conditions d'Anxiété ou d'Humeur Diagnostiquées (optionnel)",
+    "conditions_placeholder": "ex: TAG, Trouble Panique. Restez général.",
     "conditions_help_text": "Ces informations sont stockées uniquement sur votre appareil et peuvent aider à générer des exercices plus spécifiques.",
-    "lifestyle_title": "Style de Vie et Préférences",
+    "lifestyle_title": "Style de Vie & Préférences",
     "work_env_label": "Environnement de Travail/Scolaire",
     "work_env_options": {
       "office": "Bureau / Intérieur",
@@ -630,7 +677,7 @@
       "very_active": "Très Actif (exercice intense la plupart des jours)"
     },
     "coping_styles_label": "Qu'est-ce qui vous a aidé par le passé ?",
-    "coping_styles_placeholder": "p. ex., parler à des amis, faire une promenade, applications de pleine conscience",
+    "coping_styles_placeholder": "ex: parler à des amis, faire une promenade, applications de pleine conscience",
     "learning_style_label": "Style d'Apprentissage Préféré",
     "learning_style_options": {
       "visual": "Visuel",
@@ -646,11 +693,11 @@
       "gentle": "Rappel Doux",
       "motivational": "Citation de Motivation"
     },
-    "feedback_title": "Aidez-nous à nous améliorer",
-    "feedback_subtitle": "Vous avez une suggestion ou avez trouvé un bug ? Faites-le nous savoir !",
-    "provide_feedback_button": "Donner mon avis",
-    "data_privacy_title": "Données et Confidentialité",
-    "data_privacy_subtitle": "Toutes vos données (profil, historique, journal) sont stockées exclusivement dans le stockage local de votre appareil. La suppression de vos données est permanente et ne peut être annulée.",
+    "feedback_title": "Aidez-nous à nous Améliorer",
+    "feedback_subtitle": "Vous avez une suggestion ou avez trouvé un bug ? Dites-le nous !",
+    "provide_feedback_button": "Donner un Avis",
+    "data_privacy_title": "Données & Confidentialité",
+    "data_privacy_subtitle": "Toutes vos données (profil, historique, journal) sont stockées exclusivement sur le stockage local de votre appareil. La suppression de vos données est permanente et ne peut être annulée.",
     "download_log_subtitle": "Pour aider à améliorer l'application, vous pouvez volontairement télécharger votre journal d'interactions anonymes et le partager avec l'équipe de développement.",
     "download_log_button": "Télécharger le Journal d'Interactions",
     "clear_data_button": "Effacer Mes Données...",
@@ -662,20 +709,20 @@
     "save_button": "Enregistrer les Modifications"
   },
   "feedback_modal": {
-    "title": "Donner mon Avis",
-    "type_label": "Type de Feedback",
+    "title": "Donner un Avis",
+    "type_label": "Type de Retour",
     "types": {
       "suggestion": "Suggestion",
       "bug": "Rapport de Bug",
-      "general": "Feedback Général"
+      "general": "Avis Général"
     },
     "message_label": "Message",
     "message_placeholder": "Veuillez fournir autant de détails que possible...",
-    "submit_button": "Envoyer le Feedback",
+    "submit_button": "Envoyer l'Avis",
     "submitted_message": "Merci !"
   },
   "crisis_modal": {
-    "title": "Il semble que vous traversiez une période difficile.",
+    "title": "On dirait que vous traversez une période difficile.",
     "body": "Si vous êtes en détresse ou en danger immédiat, veuillez chercher de l'aide. Vous n'êtes pas seul(e).",
     "cta_button_call": "Appeler {{name}} ({{number}})",
     "cta_button_web": "Visiter {{name}}",
@@ -686,15 +733,15 @@
     "aria_label_dark": "Passer au mode sombre"
   },
   "search": {
-    "placeholder": "Rechercher des exercices, des entrées, des programmes...",
-    "aria_label": "Rechercher tout le contenu"
+    "placeholder": "Rechercher exercices, entrées, programmes...",
+    "aria_label": "Rechercher dans tout le contenu"
   },
   "tooltip": {
     "expand_details": "Afficher les détails",
     "collapse_details": "Masquer les détails",
     "view_source": "Voir le site source",
     "close": "Fermer",
-    "get_ai_help": "Obtenir l'aide de l'IA pour remettre en question cette pensée"
+    "get_ai_help": "Obtenir de l'aide de l'IA pour remettre en question cette pensée"
   },
   "mood_tracker": {
     "title": "Suivi d'Humeur",

@@ -9,6 +9,44 @@
     "subtitle": "Describe cómo te sientes y deja que nuestra IA cree un plan personalizado con ejercicios de afrontamiento para guiarte hacia el alivio.",
     "get_started_button": "Empezar"
   },
+  "onboarding": {
+    "welcome": {
+      "title": "Bienvenido/a a Serene",
+      "subtitle": "Tu asistente personalizado para el alivio de la ansiedad, impulsado por IA.",
+      "body": "Esta aplicación está diseñada para ayudarte a comprender y gestionar los momentos de ansiedad, proporcionando estrategias de afrontamiento basadas en evidencia y adaptadas solo para ti."
+    },
+    "features": {
+      "title": "Cómo Funciona",
+      "feature1_title": "Describe Tus Sentimientos",
+      "feature1_body": "Usa tu voz o texto para explicar cómo te sientes en el momento.",
+      "feature2_title": "Obtén un Plan Personalizado",
+      "feature2_body": "Nuestra IA analiza tu descripción y crea un plan único con ejercicios guiados.",
+      "feature3_title": "Explora y Crece",
+      "feature3_body": "Descubre una biblioteca de herramientas como ejercicios de respiración, un diario privado y programas guiados."
+    },
+    "consent": {
+      "title": "Tus Datos, Tu Control",
+      "subtitle": "Todos tus datos se almacenan de forma segura en tu dispositivo. Para mejorar la personalización, puedes optar por compartir datos anónimos de tu perfil con la IA.",
+      "body": "Niveles de consentimiento más altos permiten recomendaciones de ejercicios más personalizadas. Puedes cambiar esto en cualquier momento en la configuración.",
+      "consent_essential_title": "Esencial",
+      "consent_essential_body": "Sin personalización. Los datos de tu perfil no son utilizados por la IA.",
+      "consent_enhanced_title": "Mejorado (Recomendado)",
+      "consent_enhanced_body": "Permite la personalización utilizando datos no sensibles como tu nivel de actividad y entorno laboral.",
+      "consent_complete_title": "Completo",
+      "consent_complete_body": "Permite la personalización total utilizando todos los campos del perfil que elijas completar."
+    },
+    "profile": {
+      "title": "Configuración Rápida (Opcional)",
+      "subtitle": "Responder a estas preguntas nos ayuda a que tus primeras recomendaciones sean aún mejores. Puedes omitir esto y cambiarlo más tarde en la configuración de tu perfil."
+    },
+    "buttons": {
+      "next": "Siguiente",
+      "back": "Atrás",
+      "finish": "Finalizar Configuración",
+      "get_started": "Empezar",
+      "skip": "Omitir por ahora"
+    }
+  },
   "symptom_input": {
     "title": "¿Cómo te sientes ahora mismo?",
     "placeholder": "p. ej., 'Mi corazón se acelera y no puedo dejar de preocuparme por mi presentación de mañana.'",
@@ -591,6 +629,15 @@
     "consent_enhanced": "Mejorado: Habilita la personalización con datos no sensibles.",
     "consent_complete": "Completo: Habilita la personalización total con todos los campos disponibles.",
     "form_disabled_message": "La personalización está deshabilitada. Para habilitarla, selecciona un nivel de consentimiento de datos mejorado.",
+    "ai_provider_title": "Proveedor de IA",
+    "provider_label": "Proveedor",
+    "ollama_model_label": "Modelo de Ollama",
+    "ollama_model_helper": "Asegúrate de que tu servidor local de Ollama esté en funcionamiento. La aplicación intentará conectarse a http://localhost:11434.",
+    "ollama_test_connection_tooltip": "Actualizar lista de modelos",
+    "ollama_status_testing": "Probando conexión...",
+    "ollama_status_success": "Conexión exitosa. Se encontraron {{count}} modelos.",
+    "ollama_status_error": "Falló la conexión:",
+    "ollama_no_models": "No se encontraron modelos",
     "about_you_title": "Sobre Ti",
     "age_label": "Edad",
     "location_label": "Ubicación / Zona Horaria",

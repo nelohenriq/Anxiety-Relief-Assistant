@@ -55,7 +55,7 @@ export interface PlanHistoryEntry {
     timestamp: string;
     userInput: string;
     generatedExercises: Exercise[];
-    groundingMetadata?: any; // To store source information from Google Search grounding
+    sources?: { url: string; title: string }[];
 }
 
 // Types for Guided Programs

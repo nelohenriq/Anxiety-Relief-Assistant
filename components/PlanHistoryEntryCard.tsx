@@ -16,7 +16,7 @@ const PlanHistoryEntryCard: React.FC<PlanHistoryEntryCardProps> = ({ entry }) =>
         timeStyle: 'short',
     });
 
-    const sources = entry.groundingMetadata?.groundingChunks;
+    const sources = entry.sources || [];
 
     return (
         <div className="bg-white dark:bg-neutral-800/50 p-4 sm:p-6 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700">
@@ -67,15 +67,15 @@ const PlanHistoryEntryCard: React.FC<PlanHistoryEntryCardProps> = ({ entry }) =>
                         <div className="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700">
                              <p className="text-xs font-semibold uppercase text-neutral-500 dark:text-neutral-400 tracking-wider mb-2">{t('plan_history_card.sources')}</p>
                              <ul className="space-y-2">
-                                {sources.map((source: any, index: number) => (
+                                {sources.map((source, index: number) => (
                                     <li key={index} className="flex items-start gap-2">
                                         <Tooltip text={t('tooltip.view_source')}>
-                                            <a href={source.web.uri} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                                            <a href={source.url} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
                                             </a>
                                         </Tooltip>
-                                        <a href={source.web.uri} target="_blank" rel="noopener noreferrer" className="text-sm text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 underline transition-colors">
-                                           {source.web.title}
+                                        <a href={source.url} target="_blank" rel="noopener noreferrer" className="text-sm text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 underline transition-colors">
+                                           {source.title}
                                         </a>
                                     </li>
                                 ))}

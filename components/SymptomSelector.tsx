@@ -11,19 +11,22 @@ interface SymptomSelectorProps {
 const SymptomSelector: React.FC<SymptomSelectorProps> = ({ onSymptomSelect, selectedSymptoms }) => {
     const { t } = useTranslation();
     return (
-        <div className="space-y-4 pt-4">
-             <p className="text-center text-sm text-gray-600 dark:text-gray-400">
+        <div className="pt-4">
+             <p className="text-center text-sm text-neutral-600 dark:text-neutral-400 mb-4">
                 {t('symptom_selector.helper_text')}
             </p>
-            {Object.entries(symptomCategories).map(([categoryKey, symptomKeys]) => (
-                <SymptomCategory 
-                    key={categoryKey}
-                    categoryKey={categoryKey}
-                    symptomKeys={symptomKeys}
-                    onSymptomSelect={onSymptomSelect}
-                    selectedSymptoms={selectedSymptoms}
-                />
-            ))}
+            <div className="space-y-2">
+                {Object.entries(symptomCategories).map(([categoryKey, symptomKeys], index) => (
+                    <SymptomCategory 
+                        key={categoryKey}
+                        categoryKey={categoryKey}
+                        symptomKeys={symptomKeys}
+                        onSymptomSelect={onSymptomSelect}
+                        selectedSymptoms={selectedSymptoms}
+                        isInitiallyExpanded={index === 0}
+                    />
+                ))}
+            </div>
         </div>
     );
 };

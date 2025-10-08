@@ -7,6 +7,7 @@ import ExerciseHistory from './ExerciseHistory';
 import FeedbackModal from './FeedbackModal';
 import FeedbackHistory from './FeedbackHistory';
 import { logInteraction } from '../services/interactionLogger';
+import { getOllamaModels } from '../services/providers/ollama';
 
 interface UserProfileProps {
     isOpen: boolean;
@@ -20,26 +21,61 @@ type ActiveTab = 'settings' | 'history' | 'feedback';
 
 const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHistory, feedbackHistory, onSaveFeedback }) => {
     const { t, i18n } = useTranslation();
-    const { profile, setProfile, consentLevel, setConsentLevel, reminderSettings, setReminderSettings, clearAllData } = useUser();
+    const { profile, setProfile, consentLevel, setConsentLevel, reminderSettings, setReminderSettings, llmProvider, setLlmProvider, ollamaModel, setOllamaModel, clearAllData } = useUser();
     const [localProfile, setLocalProfile] = useState<UserProfileType>(profile);
     const [localReminders, setLocalReminders] = useState<ReminderSettings>(reminderSettings);
+    const [localLlmProvider, setLocalLlmProvider] = useState(llmProvider);
+    const [localOllamaModel, setLocalOllamaModel] = useState(ollamaModel);
     const [showConfirm, setShowConfirm] = useState(false);
     const [notificationPermission, setNotificationPermission] = useState(Notification.permission);
     const [activeTab, setActiveTab] = useState<ActiveTab>('settings');
     const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
+    
+    const [ollamaConnectionStatus, setOllamaConnectionStatus] = useState<'idle' | 'testing' | 'success' | 'error'>('idle');
+    const [ollamaConnectionError, setOllamaConnectionError] = useState<string | null>(null);
+    const [availableOllamaModels, setAvailableOllamaModels] = useState<string[]>([]);
+
+    const testOllamaConnection = async () => {
+        setOllamaConnectionStatus('testing');
+        setOllamaConnectionError(null);
+        try {
+            const models = await getOllamaModels();
+            setAvailableOllamaModels(models);
+            setOllamaConnectionStatus('success');
+            if (models.length > 0 && !models.includes(localOllamaModel)) {
+                setLocalOllamaModel(models[0]);
+            }
+        } catch (err) {
+            setOllamaConnectionStatus('error');
+            setAvailableOllamaModels([]);
+            setOllamaConnectionError(err instanceof Error ? err.message : 'An unknown error occurred.');
+        }
+    };
 
     useEffect(() => {
         setLocalProfile(profile);
         setLocalReminders(reminderSettings);
-        // Reset to first tab when opening
+        setLocalLlmProvider(llmProvider);
+        setLocalOllamaModel(ollamaModel);
         if (isOpen) {
             setActiveTab('settings');
         }
-    }, [profile, reminderSettings, isOpen]);
+    }, [profile, reminderSettings, llmProvider, ollamaModel, isOpen]);
+
+    useEffect(() => {
+        if (isOpen && localLlmProvider === 'ollama') {
+            testOllamaConnection();
+        } else {
+            setOllamaConnectionStatus('idle');
+            setOllamaConnectionError(null);
+        }
+    }, [isOpen, localLlmProvider]);
 
     const handleSave = () => {
         setProfile(localProfile);
         setReminderSettings(localReminders);
+        setLlmProvider(localLlmProvider);
+        setOllamaModel(localOllamaModel);
         onClose();
     };
     
@@ -99,6 +135,63 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
                     <option value="fr">Français</option>
                     <option value="de">Deutsch</option>
                 </select>
+            </div>
+            <div>
+                <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200">{t('user_profile.ai_provider_title')}</h3>
+                <div className="mt-2 space-y-4">
+                     <div>
+                        <label htmlFor="llmProvider" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">{t('user_profile.provider_label')}</label>
+                        <select id="llmProvider" value={localLlmProvider} onChange={(e) => setLocalLlmProvider(e.target.value as any)} className="mt-1 block w-full rounded-md border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-200 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm">
+                            <option value="gemini">Gemini (Google)</option>
+                            <option value="ollama">Ollama (Local)</option>
+                        </select>
+                    </div>
+                    {localLlmProvider === 'ollama' && (
+                        <div>
+                            <label htmlFor="ollamaModel" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">{t('user_profile.ollama_model_label')}</label>
+                             <div className="mt-1 flex items-center gap-2">
+                                <select 
+                                    id="ollamaModel" 
+                                    value={localOllamaModel} 
+                                    onChange={(e) => setLocalOllamaModel(e.target.value)} 
+                                    className="block w-full rounded-md border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-200 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm disabled:opacity-50"
+                                    disabled={ollamaConnectionStatus !== 'success' || availableOllamaModels.length === 0}
+                                >
+                                    {availableOllamaModels.length > 0 ? (
+                                        availableOllamaModels.map(model => <option key={model} value={model}>{model}</option>)
+                                    ) : (
+                                        <option value="">{ ollamaConnectionStatus === 'testing' ? t('user_profile.ollama_status_testing') : t('user_profile.ollama_no_models')}</option>
+                                    )}
+                                </select>
+                                <Tooltip text={t('user_profile.ollama_test_connection_tooltip')}>
+                                    <button
+                                        type="button"
+                                        onClick={testOllamaConnection}
+                                        disabled={ollamaConnectionStatus === 'testing'}
+                                        className="p-2 rounded-md border border-neutral-300 dark:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-700 disabled:opacity-50"
+                                        aria-label={t('user_profile.ollama_test_connection_tooltip')}
+                                    >
+                                        {ollamaConnectionStatus === 'testing' ? (
+                                            <svg className="animate-spin h-5 w-5 text-neutral-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                            </svg>
+                                        ) : (
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0011.667 0l3.181-3.183m-4.991-2.651-3.182-3.182a8.25 8.25 0 00-11.667 0L2.985 16.644z" />
+                                            </svg>
+                                        )}
+                                    </button>
+                                </Tooltip>
+                            </div>
+                            <div className="mt-2 text-xs h-4">
+                                {ollamaConnectionStatus === 'success' && <p className="text-green-600 dark:text-green-400">{t('user_profile.ollama_status_success', { count: availableOllamaModels.length })}</p>}
+                                {ollamaConnectionStatus === 'error' && <p className="text-red-600 dark:text-red-400">{t('user_profile.ollama_status_error')} {ollamaConnectionError}</p>}
+                            </div>
+                            <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">{t('user_profile.ollama_model_helper')}</p>
+                        </div>
+                    )}
+                </div>
             </div>
              <div>
                 <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200">{t('user_profile.consent_title')}</h3>
