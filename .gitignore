@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Ollama
+.ollama
+/bin
+/lib
+
+.lightning_studio

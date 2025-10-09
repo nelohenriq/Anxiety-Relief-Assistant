@@ -62,7 +62,11 @@
     "physical": "Físicos",
     "cognitive": "Cognitivos",
     "mood": "Anímicos",
-    "behavioral": "Conductuales"
+    "behavioral": "Conductuales",
+    "physical_full": "Síntomas Físicos",
+    "cognitive_full": "Síntomas Cognitivos",
+    "mood_full": "Síntomas Anímicos",
+    "behavioral_full": "Síntomas Conductuales"
   },
   "symptoms": {
     "heart_palpitations": "Palpitaciones",

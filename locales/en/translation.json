@@ -62,7 +62,11 @@
     "physical": "Physical",
     "cognitive": "Cognitive",
     "mood": "Mood",
-    "behavioral": "Behavioral"
+    "behavioral": "Behavioral",
+    "physical_full": "Physical Symptoms",
+    "cognitive_full": "Cognitive Symptoms",
+    "mood_full": "Mood Symptoms",
+    "behavioral_full": "Behavioral Symptoms"
   },
   "symptoms": {
     "heart_palpitations": "Heart palpitations",
