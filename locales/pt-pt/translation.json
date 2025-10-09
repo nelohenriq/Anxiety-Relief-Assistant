@@ -24,7 +24,11 @@
     "physical": "Físicos",
     "cognitive": "Cognitivos",
     "mood": "De Humor",
-    "behavioral": "Comportamentais"
+    "behavioral": "Comportamentais",
+    "physical_full": "Sintomas Físicos",
+    "cognitive_full": "Sintomas Cognitivos",
+    "mood_full": "Sintomas de Humor",
+    "behavioral_full": "Sintomas Comportamentais"
   },
   "symptoms": {
     "heart_palpitations": "Palpitações cardíacas",

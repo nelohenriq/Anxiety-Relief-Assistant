@@ -25,7 +25,11 @@
     "physical": "Körperlich",
     "cognitive": "Kognitiv",
     "mood": "Stimmung",
-    "behavioral": "Verhalten"
+    "behavioral": "Verhalten",
+    "physical_full": "Körperliche Symptome",
+    "cognitive_full": "Kognitive Symptome",
+    "mood_full": "Stimmungssymptome",
+    "behavioral_full": "Verhaltenssymptome"
   },
   "symptoms": {
     "heart_palpitations": "Herzklopfen",

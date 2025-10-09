@@ -12,7 +12,7 @@ interface SymptomCategoryProps {
 const SymptomCategory: React.FC<SymptomCategoryProps> = ({ categoryKey, symptomKeys, onSymptomSelect, selectedSymptoms, isInitiallyExpanded = false }) => {
     const { t, i18n } = useTranslation();
     const [isExpanded, setIsExpanded] = useState(isInitiallyExpanded);
-    const categoryName = t(`symptom_categories.${categoryKey}`);
+    const categoryName = t(`symptom_categories.${categoryKey}_full`);
 
     const translatedSymptoms = useMemo(() => {
         return symptomKeys.map(symptomKey => ({
@@ -31,7 +31,7 @@ const SymptomCategory: React.FC<SymptomCategoryProps> = ({ categoryKey, symptomK
                     aria-expanded={isExpanded}
                     aria-controls={`symptoms-${categoryKey}`}
                 >
-                    <span className="text-md font-semibold text-neutral-800 dark:text-neutral-200">{categoryName} {t('symptom_input.symptoms_suffix')}</span>
+                    <span className="text-md font-semibold text-neutral-800 dark:text-neutral-200">{categoryName}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 text-neutral-500 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
