@@ -1,0 +1,772 @@
+{
+  "header": {
+    "title": "Serene",
+    "settings_aria_label": "Abrir perfil de usuario y configuración",
+    "crisis_support_aria_label": "Abrir recursos de apoyo en crisis"
+  },
+  "hero": {
+    "title": "Encuentra Tu Calma.",
+    "subtitle": "Describe cómo te sientes y deja que nuestra IA cree un plan personalizado con ejercicios de afrontamiento para guiarte hacia el alivio.",
+    "get_started_button": "Empezar"
+  },
+  "onboarding": {
+    "welcome": {
+      "title": "Bienvenido/a a Serene",
+      "subtitle": "Tu asistente personalizado para el alivio de la ansiedad, impulsado por IA.",
+      "body": "Esta aplicación está diseñada para ayudarte a comprender y gestionar los momentos de ansiedad, proporcionando estrategias de afrontamiento basadas en evidencia y adaptadas solo para ti."
+    },
+    "features": {
+      "title": "Cómo Funciona",
+      "feature1_title": "Describe Tus Sentimientos",
+      "feature1_body": "Usa tu voz o texto para explicar cómo te sientes en el momento.",
+      "feature2_title": "Obtén un Plan Personalizado",
+      "feature2_body": "Nuestra IA analiza tu descripción y crea un plan único con ejercicios guiados.",
+      "feature3_title": "Explora y Crece",
+      "feature3_body": "Descubre una biblioteca de herramientas como ejercicios de respiración, un diario privado y programas guiados."
+    },
+    "consent": {
+      "title": "Tus Datos, Tu Control",
+      "subtitle": "Todos tus datos se almacenan de forma segura en tu dispositivo. Para mejorar la personalización, puedes optar por compartir datos anónimos de tu perfil con la IA.",
+      "body": "Niveles de consentimiento más altos permiten recomendaciones de ejercicios más personalizadas. Puedes cambiar esto en cualquier momento en la configuración.",
+      "consent_essential_title": "Esencial",
+      "consent_essential_body": "Sin personalización. Los datos de tu perfil no son utilizados por la IA.",
+      "consent_enhanced_title": "Mejorado (Recomendado)",
+      "consent_enhanced_body": "Permite la personalización utilizando datos no sensibles como tu nivel de actividad y entorno laboral.",
+      "consent_complete_title": "Completo",
+      "consent_complete_body": "Permite la personalización total utilizando todos los campos del perfil que elijas completar."
+    },
+    "profile": {
+      "title": "Configuración Rápida (Opcional)",
+      "subtitle": "Responder a estas preguntas nos ayuda a que tus primeras recomendaciones sean aún mejores. Puedes omitir esto y cambiarlo más tarde en la configuración de tu perfil."
+    },
+    "buttons": {
+      "next": "Siguiente",
+      "back": "Atrás",
+      "finish": "Finalizar Configuración",
+      "get_started": "Empezar",
+      "skip": "Omitir por ahora"
+    }
+  },
+  "symptom_input": {
+    "title": "¿Cómo te sientes ahora mismo?",
+    "placeholder": "p. ej., 'Mi corazón se acelera y no puedo dejar de preocuparme por mi presentación de mañana.'",
+    "aria_label": "Describe tus síntomas aquí o selecciona de las opciones a continuación.",
+    "submit_button": "Obtener Mi Plan Personalizado",
+    "loading_button": "Analizando...",
+    "symptoms_suffix": "Síntomas"
+  },
+  "symptom_selector": {
+    "helper_text": "O selecciona síntomas comunes a continuación para agregarlos a tu descripción."
+  },
+  "symptom_categories": {
+    "physical": "Físicos",
+    "cognitive": "Cognitivos",
+    "mood": "Anímicos",
+    "behavioral": "Conductuales"
+  },
+  "symptoms": {
+    "heart_palpitations": "Palpitaciones",
+    "shortness_of_breath": "Falta de aire",
+    "muscle_tension": "Tensión muscular",
+    "sweating": "Sudoración",
+    "dizziness": "Mareos",
+    "stomach_ache": "Dolor de estómago",
+    "headache": "Dolor de cabeza",
+    "shaking_or_trembling": "Temblores",
+    "constant_worrying": "Preocupación constante",
+    "catastrophic_thinking": "Pensamiento catastrófico",
+    "poor_concentration": "Falta de concentración",
+    "racing_thoughts": "Pensamientos acelerados",
+    "feeling_of_dread": "Sensación de pavor",
+    "overthinking": "Pensar demasiado",
+    "mind_going_blank": "Mente en blanco",
+    "nervousness": "Nerviosismo",
+    "irritability": "Irritabilidad",
+    "fear_or_panic": "Miedo o pánico",
+    "frustration": "Frustración",
+    "feeling_overwhelmed": "Sentirse abrumado/a",
+    "restlessness": "Inquietud",
+    "avoiding_situations": "Evitar situaciones",
+    "fidgeting": "Inquietud motora",
+    "pacing": "Caminar de un lado a otro",
+    "difficulty_sleeping": "Dificultad para dormir",
+    "social_withdrawal": "Aislamiento social",
+    "procrastination": "Procrastinación"
+  },
+  "exercise_card": {
+    "duration_minutes": "{{duration}} min",
+    "steps_title": "Pasos:",
+    "rating_prompt": "Valora este ejercicio",
+    "rating_aria_label": "Valorar con {{star}} estrella"
+  },
+  "exercise_history": {
+    "title": "Historial de Ejercicios Completados",
+    "empty_state": "Aún no has completado ningún ejercicio. Tu historial aparecerá aquí una vez que valores un ejercicio.",
+    "completed_on": "Completado el",
+    "your_rating": "Tu valoración"
+  },
+  "feedback_history": {
+    "title": "Mi Historial de Comentarios",
+    "empty_state": "Aún no has enviado ningún comentario. Tus envíos se registrarán aquí."
+  },
+  "loading_spinner": {
+    "message": "Encontrando los mejores ejercicios para ti..."
+  },
+  "disclaimer": {
+    "title": "Descargo de responsabilidad:",
+    "body": "Esta herramienta es solo para fines informativos y no sustituye el consejo, diagnóstico o tratamiento médico profesional. Siempre busca el consejo de tu médico u otro proveedor de salud calificado si tienes preguntas sobre una condición médica."
+  },
+  "personalized_plan": {
+    "title": "Tu Plan Personalizado"
+  },
+  "plan_history": {
+    "title": "Historial de Planes Generados",
+    "subtitle": "Un registro de tus planes generados anteriormente para referencia futura.",
+    "empty_state": "Aún no has generado ningún plan. Describe tus síntomas arriba para empezar."
+  },
+  "plan_history_card": {
+    "your_input": "Lo que ingresaste",
+    "generated_plan": "Plan Generado",
+    "sources": "Fuentes"
+  },
+  "for_you": {
+    "title": "Un Momento Para Ti"
+  },
+  "live_coach": {
+    "title": "Coach en Vivo",
+    "subtitle": "Habla con un guía de IA en tiempo real.",
+    "description": "Para momentos en que necesites apoyo inmediato, inicia una sesión de voz en vivo. Nuestro coach de IA te escuchará y te guiará con técnicas de relajación.",
+    "start_button": "Iniciar Sesión en Vivo",
+    "end_button": "Finalizar Sesión",
+    "status_connecting": "Conectando...",
+    "status_listening": "Escuchando...",
+    "status_speaking": "Hablando...",
+    "status_error": "Error de conexión. Por favor, inténtalo de nuevo.",
+    "transcripts_you": "Tú",
+    "transcripts_coach": "Coach"
+  },
+  "breathing_exercises": {
+    "title": "Calma Rápida",
+    "subtitle": "Elige una sesión de respiración guiada.",
+    "start_button": "Iniciar Sesión",
+    "box_breathing": {
+      "name": "Respiración de Caja",
+      "description": "Una técnica simple para calmar tu sistema nervioso inhalando, sosteniendo, exhalando y sosteniendo por tiempos iguales."
+    },
+    "478_breathing": {
+      "name": "Respiración 4-7-8",
+      "description": "Conocida como la \"respiración relajante\", esta técnica ayuda a reducir la ansiedad y puede ayudar a conciliar el sueño."
+    },
+    "cyclic_sighing": {
+      "name": "Suspiro Cíclico",
+      "description": "Una técnica respaldada por la investigación para reducir rápidamente el estrés realizando dos inhalaciones seguidas de una exhalación larga."
+    },
+    "coherent_breathing": {
+      "name": "Respiración Coherente",
+      "description": "Un ritmo simple de inhalar por 5 segundos y exhalar por 5 segundos para promover el equilibrio y la calma."
+    },
+    "pursed_lip_breathing": {
+      "name": "Respiración con Labios Fruncidos",
+      "description": "Ralentiza tu ritmo respiratorio, reduciendo el trabajo de la respiración al mantener tus vías respiratorias abiertas por más tiempo."
+    },
+    "diaphragmatic_breathing": {
+      "name": "Respiración Diafragmática",
+      "description": "También conocida como \"respiración abdominal\", esta técnica fundamental fomenta respiraciones profundas y completas para activar la respuesta de relajación del cuerpo."
+    },
+    "slow_paced_breathing": {
+      "name": "Respiración Lenta",
+      "description": "Ralentiza intencionadamente tu respiración a un ritmo calmado, ayudando a reducir la frecuencia cardíaca y a promover un estado de relajación profunda."
+    },
+    "alternate_nostril_breathing": {
+      "name": "Respiración Nasal Alterna",
+      "description": "Una práctica de respiración yóguica calmante que equilibra la mente y el cuerpo alternando el flujo de aire por cada fosa nasal."
+    },
+    "humming_bee_breath": {
+      "name": "Respiración de Abeja Zumbadora",
+      "description": "Reduce el estrés y calma la mente creando una suave vibración de zumbido en la exhalación."
+    },
+    "steps": {
+      "breathe_in": "Inhala",
+      "hold": "Sostén",
+      "breathe_out": "Exhala",
+      "inhale": "Inhala",
+      "inhale_again": "Inhala de Nuevo",
+      "exhale_long": "Exhala (Largo)",
+      "breathe_in_nose": "Inhala (Nariz)",
+      "breathe_out_lips": "Exhala (Labios)",
+      "breathe_in_belly": "Inhala (Sube)",
+      "breathe_out_belly": "Exhala (Baja)",
+      "inhale_left": "Inhala (Izq)",
+      "exhale_right": "Exhala (Der)",
+      "inhale_right": "Inhala (Der)",
+      "exhale_left": "Exhala (Izq)",
+      "hum_out": "Zumba al Exhalar"
+    }
+  },
+  "breathing_visualizer": {
+    "close_aria_label": "Cerrar ejercicio de respiración",
+    "instruction": "Sigue el ritmo. Acompasa tu respiración con la guía."
+  },
+  "breathing_visualizer_tooltips": {
+    "inhale": "Propósito: Energizar el cuerpo. Consejo: Inhala lentamente por la nariz, dejando que tu abdomen se expanda como un globo.",
+    "hold": "Propósito: Calmar el sistema nervioso. Consejo: Sostén la respiración suavemente sin ninguna tensión.",
+    "exhale": "Propósito: Liberar la tensión. Consejo: Exhala lentamente por la boca, más largo que tu inhalación."
+  },
+  "journal": {
+    "title": "Diario Privado",
+    "subtitle": "Reflexiona sobre tus pensamientos. Guardado solo en este dispositivo.",
+    "placeholder": "Escribe lo que tengas en mente...",
+    "save_button": "Guardar Entrada",
+    "saved_button": "¡Guardado!",
+    "past_entries_title": "Entradas Anteriores"
+  },
+  "journal_card": {
+    "analyzing": "Analizando tu entrada...",
+    "ai_reflection_title": "Reflexión de la IA",
+    "get_ai_reflection_button": "Obtener Reflexión de IA"
+  },
+  "cognitive_tools": {
+    "title": "Herramientas Cognitivas",
+    "subtitle": "Desafía patrones de pensamiento inútiles.",
+    "thought_record_title": "Registro de Pensamientos TCC",
+    "thought_record_description": "Un ejercicio guiado para identificar, desafiar y reformular pensamientos negativos.",
+    "start_button": "Iniciar Ejercicio"
+  },
+  "thought_record_history": {
+    "title": "Tus Registros Anteriores"
+  },
+  "thought_record": {
+    "title": "Registro de Pensamientos TCC",
+    "step_prefix": "Paso {{step}}:",
+    "steps": {
+      "situation": "Situación",
+      "negative_thought": "Pensamiento Negativo",
+      "challenge": "Desafío",
+      "alternative": "Alternativa",
+      "outcome": "Resultado"
+    },
+    "situation_label": "¿Cuál fue la situación que desencadenó el sentimiento?",
+    "situation_placeholder": "p. ej., Cometí un error durante una presentación en el trabajo.",
+    "negative_thought_label": "¿Cuál fue el pensamiento negativo automático?",
+    "negative_thought_placeholder": "p. ej., 'Soy tan incompetente. Todos deben pensar que soy un idiota.'",
+    "distortions_label": "¿Aplica alguna de estas distorsiones cognitivas?",
+    "challenge_label": "Desafía el pensamiento. ¿Cuál es la evidencia en su contra?",
+    "challenge_placeholder": "p. ej., Mi jefe elogió mi último proyecto. Un colega dijo que mi presentación le pareció interesante.",
+    "ai_help_button": "Obtener Ayuda de IA",
+    "ai_help_loading": "Obteniendo sugerencias...",
+    "alternative_label": "¿Cuál es un pensamiento más equilibrado o alternativo?",
+    "alternative_placeholder": "p. ej., 'Cometí un error, pero no significa que sea incompetente. Puedo aprender de ello y mejorar la próxima vez.'",
+    "outcome_label": "¿Cómo te sientes ahora? Valora tu creencia en el pensamiento original (0-100%).",
+    "outcome_placeholder": "p. ej., Me siento menos ansioso/a. Ahora creo que el pensamiento negativo es solo un 20% cierto.",
+    "previous_button": "Anterior",
+    "next_button": "Siguiente",
+    "save_button": "Guardar Registro"
+  },
+  "cognitive_distortions": {
+    "all_or_nothing": {
+      "name": "Pensamiento de Todo o Nada",
+      "description": "Ver situaciones en categorías absolutas, en blanco y negro, sin término medio."
+    },
+    "overgeneralization": {
+      "name": "Sobregeneralización",
+      "description": "Ver un solo evento negativo como un patrón interminable de derrota."
+    },
+    "mental_filter": {
+      "name": "Filtro Mental",
+      "description": "Centrarse en un solo detalle negativo y pensar exclusivamente en él, filtrando todos los aspectos positivos."
+    },
+    "catastrophizing": {
+      "name": "Catastrofización",
+      "description": "Esperar que ocurra el peor de los casos, sin considerar resultados más probables."
+    },
+    "personalization": {
+      "name": "Personalización",
+      "description": "Creer que eres la causa de algún evento externo negativo del cual, en realidad, no eras el principal responsable."
+    },
+    "mind_reading": {
+      "name": "Lectura de Mente",
+      "description": "Asumir que sabes lo que otras personas están pensando sin tener suficiente evidencia de sus pensamientos."
+    },
+    "fortune_telling": {
+      "name": "Adivinación del Futuro",
+      "description": "Anticipar que las cosas saldrán mal y sentirse convencido de que tu predicción es un hecho ya establecido."
+    },
+    "emotional_reasoning": {
+      "name": "Razonamiento Emocional",
+      "description": "Asumir que tus emociones negativas necesariamente reflejan la realidad: \"Lo siento, por lo tanto, debe ser verdad\"."
+    },
+    "should_statements": {
+      "name": "Declaraciones con \"Debería\"",
+      "description": "Usar palabras críticas como \"debería\", \"tengo que\" o \"es obligatorio\", que pueden hacerte sentir culpable o como un fracaso."
+    }
+  },
+  "guided_programs": {
+    "title": "Programas Guiados",
+    "subtitle": "Sigue un plan estructurado para desarrollar habilidades."
+  },
+  "guided_meditations": {
+    "title": "Meditaciones Guiadas",
+    "subtitle": "Encuentra la quietud con guías de texto.",
+    "start_button": "Iniciar Meditación"
+  },
+  "meditations": {
+    "body_scan": {
+      "title": "Escaneo Corporal de 5 Minutos",
+      "description": "Aumenta la conciencia corporal y libera la tensión guiando suavemente tu atención a las sensaciones físicas.",
+      "guidance": [
+        "Encuentra una posición cómoda, ya sea sentado o acostado. Cierra suavemente los ojos y toma algunas respiraciones profundas y tranquilizadoras.",
+        "Lleva tu conciencia a la parte superior de tu cabeza. Nota cualquier sensación aquí sin juzgar. Hormigueo, presión o nada en absoluto, todo está bien.",
+        "Mueve lentamente tu enfoque hacia tu cara. Suaviza la mandíbula, las mejillas y los pequeños músculos alrededor de los ojos. Suelta cualquier tensión que encuentres.",
+        "Continúa este suave escaneo por tu cuello y hombros, bajando por los brazos hasta las yemas de los dedos, a través del pecho y el abdomen, y por la espalda.",
+        "Mueve tu conciencia hacia abajo a través de las piernas, hacia los pies y hasta la punta de los dedos de los pies. Nota la sensación de tus pies en contacto con el suelo o la superficie debajo de ellos.",
+        "Finalmente, toma una respiración profunda más, trayendo una sensación de totalidad a todo tu cuerpo. Cuando estés listo/a, abre lentamente los ojos."
+      ]
+    },
+    "loving_kindness": {
+      "title": "Amor Benevolente de 7 Minutos",
+      "description": "Cultiva sentimientos de calidez, amabilidad y compasión por ti mismo/a y por los demás.",
+      "guidance": [
+        "Siéntate en una posición cómoda y relajada. Cierra los ojos y lleva tu conciencia al espacio de tu corazón.",
+        "Repite en silencio las siguientes frases, dirigiéndolas hacia ti mismo/a: 'Que yo sea feliz. Que yo esté sano/a. Que yo esté a salvo. Que yo viva con facilidad.' Siente la intención detrás de las palabras.",
+        "Ahora, trae a la mente a alguien a quien quieras profundamente, como un amigo cercano o un familiar. Dirige estas frases hacia ellos: 'Que seas feliz. Que estés sano/a. Que estés a salvo. Que vivas con facilidad.'",
+        "A continuación, piensa en una persona neutral, alguien que no te gusta ni te disgusta, quizás un cajero de una tienda o un vecino que ves ocasionalmente. Ofréceles los mismos buenos deseos: 'Que seas feliz. Que estés sano/a. Que estés a salvo. Que vivas con facilidad.'",
+        "Si te sientes capaz, trae a la mente a alguien con quien tienes dificultades. Intenta extenderle estos deseos, aunque sea un poco: 'Que seas feliz. Que estés sano/a. Que estés a salvo. Que vivas con facilidad.'",
+        "Finalmente, expande tu conciencia para incluir a todos los seres vivos en todas partes, sin excepción: 'Que todos los seres sean felices. Que todos los seres estén sanos/as. Que todos los seres estén a salvo. Que todos los seres vivan con facilidad.'",
+        "Descansa en este sentimiento de corazón abierto por unos momentos antes de devolver suavemente tu conciencia a la habitación y abrir los ojos."
+      ]
+    },
+    "mindful_walk": {
+      "title": "Paseo Consciente de 10 Minutos",
+      "description": "Conecta con tu cuerpo y tu entorno prestando una atención suave al simple acto de caminar.",
+      "guidance": [
+        "Comienza por quedarte quieto un momento. Siente tus pies en el suelo. Respira profundamente.",
+        "Empieza a caminar a un ritmo natural y cómodo. Presta atención a la sensación de tus pies al tocar y dejar el suelo. Talón, planta, dedos.",
+        "Nota el ritmo de tus pasos. No es necesario cambiarlo, solo observarlo. Siente el suave balanceo de tus brazos.",
+        "Expande tu conciencia a tu entorno. Observa los colores, la luz, las formas a tu alrededor sin etiquetarlos como 'buenos' o 'malos'.",
+        "Escucha los sonidos. El tráfico lejano, los pájaros, el sonido de tus propios pasos. Deja que vengan y se vayan sin aferrarte a ellos.",
+        "Al llegar al final de tu paseo, quédate quieto de nuevo un momento. Nota cómo se siente tu cuerpo. Toma una última respiración consciente."
+      ]
+    },
+    "gratitude": {
+      "title": "Meditación de Gratitud de 5 Minutos",
+      "description": "Cambia tu enfoque hacia lo positivo cultivando un sentimiento de gratitud por las cosas buenas de tu vida.",
+      "guidance": [
+        "Encuentra una posición sentada cómoda y cierra suavemente los ojos. Toma algunas respiraciones para asentarte en el momento presente.",
+        "Trae a la mente a una persona en tu vida por la que estés agradecido/a. Imagínala en tu mente y agradécele en silencio su presencia y amabilidad.",
+        "Ahora, piensa en un lugar que te traiga una sensación de paz o felicidad. Podría ser una habitación, un parque o un lugar de vacaciones. Aprecia la sensación que este lugar te produce.",
+        "Considera un placer simple que hayas disfrutado recientemente. Podría ser el sabor de tu café matutino, el calor del sol o una pieza musical. Disfruta de ese pequeño momento de alegría.",
+        "Reflexiona sobre una cualidad o fortaleza tuya por la que estés agradecido/a. Podría ser tu resiliencia, tu creatividad o tu amabilidad.",
+        "Toma una última respiración profunda, llevando contigo este sentimiento de gratitud. Cuando estés listo/a, abre suavemente los ojos."
+      ]
+    },
+    "mindful_listening": {
+      "title": "Escucha Atenta de 3 Minutos",
+      "description": "Anclate en el momento presente abriendo tu conciencia al paisaje sonoro que te rodea, sin juzgar.",
+      "guidance": [
+        "Siéntate cómodamente con los ojos cerrados o la mirada suavemente hacia abajo. Permite que tu cuerpo se asiente.",
+        "Lleva tu atención al mundo del sonido. Nota el sonido más prominente en tu entorno. Simplemente reconoce su presencia.",
+        "Ahora, expande tu conciencia para incluir sonidos que están más lejos. Escucha sin esforzarte, simplemente dejando que los sonidos lleguen a ti.",
+        "Cambia tu enfoque a los sonidos que están muy cerca, quizás el sonido de tu propia respiración o el zumbido de un dispositivo en la habitación.",
+        "Finalmente, escucha todo el paisaje sonoro como una sinfonía completa de ruidos, cercanos y lejanos, fuertes y suaves. Cuando estés listo/a, abre suavemente los ojos."
+      ]
+    },
+    "thought_noting": {
+      "title": "Anotación de Pensamientos de 5 Minutos",
+      "description": "Practica observar tus pensamientos a medida que surgen y etiquetarlos suavemente para crear distancia y reducir su poder.",
+      "guidance": [
+        "Encuentra una posición sentada cómoda. Cierra los ojos y toma algunas respiraciones profundas, dejando que tu atención descanse en la sensación física de la respiración.",
+        "Mientras estás sentado/a, inevitablemente notarás que surgen pensamientos. En lugar de seguir el pensamiento o alejarlo, simplemente reconoce su presencia.",
+        "Mentalmente, aplica una etiqueta suave y gentil al pensamiento. Una etiqueta simple como \"pensando\" o \"preocupándose\" es suficiente. No es necesario analizar el contenido.",
+        "Después de anotar el pensamiento, guía suavemente tu atención de regreso a tu respiración. Tu respiración es tu ancla.",
+        "Repite este proceso cada vez que un pensamiento capture tu atención. El objetivo no es dejar de pensar, sino cambiar tu relación con tus pensamientos.",
+        "Continúa durante el tiempo indicado. Cuando estés listo/a, trae tu conciencia de vuelta a la habitación y abre lentamente los ojos."
+      ]
+    }
+  },
+  "program_viewer": {
+    "day_of_total": "Día {{day}} de {{total}}:",
+    "todays_focus": "Enfoque de Hoy",
+    "todays_exercise": "Ejercicio de Hoy"
+  },
+  "meditation_player": {
+    "finish_button": "Finalizar Meditación"
+  },
+  "programs": {
+    "mindfulness_intro": {
+      "title": "Introducción de 3 Días a la Atención Plena",
+      "description": "Aprende los fundamentos de la atención plena con este breve programa introductorio diseñado para ayudarte a construir una base de conciencia del momento presente.",
+      "day1": {
+        "title": "Respiración Consciente",
+        "concept": "La atención plena comienza con la respiración. Es nuestra ancla al momento presente. Hoy, nos centraremos en simplemente observar el ritmo natural de nuestra respiración sin intentar cambiarlo.",
+        "exercise": {
+          "title": "Respiración Consciente de 3 Minutos",
+          "description": "Un breve ejercicio para anclarte en el presente centrándote en tu respiración.",
+          "steps": [
+            "Encuentra una posición sentada cómoda. Cierra los ojos suavemente.",
+            "Lleva tu atención a la sensación de tu respiración. Nota el aire entrando por tus fosas nasales y llenando tus pulmones.",
+            "Observa la sensación de tu pecho o abdomen subiendo y bajando.",
+            "Si tu mente divaga, con suavidad y sin juzgar, guía tu enfoque de nuevo a tu respiración.",
+            "Continúa durante 3 minutos. Cuando estés listo/a, abre lentamente los ojos."
+          ]
+        }
+      },
+      "day2": {
+        "title": "El Escaneo Corporal",
+        "concept": "Nuestros cuerpos guardan mucha información. Un escaneo corporal es una práctica de prestar atención cercana y sin prejuicios a las sensaciones físicas, lo que puede aumentar la conciencia corporal y liberar tensión.",
+        "exercise": {
+          "title": "Escaneo Corporal de 5 Minutos",
+          "description": "Guía suavemente tu atención a través de tu cuerpo para notar sensaciones sin juzgarlas.",
+          "steps": [
+            "Acuéstate o siéntate cómodamente. Cierra los ojos.",
+            "Lleva tu atención a los dedos de tu pie izquierdo. Nota cualquier sensación—calor, frío, hormigueo—sin necesidad de cambiarlas.",
+            "Mueve lentamente tu atención hacia arriba por tu pierna izquierda, a tu pierna derecha, a través de tu torso y hacia abajo por tus brazos hasta las yemas de tus dedos.",
+            "Finalmente, lleva tu enfoque a tu cuello, cara y cabeza.",
+            "Toma una última respiración profunda y abre suavemente los ojos."
+          ]
+        }
+      },
+      "day3": {
+        "title": "Escucha Consciente",
+        "concept": "La atención plena no se trata solo de sensaciones internas. También podemos ser conscientes de nuestro entorno. La escucha consciente implica prestar atención a los sonidos a tu alrededor sin etiquetarlos ni juzgarlos.",
+        "exercise": {
+          "title": "Ejercicio de Escucha Consciente",
+          "description": "Sintoniza con los sonidos de tu entorno para practicar la conciencia externa.",
+          "steps": [
+            "Siéntate en silencio y cierra los ojos.",
+            "Primero, nota los sonidos más obvios a tu alrededor. Reconócelos sin perderte en pensamientos sobre ellos.",
+            "A continuación, intenta escuchar sonidos más sutiles y distantes que podrías haber filtrado antes.",
+            "Ahora, escucha los sonidos más cercanos a ti, quizás el sonido de tu propia respiración o el roce de tu ropa.",
+            "Simplemente recibe estos sonidos como pura sensación. Después de unos minutos, regresa suavemente tu conciencia a la habitación."
+          ]
+        }
+      }
+    },
+    "anxious_thoughts": {
+      "title": "Desafío de Pensamientos Ansiosos de 5 Días",
+      "description": "Un programa de 5 días basado en los principios de la TCC para ayudarte a identificar, comprender y reformular los patrones de pensamiento ansiosos.",
+      "day1": {
+        "title": "Identificando Tus Pensamientos",
+        "concept": "El primer paso es aprender a notar tus pensamientos negativos automáticos (PNAs). Estos pensamientos a menudo aparecen en nuestra mente sin que nos demos cuenta. El objetivo de hoy es convertirte en un observador de tu propia mente, separándote de tus pensamientos. Son solo pensamientos, no hechos.",
+        "exercise": {
+          "title": "Cazador de Pensamientos",
+          "description": "Un simple ejercicio de observación para practicar notar tus pensamientos sin involucrarte con ellos.",
+          "steps": [
+            "Encuentra un momento tranquilo y cierra los ojos.",
+            "Imagina que estás sentado/a junto a un arroyo. Cada pensamiento que llega a tu mente es una hoja flotando en el agua.",
+            "Tu tarea no es saltar al agua, sino simplemente observar las hojas (tus pensamientos) pasar. Nótalos y déjalos ir.",
+            "Haz esto durante 5 minutos. El objetivo no es tener la mente en blanco, sino practicar la habilidad de la observación sin juicios."
+          ]
+        }
+      },
+      "day2": {
+        "title": "Detectando Distorsiones Cognitivas",
+        "concept": "Los pensamientos ansiosos a menudo siguen patrones predecibles y poco útiles llamados 'distorsiones cognitivas'. Al aprender a nombrar estos patrones (como 'Catastrofización' o 'Pensamiento de todo o nada'), podemos quitarles su poder. Se convierten menos en hechos y más en malos hábitos mentales.",
+        "exercise": {
+          "title": "Detective de Distorsiones",
+          "description": "Revisa un pensamiento ansioso y ve si puedes identificar el patrón de distorsión que sigue.",
+          "steps": [
+            "Trae a la mente un pensamiento ansioso reciente que hayas tenido.",
+            "Revisa la lista de distorsiones cognitivas comunes (puedes encontrarla en la sección de Herramientas Cognitivas).",
+            "¿Tu pensamiento encaja en uno de estos patrones? Por ejemplo, ¿estás saltando al peor de los casos (Catastrofización)?",
+            "Simplemente nombrar la distorsión puede crear una distancia poderosa. Dite a ti mismo/a: 'Ah, eso es solo mi mente adivinando el futuro.'"
+          ]
+        }
+      },
+      "day3": {
+        "title": "Cuestionando la Evidencia",
+        "concept": "A menudo aceptamos nuestros pensamientos ansiosos como 100% verdaderos sin cuestionarlos. Hoy, practicaremos actuar como un detective. Un detective no acepta la primera historia que oye; busca pruebas contundentes. Haremos lo mismo con nuestros pensamientos.",
+        "exercise": {
+          "title": "Hecho vs. Ficción",
+          "description": "Un ejercicio guiado para cuestionar la validez de un pensamiento ansioso específico.",
+          "steps": [
+            "Elige un pensamiento ansioso. Por ejemplo: 'Voy a suspender mi examen.'",
+            "Pregúntate: '¿Cuál es la evidencia real y concreta de que este pensamiento es verdadero?' Escríbela.",
+            "Ahora, pregunta: '¿Cuál es la evidencia de que este pensamiento NO es verdadero?' Busca contraejemplos y éxitos pasados.",
+            "Compara las dos listas. ¿Es el pensamiento tan verdadero como se sintió al principio?"
+          ]
+        }
+      },
+      "day4": {
+        "title": "Encontrando Perspectivas Alternativas",
+        "concept": "Para cualquier situación dada, hay muchas formas posibles de verla. El pensamiento ansioso tiende a encerrarnos en la perspectiva más negativa. La habilidad de hoy es practicar deliberadamente la generación de pensamientos más equilibrados, útiles y realistas.",
+        "exercise": {
+          "title": "Reencuadre de Pensamientos",
+          "description": "Practica la creación de una alternativa más equilibrada a un pensamiento negativo.",
+          "steps": [
+            "Toma el pensamiento ansioso con el que trabajaste ayer.",
+            "Basándote en tu recopilación de evidencia, ¿cuál es una forma más equilibrada y compasiva de ver la situación?",
+            "Por ejemplo, 'Voy a suspender mi examen' podría reformularse como 'Estoy preocupado/a por el examen, pero he estado estudiando. Haré lo mejor que pueda, y eso es todo lo que puedo hacer.'",
+            "Escribe este nuevo pensamiento y nota cómo se siente en comparación con el original."
+          ]
+        }
+      },
+      "day5": {
+        "title": "Poniéndolo Todo Junto",
+        "concept": "Hoy, combinaremos las habilidades que has aprendido en un proceso simple y repetible que puedes usar en cualquier momento que te sientas abrumado/a por un pensamiento ansioso. La repetición es clave para construir este nuevo hábito mental.",
+        "exercise": {
+          "title": "Mini Registro de Pensamientos",
+          "description": "Una revisión rápida y paso a paso de las habilidades aprendidas esta semana.",
+          "steps": [
+            "1. Nota: ¿Cuál es el pensamiento ansioso?",
+            "2. Identifica: ¿Qué distorsión cognitiva podría estar en juego?",
+            "3. Desafía: ¿Cuál es la evidencia a favor y en contra de este pensamiento?",
+            "4. Reencuadra: ¿Cuál es un pensamiento más equilibrado y alternativo?"
+          ]
+        }
+      }
+    },
+    "sleep_improvement": {
+      "title": "Programa de Mejora del Sueño de 7 Días",
+      "description": "Un programa de una semana para ayudarte a construir hábitos de sueño saludables, crear una rutina relajante antes de dormir y mejorar la calidad general de tu sueño para un mejor manejo de la ansiedad.",
+      "day1": {
+        "title": "La Hora de Desconexión",
+        "concept": "Así como calientas para hacer ejercicio, tu cerebro necesita enfriarse para dormir. Crear una 'zona de amortiguación' de 1 hora antes de acostarte, libre de pantallas y actividades estimulantes, le indica a tu cuerpo que es hora de descansar.",
+        "exercise": {
+          "title": "Diseña Tu Rutina de Desconexión",
+          "description": "Planifica una secuencia de actividades tranquilas para realizar cada noche antes de dormir.",
+          "steps": [
+            "Elige 2-3 actividades relajantes y sin pantallas que disfrutes. Ejemplos: leer un libro físico, estiramientos suaves, escuchar música tranquila, tomar un té de hierbas.",
+            "Decide el orden de estas actividades.",
+            "Pon una alarma para 1 hora antes de la hora deseada para acostarte. Esta es tu señal para comenzar tu rutina.",
+            "Esta noche, pon tu plan en acción. El objetivo es la consistencia."
+          ]
+        }
+      },
+      "day2": {
+        "title": "El Santuario del Sueño",
+        "concept": "El ambiente de tu dormitorio tiene un gran impacto en la calidad de tu sueño. El espacio ideal para dormir es fresco, oscuro y silencioso. Esto ayuda a tu cerebro a asociar el dormitorio con el sueño y solo con el sueño.",
+        "exercise": {
+          "title": "Lista de Verificación Ambiental",
+          "description": "Evalúa y optimiza tu dormitorio para dormir.",
+          "steps": [
+            "Temperatura: ¿Tu habitación está fresca? Si es posible, baja un poco el termostato.",
+            "Luz: ¿Puedes hacer tu habitación más oscura? Considera cortinas opacas o una máscara para dormir. Cubre o retira los aparatos electrónicos con luces.",
+            "Ruido: ¿Puedes hacerlo más silencioso? Tapones para los oídos o una máquina de ruido blanco pueden ayudar a bloquear los sonidos molestos.",
+            "Comodidad: ¿Es cómoda tu cama? Asegúrate de que tus almohadas y ropa de cama favorezcan un sueño reparador."
+          ]
+        }
+      },
+      "day3": {
+        "title": "Cafeína y Alcohol",
+        "concept": "Estimulantes como la cafeína y depresores como el alcohol pueden alterar significativamente la arquitectura de tu sueño, incluso si te duermes fácilmente. La cafeína puede permanecer en tu sistema durante muchas horas, mientras que el alcohol puede hacer que te despiertes en la segunda mitad de la noche.",
+        "exercise": {
+          "title": "Establece un Toque de Queda para la Cafeína",
+          "description": "Establece una hora límite para todo consumo de cafeína.",
+          "steps": [
+            "Determina tu hora habitual de acostarte.",
+            "Establece tu toque de queda para la cafeína al menos 8 horas antes de esa hora. Para una hora de acostarse a las 10 PM, tu último café debe ser antes de las 2 PM.",
+            "Cumple con este toque de queda hoy. Nota si hace alguna diferencia en cómo te sientes a la hora de acostarte."
+          ]
+        }
+      },
+      "day4": {
+        "title": "Descarga Mental Consciente",
+        "concept": "Es difícil dormir cuando tu mente está acelerada con preocupaciones y listas de tareas pendientes. Sacar estos pensamientos de tu cabeza y ponerlos en papel antes de dormir puede proporcionar una sensación de cierre y calmar una mente ocupada.",
+        "exercise": {
+          "title": "Diario Pre-Sueño",
+          "description": "Un breve ejercicio de escritura para despejar tu mente.",
+          "steps": [
+            "Unos 30 minutos antes de acostarte, toma un cuaderno y un bolígrafo.",
+            "Dedica 5 minutos a escribir todo lo que tengas en mente: preocupaciones, tareas para mañana, cosas que necesitas recordar.",
+            "Cierra el cuaderno. Simbólicamente, estás dejando a un lado estos pensamientos por la noche. Puedes ocuparte de ellos mañana."
+          ]
+        }
+      },
+      "day5": {
+        "title": "El Poder de la Luz",
+        "concept": "El reloj interno de tu cuerpo (ritmo circadiano) está fuertemente influenciado por la luz. La exposición a la luz natural brillante por la mañana ayuda a despertarte y a regular tu ciclo de sueño-vigilia, lo que facilita sentir sueño a la hora correcta por la noche.",
+        "exercise": {
+          "title": "Exposición a la Luz Matutina",
+          "description": "Recibe una dosis de luz natural poco después de despertarte.",
+          "steps": [
+            "Dentro de los 30 minutos posteriores a despertarte, intenta obtener al menos 10 minutos de luz solar.",
+            "Esto podría ser tomar tu café junto a una ventana soleada, dar un corto paseo al aire libre o simplemente salir a un balcón.",
+            "Evita usar gafas de sol durante este tiempo si es posible para que la luz llegue a tus ojos."
+          ]
+        }
+      },
+      "day6": {
+        "title": "El Cuerpo y el Sueño",
+        "concept": "La actividad física regular puede mejorar la calidad del sueño, pero el ejercicio intenso demasiado cerca de la hora de acostarse puede ser sobreestimulante. Sin embargo, el movimiento suave y consciente puede ayudar a liberar la tensión física y preparar el cuerpo para el descanso.",
+        "exercise": {
+          "title": "Estiramientos Suaves Antes de Dormir",
+          "description": "Una rutina de estiramientos corta y tranquilizadora para relajar tu cuerpo.",
+          "steps": [
+            "Postura del Niño: Arrodíllate en el suelo, siéntate sobre los talones e inclínate hacia adelante, apoyando la frente en el suelo. Mantén durante 30 segundos.",
+            "Estiramiento Gato-Vaca: A cuatro patas, arquea la espalda como un gato, luego baja el abdomen y mira hacia arriba como una vaca. Repite 5 veces.",
+            "Piernas en la Pared: Acuéstate boca arriba con las piernas extendidas contra una pared. Esto es muy reparador.",
+            "Concéntrate en tu respiración durante los estiramientos. Muévete lenta y suavemente."
+          ]
+        }
+      },
+      "day7": {
+        "title": "Cuando no Puedes Dormir",
+        "concept": "Estar en la cama sintiéndote frustrado porque no puedes dormir es contraproducente. Entrena a tu cerebro para asociar la cama con la ansiedad. La regla general es: si no estás dormido/a después de 20-30 minutos, levántate y haz algo tranquilo con poca luz.",
+        "exercise": {
+          "title": "Práctica de Vigilia Tranquila",
+          "description": "Un plan de qué hacer cuando estás despierto/a por la noche.",
+          "steps": [
+            "Si te encuentras completamente despierto/a, sal de la cama.",
+            "Ve a otra habitación y realiza una actividad tranquila y relajante con luz tenue, como leer un libro aburrido o escuchar música tranquila.",
+            "No uses tu teléfono ni veas la televisión.",
+            "Cuando empieces a sentir sueño de nuevo, vuelve a la cama. El objetivo es volver a asociar tu cama con el sueño, no con la frustración."
+          ]
+        }
+      }
+    }
+  },
+  "user_profile": {
+    "title": "Perfil y Configuración",
+    "tabs": {
+      "settings": "Configuración",
+      "activity_log": "Registro de Actividad",
+      "feedback_history": "Mis Comentarios"
+    },
+    "close_aria_label": "Cerrar configuración",
+    "consent_title": "Consentimiento de Datos",
+    "consent_subtitle": "Niveles de consentimiento más altos permiten a la IA generar ejercicios más personalizados utilizando los datos del perfil que proporciones a continuación.",
+    "consent_essential": "Esencial: Sin personalización. El perfil está deshabilitado.",
+    "consent_enhanced": "Mejorado: Habilita la personalización con datos no sensibles.",
+    "consent_complete": "Completo: Habilita la personalización total con todos los campos disponibles.",
+    "form_disabled_message": "La personalización está deshabilitada. Para habilitarla, selecciona un nivel de consentimiento de datos mejorado.",
+    "ai_provider_title": "Proveedor de IA",
+    "provider_label": "Proveedor",
+    "ollama_model_label": "Modelo de Ollama",
+    "ollama_cloud_api_key_label": "Clave de API de Ollama Cloud",
+    "ollama_cloud_api_key_placeholder": "Introduce tu clave de API de ollama.com",
+    "ollama_cloud_api_key_helper": "Necesaria para usar los modelos en la nube.",
+    "ollama_model_helper": "Asegúrate de que tu servidor local de Ollama esté en funcionamiento. La aplicación intentará conectarse a http://localhost:11434.",
+    "ollama_test_connection_tooltip": "Actualizar lista de modelos",
+    "ollama_status_testing": "Probando conexión...",
+    "ollama_status_success": "Conexión local exitosa. Se encontraron {{count}} modelos locales.",
+    "ollama_status_error": "Falló la conexión local:",
+    "ollama_no_models": "No se encontraron modelos",
+    "ollama_local_models": "Modelos Locales",
+    "ollama_cloud_models": "Modelos en la Nube",
+    "about_you_title": "Sobre Ti",
+    "age_label": "Edad",
+    "location_label": "Ubicación / Zona Horaria",
+    "location_placeholder": "p. ej., Madrid / CET",
+    "wellness_profile_title": "Perfil de Bienestar",
+    "sleep_label": "¿Promedio de sueño por noche (horas)?",
+    "caffeine_label": "Consumo Típico de Cafeína",
+    "caffeine_options": {
+      "none": "Nada",
+      "low": "Bajo",
+      "moderate": "Moderado",
+      "high": "Alto"
+    },
+    "interests_title": "Tus Intereses y Aficiones",
+    "interests_placeholder": "p. ej., Pintura, tocar la guitarra, jardinería, leer...",
+    "conditions_label": "Condiciones de Ansiedad o Ánimo Diagnosticadas (opcional)",
+    "conditions_placeholder": "p. ej., TAG, Trastorno de Pánico. Sé general.",
+    "conditions_help_text": "Esta información se almacena solo en tu dispositivo y puede ayudar a generar ejercicios más específicos.",
+    "lifestyle_title": "Estilo de Vida y Preferencias",
+    "work_env_label": "Entorno Laboral/Escolar",
+    "work_env_options": {
+      "office": "Oficina / Interior",
+      "remote": "Trabajo desde casa",
+      "student": "Estudiante",
+      "outdoors_manual": "Exterior / Trabajo Manual",
+      "other": "Otro"
+    },
+    "nature_access_label": "Acceso a la Naturaleza/Parques",
+    "nature_access_options": {
+      "yes": "Acceso fácil",
+      "limited": "Acceso limitado",
+      "no": "Sin acceso"
+    },
+    "activity_level_label": "Nivel de Actividad Típico",
+    "activity_level_options": {
+      "sedentary": "Sedentario (mayormente sentado)",
+      "lightly_active": "Ligeramente Activo (algo de caminata/estar de pie)",
+      "moderately_active": "Moderadamente Activo (ejercicio 3-5 veces/semana)",
+      "very_active": "Muy Activo (ejercicio intenso la mayoría de los días)"
+    },
+    "coping_styles_label": "¿Qué te ha ayudado en el pasado?",
+    "coping_styles_placeholder": "p. ej., hablar con amigos, salir a caminar, apps de mindfulness",
+    "learning_style_label": "Estilo de Aprendizaje Preferido",
+    "learning_style_options": {
+      "visual": "Visual",
+      "auditory": "Auditivo",
+      "kinesthetic": "Kinestésico"
+    },
+    "reminders_title": "Recordatorios Diarios",
+    "reminders_enable_label": "Habilitar Recordatorios",
+    "reminders_permission_denied": "Las notificaciones están bloqueadas. Por favor, habilítalas en la configuración de tu navegador para recibir recordatorios.",
+    "reminders_time_label": "Hora del Recordatorio",
+    "reminders_type_label": "Tipo de Recordatorio",
+    "reminders_type_options": {
+      "gentle": "Recordatorio Amable",
+      "motivational": "Cita Motivacional"
+    },
+    "feedback_title": "Ayúdanos a Mejorar",
+    "feedback_subtitle": "¿Tienes alguna sugerencia o encontraste un error? ¡Cuéntanos!",
+    "provide_feedback_button": "Enviar Comentarios",
+    "data_privacy_title": "Datos y Privacidad",
+    "data_privacy_subtitle": "Todos tus datos (perfil, historial, diario) se almacenan exclusivamente en el almacenamiento local de tu dispositivo. Borrar tus datos es permanente y no se puede deshacer.",
+    "download_log_subtitle": "Para ayudar a mejorar la aplicación, puedes descargar voluntariamente tu registro de interacciones anónimas y compartirlo con el equipo de desarrollo.",
+    "download_log_button": "Descargar Registro de Interacciones",
+    "clear_data_button": "Borrar Mis Datos...",
+    "clear_data_confirm_title": "¿Estás seguro/a?",
+    "clear_data_confirm_body": "Esto eliminará permanentemente todas tus entradas e información de perfil.",
+    "clear_data_confirm_button": "Sí, borrar todo",
+    "language_title": "Idioma",
+    "cancel_button": "Cancelar",
+    "save_button": "Guardar Cambios"
+  },
+  "feedback_modal": {
+    "title": "Enviar Comentarios",
+    "type_label": "Tipo de Comentario",
+    "types": {
+      "suggestion": "Sugerencia",
+      "bug": "Informe de Error",
+      "general": "Comentario General"
+    },
+    "message_label": "Mensaje",
+    "message_placeholder": "Por favor, proporciona tantos detalles como sea posible...",
+    "submit_button": "Enviar Comentario",
+    "submitted_message": "¡Gracias!"
+  },
+  "crisis_modal": {
+    "title": "Parece que estás pasando por mucho.",
+    "body": "Si te encuentras en peligro o angustia inmediata, por favor, busca ayuda. No estás solo/a.",
+    "cta_button_call": "Llamar a {{name}} ({{number}})",
+    "cta_button_web": "Visitar {{name}}",
+    "close_button": "Cerrar esta ventana"
+  },
+  "theme_toggle": {
+    "aria_label_light": "Cambiar a modo claro",
+    "aria_label_dark": "Cambiar a modo oscuro"
+  },
+  "search": {
+    "placeholder": "Buscar ejercicios, entradas de diario...",
+    "aria_label": "Buscar todo el contenido"
+  },
+  "tooltip": {
+    "expand_details": "Mostrar detalles",
+    "collapse_details": "Ocultar detalles",
+    "view_source": "Ver sitio web de origen",
+    "close": "Cerrar",
+    "get_ai_help": "Obtener ayuda de la IA para desafiar este pensamiento",
+    "download_plan": "Descargar Plan"
+  },
+  "mood_tracker": {
+    "title": "Registro de Ánimo",
+    "subtitle": "Registra tu estado emocional actual.",
+    "prompt": "¿Cómo te sientes en este momento?",
+    "logged_confirmation": "¡Ánimo registrado!",
+    "moods": {
+      "awful": "Terrible",
+      "bad": "Mal",
+      "okay": "Normal",
+      "good": "Bien",
+      "great": "Genial"
+    }
+  },
+  "mood_chart": {
+    "title": "Tu Semana en Ánimos",
+    "empty_state": "Registra tu estado de ánimo para ver tus tendencias aquí.",
+    "avg_mood": "Ánimo Prom."
+  }
+}

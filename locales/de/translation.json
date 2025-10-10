@@ -1,0 +1,467 @@
+
+{
+  "header": {
+    "title": "Serene",
+    "settings_aria_label": "Benutzerprofil und Einstellungen öffnen",
+    "crisis_support_aria_label": "Krisenunterstützungsressourcen öffnen"
+  },
+  "hero": {
+    "title": "Finde Deine Ruhe.",
+    "subtitle": "Beschreibe, wie du dich fühlst, und lass unsere KI einen personalisierten Plan mit Bewältigungsübungen erstellen, um dich zur Linderung zu führen.",
+    "get_started_button": "Loslegen"
+  },
+  "symptom_input": {
+    "title": "Wie fühlst du dich gerade?",
+    "placeholder": "z.B. 'Mein Herz rast und ich kann nicht aufhören, mir Sorgen um meine morgige Präsentation zu machen.'",
+    "aria_label": "Beschreibe deine Symptome hier oder wähle aus den folgenden Optionen.",
+    "submit_button": "Meinen Personalisierten Plan Erhalten",
+    "loading_button": "Analysiere...",
+    "symptoms_suffix": "Symptome"
+  },
+  "symptom_selector": {
+    "helper_text": "Oder wähle unten gängige Symptome aus, um sie deiner Beschreibung hinzuzufügen."
+  },
+  "symptom_categories": {
+    "physical": "Körperlich",
+    "cognitive": "Kognitiv",
+    "mood": "Stimmung",
+    "behavioral": "Verhalten"
+  },
+  "symptoms": {
+    "heart_palpitations": "Herzklopfen",
+    "shortness_of_breath": "Kurzatmigkeit",
+    "muscle_tension": "Muskelverspannung",
+    "sweating": "Schwitzen",
+    "dizziness": "Schwindel",
+    "stomach_ache": "Bauchschmerzen",
+    "headache": "Kopfschmerzen",
+    "shaking_or_trembling": "Zittern oder Beben",
+    "constant_worrying": "Ständiges Sorgen",
+    "catastrophic_thinking": "Katastrophisches Denken",
+    "poor_concentration": "Konzentrationsschwäche",
+    "racing_thoughts": "Gedankenrasen",
+    "feeling_of_dread": "Gefühl der Furcht",
+    "overthinking": "Überdenken",
+    "mind_going_blank": "Gedankenleere",
+    "nervousness": "Nervosität",
+    "irritability": "Reizbarkeit",
+    "fear_or_panic": "Angst oder Panik",
+    "frustration": "Frustration",
+    "feeling_overwhelmed": "Gefühl der Überforderung",
+    "restlessness": "Unruhe",
+    "avoiding_situations": "Vermeiden von Situationen",
+    "fidgeting": "Zappeln",
+    "pacing": "Umhergehen",
+    "difficulty_sleeping": "Schlafschwierigkeiten",
+    "social_withdrawal": "Sozialer Rückzug",
+    "procrastination": "Prokrastination"
+  },
+  "exercise_card": {
+    "duration_minutes": "{{duration}} Min.",
+    "steps_title": "Schritte:",
+    "rating_prompt": "Bewerte diese Übung",
+    "rating_aria_label": "Bewerte {{star}} Stern"
+  },
+  "exercise_history": {
+    "title": "Verlauf abgeschlossener Übungen",
+    "empty_state": "Du hast noch keine Übungen abgeschlossen. Dein Verlauf wird hier angezeigt, sobald du eine Übung bewertest.",
+    "completed_on": "Abgeschlossen am",
+    "your_rating": "Deine Bewertung"
+  },
+  "feedback_history": {
+    "title": "Mein Feedback-Verlauf",
+    "empty_state": "Du hast noch kein Feedback eingereicht. Deine Beiträge werden hier protokolliert."
+  },
+  "loading_spinner": {
+    "message": "Finde die besten Übungen für dich..."
+  },
+  "disclaimer": {
+    "title": "Haftungsausschluss:",
+    "body": "Dieses Tool dient nur zu Informationszwecken und ist kein Ersatz für professionelle medizinische Beratung, Diagnose oder Behandlung. Hole bei Fragen zu einer Erkrankung immer den Rat deines Arztes oder eines anderen qualifizierten Gesundheitsdienstleisters ein."
+  },
+  "personalized_plan": {
+    "title": "Dein Personalisierter Plan"
+  },
+  "plan_history": {
+    "title": "Verlauf der Planerstellung",
+    "subtitle": "Ein Protokoll deiner bisher erstellten Pläne zur späteren Einsicht.",
+    "empty_state": "Du hast noch keine Pläne erstellt. Beschreibe oben deine Symptome, um zu beginnen."
+  },
+  "plan_history_card": {
+    "your_input": "Deine Eingabe",
+    "generated_plan": "Erstellter Plan",
+    "sources": "Quellen"
+  },
+  "for_you": {
+    "title": "Ein Moment für Dich"
+  },
+  "live_coach": {
+    "title": "Live-Coach",
+    "subtitle": "Sprich in Echtzeit mit einem KI-Guide.",
+    "description": "Für Momente, in denen du sofortige Unterstützung benötigst, starte eine Live-Sprachsitzung. Unser KI-Coach wird dir zuhören und dich mit beruhigenden Techniken anleiten.",
+    "start_button": "Live-Sitzung Starten",
+    "end_button": "Sitzung Beenden",
+    "status_connecting": "Verbinde...",
+    "status_listening": "Höre zu...",
+    "status_speaking": "Spreche...",
+    "status_error": "Verbindungsfehler. Bitte versuche es erneut.",
+    "transcripts_you": "Du",
+    "transcripts_coach": "Coach"
+  },
+  "breathing_exercises": {
+    "title": "Schnelle Beruhigung",
+    "subtitle": "Wähle eine geführte Atemsitzung.",
+    "start_button": "Sitzung Starten",
+    "box_breathing": {
+      "name": "Box-Atmung",
+      "description": "Eine einfache Technik, um dein Nervensystem zu beruhigen, indem du für gleiche Zeiträume einatmest, den Atem anhältst, ausatmest und den Atem anhältst."
+    },
+    "478_breathing": {
+      "name": "4-7-8 Atmung",
+      "description": "Bekannt als \"entspannender Atem\", hilft diese Technik, Angst abzubauen und kann beim Einschlafen helfen."
+    },
+    "cyclic_sighing": {
+      "name": "Zyklisches Seufzen",
+      "description": "Eine wissenschaftlich fundierte Technik zur schnellen Stressreduktion durch zwei Einatmungen gefolgt von einer langen Ausatmung."
+    },
+    "coherent_breathing": {
+      "name": "Kohärente Atmung",
+      "description": "Ein einfacher Rhythmus von 5 Sekunden Einatmen und 5 Sekunden Ausatmen, um Gleichgewicht und Ruhe zu fördern."
+    },
+    "pursed_lip_breathing": {
+      "name": "Lippenbremse",
+      "description": "Verlangsamt deine Atemfrequenz und reduziert die Atemanstrengung, indem die Atemwege länger offen gehalten werden."
+    },
+    "diaphragmatic_breathing": {
+      "name": "Bauchatmung",
+      "description": "Auch als \"Zwerchfellatmung\" bekannt, fördert diese grundlegende Technik tiefe, volle Atemzüge, um die Entspannungsreaktion des Körpers zu aktivieren."
+    },
+    "slow_paced_breathing": {
+      "name": "Langsame Atmung",
+      "description": "Verlangsame absichtlich deine Atmung auf einen beruhigenden Rhythmus, um die Herzfrequenz zu senken und einen Zustand tiefer Entspannung zu fördern."
+    },
+    "alternate_nostril_breathing": {
+      "name": "Wechselatmung",
+      "description": "Eine beruhigende yogische Atempraxis, die Geist und Körper durch abwechselnden Luftstrom durch jedes Nasenloch ausgleicht."
+    },
+    "humming_bee_breath": {
+      "name": "Bienen-Atmung",
+      "description": "Reduziert Stress und beruhigt den Geist, indem beim Ausatmen eine sanfte summende Vibration erzeugt wird."
+    },
+    "steps": {
+      "breathe_in": "Einatmen",
+      "hold": "Halten",
+      "breathe_out": "Ausatmen",
+      "inhale": "Einatmen",
+      "inhale_again": "Erneut Einatmen",
+      "exhale_long": "Ausatmen (Lang)",
+      "breathe_in_nose": "Einatmen (Nase)",
+      "breathe_out_lips": "Ausatmen (Lippen)",
+      "breathe_in_belly": "Ein (Bauch hebt sich)",
+      "breathe_out_belly": "Aus (Bauch senkt sich)",
+      "inhale_left": "Einatmen (Links)",
+      "exhale_right": "Ausatmen (Rechts)",
+      "inhale_right": "Einatmen (Rechts)",
+      "exhale_left": "Ausatmen (Links)",
+      "hum_out": "Summend Ausatmen"
+    }
+  },
+  "breathing_visualizer": {
+    "close_aria_label": "Atemübung schließen",
+    "instruction": "Folge dem Rhythmus. Passe deinen Atem an die Anleitung an."
+  },
+  "breathing_visualizer_tooltips": {
+    "inhale": "Zweck: Den Körper mit Energie versorgen. Tipp: Atme langsam durch die Nase ein und lass deinen Bauch sich wie ein Ballon ausdehnen.",
+    "hold": "Zweck: Das Nervensystem beruhigen. Tipp: Halte den Atem sanft und ohne Anspannung.",
+    "exhale": "Zweck: Anspannung lösen. Tipp: Atme langsam durch den Mund aus, länger als du einatmest."
+  },
+  "journal": {
+    "title": "Privates Tagebuch",
+    "subtitle": "Reflektiere über deine Gedanken. Nur auf diesem Gerät gespeichert.",
+    "placeholder": "Schreibe auf, was dir durch den Kopf geht...",
+    "save_button": "Eintrag Speichern",
+    "saved_button": "Gespeichert!",
+    "past_entries_title": "Frühere Einträge"
+  },
+  "journal_card": {
+    "analyzing": "Analysiere deinen Eintrag...",
+    "ai_reflection_title": "KI-Reflexion",
+    "get_ai_reflection_button": "KI-Reflexion Erhalten"
+  },
+  "cognitive_tools": {
+    "title": "Kognitive Werkzeuge",
+    "subtitle": "Hinterfrage hinderliche Denkmuster.",
+    "thought_record_title": "KVT-Gedankenprotokoll",
+    "thought_record_description": "Eine geführte Übung, um negative Gedanken zu identifizieren, zu hinterfragen und neu zu formulieren.",
+    "start_button": "Übung Starten"
+  },
+  "thought_record_history": {
+    "title": "Deine Früheren Protokolle"
+  },
+  "thought_record": {
+    "title": "KVT-Gedankenprotokoll",
+    "step_prefix": "Schritt {{step}}:",
+    "steps": {
+      "situation": "Situation",
+      "negative_thought": "Negativer Gedanke",
+      "challenge": "Hinterfragen",
+      "alternative": "Alternative",
+      "outcome": "Ergebnis"
+    },
+    "situation_label": "Was war die Situation, die das Gefühl ausgelöst hat?",
+    "situation_placeholder": "z.B. Ich habe während einer Präsentation bei der Arbeit einen Fehler gemacht.",
+    "negative_thought_label": "Was war der automatische negative Gedanke?",
+    "negative_thought_placeholder": "z.B. 'Ich bin so inkompetent. Alle müssen denken, ich bin ein Idiot.'",
+    "distortions_label": "Treffen eine dieser kognitiven Verzerrungen zu?",
+    "challenge_label": "Hinterfrage den Gedanken. Was spricht dagegen?",
+    "challenge_placeholder": "z.B. Mein Chef hat mein letztes Projekt gelobt. Ein Kollege sagte, er fand meine Präsentation aufschlussreich.",
+    "ai_help_button": "KI-Hilfe Erhalten",
+    "ai_help_loading": "Erhalte Vorschläge...",
+    "alternative_label": "Was ist ein ausgewogenerer oder alternativer Gedanke?",
+    "alternative_placeholder": "z.B. 'Ich habe einen Fehler gemacht, aber das bedeutet nicht, dass ich inkompetent bin. Ich kann daraus lernen und es beim nächsten Mal besser machen.'",
+    "outcome_label": "Wie fühlst du dich jetzt? Bewerte deinen Glauben an den ursprünglichen Gedanken (0-100%).",
+    "outcome_placeholder": "z.B. Ich fühle mich weniger ängstlich. Ich glaube jetzt, dass der negative Gedanke nur zu 20% wahr ist.",
+    "previous_button": "Zurück",
+    "next_button": "Weiter",
+    "save_button": "Protokoll Speichern"
+  },
+  "cognitive_distortions": {
+    "all_or_nothing": {
+      "name": "Alles-oder-Nichts-Denken",
+      "description": "Situationen in absoluten, schwarz-weißen Kategorien sehen, ohne Mittelweg."
+    },
+    "overgeneralization": {
+      "name": "Übergeneralisierung",
+      "description": "Ein einzelnes negatives Ereignis als ein endloses Muster der Niederlage sehen."
+    },
+    "mental_filter": {
+      "name": "Mentaler Filter",
+      "description": "Sich auf ein einzelnes negatives Detail konzentrieren und ausschließlich darüber nachdenken, wobei alle positiven Aspekte ausgeblendet werden."
+    },
+    "catastrophizing": {
+      "name": "Katastrophisieren",
+      "description": "Erwarten, dass das schlimmste Szenario eintritt, ohne wahrscheinlichere Ergebnisse zu berücksichtigen."
+    },
+    "personalization": {
+      "name": "Personalisierung",
+      "description": "Glauben, dass man die Ursache für ein negatives äußeres Ereignis ist, für das man tatsächlich nicht hauptsächlich verantwortlich war."
+    },
+    "mind_reading": {
+      "name": "Gedankenlesen",
+      "description": "Annehmen, dass man weiß, was andere Leute denken, ohne ausreichende Beweise für ihre Gedanken zu haben."
+    },
+    "fortune_telling": {
+      "name": "Wahrsagen",
+      "description": "Erwarten, dass die Dinge schlecht ausgehen werden, und überzeugt sein, dass die eigene Vorhersage eine bereits feststehende Tatsache ist."
+    },
+    "emotional_reasoning": {
+      "name": "Emotionale Beweisführung",
+      "description": "Annehmen, dass die eigenen negativen Emotionen notwendigerweise die Realität widerspiegeln: 'Ich fühle es, also muss es wahr sein.'"
+    },
+    "should_statements": {
+      "name": "\"Sollte\"-Aussagen",
+      "description": "Verwendung kritischer Wörter wie 'sollte', 'muss' oder 'müsste', die dazu führen können, dass man sich schuldig oder wie ein Versager fühlt."
+    }
+  },
+  "guided_programs": {
+    "title": "Geführte Programme",
+    "subtitle": "Folge einem strukturierten Plan, um Fähigkeiten aufzubauen."
+  },
+  "guided_meditations": {
+    "title": "Geführte Meditationen",
+    "subtitle": "Finde Stille mit textbasierter Anleitung.",
+    "start_button": "Meditation Starten"
+  },
+  "meditations": {
+    "body_scan": {
+      "title": "5-Minuten-Körperscan",
+      "description": "Steigere die Körperwahrnehmung und löse Anspannungen, indem du deine Aufmerksamkeit sanft auf körperliche Empfindungen lenkst.",
+      "guidance": [
+        "Finde eine bequeme Position, entweder sitzend oder liegend. Schließe sanft deine Augen und nimm ein paar tiefe, beruhigende Atemzüge.",
+        "Richte deine Aufmerksamkeit auf deinen Scheitel. Nimm alle Empfindungen hier ohne Urteil wahr. Kribbeln, Druck oder gar nichts – alles ist in Ordnung.",
+        "Bewege deinen Fokus langsam nach unten zu deinem Gesicht. Entspanne deinen Kiefer, deine Wangen und die kleinen Muskeln um deine Augen. Lass alle Anspannungen los, die du findest.",
+        "Setze diesen sanften Scan über deinen Nacken und deine Schultern fort, über deine Arme bis zu den Fingerspitzen, durch deine Brust und deinen Bauch und deinen Rücken hinunter.",
+        "Bewege deine Aufmerksamkeit durch deine Beine nach unten, zu deinen Füßen und bis zu den Zehenspitzen. Nimm das Gefühl wahr, wie deine Füße den Boden oder die Oberfläche unter ihnen berühren.",
+        "Nimm zum Schluss noch einen tiefen Atemzug und spüre ein Gefühl der Ganzheit in deinem gesamten Körper. Wenn du bereit bist, öffne langsam deine Augen."
+      ]
+    },
+    "loving_kindness": {
+      "title": "7-Minuten-Liebende-Güte",
+      "description": "Kultiviere Gefühle von Wärme, Freundlichkeit und Mitgefühl für dich selbst und andere.",
+      "guidance": [
+        "Setze dich in eine bequeme und entspannte Position. Schließe deine Augen und richte deine Aufmerksamkeit auf deinen Herzraum.",
+        "Wiederhole leise die folgenden Sätze, an dich selbst gerichtet: 'Möge ich glücklich sein. Möge ich gesund sein. Möge ich sicher sein. Möge ich mit Leichtigkeit leben.' Spüre die Absicht hinter den Worten.",
+        "Stelle dir nun jemanden vor, der dir sehr am Herzen liegt, wie einen engen Freund oder ein Familienmitglied. Richte diese Sätze an sie: 'Mögest du glücklich sein. Mögest du gesund sein. Mögest du sicher sein. Mögest du mit Leichtigkeit leben.'",
+        "Denke als Nächstes an eine neutrale Person, jemanden, den du weder magst noch nicht magst, vielleicht einen Kassierer in einem Geschäft oder einen Nachbarn, den du gelegentlich siehst. Biete ihnen die gleichen freundlichen Wünsche an: 'Mögen Sie glücklich sein. Mögen Sie gesund sein. Mögen Sie sicher sein. Mögen Sie mit Leichtigkeit leben.'",
+        "Wenn du dich dazu in der Lage fühlst, stelle dir jemanden vor, mit dem du Schwierigkeiten hast. Versuche, diese Wünsche auch auf diese Person auszudehnen, auch wenn es nur ein wenig ist: 'Mögen Sie glücklich sein. Mögen Sie gesund sein. Mögen Sie sicher sein. Mögen Sie mit Leichtigkeit leben.'",
+        "Erweitere schließlich dein Bewusstsein, um alle Lebewesen überall, ohne Ausnahme, einzuschließen: 'Mögen alle Wesen glücklich sein. Mögen alle Wesen gesund sein. Mögen alle Wesen sicher sein. Mögen alle Wesen mit Leichtigkeit leben.'",
+        "Verweile einige Momente in diesem Gefühl der Offenherzigkeit, bevor du deine Aufmerksamkeit sanft in den Raum zurückbringst und deine Augen öffnest."
+      ]
+    },
+    "mindful_walk": {
+      "title": "10-minütiger achtsamer Spaziergang",
+      "description": "Verbinde dich mit deinem Körper und deiner Umgebung, indem du dem einfachen Akt des Gehens sanfte Aufmerksamkeit schenkst.",
+      "guidance": [
+        "Beginne damit, einen Moment still zu stehen. Spüre deine Füße auf dem Boden. Atme tief ein.",
+        "Beginne in einem natürlichen, bequemen Tempo zu gehen. Richte deine Aufmerksamkeit auf das Gefühl deiner Füße, wie sie den Boden berühren und wieder verlassen. Ferse, Sohle, Zehen.",
+        "Nimm den Rhythmus deiner Schritte wahr. Es ist nicht nötig, ihn zu ändern, nur beobachten. Spüre das sanfte Schwingen deiner Arme.",
+        "Erweitere deine Wahrnehmung auf deine Umgebung. Nimm die Farben, das Licht, die Formen um dich herum wahr, ohne sie als 'gut' oder 'schlecht' zu bewerten.",
+        "Lausche den Geräuschen. Dem entfernten Verkehr, den Vögeln, dem Geräusch deiner eigenen Schritte. Lass sie kommen und gehen, ohne dich an sie zu klammern.",
+        "Wenn du am Ende deines Spaziergangs ankommst, bleibe wieder einen Moment stehen. Nimm wahr, wie sich dein Körper anfühlt. Nimm einen letzten, bewussten Atemzug."
+      ]
+    },
+    "gratitude": {
+      "title": "5-Minuten-Dankbarkeitsmeditation",
+      "description": "Richte deinen Fokus auf das Positive, indem du ein Gefühl der Dankbarkeit für die guten Dinge in deinem Leben kultivierst.",
+      "guidance": [
+        "Finde eine bequeme Sitzposition und schließe sanft deine Augen. Nimm ein paar Atemzüge, um im gegenwärtigen Moment anzukommen.",
+        "Denke an eine Person in deinem Leben, für die du dankbar bist. Stelle sie dir vor und danke ihr im Stillen für ihre Anwesenheit und Freundlichkeit.",
+        "Denke nun an einen Ort, der dir ein Gefühl von Frieden oder Glück gibt. Das kann ein Zimmer, ein Park oder ein Urlaubsort sein. Schätze das Gefühl, das dir dieser Ort gibt.",
+        "Denke an eine einfache Freude, die du kürzlich genossen hast. Das könnte der Geschmack deines Morgenkaffees, die Wärme der Sonne oder ein Musikstück sein. Genieße diesen kleinen Moment der Freude.",
+        "Reflektiere über eine Eigenschaft oder Stärke in dir, für die du dankbar bist. Das könnte deine Widerstandsfähigkeit, deine Kreativität oder deine Freundlichkeit sein.",
+        "Nimm einen letzten, tiefen Atemzug und trage dieses Gefühl der Dankbarkeit mit dir. Wenn du bereit bist, öffne sanft deine Augen."
+      ]
+    },
+    "mindful_listening": {
+      "title": "3-Minuten Achtsames Zuhören",
+      "description": "Verankere dich im gegenwärtigen Moment, indem du deine Wahrnehmung für die Klanglandschaft um dich herum öffnest, ohne zu urteilen.",
+      "guidance": [
+        "Setze dich bequem hin, die Augen geschlossen oder den Blick sanft nach unten gerichtet. Lass deinen Körper zur Ruhe kommen.",
+        "Richte deine Aufmerksamkeit auf die Welt der Klänge. Nimm den auffälligsten Klang in deiner Umgebung wahr. Erkenne einfach seine Anwesenheit an.",
+        "Erweitere nun deine Wahrnehmung, um Klänge einzubeziehen, die weiter entfernt sind. Lausche ohne Anstrengung, lass die Klänge einfach zu dir kommen.",
+        "Richte deinen Fokus auf Klänge, die ganz nah sind, vielleicht das Geräusch deines eigenen Atems oder das Summen eines Geräts im Raum.",
+        "Lausche schließlich der gesamten Klanglandschaft als einer Symphonie von Geräuschen, nah und fern, laut und leise. Wenn du bereit bist, öffne sanft deine Augen."
+      ]
+    },
+    "thought_noting": {
+      "title": "5-Minuten Gedanken-Notieren",
+      "description": "Übe, deine Gedanken zu beobachten, wie sie auftauchen, und sie sanft zu benennen, um Distanz zu schaffen und ihre Macht zu verringern.",
+      "guidance": [
+        "Finde eine bequeme Sitzposition. Schließe deine Augen und nimm ein paar tiefe Atemzüge, wobei deine Aufmerksamkeit auf dem körperlichen Gefühl des Atmens ruht.",
+        "Während du sitzt, wirst du unweigerlich Gedanken bemerken. Anstatt dem Gedanken zu folgen oder ihn wegzudrücken, erkenne einfach seine Anwesenheit an.",
+        "Gib dem Gedanken mental ein sanftes, leichtes Etikett. Ein einfaches Etikett wie \"denken\" oder \"sorgen\" genügt. Es ist nicht nötig, den Inhalt zu analysieren.",
+        "Nachdem du den Gedanken notiert hast, lenke deine Aufmerksamkeit sanft zurück zu deinem Atem. Dein Atem ist dein Anker.",
+        "Wiederhole diesen Vorgang jedes Mal, wenn ein Gedanke deine Aufmerksamkeit fesselt. Das Ziel ist nicht, das Denken zu stoppen, sondern deine Beziehung zu deinen Gedanken zu verändern.",
+        "Fahre für die Dauer fort. Wenn du bereit bist, bringe deine Aufmerksamkeit zurück in den Raum und öffne langsam deine Augen."
+      ]
+    }
+  },
+  "program_viewer": {
+    "day_of_total": "Tag {{day}} von {{total}}:",
+    "todays_focus": "Heutiger Fokus",
+    "todays_exercise": "Heutige Übung"
+  },
+  "meditation_player": {
+    "finish_button": "Meditation Beenden"
+  },
+  "programs": {
+    "mindfulness_intro": {
+      "title": "3-Tage-Einführung in die Achtsamkeit",
+      "description": "Lerne die Grundlagen der Achtsamkeit mit diesem kurzen Einführungsprogramm, das dir helfen soll, eine Grundlage für die Wahrnehmung des gegenwärtigen Moments zu schaffen.",
+      "day1": {
+        "title": "Achtsames Atmen",
+        "concept": "Achtsamkeit beginnt mit dem Atem. Er ist unser Anker im gegenwärtigen Moment. Heute konzentrieren wir uns darauf, einfach den natürlichen Rhythmus unseres Atems zu beobachten, ohne zu versuchen, ihn zu verändern.",
+        "exercise": {
+          "title": "3-Minuten Achtsames Atmen",
+          "description": "Eine kurze Übung, um dich im Hier und Jetzt zu verankern, indem du dich auf deinen Atem konzentrierst.",
+          "steps": [
+            "Finde eine bequeme Sitzposition. Schließe sanft deine Augen.",
+            "Richte deine Aufmerksamkeit auf das Gefühl deines Atems. Nimm die Luft wahr, die durch deine Nasenlöcher einströmt und deine Lungen füllt.",
+            "Beobachte das Gefühl, wie sich deine Brust oder dein Bauch hebt und senkt.",
+            "Wenn deine Gedanken abschweifen, führe deinen Fokus sanft und ohne Urteil zurück zu deinem Atem.",
+            "Fahre 3 Minuten lang fort. Wenn du bereit bist, öffne langsam deine Augen."
+          ]
+        }
+      },
+      "day2": {
+        "title": "Der Körperscan",
+        "concept": "Unsere Körper speichern viele Informationen. Ein Körperscan ist eine Übung, bei der wir körperlichen Empfindungen aufmerksam und ohne Urteil Beachtung schenken, was die Körperwahrnehmung erhöhen und Anspannungen lösen kann.",
+        "exercise": {
+          "title": "5-Minuten-Körperscan",
+          "description": "Lenke deine Aufmerksamkeit sanft durch deinen Körper, um Empfindungen ohne Urteil wahrzunehmen.",
+          "steps": [
+            "Lege dich hin oder setze dich bequem hin. Schließe deine Augen.",
+            "Richte deine Aufmerksamkeit auf die Zehen deines linken Fußes. Nimm alle Empfindungen wahr – Wärme, Kühle, Kribbeln – ohne sie ändern zu müssen.",
+            "Bewege deine Aufmerksamkeit langsam dein linkes Bein hinauf, zu deinem rechten Bein, durch deinen Rumpf und deine Arme hinunter bis zu den Fingerspitzen.",
+            "Richte deinen Fokus schließlich auf deinen Nacken, dein Gesicht und deinen Kopf.",
+            "Nimm einen letzten, tiefen Atemzug und öffne sanft deine Augen."
+          ]
+        }
+      },
+      "day3": {
+        "title": "Achtsames Zuhören",
+        "concept": "Achtsamkeit bezieht sich nicht nur auf innere Empfindungen. Wir können auch auf unsere Umgebung achten. Achtsames Zuhören bedeutet, den Geräuschen um dich herum Aufmerksamkeit zu schenken, ohne sie zu bewerten oder zu beurteilen.",
+        "exercise": {
+          "title": "Achtsame Zuhörübung",
+          "description": "Stimme dich auf die Geräusche deiner Umgebung ein, um die äußere Wahrnehmung zu üben.",
+          "steps": [
+            "Setze dich ruhig hin und schließe deine Augen.",
+            "Nimm zuerst die offensichtlichsten Geräusche um dich herum wahr. Nimm sie zur Kenntnis, ohne dich in Gedanken darüber zu verlieren.",
+            "Versuche als Nächstes, auf subtilere, weiter entfernte Geräusche zu lauschen, die du vielleicht zuvor ausgeblendet hast.",
+            "Lausche nun den Geräuschen, die dir am nächsten sind – vielleicht das Geräusch deines eigenen Atems oder das Rascheln deiner Kleidung.",
+            "Empfange diese Geräusche einfach als reine Sinneswahrnehmung. Kehre nach ein paar Minuten sanft mit deiner Aufmerksamkeit in den Raum zurück."
+          ]
+        }
+      }
+    },
+    "anxious_thoughts": {
+      "title": "5-tägige Herausforderung für ängstliche Gedanken",
+      "description": "Ein 5-tägiges Programm basierend auf KVT-Prinzipien, das Ihnen hilft, ängstliche Denkmuster zu erkennen, zu verstehen und neu zu formulieren.",
+      "day1": {
+        "title": "Ihre Gedanken identifizieren",
+        "concept": "Der erste Schritt besteht darin, zu lernen, Ihre automatischen negativen Gedanken (ANGs) zu bemerken. Diese Gedanken schleichen sich oft unbemerkt in unseren Kopf. Das heutige Ziel ist es, ein Beobachter Ihres eigenen Geistes zu werden und sich von Ihren Gedanken zu distanzieren. Es sind nur Gedanken, keine Fakten.",
+        "exercise": {
+          "title": "Gedankenfänger",
+          "description": "Eine einfache Beobachtungsübung, um zu üben, Ihre Gedanken zu bemerken, ohne sich mit ihnen zu beschäftigen.",
+          "steps": [
+            "Finden Sie einen ruhigen Moment und schließen Sie die Augen.",
+            "Stellen Sie sich vor, Sie sitzen am Ufer eines Baches. Jeder Gedanke, der Ihnen in den Sinn kommt, ist ein Blatt, das auf dem Wasser vorbeischwimmt.",
+            "Ihre Aufgabe ist es nicht, ins Wasser zu springen, sondern einfach die Blätter (Ihre Gedanken) vorbeiziehen zu sehen. Bemerken Sie sie und lassen Sie sie los.",
+            "Machen Sie dies 5 Minuten lang. Das Ziel ist nicht, einen leeren Geist zu haben, sondern die Fähigkeit der urteilsfreien Beobachtung zu üben."
+          ]
+        }
+      },
+      "day2": {
+        "title": "Kognitive Verzerrungen erkennen",
+        "concept": "Ängstliche Gedanken folgen oft vorhersagbaren, wenig hilfreichen Mustern, die als 'kognitive Verzerrungen' bezeichnet werden. Indem wir lernen, diese Muster zu benennen (wie 'Katastrophisieren' oder 'Alles-oder-Nichts-Denken'), können wir ihnen ihre Macht nehmen. Sie werden weniger zu Fakten und mehr zu schlechten mentalen Gewohnheiten.",
+        "exercise": {
+          "title": "Verzerrungsdetektiv",
+          "description": "Überprüfen Sie einen ängstlichen Gedanken und sehen Sie, ob Sie das Verzerrungsmuster erkennen können, dem er folgt.",
+          "steps": [
+            "Erinnern Sie sich an einen kürzlichen ängstlichen Gedanken.",
+            "Sehen Sie sich die Liste der häufigen kognitiven Verzerrungen an (Sie finden diese im Abschnitt 'Kognitive Werkzeuge').",
+            "Passt Ihr Gedanke in eines dieser Muster? Springen Sie zum Beispiel zum schlimmsten Fall (Katastrophisieren)?",
+            "Schon das Benennen der Verzerrung kann eine starke Distanz schaffen. Sagen Sie sich: 'Ah, das ist nur mein Verstand, der die Zukunft vorhersagt.'"
+          ]
+        }
+      },
+      "day3": {
+        "title": "Beweise hinterfragen",
+        "concept": "Wir akzeptieren unsere ängstlichen Gedanken oft als 100% wahr, ohne sie zu hinterfragen. Heute üben wir, wie ein Detektiv zu handeln. Ein Detektiv akzeptiert nicht einfach die erste Geschichte, die er hört; er sucht nach harten Beweisen. Dasselbe werden wir mit unseren Gedanken tun.",
+        "exercise": {
+          "title": "Fakt oder Fiktion",
+          "description": "Eine geführte Übung zur Überprüfung der Gültigkeit eines bestimmten ängstlichen Gedankens.",
+          "steps": [
+            "Wählen Sie einen ängstlichen Gedanken. Zum Beispiel: 'Ich werde meine Prüfung nicht bestehen.'",
+            "Fragen Sie sich: 'Was sind die tatsächlichen, konkreten Beweise dafür, dass dieser Gedanke wahr ist?' Schreiben Sie sie auf.",
+            "Fragen Sie nun: 'Was sind die Beweise dafür, dass dieser Gedanke NICHT wahr ist?' Suchen Sie nach Gegenbeispielen und vergangenen Erfolgen.",
+            "Vergleichen Sie die beiden Listen. Ist der Gedanke so wahr, wie er sich anfangs anfühlte?"
+          ]
+        }
+      },
+      "day4": {
+        "title": "Alternative Perspektiven finden",
+        "concept": "Für jede gegebene Situation gibt es viele mögliche Sichtweisen. Ängstliches Denken neigt dazu, uns in der negativsten Perspektive einzusperren. Die heutige Fähigkeit besteht darin, bewusst zu üben, ausgewogenere, hilfreichere und realistischere Gedanken zu entwickeln.",
+        "exercise": {
+          "title": "Gedankenumformulierung",
+          "description": "Üben Sie, eine ausgewogenere Alternative zu einem negativen Gedanken zu schaffen.",
+          "steps": [
+            "Nehmen Sie den ängstlichen Gedanken, mit dem Sie gestern gearbeitet haben.",
+            "Was ist auf der Grundlage Ihrer Beweiserhebung eine ausgewogenere und mitfühlendere Art, die Situation zu sehen?",
+            "Zum Beispiel könnte 'Ich werde meine Prüfung nicht bestehen' umformuliert werden in 'Ich mache mir Sorgen um die Prüfung, aber ich habe gelernt. Ich werde mein Bestes geben, und das ist alles, was ich tun kann.'",
+            "Schreiben Sie diesen neuen Gedanken auf und bemerken Sie, wie er sich im Vergleich zum ursprünglichen anfühlt."
+          ]
+        }
+      },
+      "day5": {
+        "title": "Alles

@@ -1,0 +1,772 @@
+{
+  "header": {
+    "title": "Serene",
+    "settings_aria_label": "Open user profile and settings",
+    "crisis_support_aria_label": "Open crisis support resources"
+  },
+  "hero": {
+    "title": "Find Your Calm.",
+    "subtitle": "Describe how you're feeling, and let our AI create a personalized plan with coping exercises to guide you toward relief.",
+    "get_started_button": "Get Started"
+  },
+  "onboarding": {
+    "welcome": {
+      "title": "Welcome to Serene",
+      "subtitle": "Your personalized anxiety relief assistant, powered by AI.",
+      "body": "This app is designed to help you understand and manage moments of anxiety by providing evidence-based coping strategies tailored just for you."
+    },
+    "features": {
+      "title": "How It Works",
+      "feature1_title": "Describe Your Feelings",
+      "feature1_body": "Use your voice or text to explain how you're feeling in the moment.",
+      "feature2_title": "Get a Personalized Plan",
+      "feature2_body": "Our AI analyzes your input and creates a unique plan with guided exercises.",
+      "feature3_title": "Explore & Grow",
+      "feature3_body": "Discover a library of tools like breathing exercises, a private journal, and guided programs."
+    },
+    "consent": {
+      "title": "Your Data, Your Control",
+      "subtitle": "All your data is stored securely on your device. To improve personalization, you can choose to share anonymous profile data with the AI.",
+      "body": "Higher consent levels enable more tailored exercise recommendations. You can change this at any time in your settings.",
+      "consent_essential_title": "Essential",
+      "consent_essential_body": "No personalization. Your profile data is not used by the AI.",
+      "consent_enhanced_title": "Enhanced (Recommended)",
+      "consent_enhanced_body": "Allows personalization using non-sensitive data like your activity level and work environment.",
+      "consent_complete_title": "Complete",
+      "consent_complete_body": "Enables full personalization using all profile fields you choose to fill out."
+    },
+    "profile": {
+      "title": "Quick Setup (Optional)",
+      "subtitle": "Answering these questions helps us make your first recommendations even better. You can skip this and change it later in your profile settings."
+    },
+    "buttons": {
+      "next": "Next",
+      "back": "Back",
+      "finish": "Finish Setup",
+      "get_started": "Get Started",
+      "skip": "Skip for now"
+    }
+  },
+  "symptom_input": {
+    "title": "How are you feeling right now?",
+    "placeholder": "e.g., 'My heart is racing and I can't stop worrying about my presentation tomorrow.'",
+    "aria_label": "Describe your symptoms here or select from the options below.",
+    "submit_button": "Get My Personalized Plan",
+    "loading_button": "Analyzing...",
+    "symptoms_suffix": "Symptoms"
+  },
+  "symptom_selector": {
+    "helper_text": "Or, select common symptoms below to add them to your description."
+  },
+  "symptom_categories": {
+    "physical": "Physical",
+    "cognitive": "Cognitive",
+    "mood": "Mood",
+    "behavioral": "Behavioral"
+  },
+  "symptoms": {
+    "heart_palpitations": "Heart palpitations",
+    "shortness_of_breath": "Shortness of breath",
+    "muscle_tension": "Muscle tension",
+    "sweating": "Sweating",
+    "dizziness": "Dizziness",
+    "stomach_ache": "Stomach ache",
+    "headache": "Headache",
+    "shaking_or_trembling": "Shaking or trembling",
+    "constant_worrying": "Constant worrying",
+    "catastrophic_thinking": "Catastrophic thinking",
+    "poor_concentration": "Poor concentration",
+    "racing_thoughts": "Racing thoughts",
+    "feeling_of_dread": "Feeling of dread",
+    "overthinking": "Overthinking",
+    "mind_going_blank": "Mind going blank",
+    "nervousness": "Nervousness",
+    "irritability": "Irritability",
+    "fear_or_panic": "Fear or panic",
+    "frustration": "Frustration",
+    "feeling_overwhelmed": "Feeling overwhelmed",
+    "restlessness": "Restlessness",
+    "avoiding_situations": "Avoiding situations",
+    "fidgeting": "Fidgeting",
+    "pacing": "Pacing",
+    "difficulty_sleeping": "Difficulty sleeping",
+    "social_withdrawal": "Social withdrawal",
+    "procrastination": "Procrastination"
+  },
+  "exercise_card": {
+    "duration_minutes": "{{duration}} min",
+    "steps_title": "Steps:",
+    "rating_prompt": "Rate this exercise",
+    "rating_aria_label": "Rate {{star}} star"
+  },
+  "exercise_history": {
+    "title": "Completed Exercise History",
+    "empty_state": "You haven't completed any exercises yet. Your history will appear here once you rate an exercise.",
+    "completed_on": "Completed On",
+    "your_rating": "Your Rating"
+  },
+  "feedback_history": {
+    "title": "My Feedback History",
+    "empty_state": "You haven't submitted any feedback yet. Your submissions will be logged here."
+  },
+  "loading_spinner": {
+    "message": "Finding the best exercises for you..."
+  },
+  "disclaimer": {
+    "title": "Disclaimer:",
+    "body": "This tool is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition."
+  },
+  "personalized_plan": {
+    "title": "Your Personalized Plan"
+  },
+  "plan_history": {
+    "title": "Plan Generation History",
+    "subtitle": "A log of your past generated plans for future reference.",
+    "empty_state": "You haven't generated any plans yet. Describe your symptoms above to get started."
+  },
+  "plan_history_card": {
+    "your_input": "Your Input",
+    "generated_plan": "Generated Plan",
+    "sources": "Sources"
+  },
+  "for_you": {
+    "title": "A Moment For You"
+  },
+  "live_coach": {
+    "title": "Live Coach",
+    "subtitle": "Talk with an AI guide in real-time.",
+    "description": "For moments when you need immediate support, start a live voice session. Our AI coach will listen and guide you with calming techniques.",
+    "start_button": "Start Live Session",
+    "end_button": "End Session",
+    "status_connecting": "Connecting...",
+    "status_listening": "Listening...",
+    "status_speaking": "Speaking...",
+    "status_error": "Connection Error. Please try again.",
+    "transcripts_you": "You",
+    "transcripts_coach": "Coach"
+  },
+  "breathing_exercises": {
+    "title": "Quick Calm",
+    "subtitle": "Choose a guided breathing session.",
+    "start_button": "Start Session",
+    "box_breathing": {
+      "name": "Box Breathing",
+      "description": "A simple technique to calm your nervous system by inhaling, holding, exhaling, and holding for equal counts."
+    },
+    "478_breathing": {
+      "name": "4-7-8 Breathing",
+      "description": "Known as the \"relaxing breath,\" this technique helps reduce anxiety and can aid in falling asleep."
+    },
+    "cyclic_sighing": {
+      "name": "Cyclic Sighing",
+      "description": "A research-backed technique to quickly reduce stress by performing two inhales followed by a long exhale."
+    },
+    "coherent_breathing": {
+      "name": "Coherent Breathing",
+      "description": "A simple rhythm of breathing in for 5 seconds and out for 5 seconds to promote balance and calm."
+    },
+    "pursed_lip_breathing": {
+      "name": "Pursed-Lip Breathing",
+      "description": "Slows your breathing rate, reducing the work of breathing by keeping your airways open longer."
+    },
+    "diaphragmatic_breathing": {
+      "name": "Diaphragmatic Breathing",
+      "description": "Also known as \"belly breathing,\" this foundational technique encourages deep, full breaths to activate the body's relaxation response."
+    },
+    "slow_paced_breathing": {
+      "name": "Slow-Paced Breathing",
+      "description": "Intentionally slow your breathing to a calming rhythm, helping to reduce heart rate and promote a state of deep relaxation."
+    },
+    "alternate_nostril_breathing": {
+      "name": "Alternate Nostril Breathing",
+      "description": "A calming yogic breath practice that balances the mind and body by alternating airflow through each nostril."
+    },
+    "humming_bee_breath": {
+      "name": "Humming Bee Breath",
+      "description": "Reduces stress and soothes the mind by creating a gentle humming vibration on the exhale."
+    },
+    "steps": {
+      "breathe_in": "Breathe In",
+      "hold": "Hold",
+      "breathe_out": "Breathe Out",
+      "inhale": "Inhale",
+      "inhale_again": "Inhale Again",
+      "exhale_long": "Exhale (Long)",
+      "breathe_in_nose": "Breathe in (Nose)",
+      "breathe_out_lips": "Breathe out (Lips)",
+      "breathe_in_belly": "In (Belly Rise)",
+      "breathe_out_belly": "Out (Belly Fall)",
+      "inhale_left": "Inhale (Left)",
+      "exhale_right": "Exhale (Right)",
+      "inhale_right": "Inhale (Right)",
+      "exhale_left": "Exhale (Left)",
+      "hum_out": "Hum Out"
+    }
+  },
+  "breathing_visualizer": {
+    "close_aria_label": "Close breathing exercise",
+    "instruction": "Follow the rhythm. Match your breath to the guide."
+  },
+  "breathing_visualizer_tooltips": {
+    "inhale": "Purpose: To energize the body. Tip: Breathe in slowly through your nose, letting your belly expand like a balloon.",
+    "hold": "Purpose: To calm the nervous system. Tip: Hold gently without any strain.",
+    "exhale": "Purpose: To release tension. Tip: Breathe out slowly through your mouth, longer than your inhale."
+  },
+  "journal": {
+    "title": "Private Journal",
+    "subtitle": "Reflect on your thoughts. Saved on this device only.",
+    "placeholder": "Write whatever is on your mind...",
+    "save_button": "Save Entry",
+    "saved_button": "Saved!",
+    "past_entries_title": "Past Entries"
+  },
+  "journal_card": {
+    "analyzing": "Analyzing your entry...",
+    "ai_reflection_title": "AI Reflection",
+    "get_ai_reflection_button": "Get AI Reflection"
+  },
+  "cognitive_tools": {
+    "title": "Cognitive Tools",
+    "subtitle": "Challenge unhelpful thought patterns.",
+    "thought_record_title": "CBT Thought Record",
+    "thought_record_description": "A guided exercise to identify, challenge, and reframe negative thoughts.",
+    "start_button": "Start Exercise"
+  },
+  "thought_record_history": {
+    "title": "Your Past Records"
+  },
+  "thought_record": {
+    "title": "CBT Thought Record",
+    "step_prefix": "Step {{step}}:",
+    "steps": {
+      "situation": "Situation",
+      "negative_thought": "Negative Thought",
+      "challenge": "Challenge",
+      "alternative": "Alternative",
+      "outcome": "Outcome"
+    },
+    "situation_label": "What was the situation that triggered the feeling?",
+    "situation_placeholder": "e.g., I made a mistake during a presentation at work.",
+    "negative_thought_label": "What was the automatic negative thought?",
+    "negative_thought_placeholder": "e.g., 'I'm so incompetent. Everyone must think I'm an idiot.'",
+    "distortions_label": "Any of these cognitive distortions apply?",
+    "challenge_label": "Challenge the thought. What's the evidence against it?",
+    "challenge_placeholder": "e.g., My boss praised my last project. A colleague said they found my presentation insightful.",
+    "ai_help_button": "Get AI Help",
+    "ai_help_loading": "Getting suggestions...",
+    "alternative_label": "What is a more balanced or alternative thought?",
+    "alternative_placeholder": "e.g., 'I made a mistake, but it doesn't mean I'm incompetent. I can learn from it and do better next time.'",
+    "outcome_label": "How do you feel now? Rate your belief in the original thought (0-100%).",
+    "outcome_placeholder": "e.g., I feel less anxious. I now believe the negative thought is only 20% true.",
+    "previous_button": "Previous",
+    "next_button": "Next",
+    "save_button": "Save Record"
+  },
+  "cognitive_distortions": {
+    "all_or_nothing": {
+      "name": "All-or-Nothing Thinking",
+      "description": "Viewing situations in absolute, black-and-white categories, with no middle ground."
+    },
+    "overgeneralization": {
+      "name": "Overgeneralization",
+      "description": "Seeing a single negative event as a never-ending pattern of defeat."
+    },
+    "mental_filter": {
+      "name": "Mental Filter",
+      "description": "Focusing on a single negative detail and dwelling on it exclusively, filtering out all positive aspects."
+    },
+    "catastrophizing": {
+      "name": "Catastrophizing",
+      "description": "Expecting the worst-case scenario to happen, without considering more likely outcomes."
+    },
+    "personalization": {
+      "name": "Personalization",
+      "description": "Believing you are the cause of some negative external event which, in fact, you were not primarily responsible for."
+    },
+    "mind_reading": {
+      "name": "Mind Reading",
+      "description": "Assuming you know what other people are thinking without having sufficient evidence of their thoughts."
+    },
+    "fortune_telling": {
+      "name": "Fortune Telling",
+      "description": "Anticipating that things will turn out badly and feeling convinced that your prediction is an already-established fact."
+    },
+    "emotional_reasoning": {
+      "name": "Emotional Reasoning",
+      "description": "Assuming that your negative emotions necessarily reflect the way things really are: \"I feel it, therefore it must be true.\""
+    },
+    "should_statements": {
+      "name": "\"Should\" Statements",
+      "description": "Using critical words like \"should,\" \"must,\" or \"ought,\" which can make you feel guilty or like a failure."
+    }
+  },
+  "guided_programs": {
+    "title": "Guided Programs",
+    "subtitle": "Follow a structured plan to build skills."
+  },
+  "guided_meditations": {
+    "title": "Guided Meditations",
+    "subtitle": "Find stillness with text-based guidance.",
+    "start_button": "Start Meditation"
+  },
+  "meditations": {
+    "body_scan": {
+      "title": "5-Minute Body Scan",
+      "description": "Increase body awareness and release tension by gently guiding your attention to physical sensations.",
+      "guidance": [
+        "Find a comfortable position, either sitting or lying down. Gently close your eyes and take a few deep, settling breaths.",
+        "Bring your awareness to the top of your head. Notice any sensations here without judgment. Tingling, pressure, or nothing at all—it's all okay.",
+        "Slowly move your focus down to your face. Soften your jaw, your cheeks, and the small muscles around your eyes. Let go of any tension you find.",
+        "Continue this gentle scan down your neck and shoulders, down your arms to your fingertips, through your chest and abdomen, and down your back.",
+        "Move your awareness down through your legs, to your feet, and all the way to the tips of your toes. Notice the feeling of your feet connecting with the ground or the surface beneath them.",
+        "Finally, take one more deep breath, bringing a sense of wholeness to your entire body. When you're ready, slowly open your eyes."
+      ]
+    },
+    "loving_kindness": {
+      "title": "7-Minute Loving-Kindness",
+      "description": "Cultivate feelings of warmth, kindness, and compassion for yourself and others.",
+      "guidance": [
+        "Sit in a comfortable and relaxed position. Close your eyes and bring your awareness to your heart space.",
+        "Silently repeat the following phrases, directed toward yourself: 'May I be happy. May I be healthy. May I be safe. May I live with ease.' Feel the intention behind the words.",
+        "Now, bring to mind someone you care about deeply, like a close friend or family member. Direct these phrases toward them: 'May you be happy. May you be healthy. May you be safe. May live with ease.'",
+        "Next, think of a neutral person, someone you neither like nor dislike, perhaps a cashier at a store or a neighbor you see occasionally. Offer them the same kind wishes: 'May you be happy. May you be healthy. May you be safe. May you live with ease.'",
+        "If you feel able, bring to mind someone with whom you have difficulty. See if you can extend these wishes to them, even just a little: 'May you be happy. May you be healthy. May you be safe. May you live with ease.'",
+        "Finally, expand your awareness to include all living beings everywhere, without exception: 'May all beings be happy. May all beings be healthy. May all beings be safe. May all beings live with ease.'",
+        "Rest in this feeling of open-heartedness for a few moments before gently bringing your awareness back to the room and opening your eyes."
+      ]
+    },
+    "mindful_walk": {
+      "title": "10-Minute Mindful Walk",
+      "description": "Connect with your body and surroundings by bringing gentle awareness to the simple act of walking.",
+      "guidance": [
+        "Begin by standing still for a moment. Feel your feet on the ground. Take a deep breath.",
+        "Start walking at a natural, comfortable pace. Bring your attention to the sensation of your feet touching and leaving the ground. Heel, sole, toes.",
+        "Notice the rhythm of your steps. There's no need to change it, just observe. Feel the gentle swing of your arms.",
+        "Expand your awareness to your surroundings. Notice the colors, the light, the shapes around you without labeling them as 'good' or 'bad'.",
+        "Listen to the sounds. The distant traffic, the birds, the sound of your own footsteps. Let them come and go without getting caught up in them.",
+        "As you come to the end of your walk, stand still again for a moment. Notice how your body feels. Take one final, conscious breath."
+      ]
+    },
+    "gratitude": {
+      "title": "5-Minute Gratitude Meditation",
+      "description": "Shift your focus to the positive by cultivating a sense of gratitude for the good things in your life.",
+      "guidance": [
+        "Find a comfortable seated position and gently close your eyes. Take a few breaths to settle into the present moment.",
+        "Bring to mind one person in your life for whom you are grateful. Picture them in your mind and silently thank them for their presence and kindness.",
+        "Now, think of a place that brings you a sense of peace or happiness. It could be a room, a park, or a vacation spot. Appreciate the feeling this place gives you.",
+        "Consider a simple pleasure you recently enjoyed. It could be the taste of your morning coffee, the warmth of the sun, or a piece of music. Relish that small moment of joy.",
+        "Reflect on a quality or strength within yourself that you are grateful for. It could be your resilience, your creativity, or your kindness.",
+        "Take a final, deep breath, carrying this feeling of gratitude with you. When you're ready, gently open your eyes."
+      ]
+    },
+    "mindful_listening": {
+      "title": "3-Minute Mindful Listening",
+      "description": "Anchor yourself in the present moment by opening your awareness to the soundscape around you, without judgment.",
+      "guidance": [
+        "Sit comfortably with your eyes closed or softly gazed downwards. Allow your body to settle.",
+        "Bring your attention to the world of sound. Notice the most prominent sound in your environment. Simply acknowledge its presence.",
+        "Now, expand your awareness to include sounds that are further away. Listen without straining, just letting the sounds come to you.",
+        "Shift your focus to sounds that are very close, perhaps the sound of your own breathing or the hum of a device in the room.",
+        "Finally, listen to the entire soundscape as a whole symphony of noises, near and far, loud and soft. When you're ready, gently open your eyes."
+      ]
+    },
+    "thought_noting": {
+      "title": "5-Minute Thought Noting",
+      "description": "Practice observing your thoughts as they arise and gently labeling them to create distance and reduce their power.",
+      "guidance": [
+        "Find a comfortable seated position. Close your eyes and take a few deep breaths, letting your attention rest on the physical sensation of breathing.",
+        "As you sit, you will inevitably notice thoughts arising. Instead of following the thought or pushing it away, simply acknowledge its presence.",
+        "Mentally, apply a soft, gentle label to the thought. A simple label like \"thinking\" or \"worrying\" is enough. No need to analyze the content.",
+        "After noting the thought, gently guide your attention back to your breath. Your breath is your anchor.",
+        "Repeat this process each time a thought captures your attention. The goal isn't to stop thinking, but to change your relationship with your thoughts.",
+        "Continue for the duration. When you're ready, bring your awareness back to the room and slowly open your eyes."
+      ]
+    }
+  },
+  "program_viewer": {
+    "day_of_total": "Day {{day}} of {{total}}:",
+    "todays_focus": "Today's Focus",
+    "todays_exercise": "Today's Exercise"
+  },
+  "meditation_player": {
+    "finish_button": "Finish Meditation"
+  },
+  "programs": {
+    "mindfulness_intro": {
+      "title": "3-Day Introduction to Mindfulness",
+      "description": "Learn the fundamentals of mindfulness with this short, introductory program designed to help you build a foundation of present-moment awareness.",
+      "day1": {
+        "title": "Mindful Breathing",
+        "concept": "Mindfulness begins with the breath. It's our anchor to the present moment. Today, we'll focus on simply observing the natural rhythm of our breath without trying to change it.",
+        "exercise": {
+          "title": "3-Minute Mindful Breathing",
+          "description": "A short exercise to anchor yourself in the present by focusing on your breath.",
+          "steps": [
+            "Find a comfortable seated position. Close your eyes gently.",
+            "Bring your attention to the sensation of your breath. Notice the air entering your nostrils and filling your lungs.",
+            "Observe the feeling of your chest or belly rising and falling.",
+            "If your mind wanders, gently and without judgment, guide your focus back to your breath.",
+            "Continue for 3 minutes. When you are ready, slowly open your eyes."
+          ]
+        }
+      },
+      "day2": {
+        "title": "The Body Scan",
+        "concept": "Our bodies hold a lot of information. A body scan is a practice of paying close, non-judgmental attention to physical sensations, which can increase body awareness and release tension.",
+        "exercise": {
+          "title": "5-Minute Body Scan",
+          "description": "Gently guide your attention through your body to notice sensations without judgment.",
+          "steps": [
+            "Lie down or sit comfortably. Close your eyes.",
+            "Bring your attention to the toes on your left foot. Notice any sensations—warmth, coolness, tingling—without needing to change them.",
+            "Slowly move your attention up your left leg, to your right leg, through your torso, and down your arms to your fingertips.",
+            "Finally, bring your focus to your neck, face, and head.",
+            "Take a final, deep breath, and gently open your eyes."
+          ]
+        }
+      },
+      "day3": {
+        "title": "Mindful Listening",
+        "concept": "Mindfulness isn't just about internal sensations. We can also be mindful of our environment. Mindful listening involves paying attention to the sounds around you without labeling or judging them.",
+        "exercise": {
+          "title": "Mindful Listening Exercise",
+          "description": "Tune into the sounds of your environment to practice external awareness.",
+          "steps": [
+            "Sit quietly and close your eyes.",
+            "First, notice the most obvious sounds around you. Acknowledge them without getting lost in thought about them.",
+            "Next, try to listen for more subtle, distant sounds you might have filtered out before.",
+            "Now, listen for the sounds closest to you—perhaps the sound of your own breathing or the rustle of your clothes.",
+            "Simply receive these sounds as pure sensation. After a few minutes, gently return your awareness to the room."
+          ]
+        }
+      }
+    },
+    "anxious_thoughts": {
+      "title": "5-Day Anxious Thought Challenge",
+      "description": "A 5-day program based on CBT principles to help you identify, understand, and reframe anxious thought patterns.",
+      "day1": {
+        "title": "Identifying Your Thoughts",
+        "concept": "The first step is learning to notice your automatic negative thoughts (ANTs). These thoughts often pop into our heads without us realizing. Today's goal is to become an observer of your own mind, separating yourself from your thoughts. They are just thoughts, not facts.",
+        "exercise": {
+          "title": "Thought Catcher",
+          "description": "A simple observation exercise to practice noticing your thoughts without engaging with them.",
+          "steps": [
+            "Find a quiet moment and close your eyes.",
+            "Imagine you are sitting by the side of a stream. Each thought that comes into your mind is a leaf floating by on the water.",
+            "Your task is not to jump into the water, but to simply watch the leaves (your thoughts) drift past. Notice them, and let them go.",
+            "Do this for 5 minutes. The goal is not to have an empty mind, but to practice the skill of non-judgmental observation."
+          ]
+        }
+      },
+      "day2": {
+        "title": "Spotting Cognitive Distortions",
+        "concept": "Anxious thoughts often follow predictable, unhelpful patterns called 'cognitive distortions.' By learning to name these patterns (like 'Catastrophizing' or 'All-or-Nothing Thinking'), we can rob them of their power. They become less like facts and more like bad mental habits.",
+        "exercise": {
+          "title": "Distortion Detective",
+          "description": "Review an anxious thought and see if you can identify the distortion pattern it follows.",
+          "steps": [
+            "Bring to mind a recent anxious thought you've had.",
+            "Review the list of common cognitive distortions (you can find this in the Cognitive Tools section).",
+            "Does your thought fit into one of these patterns? For example, is it jumping to the worst-case scenario (Catastrophizing)?",
+            "Simply naming the distortion can create powerful distance. Say to yourself, 'Ah, that's just my mind doing some fortune-telling.'"
+          ]
+        }
+      },
+      "day3": {
+        "title": "Questioning the Evidence",
+        "concept": "We often accept our anxious thoughts as 100% true without question. Today, we'll practice acting like a detective. A detective doesn't just accept the first story they hear; they look for hard evidence. We will do the same with our thoughts.",
+        "exercise": {
+          "title": "Fact vs. Fiction",
+          "description": "A guided exercise to question the validity of a specific anxious thought.",
+          "steps": [
+            "Choose one anxious thought. For example: 'I am going to fail my exam.'",
+            "Ask yourself: 'What is the actual, concrete evidence that this thought is true?' Write it down.",
+            "Now, ask: 'What is the evidence that this thought is NOT true?' Look for counter-examples and past successes.",
+            "Compare the two lists. Is the thought as true as it first felt?"
+          ]
+        }
+      },
+      "day4": {
+        "title": "Finding Alternative Perspectives",
+        "concept": "For any given situation, there are many possible ways to view it. Anxious thinking tends to lock us into the most negative perspective. Today's skill is to deliberately practice generating more balanced, helpful, and realistic thoughts.",
+        "exercise": {
+          "title": "Thought Reframing",
+          "description": "Practice creating a more balanced alternative to a negative thought.",
+          "steps": [
+            "Take the anxious thought you worked with yesterday.",
+            "Based on your evidence-gathering, what is a more balanced and compassionate way to see the situation?",
+            "For example, 'I am going to fail my exam' could be reframed as 'I am worried about the exam, but I have been studying. I will do my best, and that is all I can do.'",
+            "Write down this new thought and notice how it feels compared to the original one."
+          ]
+        }
+      },
+      "day5": {
+        "title": "Putting It All Together",
+        "concept": "Today, we'll combine the skills you've learned into a simple, repeatable process that you can use anytime you feel overwhelmed by an anxious thought. Repetition is key to building this new mental habit.",
+        "exercise": {
+          "title": "Mini Thought Record",
+          "description": "A quick, step-by-step review of the skills learned this week.",
+          "steps": [
+            "1. Notice: What is the anxious thought?",
+            "2. Identify: What cognitive distortion might be at play?",
+            "3. Challenge: What is the evidence for and against this thought?",
+            "4. Reframe: What is a more balanced, alternative thought?"
+          ]
+        }
+      }
+    },
+    "sleep_improvement": {
+      "title": "7-Day Sleep Improvement Program",
+      "description": "A week-long program to help you build healthy sleep habits, create a relaxing bedtime routine, and improve your overall sleep quality for better anxiety management.",
+      "day1": {
+        "title": "The Wind-Down Hour",
+        "concept": "Just as you warm up for exercise, your brain needs to cool down for sleep. Creating a 'buffer zone' of 1 hour before bed, free from screens and stimulating activities, signals to your body that it's time to rest.",
+        "exercise": {
+          "title": "Design Your Wind-Down Routine",
+          "description": "Plan a sequence of calming activities to perform each night before bed.",
+          "steps": [
+            "Choose 2-3 relaxing, screen-free activities you enjoy. Examples: reading a physical book, gentle stretching, listening to calm music, sipping herbal tea.",
+            "Decide on the order of these activities.",
+            "Set an alarm for 1 hour before your desired bedtime. This is your signal to begin your routine.",
+            "Tonight, put your plan into action. The goal is consistency."
+          ]
+        }
+      },
+      "day2": {
+        "title": "The Sleep Sanctuary",
+        "concept": "Your bedroom environment has a major impact on your sleep quality. The ideal sleep space is cool, dark, and quiet. This helps your brain associate the bedroom with sleep and only sleep.",
+        "exercise": {
+          "title": "Environmental Checklist",
+          "description": "Assess and optimize your bedroom for sleep.",
+          "steps": [
+            "Temperature: Is your room cool? If possible, lower the thermostat slightly.",
+            "Light: Can you make your room darker? Consider blackout curtains or a sleep mask. Cover or remove electronics with lights.",
+            "Noise: Can you make it quieter? Earplugs or a white noise machine can help block out disruptive sounds.",
+            "Comfort: Is your bed comfortable? Ensure your pillows and bedding support restful sleep."
+          ]
+        }
+      },
+      "day3": {
+        "title": "Caffeine & Alcohol",
+        "concept": "Stimulants like caffeine and depressants like alcohol can significantly disrupt your sleep architecture, even if you fall asleep easily. Caffeine can stay in your system for many hours, while alcohol can cause you to wake up in the second half of the night.",
+        "exercise": {
+          "title": "Set a Caffeine Curfew",
+          "description": "Establish a cut-off time for all caffeine consumption.",
+          "steps": [
+            "Determine your usual bedtime.",
+            "Set your caffeine curfew for at least 8 hours before that time. For a 10 PM bedtime, your last coffee should be before 2 PM.",
+            "Stick to this curfew today. Notice if it makes a difference to how you feel at bedtime."
+          ]
+        }
+      },
+      "day4": {
+        "title": "Mindful Unloading",
+        "concept": "It's hard to sleep when your mind is racing with worries and to-do lists. Getting these thoughts out of your head and onto paper before bed can provide a sense of closure and calm a busy mind.",
+        "exercise": {
+          "title": "Pre-Sleep Journaling",
+          "description": "A brief writing exercise to clear your mind.",
+          "steps": [
+            "About 30 minutes before bed, take a notebook and pen.",
+            "Spend 5 minutes writing down anything that's on your mind: worries, tasks for tomorrow, things you need to remember.",
+            "Close the notebook. Symbolically, you are setting these thoughts aside for the night. You can deal with them tomorrow."
+          ]
+        }
+      },
+      "day5": {
+        "title": "The Power of Light",
+        "concept": "Your body's internal clock (circadian rhythm) is strongly influenced by light. Exposure to bright, natural light in the morning helps to wake you up and regulate your sleep-wake cycle, making it easier to feel sleepy at the right time at night.",
+        "exercise": {
+          "title": "Morning Light Exposure",
+          "description": "Get a dose of natural light shortly after waking up.",
+          "steps": [
+            "Within 30 minutes of waking up, try to get at least 10 minutes of sunlight.",
+            "This could be drinking your coffee by a sunny window, taking a short walk outside, or just stepping out onto a balcony.",
+            "Avoid wearing sunglasses during this time if possible to let the light reach your eyes."
+          ]
+        }
+      },
+      "day6": {
+        "title": "The Body & Sleep",
+        "concept": "Regular physical activity can improve sleep quality, but intense exercise too close to bedtime can be overstimulating. Gentle, mindful movement, however, can help release physical tension and prepare the body for rest.",
+        "exercise": {
+          "title": "Gentle Pre-Bed Stretches",
+          "description": "A short, calming stretching routine to relax your body.",
+          "steps": [
+            "Child's Pose: Kneel on the floor, sit back on your heels, and fold forward, resting your forehead on the floor. Hold for 30 seconds.",
+            "Cat-Cow Stretch: On your hands and knees, arch your back like a cat, then drop your belly and look up like a cow. Repeat 5 times.",
+            "Legs-Up-The-Wall: Lie on your back with your legs extended up a wall. This is very restorative.",
+            "Focus on your breathing throughout the stretches. Move slowly and gently."
+          ]
+        }
+      },
+      "day7": {
+        "title": "When You Can't Sleep",
+        "concept": "Lying in bed feeling frustrated that you can't sleep is counterproductive. It trains your brain to associate bed with anxiety. The rule of thumb is: if you're not asleep after 20-30 minutes, get up and do something calming in low light.",
+        "exercise": {
+          "title": "Quiet Wakefulness Practice",
+          "description": "A plan for what to do when you're awake at night.",
+          "steps": [
+            "If you find yourself wide awake, get out of bed.",
+            "Go to another room and do a quiet, relaxing activity in dim light, like reading a boring book or listening to calm music.",
+            "Do not use your phone or watch TV.",
+            "When you start to feel sleepy again, return to bed. The goal is to re-associate your bed with sleepiness, not frustration."
+          ]
+        }
+      }
+    }
+  },
+  "user_profile": {
+    "title": "Profile & Settings",
+    "tabs": {
+      "settings": "Settings",
+      "activity_log": "Activity Log",
+      "feedback_history": "My Feedback"
+    },
+    "close_aria_label": "Close settings",
+    "consent_title": "Data Consent",
+    "consent_subtitle": "Higher consent levels allow the AI to generate more personalized exercises using the profile data you provide below.",
+    "consent_essential": "Essential: No personalization. Profile is disabled.",
+    "consent_enhanced": "Enhanced: Enables personalization with non-sensitive data.",
+    "consent_complete": "Complete: Enables full personalization with all available fields.",
+    "form_disabled_message": "Personalization is disabled. To enable it, please select an enhanced data consent level.",
+    "ai_provider_title": "AI Provider",
+    "provider_label": "Provider",
+    "ollama_model_label": "Ollama Model",
+    "ollama_cloud_api_key_label": "Ollama Cloud API Key",
+    "ollama_cloud_api_key_placeholder": "Enter your ollama.com API key",
+    "ollama_cloud_api_key_helper": "Required for using cloud models.",
+    "ollama_model_helper": "Ensure your local Ollama server is running. The app will attempt to connect to http://localhost:11434.",
+    "ollama_test_connection_tooltip": "Refresh model list",
+    "ollama_status_testing": "Testing connection...",
+    "ollama_status_success": "Connection successful. {{count}} local models found.",
+    "ollama_status_error": "Local connection failed:",
+    "ollama_no_models": "No models found",
+    "ollama_local_models": "Local Models",
+    "ollama_cloud_models": "Cloud Models",
+    "about_you_title": "About You",
+    "age_label": "Age",
+    "location_label": "Location / Time Zone",
+    "location_placeholder": "e.g. New York / EST",
+    "wellness_profile_title": "Wellness Profile",
+    "sleep_label": "Average sleep per night (hours)?",
+    "caffeine_label": "Typical Caffeine Intake",
+    "caffeine_options": {
+      "none": "None",
+      "low": "Low",
+      "moderate": "Moderate",
+      "high": "High"
+    },
+    "interests_title": "Your Interests & Hobbies",
+    "interests_placeholder": "e.g. Painting, playing guitar, gardening, reading...",
+    "conditions_label": "Diagnosed Anxiety or Mood Conditions (optional)",
+    "conditions_placeholder": "e.g. GAD, Panic Disorder. Keep it general.",
+    "conditions_help_text": "This information is stored only on your device and can help generate more specific exercises.",
+    "lifestyle_title": "Lifestyle & Preferences",
+    "work_env_label": "Work/School Environment",
+    "work_env_options": {
+      "office": "Office / Indoors",
+      "remote": "Work from home",
+      "student": "Student",
+      "outdoors_manual": "Outdoors / Manual Labor",
+      "other": "Other"
+    },
+    "nature_access_label": "Access to Nature/Parks",
+    "nature_access_options": {
+      "yes": "Easy access",
+      "limited": "Limited access",
+      "no": "No access"
+    },
+    "activity_level_label": "Typical Activity Level",
+    "activity_level_options": {
+      "sedentary": "Sedentary (mostly sitting)",
+      "lightly_active": "Lightly Active (some walking/standing)",
+      "moderately_active": "Moderately Active (exercise 3-5x/week)",
+      "very_active": "Very Active (intense exercise most days)"
+    },
+    "coping_styles_label": "What has helped you in the past?",
+    "coping_styles_placeholder": "e.g. talking to friends, going for a walk, mindfulness apps",
+    "learning_style_label": "Preferred Learning Style",
+    "learning_style_options": {
+      "visual": "Visual",
+      "auditory": "Auditory",
+      "kinesthetic": "Kinesthetic"
+    },
+    "reminders_title": "Daily Reminders",
+    "reminders_enable_label": "Enable Reminders",
+    "reminders_permission_denied": "Notifications are blocked. Please enable them in your browser settings to receive reminders.",
+    "reminders_time_label": "Reminder Time",
+    "reminders_type_label": "Reminder Type",
+    "reminders_type_options": {
+      "gentle": "Gentle Reminder",
+      "motivational": "Motivational Quote"
+    },
+    "feedback_title": "Help Us Improve",
+    "feedback_subtitle": "Have a suggestion or found a bug? Let us know!",
+    "provide_feedback_button": "Provide Feedback",
+    "data_privacy_title": "Data & Privacy",
+    "data_privacy_subtitle": "All of your data (profile, history, journal) is stored exclusively on your device's local storage. Deleting your data is permanent and cannot be undone.",
+    "download_log_subtitle": "To help improve the app, you can voluntarily download your anonymous interaction log and share it with the development team.",
+    "download_log_button": "Download Interaction Log",
+    "clear_data_button": "Clear My Data...",
+    "clear_data_confirm_title": "Are you sure?",
+    "clear_data_confirm_body": "This will permanently delete all your entries and profile information.",
+    "clear_data_confirm_button": "Yes, delete everything",
+    "language_title": "Language",
+    "cancel_button": "Cancel",
+    "save_button": "Save Changes"
+  },
+  "feedback_modal": {
+    "title": "Provide Feedback",
+    "type_label": "Feedback Type",
+    "types": {
+      "suggestion": "Suggestion",
+      "bug": "Bug Report",
+      "general": "General Feedback"
+    },
+    "message_label": "Message",
+    "message_placeholder": "Please provide as much detail as possible...",
+    "submit_button": "Submit Feedback",
+    "submitted_message": "Thank you!"
+  },
+  "crisis_modal": {
+    "title": "It sounds like you're going through a lot.",
+    "body": "If you are in distress or immediate danger, please reach out for help. You are not alone.",
+    "cta_button_call": "Call {{name}} ({{number}})",
+    "cta_button_web": "Visit {{name}}",
+    "close_button": "Close this window"
+  },
+  "theme_toggle": {
+    "aria_label_light": "Switch to light mode",
+    "aria_label_dark": "Switch to dark mode"
+  },
+  "search": {
+    "placeholder": "Search exercises, entries, programs...",
+    "aria_label": "Search all content"
+  },
+  "tooltip": {
+    "expand_details": "Show details",
+    "collapse_details": "Hide details",
+    "view_source": "View source website",
+    "close": "Close",
+    "get_ai_help": "Get AI help to challenge this thought",
+    "download_plan": "Download Plan"
+  },
+  "mood_tracker": {
+    "title": "Mood Tracker",
+    "subtitle": "Log your current emotional state.",
+    "prompt": "How are you feeling right now?",
+    "logged_confirmation": "Mood logged!",
+    "moods": {
+      "awful": "Awful",
+      "bad": "Bad",
+      "okay": "Okay",
+      "good": "Good",
+      "great": "Great"
+    }
+  },
+  "mood_chart": {
+    "title": "Your Week in Moods",
+    "empty_state": "Log your mood to see your trends here.",
+    "avg_mood": "Avg Mood"
+  }
+}

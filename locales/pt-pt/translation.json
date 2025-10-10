@@ -1,0 +1,440 @@
+
+{
+  "header": {
+    "title": "Serene",
+    "settings_aria_label": "Abrir perfil de utilizador e definições",
+    "crisis_support_aria_label": "Abrir recursos de apoio em caso de crise"
+  },
+  "hero": {
+    "title": "Encontra a Tua Calma.",
+    "subtitle": "Descreve como te sentes e deixa a nossa IA criar um plano personalizado com exercícios de coping para te guiar até ao alívio.",
+    "get_started_button": "Começar"
+  },
+  "symptom_input": {
+    "title": "Como te sentes neste momento?",
+    "placeholder": "ex: 'O meu coração está a acelerar e não consigo parar de me preocupar com a minha apresentação de amanhã.'",
+    "aria_label": "Descreve os teus sintomas aqui ou seleciona entre as opções abaixo.",
+    "submit_button": "Obter o Meu Plano Personalizado",
+    "loading_button": "A analisar...",
+    "symptoms_suffix": ""
+  },
+  "symptom_selector": {
+    "helper_text": "Ou seleciona sintomas comuns abaixo para os adicionares à tua descrição."
+  },
+  "symptom_categories": {
+    "physical": "Sintomas Físicos",
+    "cognitive": "Sintomas Cognitivos",
+    "mood": "Sintomas de Humor",
+    "behavioral": "Sintomas Comportamentais"
+  },
+  "symptoms": {
+    "heart_palpitations": "Palpitações cardíacas",
+    "shortness_of_breath": "Falta de ar",
+    "muscle_tension": "Tensão muscular",
+    "sweating": "Transpiração",
+    "dizziness": "Tonturas",
+    "stomach_ache": "Dor de estômago",
+    "headache": "Dor de cabeça",
+    "shaking_or_trembling": "Tremores",
+    "constant_worrying": "Preocupação constante",
+    "catastrophic_thinking": "Pensamento catastrófico",
+    "poor_concentration": "Falta de concentração",
+    "racing_thoughts": "Pensamentos acelerados",
+    "feeling_of_dread": "Sensação de pavor",
+    "overthinking": "Pensar demasiado",
+    "mind_going_blank": "Mente em branco",
+    "nervousness": "Nervosismo",
+    "irritability": "Irritabilidade",
+    "fear_or_panic": "Medo ou pânico",
+    "frustration": "Frustração",
+    "feeling_overwhelmed": "Sentir-se sobrecarregado/a",
+    "restlessness": "Inquietação",
+    "avoiding_situations": "Evitar situacões",
+    "fidgeting": "Inquietação motora",
+    "pacing": "Andar de um lado para o outro",
+    "difficulty_sleeping": "Dificuldade em dormir",
+    "social_withdrawal": "Isolamento social",
+    "procrastination": "Procrastinação"
+  },
+  "exercise_card": {
+    "duration_minutes": "{{duration}} min",
+    "steps_title": "Passos:",
+    "rating_prompt": "Avalia este exercício",
+    "rating_aria_label": "Avaliar com {{star}} estrela"
+  },
+  "exercise_history": {
+    "title": "Histórico de Exercícios Concluídos",
+    "empty_state": "Ainda não concluíste nenhum exercício. O teu histórico aparecerá aqui assim que avaliares um exercício.",
+    "completed_on": "Concluído em",
+    "your_rating": "A tua avaliação"
+  },
+  "feedback_history": {
+    "title": "O Meu Histórico de Feedback",
+    "empty_state": "Ainda não enviaste nenhum feedback. Os teus envios serão registados aqui."
+  },
+  "loading_spinner": {
+    "message": "A encontrar os melhores exercícios para ti..."
+  },
+  "disclaimer": {
+    "title": "Aviso Legal:",
+    "body": "Esta ferramenta destina-se apenas a fins informativos e não substitui o aconselhamento, diagnóstico ou tratamento médico profissional. Procura sempre o conselho do teu médico ou de outro profissional de saúde qualificado para quaisquer questões que possas ter sobre uma condição médica."
+  },
+  "personalized_plan": {
+    "title": "O Teu Plano Personalizado"
+  },
+  "plan_history": {
+    "title": "Histórico de Geração de Planos",
+    "subtitle": "Um registo dos teus planos gerados anteriormente para referência futura.",
+    "empty_state": "Ainda não geraste nenhum plano. Descreve os teus sintomas acima para começar."
+  },
+  "plan_history_card": {
+    "your_input": "A Tua Descrição",
+    "generated_plan": "Plano Gerado",
+    "sources": "Fontes"
+  },
+  "for_you": {
+    "title": "Um Momento Para Ti"
+  },
+  "live_coach": {
+    "title": "Coach ao Vivo",
+    "subtitle": "Fala com um guia de IA em tempo real.",
+    "description": "Para momentos em que precisas de apoio imediato, inicia uma sessão de voz ao vivo. O nosso coach de IA irá ouvir-te e guiar-te com técnicas de relaxamento.",
+    "start_button": "Iniciar Sessão ao Vivo",
+    "end_button": "Terminar Sessão",
+    "status_connecting": "A ligar...",
+    "status_listening": "A ouvir...",
+    "status_speaking": "A falar...",
+    "status_error": "Erro de ligação. Por favor, tenta novamente.",
+    "transcripts_you": "Tu",
+    "transcripts_coach": "Coach"
+  },
+  "breathing_exercises": {
+    "title": "Calma Rápida",
+    "subtitle": "Escolhe uma sessão de respiração guiada.",
+    "start_button": "Iniciar Sessão",
+    "box_breathing": {
+      "name": "Respiração em Caixa",
+      "description": "Uma técnica simples para acalmar o sistema nervoso, inspirando, segurando, expirando e segurando por tempos iguais."
+    },
+    "478_breathing": {
+      "name": "Respiração 4-7-8",
+      "description": "Conhecida como a \"respiração relaxante\", esta técnica ajuda a reducir a ansiedade e pode auxiliar no adormecer."
+    },
+    "cyclic_sighing": {
+      "name": "Suspiro Cíclico",
+      "description": "Uma técnica com base científica para reducir rapidamente o stress, realizando duas inspirações seguidas de uma expiração longa."
+    },
+    "coherent_breathing": {
+      "name": "Respiração Coerente",
+      "description": "Um ritmo simples de inspirar por 5 segundos e expirar por 5 segundos para promover o equilíbrio e a calma."
+    },
+    "pursed_lip_breathing": {
+      "name": "Respiração com Lábios Franzidos",
+      "description": "Diminui o ritmo da tua respiração, reduzindo o esforço respiratório ao manter as vias aéreas abertas por mais tempo."
+    },
+    "diaphragmatic_breathing": {
+      "name": "Respiração Diafragmática",
+      "description": "Também conhecida como \"respiração abdominal\", esta técnica fundamental incentiva respirações profundas e completas para ativar a resposta de relaxamento do corpo."
+    },
+    "slow_paced_breathing": {
+      "name": "Respiração Lenta",
+      "description": "Abranda intencionalmente a tua respiração para um ritmo calmante, ajudando a reduzir a frequência cardíaca e a promover um estado de relaxamento profundo."
+    },
+    "alternate_nostril_breathing": {
+      "name": "Respiração Nasal Alternada",
+      "description": "Uma prática de respiração yogue calmante que equilibra a mente e o corpo, alternando o fluxo de ar por cada narina."
+    },
+    "humming_bee_breath": {
+      "name": "Respiração da Abelha",
+      "description": "Reduz o stress e acalma a mente, criando uma vibração suave de zumbido na expiração."
+    },
+    "steps": {
+      "breathe_in": "Inspira",
+      "hold": "Sustém",
+      "breathe_out": "Expira",
+      "inhale": "Inspira",
+      "inhale_again": "Inspira Novamente",
+      "exhale_long": "Expira (Longo)",
+      "breathe_in_nose": "Inspira (Nariz)",
+      "breathe_out_lips": "Expira (Lábios)",
+      "breathe_in_belly": "Inspira (Barriga sobe)",
+      "breathe_out_belly": "Expira (Barriga desce)",
+      "inhale_left": "Inspira (Esq)",
+      "exhale_right": "Expira (Dir)",
+      "inhale_right": "Inspira (Dir)",
+      "exhale_left": "Expira (Esq)",
+      "hum_out": "Zumbir ao Expirar"
+    }
+  },
+  "breathing_visualizer": {
+    "close_aria_label": "Fechar exercício de respiração",
+    "instruction": "Segue o ritmo. Acompanha a tua respiração com o guia."
+  },
+  "breathing_visualizer_tooltips": {
+    "inhale": "Objetivo: Energizar o corpo. Dica: Inspira lentamente pelo nariz, deixando a barriga expandir-se como um balão.",
+    "hold": "Objetivo: Acalmar o sistema nervoso. Dica: Sustém a respiração suavemente, sem esforço.",
+    "exhale": "Objetivo: Libertar a tensão. Dica: Expira lentamente pela boca, durante mais tempo do que a inspiração."
+  },
+  "journal": {
+    "title": "Diário Privado",
+    "subtitle": "Reflete sobre os teus pensamentos. Guardado apenas neste dispositivo.",
+    "placeholder": "Escreve o que te vai na alma...",
+    "save_button": "Guardar Entrada",
+    "saved_button": "Guardado!",
+    "past_entries_title": "Entradas Anteriores"
+  },
+  "journal_card": {
+    "analyzing": "A analisar a tua entrada...",
+    "ai_reflection_title": "Reflexão da IA",
+    "get_ai_reflection_button": "Obter Reflexão da IA"
+  },
+  "cognitive_tools": {
+    "title": "Ferramentas Cognitivas",
+    "subtitle": "Desafia padrões de pensamento inúteis.",
+    "thought_record_title": "Registo de Pensamentos TCC",
+    "thought_record_description": "Um exercício guiado para identificar, desafiar e reformular pensamentos negativos.",
+    "start_button": "Iniciar Exercício"
+  },
+  "thought_record_history": {
+    "title": "Os Teus Registos Anteriores"
+  },
+  "thought_record": {
+    "title": "Registo de Pensamentos TCC",
+    "step_prefix": "Passo {{step}}:",
+    "steps": {
+      "situation": "Situação",
+      "negative_thought": "Pensamento Negativo",
+      "challenge": "Desafio",
+      "alternative": "Alternativa",
+      "outcome": "Resultado"
+    },
+    "situation_label": "Qual foi a situação que despoletou o sentimento?",
+    "situation_placeholder": "ex: Cometi um erro durante uma apresentação no trabalho.",
+    "negative_thought_label": "Qual foi o pensamento negativo automático?",
+    "negative_thought_placeholder": "ex: 'Sou tão incompetente. Devem todos achar que sou um idiota.'",
+    "distortions_label": "Alguma destas distorções cognitivas se aplica?",
+    "challenge_label": "Desafia o pensamento. Quais são as provas contra ele?",
+    "challenge_placeholder": "ex: O meu chefe elogiou o meu último projeto. Um colega disse que achou a minha apresentação perspicaz.",
+    "ai_help_button": "Obter Ajuda da IA",
+    "ai_help_loading": "A obter sugestões...",
+    "alternative_label": "Qual é um pensamento mais equilibrado ou alternativo?",
+    "alternative_placeholder": "ex: 'Cometi um erro, mas isso não significa que sou incompetente. Posso aprender com ele e fazer melhor da próxima vez.'",
+    "outcome_label": "Como te sentes agora? Avalia a tua crença no pensamento original (0-100%).",
+    "outcome_placeholder": "ex: Sinto-me menos ansioso/a. Agora acredito que o pensamento negativo é apenas 20% verdadeiro.",
+    "previous_button": "Anterior",
+    "next_button": "Próximo",
+    "save_button": "Guardar Registo"
+  },
+  "cognitive_distortions": {
+    "all_or_nothing": {
+      "name": "Pensamento Tudo ou Nada",
+      "description": "Ver as situações em categorias absolutas, a preto e branco, sem meio-termo."
+    },
+    "overgeneralization": {
+      "name": "Generalização Excessiva",
+      "description": "Ver um único evento negativo como um padrão interminável de derrota."
+    },
+    "mental_filter": {
+      "name": "Filtro Mental",
+      "description": "Focar-se num único detalhe negativo e remoer nele exclusivamente, filtrando todos os aspetos positivos."
+    },
+    "catastrophizing": {
+      "name": "Catastrofização",
+      "description": "Esperar que o pior cenário aconteça, sem considerar resultados mais prováveis."
+    },
+    "personalization": {
+      "name": "Personalização",
+      "description": "Acreditar que és a causa de algum evento externo negativo pelo qual, na verdade, não foste o principal responsável."
+    },
+    "mind_reading": {
+      "name": "Leitura de Mentes",
+      "description": "Assumir que sabes o que as outras pessoas estão a pensar sem ter provas suficientes dos seus pensamentos."
+    },
+    "fortune_telling": {
+      "name": "Adivinhação do Futuro",
+      "description": "Antecipar que as coisas vão correr mal e sentir-se convencido de que a tua previsão é um facto já estabelecido."
+    },
+    "emotional_reasoning": {
+      "name": "Raciocínio Emocional",
+      "description": "Assumir que as tuas emoções negativas refletem necessariamente a realidade: \"Eu sinto, logo, deve ser verdade.\""
+    },
+    "should_statements": {
+      "name": "Afirmações com \"Devia\"",
+      "description": "Usar palavras críticas como \"devia\", \"tenho de\" ou \"é obrigatório\", que te podem fazer sentir culpado/a ou como um/a fracassado/a."
+    }
+  },
+  "guided_programs": {
+    "title": "Programas Guiados",
+    "subtitle": "Segue um plano estruturado para desenvolver competências."
+  },
+  "guided_meditations": {
+    "title": "Meditações Guiadas",
+    "subtitle": "Encontra a quietude com orientação em texto.",
+    "start_button": "Iniciar Meditação"
+  },
+  "meditations": {
+    "body_scan": {
+      "title": "Scan Corporal de 5 Minutos",
+      "description": "Aumenta a consciência corporal e liberta a tensão, guiando suavemente a tua atenção para as sensações físicas.",
+      "guidance": [
+        "Encontra uma posição confortável, sentado ou deitado. Fecha suavemente os olhos e faz algunas respirações profundas e relaxantes.",
+        "Leva a tua atenção para o topo da cabeça. Nota quaisquer sensações aqui sem julgamento. Formigueiro, pressão ou nada - está tudo bem.",
+        "Move lentamente o teu foco para o rosto. Suaviza o maxilar, as bochechas e os pequenos músculos à volta dos olhos. Liberta qualquer tensão que encontres.",
+        "Continua este scan suave pelo pescoço e ombros, pelos braços até às pontas dos dedos, pelo peito e abdómen, e pelas costas.",
+        "Move a tua consciência pelas pernas, para os pés, e até às pontas dos dedos dos pés. Nota a sensação dos teus pés em contacto com o chão ou a superficie por baixo deles.",
+        "Finalmente, faz mais uma respiração profunda, trazendo uma sensação de totalidade a todo o teu corpo. Quando estiveres pronto/a, abre lentamente os olhos."
+      ]
+    },
+    "loving_kindness": {
+      "title": "Amor-Benevolência de 7 Minutos",
+      "description": "Cultiva sentimentos de calor, bondade e compaixão por ti e pelos outros.",
+      "guidance": [
+        "Senta-te numa posição confortável e relaxada. Fecha os olhos e leva a tua consciência para o espaço do teu coração.",
+        "Repete silenciosamente as seguintes frases, dirigidas a ti mesmo/a: 'Que eu seja feliz. Que eu tenha saúde. Que eu esteja seguro/a. Que eu viva com tranquilidade.' Sente a intenção por trás das palavras.",
+        "Agora, traz à mente alguém de quem gostas muito, como um amigo próximo ou um familiar. Dirige estas frases a essa pessoa: 'Que sejas feliz. Que tenhas saúde. Que estejas seguro/a. Que vivas com tranquilidade.'",
+        "A seguir, pensa numa pessoa neutra, alguém de quem não gostas nem desgostas, talvez um/a caixa de supermercado ou um/a vizinho/a que vês ocasionalmente. Oferece-lhe os mesmos desejos amáveis: 'Que sejas feliz. Que tenhas saúde. Que estejas seguro/a. Que vivas com tranquilidade.'",
+        "Se te sentires capaz, traz à mente alguém com quem tens dificuldades. Vê se consegues estender estes desejos a essa pessoa, mesmo que seja só um pouco: 'Que sejas feliz. Que tenhas saúde. Que estejas seguro/a. Que vivas com tranquilidade.'",
+        "Finalmente, expande a tua consciência para incluir todos os seres vivos em todo o lado, sem exceção: 'Que todos os seres sejam felizes. Que todos os seres tenham saúde. Que todos os seres estejam seguros/as. Que todos os seres vivam com tranquilidade.'",
+        "Repousa neste sentimento de coração aberto por alguns momentos antes de trazeres suavemente a tua consciência de volta à sala e abrires os olhos."
+      ]
+    },
+    "mindful_walk": {
+      "title": "Caminhada Consciente de 10 Minutos",
+      "description": "Conecta-te com o teu corpo e o que te rodeia, trazendo uma atenção suave ao simples ato de caminhar.",
+      "guidance": [
+        "Começa por parar por um momento. Sente os teus pés no chão. Respira fundo.",
+        "Começa a caminhar a um ritmo natural e confortável. Presta atenção à sensação dos teus pés a tocar e a deixar o chão. Calcanhar, sola, dedos.",
+        "Nota o ritmo dos teus passos. Não precisas de o alterar, apenas observa. Sente o balanço suave dos teus braços.",
+        "Expande a tua consciência para o que te rodeia. Nota as cores, a luz, as formas à tua volta sem as rotulares como 'boas' ou 'más'.",
+        "Ouve os sons. O trânsito ao longe, os pássaros, o som dos teus próprios passos. Deixa-os vir e ir sem te prenderes a eles.",
+        "Ao chegares ao fim da tua caminhada, para novamente por um momento. Nota como o teu corpo se sente. Faz uma última respiração consciente."
+      ]
+    },
+    "gratitude": {
+      "title": "Meditação de Gratidão de 5 Minutos",
+      "description": "Muda o teu foco para o positivo, cultivando um sentimento de gratidão pelas coisas boas da tua vida.",
+      "guidance": [
+        "Encontra uma posição sentada confortável e fecha os olhos suavemente. Faz algunas respirações para te instalares no momento presente.",
+        "Traz à mente uma pessoa na tua vida pela qual sentes gratidão. Imagina-a e agradece-lhe silenciosamente pela sua presença e bondade.",
+        "Agora, pensa num lugar que te traga uma sensação de paz ou felicidade. Pode ser um quarto, um parque ou um local de férias. Aprecia a sensação que este lugar te proporciona.",
+        "Considera um prazer simples que tenhas desfrutado recentemente. Pode ser o sabor do teu café da manhã, o calor do sol ou uma música. Saboreia esse pequeno momento de alegria.",
+        "Reflete sobre uma qualidade ou força tua pela qual sentes gratidão. Pode ser a tua resiliência, a tua criatividade ou a tua bondade.",
+        "Faz uma última respiração profunda, levando contigo este sentimento de gratidão. Quando estiveres pronto/a, abre suavemente os olhos."
+      ]
+    },
+    "mindful_listening": {
+      "title": "Escuta Atenta de 3 Minutos",
+      "description": "Ancora-te no momento presente, abrindo a tua consciência para a paisagem sonora que te rodeia, sem julgamento.",
+      "guidance": [
+        "Senta-te confortavelmente com os olhos fechados ou o olhar suavemente para baixo. Deixa o teu corpo assentar.",
+        "Leva a tua atenção para o mundo do som. Nota o som mais proeminente no teu ambiente. Simplesmente reconhece a sua presença.",
+        "Agora, expande a tua consciência para incluir sons que estão mais distantes. Ouve sem esforço, apenas deixando os sons chegarem até ti.",
+        "Muda o teu foco para sons que estão muito próximos, talvez o som da tua própria respiração ou o zumbido de um aparelho na sala.",
+        "Finalmente, ouve toda a paisagem sonora como uma sinfonia completa de ruídos, próximos e distantes, altos e baixos. Quando estiveres pronto/a, abre suavemente os olhos."
+      ]
+    },
+    "thought_noting": {
+      "title": "Anotação de Pensamentos de 5 Minutos",
+      "description": "Pratica observar os teus pensamentos à medida que surgem e rotulá-los gentilmente para criar distância e reduzir o seu poder.",
+      "guidance": [
+        "Encontra uma posição sentada confortável. Fecha os olhos e faz algumas respirações profundas, deixando a tua atenção repousar na sensação física da respiração.",
+        "Enquanto estás sentado/a, irás inevitavelmente notar o surgimento de pensamentos. Em vez de seguires o pensamento ou de o afastares, simplemente reconhece a sua presença.",
+        "Mentalmente, aplica um rótulo suave e gentil ao pensamento. Um rótulo simples como \"a pensar\" ou \"a preocupar-me\" é suficiente. Não há necessidade de analisar o conteúdo.",
+        "Depois de anotares o pensamento, guia gentilmente a tua atenção de volta para a tua respiração. A tua respiração é a tua âncora.",
+        "Repete este processo cada vez que um pensamento capturar a tua atenção. O objetivo não é parar de pensar, mas sim mudar a tua relação com os teus pensamentos.",
+        "Continua durante o tempo indicado. Quando estiveres pronto/a, traz a tua consciência de volta para a sala e abre lentamente os olhos."
+      ]
+    }
+  },
+  "program_viewer": {
+    "day_of_total": "Dia {{day}} de {{total}}:",
+    "todays_focus": "Foco de Hoje",
+    "todays_exercise": "Exercício de Hoje"
+  },
+  "meditation_player": {
+    "finish_button": "Terminar Meditação"
+  },
+  "programs": {
+    "mindfulness_intro": {
+      "title": "Introdução de 3 Dias ao Mindfulness",
+      "description": "Aprende os fundamentos do mindfulness com este programa curto e introdutório, concebido para te ajudar a construir uma base de consciência do momento presente.",
+      "day1": {
+        "title": "Respiração Consciente",
+        "concept": "O mindfulness começa com a respiração. É a nossa âncora para o momento presente. Hoje, vamos focar-nos em simplemente observar o ritmo natural da nossa respiração sem tentar mudá-lo.",
+        "exercise": {
+          "title": "Respiração Consciente de 3 Minutos",
+          "description": "Um exercício curto para te ancorares no presente, focando-te na tua respiração.",
+          "steps": [
+            "Encontra uma posição sentada confortável. Fecha os olhos suavemente.",
+            "Leva a tua atenção para a sensação da tua respiração. Nota o ar a entrar pelas narinas e a encher os pulmões.",
+            "Observa a sensação do teu peito ou barriga a subir e a descer.",
+            "Se a tua mente divagar, gentilmente e sem julgamento, guia o teu foco de volta para a tua respiração.",
+            "Continua por 3 minutos. Quando estiveres pronto/a, abre lentamente os olhos."
+          ]
+        }
+      },
+      "day2": {
+        "title": "O Scan Corporal",
+        "concept": "Os nossos corpos guardam muita informação. Um scan corporal é uma prática de prestar atenção atenta e sem julgamentos às sensações físicas, o que pode aumentar a consciência corporal e libertar tensão.",
+        "exercise": {
+          "title": "Scan Corporal de 5 Minutos",
+          "description": "Guia suavemente a tua atenção pelo teu corpo para notares sensações sem julgamento.",
+          "steps": [
+            "Deita-te ou senta-te confortavelmente. Fecha os olhos.",
+            "Leva a tua atenção para os dedos do pé esquerdo. Nota quaisquer sensações — calor, frio, formigueiro — sem precisares de as alterar.",
+            "Move lentamente a tua atenção pela perna esquerda, para a perna direita, através do tronco, e pelos braços até às pontas dos dedos.",
+            "Finalmente, leva o teu foco para o pescoço, rosto e cabeça.",
+            "Faz uma última respiração profunda e abre suavemente os olhos."
+          ]
+        }
+      },
+      "day3": {
+        "title": "Escuta Consciente",
+        "concept": "O mindfulness não se resume apenas a sensações internas. Também podemos estar conscientes do nosso ambiente. A escuta consciente envolve prestar atenção aos sons à tua volta sem os rotular ou julgar.",
+        "exercise": {
+          "title": "Exercício de Escuta Consciente",
+          "description": "Sintoniza-te com os sons do teu ambiente para praticares a consciência externa.",
+          "steps": [
+            "Senta-te em silêncio e fecha os olhos.",
+            "Primeiro, nota os sons mais óbvios à tua volta. Reconhece-os sem te perderes em pensamentos sobre eles.",
+            "A seguir, tenta ouvir sons mais subtis e distantes que poderias ter filtrado antes.",
+            "Agora, ouve os sons mais próximos de ti — talvez o som da tua própria respiração ou o sussurro da tua roupa.",
+            "Simplesmente recebe estes sons como pura sensação. Após alguns minutos, retorna suavemente a tua consciência para a sala."
+          ]
+        }
+      }
+    },
+    "anxious_thoughts": {
+      "title": "Desafio de Pensamentos Ansiosos de 5 Dias",
+      "description": "Um programa de 5 dias baseado nos princípios da TCC para te ajudar a identificar, compreender e reformular padrões de pensamento ansiosos.",
+      "day1": {
+        "title": "Identificar os Teus Pensamentos",
+        "concept": "O primeiro passo é aprender a notar os teus pensamentos negativos automáticos (PNAs). Estes pensamentos surgem frequentemente na nossa cabeça sem nos apercebermos. O objetivo de hoje é tornar-te um observador da tua própria mente, separando-te dos teus pensamentos. Eles são apenas pensamentos, não factos.",
+        "exercise": {
+          "title": "Apanhador de Pensamentos",
+          "description": "Um simples exercício de observação para praticares notar os teus pensamentos sem te envolveres com eles.",
+          "steps": [
+            "Encontra um momento tranquilo e fecha os olhos.",
+            "Imagina que estás sentado/a à beira de um riacho. Cada pensamento que te vem à mente é uma folha a flutuar na água.",
+            "A tua tarefa não é saltar para a água, mas simplemente observar as folhas (os teus pensamentos) a passar. Nota-os e deixa-os ir.",
+            "Faz isto durante 5 minutos. O objetivo não é ter a mente vazia, mas praticar a habilidade de observação sem julgamento."
+          ]
+        }
+      },
+      "day2": {
+        "title": "Detetar Distorções Cognitivas",
+        "concept": "Os pensamentos ansiosos seguem frequentemente padrões previsíveis e inúteis chamados 'distorções cognitivas'. Ao aprendermos a nomear estes padrões (como 'Catastrofização' ou 'Pensamento Tudo ou Nada'), podemos retirar-lhes o poder. Tornam-se menos factos e mais maus hábitos mentais.",
+        "exercise": {
+          "title": "Detetive de Distorções",
+          "description": "Analisa um pensamento ansioso e vê se consegues identificar o padrão de distorção que ele segue.",
+          "steps": [
+            "Traz à mente um pensamento ansioso que tiveste recentemente.",
+            "Revê a lista de distorções cognitivas comuns (podes encontrá-la na secção de Ferramentas Cognitivas).",
+            "O teu pensamento encaixa-se num destes padrões? Por exemplo, estás a saltar para o pior cenário possível (Catastrofização)?",
+            "Simplesmente nomear a distorção pode criar uma distância poderosa. Diz a ti mesmo/a: 'Ah, isto é apenas a minha mente a adivinhar o futuro.'"
+          ]
+        }
+      },
+      "day3": {
+        "title": "Questionar as Evidências",
+        "concept": "Muitas vezes, aceitamos os nossos pensamentos ansiosos como 100% verdadeiros sem question

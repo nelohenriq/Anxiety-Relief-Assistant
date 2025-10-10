@@ -1,0 +1,37 @@
+export const symptomCategories: Record<string, string[]> = {
+    physical: [
+        "heart_palpitations",
+        "shortness_of_breath",
+        "muscle_tension",
+        "sweating",
+        "dizziness",
+        "stomach_ache",
+        "headache",
+        "shaking_or_trembling",
+    ],
+    cognitive: [
+        "constant_worrying",
+        "catastrophic_thinking",
+        "poor_concentration",
+        "racing_thoughts",
+        "feeling_of_dread",
+        "overthinking",
+        "mind_going_blank",
+    ],
+    mood: [
+        "nervousness",
+        "irritability",
+        "fear_or_panic",
+        "frustration",
+        "feeling_overwhelmed",
+        "restlessness",
+    ],
+    behavioral: [
+        "avoiding_situations",
+        "fidgeting",
+        "pacing",
+        "difficulty_sleeping",
+        "social_withdrawal",
+        "procrastination",
+    ],
+};
