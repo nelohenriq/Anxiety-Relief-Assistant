@@ -36,6 +36,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
     const [ollamaConnectionError, setOllamaConnectionError] = useState<string | null>(null);
     const [availableLocalOllamaModels, setAvailableLocalOllamaModels] = useState<string[]>([]);
     const [availableCloudOllamaModels, setAvailableCloudOllamaModels] = useState<string[]>([]);
+    const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
     const fetchOllamaModelsAndStatus = async () => {
         setOllamaConnectionStatus('testing');
@@ -68,10 +69,16 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
         setLocalLlmProvider(llmProvider);
         setLocalOllamaModel(ollamaModel);
         setLocalOllamaCloudApiKey(ollamaCloudApiKey);
+        setCurrentLanguage(i18n.language);
         if (isOpen) {
             setActiveTab('settings');
         }
     }, [profile, reminderSettings, llmProvider, ollamaModel, ollamaCloudApiKey, isOpen]);
+
+    // Separate effect to handle language changes
+    useEffect(() => {
+        setCurrentLanguage(i18n.language);
+    }, [i18n.language]);
 
     useEffect(() => {
         if (isOpen && localLlmProvider === 'ollama') {
@@ -119,7 +126,24 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
     };
     
     const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        i18n.changeLanguage(e.target.value);
+        const newLang = e.target.value;
+        // Update local state immediately to prevent dropdown reset
+        setCurrentLanguage(newLang);
+
+        // Save to localStorage to persist across reloads
+        localStorage.setItem('i18nextLng', newLang);
+
+        i18n.changeLanguage(newLang).then(() => {
+            console.log('Language changed successfully to:', newLang);
+            // Force a page reload to ensure all components update
+            setTimeout(() => {
+                window.location.reload();
+            }, 100);
+        }).catch((error) => {
+            console.error('Language change failed:', error);
+            // Revert on error
+            setCurrentLanguage(i18n.language);
+        });
     }
 
     const handleClearData = () => {
@@ -148,7 +172,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
          <div className="space-y-6">
             <div>
                 <label htmlFor="language-select" className="block text-lg font-semibold text-neutral-800 dark:text-neutral-200 mb-2">{t('user_profile.language_title')}</label>
-                <select id="language-select" value={i18n.resolvedLanguage} onChange={handleLanguageChange} className="mt-1 block w-full rounded-md border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-200 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm">
+                <select id="language-select" value={currentLanguage} onChange={handleLanguageChange} className="mt-1 block w-full rounded-md border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-200 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm">
                     <option value="en">English</option>
                     <option value="es">Español</option>
                     <option value="pt-pt">Português (Portugal)</option>

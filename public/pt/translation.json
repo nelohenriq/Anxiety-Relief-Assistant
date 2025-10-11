@@ -10,6 +10,44 @@
     "subtitle": "Descreve como te sentes e deixa a nossa IA criar um plano personalizado com exercícios de coping para te guiar até ao alívio.",
     "get_started_button": "Começar"
   },
+  "onboarding": {
+    "welcome": {
+      "title": "Bem-vindo/a ao Serene",
+      "subtitle": "O teu assistente personalizado para o alívio da ansiedade, impulsionado por IA.",
+      "body": "Esta aplicação foi concebida para te ajudar a compreender e gerir os momentos de ansiedade, fornecendo estratégias de coping baseadas em evidência e adaptadas especialmente para ti."
+    },
+    "features": {
+      "title": "Como Funciona",
+      "feature1_title": "Descreve Os Teus Sentimentos",
+      "feature1_body": "Usa a tua voz ou texto para explicar como te sentes no momento.",
+      "feature2_title": "Obtém um Plano Personalizado",
+      "feature2_body": "A nossa IA analisa a tua descrição e cria um plano único com exercícios guiados.",
+      "feature3_title": "Explora e Cresce",
+      "feature3_body": "Descobre uma biblioteca de ferramentas como exercícios de respiração, um diário privado e programas guiados."
+    },
+    "consent": {
+      "title": "Os Teus Dados, O Teu Controlo",
+      "subtitle": "Todos os teus dados são armazenados de forma segura no teu dispositivo. Para melhorar a personalização, podes optar por partilhar dados anónimos do perfil com a IA.",
+      "body": "Níveis de consentimento mais altos permitem recomendações de exercícios mais personalizadas. Podes alterar isto a qualquer momento nas definições.",
+      "consent_essential_title": "Essencial",
+      "consent_essential_body": "Sem personalização. Os dados do teu perfil não são utilizados pela IA.",
+      "consent_enhanced_title": "Melhorado (Recomendado)",
+      "consent_enhanced_body": "Permite a personalização utilizando dados não sensíveis como o teu nível de atividade e ambiente de trabalho.",
+      "consent_complete_title": "Completo",
+      "consent_complete_body": "Permite a personalização total utilizando todos os campos do perfil que escolheres preencher."
+    },
+    "profile": {
+      "title": "Configuração Rápida (Opcional)",
+      "subtitle": "Responder a estas perguntas ajuda-nos a tornar as tuas primeiras recomendações ainda melhores. Podes saltar isto e alterá-lo mais tarde nas definições do teu perfil."
+    },
+    "buttons": {
+      "next": "Seguinte",
+      "back": "Anterior",
+      "finish": "Terminar Configuração",
+      "get_started": "Começar",
+      "skip": "Saltar por agora"
+    }
+  },
   "symptom_input": {
     "title": "Como te sentes neste momento?",
     "placeholder": "ex: 'O meu coração está a acelerar e não consigo parar de me preocupar com a minha apresentação de amanhã.'",
@@ -106,7 +144,8 @@
     "status_speaking": "A falar...",
     "status_error": "Erro de ligação. Por favor, tenta novamente.",
     "transcripts_you": "Tu",
-    "transcripts_coach": "Coach"
+    "transcripts_coach": "Coach",
+    "coming_soon": "A funcionalidade de coaching ao vivo estará disponível em breve!"
   },
   "breathing_exercises": {
     "title": "Calma Rápida",
@@ -437,4 +476,302 @@
       },
       "day3": {
         "title": "Questionar as Evidências",
-        "concept": "Muitas vezes, aceitamos os nossos pensamentos ansiosos como 100% verdadeiros sem question
+        "concept": "Muitas vezes, aceitamos os nossos pensamentos ansiosos como 100% verdadeiros sem questionar as evidências. Hoje, vamos praticar o papel de detetive. Um detetive não aceita simplesmente a primeira história que ouve; procura provas concretas. Vamos fazer o mesmo com os nossos pensamentos.",
+        "exercise": {
+          "title": "Questionador de Evidências",
+          "description": "Pratica questionar sistematicamente as evidências por trás de um pensamento ansioso.",
+          "steps": [
+            "Identifica um pensamento ansioso específico que tenhas tido recentemente.",
+            "Pergunta a ti mesmo/a: 'Que evidências tenho de que este pensamento é 100% verdadeiro?'",
+            "Agora pergunta: 'Que evidências tenho de que este pensamento pode não ser completamente verdadeiro?'",
+            "Considera: 'Já passei por situações semelhantes antes? Como é que realmente correram?'",
+            "Finalmente, cria uma versão mais equilibrada do teu pensamento original baseada nas evidências reais."
+          ]
+        }
+      },
+      "day4": {
+        "title": "Reformular Pensamentos",
+        "concept": "Agora que consegues identificar e questionar pensamentos ansiosos, vamos aprender a reformulá-los de formas mais úteis e realistas. Esta habilidade chama-se 'reestruturação cognitiva' e é uma das ferramentas mais poderosas da TCC.",
+        "exercise": {
+          "title": "Reformulador de Pensamentos",
+          "description": "Transforma um pensamento ansioso numa perspetiva mais equilibrada e útil.",
+          "steps": [
+            "Escolhe um pensamento ansioso que tenhas questionado anteriormente.",
+            "Identifica as palavras extremas como 'sempre', 'nunca', 'terrível', 'desastre'.",
+            "Pergunta: 'O que diria a um amigo que tivesse este mesmo pensamento?'",
+            "Cria uma versão mais equilibrada: reconhece o que é verdade mas também o que é exagerado.",
+            "Pratica dizer a nova versão para ti mesmo/a com convicção e compaixão."
+          ]
+        }
+      },
+      "day5": {
+        "title": "Integrar as Habilidades",
+        "concept": "No último dia deste programa, vamos integrar todas as habilidades que aprendeste. O objetivo não é eliminar todos os pensamentos ansiosos (isso não é realista nem necessário), mas sim mudar a tua relação com eles. Vais tornar-te mais hábil a reconhecê-los, questioná-los e reformulá-los quando necessário.",
+        "exercise": {
+          "title": "Revisão e Integração",
+          "description": "Revisa o teu progresso e planeia como continuar a usar estas habilidades no teu dia-a-dia.",
+          "steps": [
+            "Faz uma retrospetiva dos últimos 5 dias. Que padrões de pensamento ansioso identificaste?",
+            "Qual das técnicas (identificar, detetar distorções, questionar evidências, reformular) foi mais útil para ti?",
+            "Compromete-te a usar estas ferramentas quando notaresses pensamentos ansiosos no futuro.",
+            "Lembra-te: o progresso não é linear. Alguns dias serão melhores que outros, e está tudo bem.",
+            "Celebra o teu compromisso em cuidar da tua saúde mental. Estás a construir habilidades valiosas para a vida."
+          ]
+        }
+      }
+    },
+    "sleep_improvement": {
+        "title": "Programa de Melhoria do Sono de 7 Dias",
+        "description": "Um programa de uma semana para te ajudar a construir hábitos de sono saudáveis, criar uma rotina relaxante antes de dormir e melhorar a qualidade geral do teu sono para uma melhor gestão da ansiedade.",
+        "day1": {
+          "title": "A Hora de Desligar",
+          "concept": "Tal como aqueces para fazer exercício, o teu cérebro precisa de arrefecer para dormir. Criar uma 'zona tampão' de 1 hora antes de te deitares, livre de ecrãs e atividades estimulantes, indica ao teu corpo que é hora de descansar.",
+          "exercise": {
+            "title": "Desenha a Tua Rotina de Desligar",
+            "description": "Planeia uma sequência de atividades tranquilas para realizar todas as noites antes de dormir.",
+            "steps": [
+              "Escolhe 2-3 atividades relaxantes e sem ecrãs que desfrutes. Exemplos: ler um livro físico, fazer alongamentos suaves, ouvir música tranquila, tomar um chá de ervas.",
+              "Decide a ordem dessas atividades.",
+              "Põe um alarme para 1 hora antes da hora desejada para te deitares. Este é o teu sinal para começar a tua rotina.",
+              "Esta noite, põe o teu plano em ação. O objetivo é a consistência."
+            ]
+          }
+        },
+        "day2": {
+          "title": "O Santuário do Sono",
+          "concept": "O ambiente do teu quarto tem um grande impacto na qualidade do teu sono. O espaço ideal para dormir é fresco, escuro e silencioso. Isso ajuda o teu cérebro a associar o quarto ao sono e apenas ao sono.",
+          "exercise": {
+            "title": "Lista de Verificação Ambiental",
+            "description": "Avalia e otimiza o teu quarto para dormir.",
+            "steps": [
+              "Temperatura: O teu quarto está fresco? Se possível, baixa um pouco o termóstato.",
+              "Luz: Podes tornar o teu quarto mais escuro? Considera cortinas opacas ou uma máscara para dormir. Cobre ou remove os aparelhos eletrónicos com luzes.",
+              "Ruído: Podes torná-lo mais silencioso? Tampões para os ouvidos ou uma máquina de ruído branco podem ajudar a bloquear sons perturbadores.",
+              "Conforto: A tua cama é confortável? Garante que as tuas almofadas e roupa de cama favorecem um sono reparador."
+            ]
+          }
+        },
+        "day3": {
+          "title": "Cafeína e Álcool",
+          "concept": "Estimulantes como a cafeína e depressores como o álcool podem alterar significativamente a arquitetura do teu sono, mesmo que adormeças facilmente. A cafeína pode permanecer no teu sistema durante muitas horas, enquanto o álcool pode fazer-te acordar na segunda metade da noite.",
+          "exercise": {
+            "title": "Estabelece um Toque de Queda para a Cafeína",
+            "description": "Estabelece uma hora limite para todo o consumo de cafeína.",
+            "steps": [
+              "Determina a tua hora habitual de deitar.",
+              "Estabelece o teu toque de queda para a cafeína pelo menos 8 horas antes dessa hora. Para uma hora de deitar às 22h, o teu último café deve ser antes das 14h.",
+              "Cumpre este toque de queda hoje. Nota se faz alguma diferença em como te sentes à hora de deitar."
+            ]
+          }
+        },
+        "day4": {
+          "title": "Descarga Mental Consciente",
+          "concept": "É difícil dormir quando a tua mente está acelerada com preocupações e listas de tarefas pendentes. Tirar estes pensamentos da tua cabeça e pô-los no papel antes de dormir pode proporcionar uma sensação de encerramento e acalmar uma mente ocupada.",
+          "exercise": {
+            "title": "Diário Pré-Sono",
+            "description": "Um breve exercício de escrita para limpar a tua mente.",
+            "steps": [
+              "Cerca de 30 minutos antes de te deitares, pega num caderno e numa caneta.",
+              "Dedica 5 minutos a escrever tudo o que tens na mente: preocupações, tarefas para amanhã, coisas que precisas de lembrar.",
+              "Fecha o caderno. Simbolicamente, estás a deixar estes pensamentos de lado para a noite. Podes ocupar-te deles amanhã."
+            ]
+          }
+        },
+        "day5": {
+          "title": "O Poder da Luz",
+          "concept": "O relógio interno do teu corpo (ritmo circadiano) é fortemente influenciado pela luz. A exposição à luz natural brilhante de manhã ajuda-te a acordar e a regular o teu ciclo sono-vigília, facilitando adormecer na hora certa à noite.",
+          "exercise": {
+            "title": "Exposição à Luz Matinal",
+            "description": "Recebe uma dose de luz natural pouco depois de acordares.",
+            "steps": [
+              "Dentro dos 30 minutos após acordares, tenta obter pelo menos 10 minutos de luz solar.",
+              "Isso pode ser tomar o teu café junto a uma janela ensolarada, dar um curto passeio ao ar livre ou simplesmente sair para uma varanda.",
+              "Evita usar óculos de sol durante este tempo, se possível, para que a luz chegue aos teus olhos."
+            ]
+          }
+        },
+        "day6": {
+          "title": "O Corpo e o Sono",
+          "concept": "A atividade física regular pode melhorar a qualidade do sono, mas o exercício intenso demasiado perto da hora de deitar pode ser sobreestimulante. No entanto, o movimento suave e consciente pode ajudar a libertar a tensão física e preparar o corpo para o descanso.",
+          "exercise": {
+            "title": "Alongamentos Suaves Antes de Dormir",
+            "description": "Uma rotina curta de alongamentos tranquilizadores para relaxar o teu corpo.",
+            "steps": [
+              "Postura da Criança: Ajoelha-te no chão, senta-te sobre os calcanhares e inclina-te para a frente, apoiando a testa no chão. Mantém durante 30 segundos.",
+              "Alongamento Gato-Vaca: De quatro, arqueia as costas como um gato, depois baixa o abdómen e olha para cima como uma vaca. Repete 5 vezes.",
+              "Pernas na Parede: Deita-te de costas com as pernas estendidas contra uma parede. Isto é muito reparador.",
+              "Concentra-te na tua respiração durante os alongamentos. Move-te lenta e suavemente."
+            ]
+          }
+        },
+        "day7": {
+          "title": "Quando Não Consegues Dormir",
+          "concept": "Ficar na cama sentindo-te frustrado/a porque não consegues dormir é contraprodutivo. Treina o teu cérebro para associar a cama à ansiedade. A regra geral é: se não estiveres a dormir após 20-30 minutos, levanta-te e faz algo tranquilo com pouca luz.",
+          "exercise": {
+            "title": "Prática de Vigília Tranquila",
+            "description": "Um plano para o que fazer quando estás acordado/a durante a noite.",
+            "steps": [
+              "Se te encontrares completamente acordado/a, sai da cama.",
+              "Vai para outra divisão e realiza uma atividade tranquila e relaxante com luz ténue, como ler um livro aborrecido ou ouvir música suave.",
+              "Não uses o teu telefone nem vejas televisão.",
+              "Quando começares a sentir sono novamente, volta para a cama. O objetivo é reassociar a tua cama ao sono, não à frustração."
+            ]
+          }
+        }
+      }
+    },
+  "user_profile": {
+    "title": "Perfil e Definições",
+    "tabs": {
+      "settings": "Definições",
+      "activity_log": "Registo de Atividade",
+      "feedback_history": "O Meu Histórico de Feedback"
+    },
+    "close_aria_label": "Fechar definições",
+    "consent_title": "Consentimento de Dados",
+    "consent_subtitle": "Níveis de consentimento mais altos permitem à IA gerar exercícios mais personalizados utilizando os dados do perfil que forneceres abaixo.",
+    "consent_essential": "Essencial: Sem personalização. O perfil está desabilitado.",
+    "consent_enhanced": "Melhorado: Habilita a personalização com dados não sensíveis.",
+    "consent_complete": "Completo: Habilita a personalização total com todos os campos disponíveis.",
+    "form_disabled_message": "A personalização está desabilitada. Para habilitá-la, seleciona um nível de consentimento de dados melhorado.",
+    "ai_provider_title": "Fornecedor de IA",
+    "provider_label": "Fornecedor",
+    "ollama_model_label": "Modelo Ollama",
+    "ollama_cloud_api_key_label": "Chave API da Nuvem Ollama",
+    "ollama_cloud_api_key_placeholder": "Introduz a tua chave API de ollama.com",
+    "ollama_cloud_api_key_helper": "Necessária para usar modelos na nuvem.",
+    "ollama_model_helper": "Garante que o teu servidor Ollama local está em execução. A aplicação tentará conectar a http://localhost:11434.",
+    "ollama_test_connection_tooltip": "Atualizar lista de modelos",
+    "ollama_status_testing": "A testar conexão...",
+    "ollama_status_success": "Conexão local bem-sucedida. Encontrados {{count}} modelos locais.",
+    "ollama_status_error": "Falha na conexão local:",
+    "ollama_no_models": "Nenhum modelo encontrado",
+    "ollama_local_models": "Modelos Locais",
+    "ollama_cloud_models": "Modelos na Nuvem",
+    "about_you_title": "Sobre Ti",
+    "age_label": "Idade",
+    "location_label": "Localização / Fuso Horário",
+    "location_placeholder": "ex: Lisboa / WET",
+    "wellness_profile_title": "Perfil de Bem-Estar",
+    "sleep_label": "Média de sono por noite (horas)?",
+    "caffeine_label": "Consumo Típico de Cafeína",
+    "caffeine_options": {
+      "none": "Nenhum",
+      "low": "Baixo",
+      "moderate": "Moderado",
+      "high": "Alto"
+    },
+    "interests_title": "Os Teus Interesses e Hobbies",
+    "interests_placeholder": "ex: Pintura, tocar guitarra, jardinagem, ler...",
+    "conditions_label": "Condições de Ansiedade ou Humor Diagnosticadas (opcional)",
+    "conditions_placeholder": "ex: TAG, Perturbação de Pânico. Sê geral.",
+    "conditions_help_text": "Esta informação é armazenada apenas no teu dispositivo e pode ajudar a gerar exercícios mais específicos.",
+    "lifestyle_title": "Estilo de Vida e Preferências",
+    "work_env_label": "Ambiente de Trabalho/Escola",
+    "work_env_options": {
+      "office": "Escritório / Interior",
+      "remote": "Trabalho remoto",
+      "student": "Estudante",
+      "outdoors_manual": "Exterior / Trabalho Manual",
+      "other": "Outro"
+    },
+    "nature_access_label": "Acesso à Natureza/Parques",
+    "nature_access_options": {
+      "yes": "Acesso fácil",
+      "limited": "Acesso limitado",
+      "no": "Sem acesso"
+    },
+    "activity_level_label": "Nível de Atividade Típico",
+    "activity_level_options": {
+      "sedentary": "Sendentário (principalmente sentado)",
+      "lightly_active": "Ligeiramente Ativo (alguma caminhada/permanência em pé)",
+      "moderately_active": "Moderadamente Ativo (exercício 3-5 vezes/semana)",
+      "very_active": "Muito Ativo (exercício intenso na maioria dos dias)"
+    },
+    "coping_styles_label": "O que te ajudou no passado?",
+    "coping_styles_placeholder": "ex: falar com amigos, caminhar, apps de mindfulness",
+    "learning_style_label": "Estilo de Aprendizagem Preferido",
+    "learning_style_options": {
+      "visual": "Visual",
+      "auditory": "Auditivo",
+      "kinesthetic": "Cinestésico"
+    },
+    "reminders_title": "Lembretes Diários",
+    "reminders_enable_label": "Habilitar Lembretes",
+    "reminders_permission_denied": "As notificações estão bloqueadas. Por favor, habilita-as nas definições do teu navegador para receber lembretes.",
+    "reminders_time_label": "Hora do Lembrete",
+    "reminders_type_label": "Tipo de Lembrete",
+    "reminders_type_options": {
+      "gentle": "Lembrete Suave",
+      "motivational": "Citação Motivacional"
+    },
+    "feedback_title": "Ajuda-nos a Melhorar",
+    "feedback_subtitle": "Tens alguma sugestão ou encontraste um erro? Conta-nos!",
+    "provide_feedback_button": "Enviar Feedback",
+    "data_privacy_title": "Dados e Privacidade",
+    "data_privacy_subtitle": "Todos os teus dados (perfil, histórico, diário) são armazenados exclusivamente no armazenamento local do teu dispositivo. Apagar os teus dados é permanente e não pode ser desfeito.",
+    "download_log_subtitle": "Para ajudar a melhorar a aplicação, podes voluntariamente descarregar o teu registo de interações anónimas e partilhá-lo com a equipa de desenvolvimento.",
+    "download_log_button": "Descarregar Registo de Interações",
+    "clear_data_button": "Apagar Os Meus Dados...",
+    "clear_data_confirm_title": "Tens a certeza?",
+    "clear_data_confirm_body": "Isto apagará permanentemente todas as tuas entradas e informações de perfil.",
+    "clear_data_confirm_button": "Sim, apagar tudo",
+    "language_title": "Idioma",
+    "cancel_button": "Cancelar",
+    "save_button": "Guardar Alterações"
+  },
+  "feedback_modal": {
+    "title": "Enviar Feedback",
+    "type_label": "Tipo de Feedback",
+    "types": {
+      "suggestion": "Sugestão",
+      "bug": "Relatório de Erro",
+      "general": "Feedback Geral"
+    },
+    "message_label": "Mensagem",
+    "message_placeholder": "Por favor, fornece tantos detalhes quanto possível...",
+    "submit_button": "Enviar Feedback",
+    "submitted_message": "Obrigado!"
+  },
+  "crisis_modal": {
+    "title": "Parece que estás a passar por muito.",
+    "body": "Se te encontrares em perigo ou angústia imediata, por favor, procura ajuda. Não estás sozinho/a.",
+    "cta_button_call": "Ligar para {{name}} ({{number}})",
+    "cta_button_web": "Visitar {{name}}",
+    "close_button": "Fechar esta janela"
+  },
+  "theme_toggle": {
+    "aria_label_light": "Mudar para modo claro",
+    "aria_label_dark": "Mudar para modo escuro"
+  },
+  "search": {
+    "placeholder": "Procurar exercícios, entradas de diário...",
+    "aria_label": "Procurar todo o conteúdo"
+  },
+  "tooltip": {
+    "expand_details": "Mostrar detalhes",
+    "collapse_details": "Ocultar detalhes",
+    "view_source": "Ver website de origem",
+    "close": "Fechar",
+    "get_ai_help": "Obter ajuda da IA para desafiar este pensamento",
+    "download_plan": "Descarregar Plano"
+  },
+  "mood_tracker": {
+    "title": "Rastreio de Humor",
+    "subtitle": "Regista o teu estado emocional atual.",
+    "prompt": "Como te sentes neste momento?",
+    "logged_confirmation": "Humor registado!",
+    "moods": {
+      "awful": "Terrível",
+      "bad": "Mal",
+      "okay": "Normal",
+      "good": "Bem",
+      "great": "Ótimo"
+    }
+  },
+  "mood_chart": {
+    "title": "A Tua Semana em Humores",
+    "empty_state": "Regista o teu humor para ver as tuas tendências aqui.",
+    "avg_mood": "Humor Médio"
+  }
+}

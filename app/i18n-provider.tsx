@@ -16,8 +16,10 @@ export function I18nextProvider({ children }: I18nProviderProps) {
 
   useEffect(() => {
     const initI18n = async () => {
-      if (!isInitialized) {
+      if (!isInitialized && !i18n.isInitialized) {
         await i18n.init();
+        setIsInitialized(true);
+      } else if (i18n.isInitialized) {
         setIsInitialized(true);
       }
     };
@@ -25,13 +27,33 @@ export function I18nextProvider({ children }: I18nProviderProps) {
     initI18n();
   }, [isInitialized]);
 
+  // Listen for language changes and force re-render
+  useEffect(() => {
+    const handleLanguageChanged = (lng: string) => {
+      console.log('Language changed to:', lng);
+      // Force re-render by updating a state
+      setIsInitialized(prev => !prev);
+    };
+
+    i18n.on('languageChanged', handleLanguageChanged);
+
+    return () => {
+      i18n.off('languageChanged', handleLanguageChanged);
+    };
+  }, []);
+
   useEffect(() => {
     if (isInitialized) {
       const currentLang = i18n.language;
       const pathLang = pathname.split('/')[1];
 
-      if (pathLang && pathLang !== currentLang) {
-        i18n.changeLanguage(pathLang);
+      if (pathLang && pathLang !== currentLang && ['en', 'pt', 'es', 'fr', 'de'].includes(pathLang)) {
+        i18n.changeLanguage(pathLang).then(() => {
+          // Force re-render of all components after language change
+          setTimeout(() => {
+            window.location.reload();
+          }, 100);
+        });
       }
     }
   }, [pathname, isInitialized]);

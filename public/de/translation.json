@@ -1,4 +1,3 @@
-
 {
   "header": {
     "title": "Serene",
@@ -9,6 +8,44 @@
     "title": "Finde Deine Ruhe.",
     "subtitle": "Beschreibe, wie du dich fühlst, und lass unsere KI einen personalisierten Plan mit Bewältigungsübungen erstellen, um dich zur Linderung zu führen.",
     "get_started_button": "Loslegen"
+  },
+  "onboarding": {
+    "welcome": {
+      "title": "Willkommen bei Serene",
+      "subtitle": "Dein personalisierter Angstlinderungsassistent, angetrieben von KI.",
+      "body": "Diese App wurde entwickelt, um dir zu helfen, Momente der Angst zu verstehen und zu bewältigen, indem sie evidenzbasierte Bewältigungsstrategien bereitstellt, die speziell auf dich zugeschnitten sind."
+    },
+    "features": {
+      "title": "Wie es funktioniert",
+      "feature1_title": "Beschreibe deine Gefühle",
+      "feature1_body": "Verwende deine Stimme oder Text, um zu erklären, wie du dich im Moment fühlst.",
+      "feature2_title": "Erhalte einen personalisierten Plan",
+      "feature2_body": "Unsere KI analysiert deine Eingaben und erstellt einen einzigartigen Plan mit geführten Übungen.",
+      "feature3_title": "Entdecken & Wachsen",
+      "feature3_body": "Entdecke eine Bibliothek von Werkzeugen wie Atemübungen, ein privates Tagebuch und geführte Programme."
+    },
+    "consent": {
+      "title": "Deine Daten, deine Kontrolle",
+      "subtitle": "Alle deine Daten werden sicher auf deinem Gerät gespeichert. Um die Personalisierung zu verbessern, kannst du anonyme Profildaten mit der KI teilen.",
+      "body": "Höhere Einwilligungsstufen ermöglichen maßgeschneiderte Übungsempfehlungen. Du kannst dies jederzeit in deinen Einstellungen ändern.",
+      "consent_essential_title": "Wesentlich",
+      "consent_essential_body": "Keine Personalisierung. Deine Profildaten werden nicht von der KI verwendet.",
+      "consent_enhanced_title": "Verbessert (Empfohlen)",
+      "consent_enhanced_body": "Ermöglicht die Personalisierung unter Verwendung nicht sensibler Daten wie deinem Aktivitätsniveau und deiner Arbeitsumgebung.",
+      "consent_complete_title": "Vollständig",
+      "consent_complete_body": "Ermöglicht die vollständige Personalisierung unter Verwendung aller Profilfelder, die du ausfüllst."
+    },
+    "profile": {
+      "title": "Schnelleinrichtung (Optional)",
+      "subtitle": "Die Beantwortung dieser Fragen hilft uns, deine ersten Empfehlungen noch besser zu machen. Du kannst dies überspringen und später in deinen Profileinstellungen ändern."
+    },
+    "buttons": {
+      "next": "Weiter",
+      "back": "Zurück",
+      "finish": "Einrichtung abschließen",
+      "get_started": "Loslegen",
+      "skip": "Vorerst überspringen"
+    }
   },
   "symptom_input": {
     "title": "Wie fühlst du dich gerade?",
@@ -106,7 +143,8 @@
     "status_speaking": "Spreche...",
     "status_error": "Verbindungsfehler. Bitte versuche es erneut.",
     "transcripts_you": "Du",
-    "transcripts_coach": "Coach"
+    "transcripts_coach": "Coach",
+    "coming_soon": "Live-Coaching-Funktion kommt bald!"
   },
   "breathing_exercises": {
     "title": "Schnelle Beruhigung",
@@ -464,4 +502,272 @@
         }
       },
       "day5": {
-        "title": "Alles
+        "title": "Alles zusammenfügen",
+        "concept": "Heute werden wir die gelernten Fähigkeiten zu einem einfachen, wiederholbaren Prozess zusammenfügen, den Sie jederzeit anwenden können, wenn Sie sich von einem ängstlichen Gedanken überwältigt fühlen. Wiederholung ist der Schlüssel zum Aufbau dieser neuen mentalen Gewohnheit.",
+        "exercise": {
+          "title": "Mini-Gedankenprotokoll",
+          "description": "Eine schnelle, schrittweise Überprüfung der in dieser Woche gelernten Fähigkeiten.",
+          "steps": [
+            "1. Bemerken: Was ist der ängstliche Gedanke?",
+            "2. Identifizieren: Welche kognitive Verzerrung könnte im Spiel sein?",
+            "3. Hinterfragen: Was sind die Beweise für und gegen diesen Gedanken?",
+            "4. Umformulieren: Was ist ein ausgewogenerer, alternativer Gedanke?"
+          ]
+        }
+      }
+    },
+    "sleep_improvement": {
+      "title": "7-Tage-Schlafverbesserungsprogramm",
+      "description": "Ein einwöchiges Programm, das Ihnen hilft, gesunde Schlafgewohnheiten aufzubauen, eine entspannende Schlafenszeit-Routine zu schaffen und Ihre allgemeine Schlafqualität für ein besseres Angstmanagement zu verbessern.",
+      "day1": {
+        "title": "Die Entspannungsstunde",
+        "concept": "So wie Sie sich für Sport aufwärmen, muss sich Ihr Gehirn für den Schlaf abkühlen. Eine 'Pufferzone' von 1 Stunde vor dem Schlafengehen, frei von Bildschirmen und anregenden Aktivitäten, signalisiert Ihrem Körper, dass es Zeit zum Ausruhen ist.",
+        "exercise": {
+          "title": "Gestalten Sie Ihre Entspannungsroutine",
+          "description": "Planen Sie eine Abfolge von beruhigenden Aktivitäten, die Sie jeden Abend vor dem Schlafengehen durchführen.",
+          "steps": [
+            "Wählen Sie 2-3 entspannende, bildschirmfreie Aktivitäten, die Ihnen Spaß machen. Beispiele: ein physisches Buch lesen, sanftes Dehnen, ruhige Musik hören, Kräutertee trinken.",
+            "Legen Sie die Reihenfolge dieser Aktivitäten fest.",
+            "Stellen Sie einen Wecker für 1 Stunde vor Ihrer gewünschten Schlafenszeit. Dies ist Ihr Signal, um mit Ihrer Routine zu beginnen.",
+            "Setzen Sie Ihren Plan heute Abend in die Tat um. Das Ziel ist Konsistenz."
+          ]
+        }
+      },
+      "day2": {
+        "title": "Das Schlaf-Heiligtum",
+        "concept": "Ihre Schlafzimmerumgebung hat einen großen Einfluss auf Ihre Schlafqualität. Der ideale Schlafraum ist kühl, dunkel und ruhig. Dies hilft Ihrem Gehirn, das Schlafzimmer nur mit Schlaf in Verbindung zu bringen.",
+        "exercise": {
+          "title": "Umgebungs-Checkliste",
+          "description": "Bewerten und optimieren Sie Ihr Schlafzimmer für den Schlaf.",
+          "steps": [
+            "Temperatur: Ist Ihr Zimmer kühl? Wenn möglich, stellen Sie den Thermostat etwas niedriger ein.",
+            "Licht: Können Sie Ihr Zimmer dunkler machen? Erwägen Sie Verdunkelungsvorhänge oder eine Schlafmaske. Decken Sie elektronische Geräte mit Lichtern ab oder entfernen Sie sie.",
+            "Lärm: Können Sie es leiser machen? Ohrstöpsel oder ein weißes Rauschgerät können helfen, störende Geräusche auszublenden.",
+            "Komfort: Ist Ihr Bett bequem? Stellen Sie sicher, dass Ihre Kissen und Bettwäsche einen erholsamen Schlaf unterstützen."
+          ]
+        }
+      },
+      "day3": {
+        "title": "Koffein & Alkohol",
+        "concept": "Stimulanzien wie Koffein und Beruhigungsmittel wie Alkohol können Ihre Schlafarchitektur erheblich stören, auch wenn Sie leicht einschlafen. Koffein kann viele Stunden in Ihrem System bleiben, während Alkohol dazu führen kann, dass Sie in der zweiten Hälfte der Nacht aufwachen.",
+        "exercise": {
+          "title": "Legen Sie eine Koffein-Sperrstunde fest",
+          "description": "Legen Sie eine Frist für den gesamten Koffeinkonsum fest.",
+          "steps": [
+            "Bestimmen Sie Ihre übliche Schlafenszeit.",
+            "Legen Sie Ihre Koffein-Sperrstunde mindestens 8 Stunden vor dieser Zeit fest. Bei einer Schlafenszeit von 22 Uhr sollte Ihr letzter Kaffee vor 14 Uhr sein.",
+            "Halten Sie sich heute an diese Sperrstunde. Beachten Sie, ob es einen Unterschied macht, wie Sie sich zur Schlafenszeit fühlen."
+          ]
+        }
+      },
+      "day4": {
+        "title": "Achtsames Entladen",
+        "concept": "Es ist schwer zu schlafen, wenn Ihr Geist mit Sorgen und To-Do-Listen rast. Diese Gedanken aus dem Kopf und auf Papier zu bringen, kann ein Gefühl des Abschlusses vermitteln und einen beschäftigten Geist beruhigen.",
+        "exercise": {
+          "title": "Vorschlaf-Tagebuch",
+          "description": "Eine kurze Schreibübung, um Ihren Geist zu klären.",
+          "steps": [
+            "Nehmen Sie etwa 30 Minuten vor dem Schlafengehen ein Notizbuch und einen Stift.",
+            "Verbringen Sie 5 Minuten damit, alles aufzuschreiben, was Ihnen durch den Kopf geht: Sorgen, Aufgaben für morgen, Dinge, an die Sie sich erinnern müssen.",
+            "Schließen Sie das Notizbuch. Symbolisch legen Sie diese Gedanken für die Nacht beiseite. Sie können sich morgen darum kümmern."
+          ]
+        }
+      },
+      "day5": {
+        "title": "Die Macht des Lichts",
+        "concept": "Die innere Uhr Ihres Körpers (zirkadianer Rhythmus) wird stark vom Licht beeinflusst. Die Exposition gegenüber hellem, natürlichem Licht am Morgen hilft Ihnen, aufzuwachen und Ihren Schlaf-Wach-Zyklus zu regulieren, was es einfacher macht, zur richtigen Zeit nachts schläfrig zu werden.",
+        "exercise": {
+          "title": "Morgendliche Lichtexposition",
+          "description": "Holen Sie sich kurz nach dem Aufwachen eine Dosis natürliches Licht.",
+          "steps": [
+            "Versuchen Sie, innerhalb von 30 Minuten nach dem Aufwachen mindestens 10 Minuten Sonnenlicht zu bekommen.",
+            "Dies könnte sein, Ihren Kaffee an einem sonnigen Fenster zu trinken, einen kurzen Spaziergang im Freien zu machen oder einfach auf einen Balkon zu treten.",
+            "Vermeiden Sie es, während dieser Zeit eine Sonnenbrille zu tragen, wenn möglich, damit das Licht Ihre Augen erreicht."
+          ]
+        }
+      },
+      "day6": {
+        "title": "Der Körper & Schlaf",
+        "concept": "Regelmäßige körperliche Aktivität kann die Schlafqualität verbessern, aber intensives Training zu kurz vor dem Schlafengehen kann überstimulierend sein. Sanfte, achtsame Bewegung kann jedoch helfen, körperliche Anspannungen zu lösen und den Körper auf die Ruhe vorzubereiten.",
+        "exercise": {
+          "title": "Sanfte Dehnübungen vor dem Schlafengehen",
+          "description": "Eine kurze, beruhigende Dehnungsroutine, um Ihren Körper zu entspannen.",
+          "steps": [
+            "Kindeshaltung: Knien Sie auf dem Boden, setzen Sie sich auf Ihre Fersen und beugen Sie sich nach vorne, wobei Sie Ihre Stirn auf dem Boden ablegen. 30 Sekunden halten.",
+            "Katze-Kuh-Dehnung: Auf Händen und Knien, wölben Sie Ihren Rücken wie eine Katze, dann senken Sie Ihren Bauch und schauen Sie nach oben wie eine Kuh. 5 Mal wiederholen.",
+            "Beine an der Wand: Legen Sie sich auf den Rücken und strecken Sie Ihre Beine an einer Wand hoch. Dies ist sehr erholsam.",
+            "Konzentrieren Sie sich während der Dehnungen auf Ihre Atmung. Bewegen Sie sich langsam und sanft."
+          ]
+        }
+      },
+      "day7": {
+        "title": "Wenn Sie nicht schlafen können",
+        "concept": "Im Bett zu liegen und frustriert zu sein, dass man nicht schlafen kann, ist kontraproduktiv. Es trainiert Ihr Gehirn, das Bett mit Angst in Verbindung zu bringen. Die Faustregel lautet: Wenn Sie nach 20-30 Minuten nicht schlafen, stehen Sie auf und tun Sie etwas Beruhigendes bei schwachem Licht.",
+        "exercise": {
+          "title": "Ruhige Wachsamkeitsübung",
+          "description": "Ein Plan, was zu tun ist, wenn Sie nachts wach sind.",
+          "steps": [
+            "Wenn Sie sich hellwach fühlen, stehen Sie auf.",
+            "Gehen Sie in ein anderes Zimmer und machen Sie eine ruhige, entspannende Aktivität bei gedämpftem Licht, wie ein langweiliges Buch lesen oder ruhige Musik hören.",
+            "Benutzen Sie nicht Ihr Telefon oder sehen Sie fern.",
+            "Wenn Sie wieder schläfrig werden, gehen Sie zurück ins Bett. Das Ziel ist es, Ihr Bett wieder mit Schläfrigkeit und nicht mit Frustration in Verbindung zu bringen."
+          ]
+        }
+      }
+    }
+  },
+  "user_profile": {
+    "title": "Profil & Einstellungen",
+    "tabs": {
+      "settings": "Einstellungen",
+      "activity_log": "Aktivitätsprotokoll",
+      "feedback_history": "Mein Feedback"
+    },
+    "close_aria_label": "Einstellungen schließen",
+    "consent_title": "Dateneinwilligung",
+    "consent_subtitle": "Höhere Einwilligungsstufen ermöglichen es der KI, personalisiertere Übungen unter Verwendung der von Ihnen unten angegebenen Profildaten zu generieren.",
+    "consent_essential": "Wesentlich: Keine Personalisierung. Profil ist deaktiviert.",
+    "consent_enhanced": "Verbessert: Ermöglicht die Personalisierung mit nicht sensiblen Daten.",
+    "consent_complete": "Vollständig: Ermöglicht die vollständige Personalisierung mit allen verfügbaren Feldern.",
+    "form_disabled_message": "Personalisierung ist deaktiviert. Um sie zu aktivieren, wählen Sie bitte eine erweiterte Dateneinwilligungsstufe.",
+    "ai_provider_title": "KI-Anbieter",
+    "provider_label": "Anbieter",
+    "ollama_model_label": "Ollama-Modell",
+    "ollama_cloud_api_key_label": "Ollama Cloud API-Schlüssel",
+    "ollama_cloud_api_key_placeholder": "Geben Sie Ihren ollama.com API-Schlüssel ein",
+    "ollama_cloud_api_key_helper": "Erforderlich für die Verwendung von Cloud-Modellen.",
+    "ollama_model_helper": "Stellen Sie sicher, dass Ihr lokaler Ollama-Server läuft. Die App wird versuchen, eine Verbindung zu http://localhost:11434 herzustellen.",
+    "ollama_test_connection_tooltip": "Modellliste aktualisieren",
+    "ollama_status_testing": "Verbindung wird getestet...",
+    "ollama_status_success": "Verbindung erfolgreich. {{count}} lokale Modelle gefunden.",
+    "ollama_status_error": "Lokale Verbindung fehlgeschlagen:",
+    "ollama_no_models": "Keine Modelle gefunden",
+    "ollama_local_models": "Lokale Modelle",
+    "ollama_cloud_models": "Cloud-Modelle",
+    "about_you_title": "Über Dich",
+    "age_label": "Alter",
+    "location_label": "Standort / Zeitzone",
+    "location_placeholder": "z.B. New York / EST",
+    "wellness_profile_title": "Wellness-Profil",
+    "sleep_label": "Durchschnittlicher Schlaf pro Nacht (Stunden)?",
+    "caffeine_label": "Typischer Koffeinkonsum",
+    "caffeine_options": {
+      "none": "Keiner",
+      "low": "Niedrig",
+      "moderate": "Mäßig",
+      "high": "Hoch"
+    },
+    "interests_title": "Deine Interessen & Hobbys",
+    "interests_placeholder": "z.B. Malen, Gitarre spielen, Gärtnern, Lesen...",
+    "conditions_label": "Diagnostizierte Angst- oder Stimmungsstörungen (optional)",
+    "conditions_placeholder": "z.B. GAS, Panikstörung. Halten Sie es allgemein.",
+    "conditions_help_text": "Diese Informationen werden nur auf Ihrem Gerät gespeichert und können helfen, spezifischere Übungen zu generieren.",
+    "lifestyle_title": "Lebensstil & Vorlieben",
+    "work_env_label": "Arbeits-/Schulumgebung",
+    "work_env_options": {
+      "office": "Büro / Innenräume",
+      "remote": "Homeoffice",
+      "student": "Student",
+      "outdoors_manual": "Im Freien / Handwerk",
+      "other": "Andere"
+    },
+    "nature_access_label": "Zugang zu Natur/Parks",
+    "nature_access_options": {
+      "yes": "Einfacher Zugang",
+      "limited": "Begrenzter Zugang",
+      "no": "Kein Zugang"
+    },
+    "activity_level_label": "Typisches Aktivitätsniveau",
+    "activity_level_options": {
+      "sedentary": "Sitzend (meistens sitzend)",
+      "lightly_active": "Leicht aktiv (etwas Gehen/Stehen)",
+      "moderately_active": "Mäßig aktiv (3-5x/Woche Sport)",
+      "very_active": "Sehr aktiv (an den meisten Tagen intensiver Sport)"
+    },
+    "coping_styles_label": "Was hat Ihnen in der Vergangenheit geholfen?",
+    "coping_styles_placeholder": "z.B. mit Freunden sprechen, spazieren gehen, Achtsamkeits-Apps",
+    "learning_style_label": "Bevorzugter Lernstil",
+    "learning_style_options": {
+      "visual": "Visuell",
+      "auditory": "Auditiv",
+      "kinesthetic": "Kinästhetisch"
+    },
+    "reminders_title": "Tägliche Erinnerungen",
+    "reminders_enable_label": "Erinnerungen aktivieren",
+    "reminders_permission_denied": "Benachrichtigungen sind blockiert. Bitte aktivieren Sie sie in Ihren Browsereinstellungen, um Erinnerungen zu erhalten.",
+    "reminders_time_label": "Erinnerungszeit",
+    "reminders_type_label": "Erinnerungstyp",
+    "reminders_type_options": {
+      "gentle": "Sanfte Erinnerung",
+      "motivational": "Motivierendes Zitat"
+    },
+    "feedback_title": "Hilf uns, uns zu verbessern",
+    "feedback_subtitle": "Haben Sie einen Vorschlag oder einen Fehler gefunden? Lassen Sie es uns wissen!",
+    "provide_feedback_button": "Feedback geben",
+    "data_privacy_title": "Daten & Datenschutz",
+    "data_privacy_subtitle": "Alle Ihre Daten (Profil, Verlauf, Tagebuch) werden ausschließlich im lokalen Speicher Ihres Geräts gespeichert. Das Löschen Ihrer Daten ist endgültig und kann nicht rückgängig gemacht werden.",
+    "download_log_subtitle": "Um die App zu verbessern, können Sie freiwillig Ihr anonymes Interaktionsprotokoll herunterladen und mit dem Entwicklungsteam teilen.",
+    "download_log_button": "Interaktionsprotokoll herunterladen",
+    "clear_data_button": "Meine Daten löschen...",
+    "clear_data_confirm_title": "Sind Sie sicher?",
+    "clear_data_confirm_body": "Dies wird alle Ihre Einträge und Profilinformationen dauerhaft löschen.",
+    "clear_data_confirm_button": "Ja, alles löschen",
+    "language_title": "Sprache",
+    "cancel_button": "Abbrechen",
+    "save_button": "Änderungen speichern"
+  },
+  "feedback_modal": {
+    "title": "Feedback geben",
+    "type_label": "Feedback-Typ",
+    "types": {
+      "suggestion": "Vorschlag",
+      "bug": "Fehlerbericht",
+      "general": "Allgemeines Feedback"
+    },
+    "message_label": "Nachricht",
+    "message_placeholder": "Bitte geben Sie so viele Details wie möglich an...",
+    "submit_button": "Feedback senden",
+    "submitted_message": "Vielen Dank!"
+  },
+  "crisis_modal": {
+    "title": "Es klingt, als ob Sie viel durchmachen.",
+    "body": "Wenn Sie in Not oder unmittelbarer Gefahr sind, suchen Sie bitte Hilfe. Sie sind nicht allein.",
+    "cta_button_call": "Rufen Sie {{name}} an ({{number}})",
+    "cta_button_web": "Besuchen Sie {{name}}",
+    "close_button": "Dieses Fenster schließen"
+  },
+  "theme_toggle": {
+    "aria_label_light": "In den hellen Modus wechseln",
+    "aria_label_dark": "In den dunklen Modus wechseln"
+  },
+  "search": {
+    "placeholder": "Übungen, Einträge, Programme suchen...",
+    "aria_label": "Gesamten Inhalt durchsuchen"
+  },
+  "tooltip": {
+    "expand_details": "Details anzeigen",
+    "collapse_details": "Details ausblenden",
+    "view_source": "Quell-Website anzeigen",
+    "close": "Schließen",
+    "get_ai_help": "KI-Hilfe erhalten, um diesen Gedanken zu hinterfragen",
+    "download_plan": "Plan herunterladen"
+  },
+  "mood_tracker": {
+    "title": "Stimmungstracker",
+    "subtitle": "Protokollieren Sie Ihren aktuellen emotionalen Zustand.",
+    "prompt": "Wie fühlen Sie sich gerade?",
+    "logged_confirmation": "Stimmung protokolliert!",
+    "moods": {
+      "awful": "Schrecklich",
+      "bad": "Schlecht",
+      "okay": "Okay",
+      "good": "Gut",
+      "great": "Großartig"
+    }
+  },
+  "mood_chart": {
+    "title": "Ihre Woche in Stimmungen",
+    "empty_state": "Protokollieren Sie Ihre Stimmung, um Ihre Trends hier zu sehen.",
+    "avg_mood": "Durchschn. Stimmung"
+  }
+}

@@ -143,7 +143,8 @@
     "status_speaking": "Speaking...",
     "status_error": "Connection Error. Please try again.",
     "transcripts_you": "You",
-    "transcripts_coach": "Coach"
+    "transcripts_coach": "Coach",
+    "coming_soon": "Live coaching feature coming soon!"
   },
   "breathing_exercises": {
     "title": "Quick Calm",
