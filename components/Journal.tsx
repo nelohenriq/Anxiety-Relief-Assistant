@@ -1,3 +1,26 @@
+/**
+ * A React functional component that represents a journal interface.
+ * It allows users to create, save, and view journal entries. The component
+ * supports filtering entries based on a search query and provides a confirmation
+ * message upon saving a new entry.
+ *
+ * @component
+ * @param {JournalProps} props - The props for the Journal component.
+ * @param {string} props.searchQuery - The search query used to filter journal entries.
+ *
+ * @returns {JSX.Element} The rendered Journal component.
+ *
+ * @remarks
+ * - The component uses `useLocalStorage` to persist journal entries in local storage.
+ * - It supports internationalization via the `useTranslation` hook.
+ * - The `logInteraction` function is used to log user interactions when saving entries.
+ * - The component displays a maximum of 3 recent entries and filters them based on the search query.
+ *
+ * @example
+ * ```tsx
+ * <Journal searchQuery="example" />
+ * ```
+ */
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import useLocalStorage from '../hooks/useLocalStorage';

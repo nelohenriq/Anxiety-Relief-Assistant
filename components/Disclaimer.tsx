@@ -1,6 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+/**
+ * A functional React component that renders a disclaimer section as a footer.
+ * The disclaimer includes a title and body text, both of which are localized
+ * using the `useTranslation` hook.
+ *
+ * @returns {JSX.Element} The rendered disclaimer footer component.
+ */
 const Disclaimer: React.FC = () => {
     const { t } = useTranslation();
     return (

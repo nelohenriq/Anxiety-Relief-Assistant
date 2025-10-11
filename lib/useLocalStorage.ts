@@ -7,9 +7,25 @@ function useLocalStorage<T>(key: string, initialValue: T): [T, (value: T) => voi
         }
         try {
             const item = window.localStorage.getItem(key);
-            return item ? JSON.parse(item) : initialValue;
+            if (item === null) {
+                return initialValue;
+            }
+
+            // Try to parse as JSON first
+            try {
+                return JSON.parse(item);
+            } catch {
+                // If JSON parsing fails, check if it's a plain string that matches a possible value
+                // This handles cases where values were stored without JSON.stringify
+                if (typeof initialValue === 'string' && (initialValue === 'light' || initialValue === 'dark')) {
+                    if (item === 'light' || item === 'dark') {
+                        return item as T;
+                    }
+                }
+                return initialValue;
+            }
         } catch (error) {
-            console.error(error);
+            console.error('useLocalStorage error:', error);
             return initialValue;
         }
     });
@@ -19,10 +35,14 @@ function useLocalStorage<T>(key: string, initialValue: T): [T, (value: T) => voi
             const valueToStore = value instanceof Function ? value(storedValue) : value;
             setStoredValue(valueToStore);
             if (typeof window !== 'undefined') {
+                // Clear any existing corrupted values first
+                if (key === 'theme') {
+                    window.localStorage.removeItem(key);
+                }
                 window.localStorage.setItem(key, JSON.stringify(valueToStore));
             }
         } catch (error) {
-            console.error(error);
+            console.error('useLocalStorage setValue error:', error);
         }
     };
 

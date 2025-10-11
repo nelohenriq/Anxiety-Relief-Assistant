@@ -42,6 +42,7 @@ export const getForYouSuggestion = (
     if (provider === 'ollama') {
         return getOllamaForYouSuggestion(model, apiKey, profile, language);
     }
+    // Gemini doesn't need model or apiKey
     return getGeminiForYouSuggestion(profile, language);
 };
 
@@ -68,5 +69,6 @@ export const getMotivationalQuotes = (
     if (provider === 'ollama') {
         return getOllamaMotivationalQuotes(model, apiKey, language);
     }
+    // Gemini doesn't need model or apiKey
     return getGeminiMotivationalQuotes(language);
 };

@@ -7,6 +7,20 @@ interface ExerciseHistoryProps {
     history: CompletedExerciseLog[];
 }
 
+/**
+ * A React functional component that displays the exercise history of a user.
+ * 
+ * @param {ExerciseHistoryProps} props - The props for the component.
+ * @param {Array} props.history - An array of exercise history logs, where each log contains details about a completed exercise.
+ * 
+ * @returns {JSX.Element} A component that renders a list of exercise history cards if history exists,
+ * or a placeholder message if the history is empty.
+ * 
+ * @remarks
+ * - This component uses the `useTranslation` hook for internationalization.
+ * - The `ExerciseHistoryCard` component is used to render individual history logs.
+ * - If the history is empty, a styled message is displayed to indicate the absence of logs.
+ */
 const ExerciseHistory: React.FC<ExerciseHistoryProps> = ({ history }) => {
     const { t } = useTranslation();
     return (

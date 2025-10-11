@@ -1,3 +1,22 @@
+/**
+ * LiveCoach component provides a user interface for a live coaching session.
+ * It displays a title, description, and a button to start a session.
+ * The component is conditionally rendered based on the `searchQuery` prop.
+ *
+ * @component
+ * @param {Object} props - Component props.
+ * @param {string} props.searchQuery - A search query string used to filter the component's visibility.
+ *
+ * @returns {JSX.Element | null} The rendered LiveCoach component or null if the search query does not match.
+ *
+ * @example
+ * <LiveCoach searchQuery="coach" />
+ *
+ * @remarks
+ * - The component uses the `useTranslation` hook for internationalization.
+ * - It logs an interaction when the "Start Session" button is clicked.
+ * - The component includes a placeholder message indicating that the live coaching feature is coming soon.
+ */
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Tooltip from './Tooltip';

@@ -19,6 +19,28 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 };
 
 
+/**
+ * A React functional component that displays a list of breathing exercises
+ * and allows the user to start a selected exercise. The component supports
+ * internationalization and filtering based on a search query.
+ *
+ * @component
+ * @param {BreathingExercisesProps} props - The props for the component.
+ * @param {string} props.searchQuery - The search query used to filter the list of exercises.
+ *
+ * @returns {JSX.Element} The rendered component.
+ *
+ * @remarks
+ * - The component uses the `useTranslation` hook for internationalization.
+ * - The list of exercises is memoized and shuffled to display a random subset.
+ * - The user can filter exercises by name or description using the search query.
+ * - When an exercise is selected, the `BreathingVisualizer` component is displayed.
+ *
+ * @example
+ * ```tsx
+ * <BreathingExercises searchQuery="relax" />
+ * ```
+ */
 const BreathingExercises: React.FC<BreathingExercisesProps> = ({ searchQuery }) => {
     const { t, i18n } = useTranslation();
     const [activeExercise, setActiveExercise] = useState<BreathingExercise | null>(null);

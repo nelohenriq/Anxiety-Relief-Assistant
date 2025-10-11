@@ -1,3 +1,41 @@
+/**
+ * A React functional component that renders a card for a journal entry. 
+ * The card displays the journal entry's timestamp, text, and provides an option 
+ * to analyze the entry using an AI-powered service. The analysis result or any 
+ * errors encountered during the analysis are displayed on the card.
+ *
+ * @component
+ * @param {JournalEntryCardProps} props - The props for the component.
+ * @param {JournalEntry} props.entry - The journal entry to be displayed and analyzed.
+ *
+ * @returns {JSX.Element} The rendered JournalEntryCard component.
+ *
+ * @example
+ * ```tsx
+ * import JournalEntryCard from './JournalEntryCard';
+ * import { JournalEntry } from '../types';
+ *
+ * const entry: JournalEntry = {
+ *   id: '1',
+ *   text: 'Today was a productive day!',
+ *   timestamp: new Date().toISOString(),
+ * };
+ *
+ * <JournalEntryCard entry={entry} />;
+ * ```
+ *
+ * @remarks
+ * - The component uses the `useTranslation` hook for internationalization.
+ * - The `useUser` hook is used to retrieve user-specific settings such as the LLM provider.
+ * - The `getJournalAnalysis` function is called to analyze the journal entry text.
+ * - The `logInteraction` function logs the user's interaction with the analysis feature.
+ *
+ * @dependencies
+ * - `Tooltip`: A component used to display a tooltip for the analyze button.
+ * - `useUser`: A custom hook for accessing user context.
+ * - `getJournalAnalysis`: A service function for analyzing journal entries.
+ * - `logInteraction`: A service function for logging user interactions.
+ */
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { JournalEntry } from '../types';

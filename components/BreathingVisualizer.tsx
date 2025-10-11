@@ -11,6 +11,42 @@ interface BreathingVisualizerProps {
 const RADIUS = 88;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
+/**
+ * A React functional component that visualizes a breathing exercise.
+ * It animates a circular progress indicator and provides visual and textual
+ * cues for each step of the exercise (e.g., inhale, exhale, hold).
+ *
+ * @component
+ * @param {BreathingVisualizerProps} props - The props for the component.
+ * @param {Object} props.exercise - The breathing exercise data.
+ * @param {Array} props.exercise.steps - The steps of the exercise, each containing
+ * a `type` (e.g., "inhale", "exhale", "hold"), `duration` (in seconds), and `label`.
+ * @param {string} props.exercise.name - The name of the breathing exercise.
+ * @param {Function} props.onClose - Callback function triggered when the close button is clicked.
+ *
+ * @returns {JSX.Element} The rendered BreathingVisualizer component.
+ *
+ * @remarks
+ * - The component uses `useEffect` hooks to manage animations, step progression,
+ * and countdown timers.
+ * - The circular progress indicator is animated using CSS keyframes.
+ * - Tooltips are displayed to provide additional context for each step.
+ * - The component is styled using Tailwind CSS classes.
+ *
+ * @example
+ * ```tsx
+ * const exercise = {
+ *   name: "Relaxing Breath",
+ *   steps: [
+ *     { type: "inhale", duration: 4, label: "Inhale" },
+ *     { type: "hold", duration: 7, label: "Hold" },
+ *     { type: "exhale", duration: 8, label: "Exhale" },
+ *   ],
+ * };
+ *
+ * <BreathingVisualizer exercise={exercise} onClose={() => console.log('Closed')} />
+ * ```
+ */
 const BreathingVisualizer: React.FC<BreathingVisualizerProps> = ({ exercise, onClose }) => {
     const { t } = useTranslation();
     const { steps } = exercise;

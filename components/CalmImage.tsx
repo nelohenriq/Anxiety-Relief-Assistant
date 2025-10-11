@@ -5,6 +5,17 @@ interface CalmImageProps {
     isLoading: boolean;
 }
 
+/**
+ * A React functional component that displays a calming image based on the provided `imageUrl`.
+ * It includes a skeleton loader while the image is loading.
+ *
+ * @component
+ * @param {object} props - The props object for the component.
+ * @param {string | undefined} props.imageUrl - The URL of the image to display. If not provided, the skeleton loader is shown.
+ * @param {boolean} props.isLoading - A flag indicating whether the image is currently loading.
+ *
+ * @returns {JSX.Element} A styled container with a title, an image, or a skeleton loader.
+ */
 const CalmImage: React.FC<CalmImageProps> = ({ imageUrl, isLoading }) => {
     return (
         <div className="w-full mt-8 animate-fade-in">

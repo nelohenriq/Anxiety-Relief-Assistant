@@ -27,6 +27,18 @@ const ReadOnlyStarRating: React.FC<{ rating: number }> = ({ rating }) => {
     );
 };
 
+/**
+ * A React functional component that renders a card displaying the history of an exercise log.
+ * It includes the exercise title, the completion date, and the user's rating.
+ *
+ * @component
+ * @param {ExerciseHistoryCardProps} props - The props for the component.
+ * @param {Object} props.log - The exercise log data.
+ * @param {string} props.log.exerciseTitle - The title of the exercise.
+ * @param {string} props.log.completedAt - The date and time when the exercise was completed.
+ * @param {number} props.log.rating - The user's rating for the exercise.
+ * @returns {JSX.Element} A styled card displaying the exercise history details.
+ */
 const ExerciseHistoryCard: React.FC<ExerciseHistoryCardProps> = ({ log }) => {
     const { t, i18n } = useTranslation();
 

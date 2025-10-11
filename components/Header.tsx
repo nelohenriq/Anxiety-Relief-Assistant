@@ -12,6 +12,20 @@ interface HeaderProps {
     onSearchQueryChange: (query: string) => void;
 }
 
+/**
+ * Header component that renders the top navigation bar of the application.
+ * It includes a logo, title, search bar, and various controls such as theme toggle,
+ * crisis support button, and profile settings button.
+ *
+ * @param {Object} props - The props for the Header component.
+ * @param {() => void} props.onOpenProfile - Callback function triggered when the profile settings button is clicked.
+ * @param {boolean} props.showBackground - Determines whether the header has a background or is transparent.
+ * @param {() => void} props.onOpenCrisisModal - Callback function triggered when the crisis support button is clicked.
+ * @param {string} props.searchQuery - The current search query string for the search bar.
+ * @param {(query: string) => void} props.onSearchQueryChange - Callback function triggered when the search query changes.
+ *
+ * @returns {JSX.Element} The rendered Header component.
+ */
 const Header: React.FC<HeaderProps> = ({ onOpenProfile, showBackground, onOpenCrisisModal, searchQuery, onSearchQueryChange }) => {
     const { t } = useTranslation();
     return (

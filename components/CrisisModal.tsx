@@ -7,6 +7,37 @@ interface CrisisModalProps {
     onClose: () => void;
 }
 
+/**
+ * CrisisModal is a React functional component that displays a modal dialog
+ * for crisis hotlines. It provides users with a way to access crisis support
+ * via a phone number or a web link, depending on the configuration.
+ *
+ * @component
+ * @param {CrisisModalProps} props - The props for the CrisisModal component.
+ * @param {boolean} props.isOpen - Determines whether the modal is visible.
+ * @param {() => void} props.onClose - Callback function to close the modal.
+ *
+ * @returns {JSX.Element | null} The rendered modal component if `isOpen` is true, otherwise `null`.
+ *
+ * @example
+ * <CrisisModal
+ *   isOpen={true}
+ *   onClose={() => console.log('Modal closed')}
+ * />
+ *
+ * @remarks
+ * - The modal uses the `useTranslation` hook for internationalization.
+ * - It dynamically selects the appropriate crisis hotline based on the user's language.
+ * - The modal supports both phone numbers and web links for the crisis hotline.
+ *
+ * @accessibility
+ * - The modal uses `role="dialog"` and `aria-modal="true"` for accessibility.
+ * - The title of the modal is associated with the `aria-labelledby` attribute.
+ *
+ * @dependencies
+ * - `useTranslation` from `react-i18next` for internationalization.
+ * - Tailwind CSS classes for styling.
+ */
 const CrisisModal: React.FC<CrisisModalProps> = ({ isOpen, onClose }) => {
     const { t, i18n } = useTranslation();
     if (!isOpen) return null;

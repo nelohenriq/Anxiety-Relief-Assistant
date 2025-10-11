@@ -6,6 +6,34 @@ interface FeedbackHistoryCardProps {
     entry: FeedbackEntry;
 }
 
+/**
+ * A React functional component that renders a card displaying feedback history.
+ *
+ * @component
+ * @param {FeedbackHistoryCardProps} props - The props for the component.
+ * @param {Object} props.entry - The feedback entry to display.
+ * @param {string} props.entry.timestamp - The timestamp of the feedback entry.
+ * @param {string} props.entry.type - The type of feedback (e.g., "suggestion", "bug", "general").
+ * @param {string} props.entry.message - The message content of the feedback entry.
+ *
+ * @returns {JSX.Element} A styled card component displaying the feedback entry details.
+ *
+ * @remarks
+ * - The component uses the `useTranslation` hook for internationalization.
+ * - Feedback types are styled differently based on their type.
+ * - The timestamp is formatted based on the current language setting.
+ *
+ * @example
+ * ```tsx
+ * const feedbackEntry = {
+ *   timestamp: "2023-10-01T12:34:56Z",
+ *   type: "suggestion",
+ *   message: "This is a suggestion message."
+ * };
+ *
+ * <FeedbackHistoryCard entry={feedbackEntry} />
+ * ```
+ */
 const FeedbackHistoryCard: React.FC<FeedbackHistoryCardProps> = ({ entry }) => {
     const { t, i18n } = useTranslation();
 

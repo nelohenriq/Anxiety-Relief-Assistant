@@ -7,7 +7,7 @@ import ExerciseHistory from './ExerciseHistory';
 import FeedbackModal from './FeedbackModal';
 import FeedbackHistory from './FeedbackHistory';
 import { logInteraction } from '../services/interactionLogger';
-import { getOllamaModels } from '../services/providers/ollama';
+
 
 interface UserProfileProps {
     isOpen: boolean;
@@ -19,6 +19,39 @@ interface UserProfileProps {
 
 type ActiveTab = 'settings' | 'history' | 'feedback';
 
+/**
+ * UserProfile component provides a user interface for managing user settings, preferences, and data.
+ * It includes functionality for updating user profiles, managing reminders, selecting AI providers,
+ * and handling data privacy settings. The component also supports multi-language options and feedback submission.
+ *
+ * @component
+ * @param {UserProfileProps} props - The props for the UserProfile component.
+ * @param {boolean} props.isOpen - Determines if the UserProfile modal is open.
+ * @param {() => void} props.onClose - Callback function to close the UserProfile modal.
+ * @param {ExerciseHistory[]} props.exerciseHistory - Array of exercise history data.
+ * @param {FeedbackHistory[]} props.feedbackHistory - Array of feedback history data.
+ * @param {(feedback: Feedback) => void} props.onSaveFeedback - Callback function to save user feedback.
+ *
+ * @returns {JSX.Element | null} The rendered UserProfile component or null if `isOpen` is false.
+ *
+ * @remarks
+ * - The component uses `useTranslation` for multi-language support.
+ * - It manages local state for user profile, reminders, AI provider, and other settings.
+ * - The component fetches available models for the selected AI provider (e.g., Ollama) and handles connection status.
+ * - It includes tabs for settings, activity log, and feedback history.
+ * - The component supports data privacy options, including clearing all user data.
+ *
+ * @example
+ * ```tsx
+ * <UserProfile
+ *   isOpen={true}
+ *   onClose={() => console.log('Modal closed')}
+ *   exerciseHistory={exerciseHistoryData}
+ *   feedbackHistory={feedbackHistoryData}
+ *   onSaveFeedback={(feedback) => console.log('Feedback saved:', feedback)}
+ * />
+ * ```
+ */
 const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHistory, feedbackHistory, onSaveFeedback }) => {
     const { t, i18n } = useTranslation();
     const { profile, setProfile, consentLevel, setConsentLevel, reminderSettings, setReminderSettings, llmProvider, setLlmProvider, ollamaModel, setOllamaModel, ollamaCloudApiKey, setOllamaCloudApiKey, clearAllData } = useUser();
@@ -40,25 +73,53 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
     const fetchOllamaModelsAndStatus = async () => {
         setOllamaConnectionStatus('testing');
         setOllamaConnectionError(null);
-        const { models, error } = await getOllamaModels();
-        setAvailableLocalOllamaModels(models.local);
-        setAvailableCloudOllamaModels(models.cloud);
 
-        if (error) {
+        try {
+            // Use the API route instead of direct function call to avoid CORS issues
+            const response = await fetch('/api/ollama/models');
+            if (!response.ok) {
+                throw new Error(`API request failed: ${response.status}`);
+            }
+
+            const data = await response.json();
+            const { models, error } = data;
+
+            // Set connection status based on local connection
+            if (error) {
+                setOllamaConnectionStatus('error');
+                setOllamaConnectionError(error);
+            } else {
+                setOllamaConnectionStatus('success');
+                setOllamaConnectionError(null);
+            }
+
+            // Always set local models from the response (even if connection failed, might be empty array)
+            setAvailableLocalOllamaModels(models.local);
+
+            // Set cloud models if API key is provided (these are static, not dependent on connection)
+            if (localOllamaCloudApiKey && localOllamaCloudApiKey.trim()) {
+                setAvailableCloudOllamaModels(models.cloud);
+            } else {
+                setAvailableCloudOllamaModels([]);
+            }
+
+            // Set default model based on what's available
+            const availableModels: string[] = [];
+            if (models.local.length > 0) {
+                availableModels.push(...models.local.map((m: string) => `local:${m}`));
+            }
+            if (models.cloud.length > 0 && localOllamaCloudApiKey && localOllamaCloudApiKey.trim()) {
+                availableModels.push(...models.cloud.map((m: string) => `cloud:${m}`));
+            }
+
+            if (!availableModels.includes(localOllamaModel) && availableModels.length > 0) {
+                setLocalOllamaModel(availableModels[0]);
+            }
+        } catch (error) {
             setOllamaConnectionStatus('error');
-            setOllamaConnectionError(error);
-        } else {
-            setOllamaConnectionStatus('success');
-        }
-
-        const allModels = [
-            ...models.local.map(m => `local:${m}`),
-            ...models.cloud.map(m => `cloud:${m}`)
-        ];
-
-        if (!allModels.includes(localOllamaModel)) {
-            const newDefaultModel = models.local[0] ? `local:${models.local[0]}` : models.cloud[0] ? `cloud:${models.cloud[0]}` : '';
-            setLocalOllamaModel(newDefaultModel);
+            setOllamaConnectionError('Failed to fetch models');
+            setAvailableLocalOllamaModels([]);
+            // Don't clear cloud models on error - they might still be available if API key is valid
         }
     };
 
@@ -81,6 +142,13 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
             setOllamaConnectionError(null);
         }
     }, [isOpen, localLlmProvider]);
+
+    // Re-fetch models when API key changes
+    useEffect(() => {
+        if (isOpen && localLlmProvider === 'ollama' && ollamaConnectionStatus === 'success') {
+            fetchOllamaModelsAndStatus();
+        }
+    }, [localOllamaCloudApiKey]);
 
     const handleSave = () => {
         logInteraction({
@@ -193,20 +261,57 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
                                         
                                         {ollamaConnectionStatus === 'testing' && <option value="">{t('user_profile.ollama_status_testing')}</option>}
 
-                                        {availableLocalOllamaModels.length > 0 && (
-                                            <optgroup label={t('user_profile.ollama_local_models')}>
-                                                {availableLocalOllamaModels.map(model => <option key={`local:${model}`} value={`local:${model}`}>{model}</option>)}
+                                        {/* Local Models Section - Only show if connection successful */}
+                                        {ollamaConnectionStatus === 'success' && availableLocalOllamaModels.length > 0 && (
+                                            <optgroup label="🖥️ Local Models">
+                                                {availableLocalOllamaModels.map(model => (
+                                                    <option key={`local:${model}`} value={`local:${model}`}>
+                                                        {model} (Local)
+                                                    </option>
+                                                ))}
                                             </optgroup>
                                         )}
 
-                                        {availableCloudOllamaModels.length > 0 && (
-                                            <optgroup label={t('user_profile.ollama_cloud_models')}>
-                                                {availableCloudOllamaModels.map(model => <option key={`cloud:${model}`} value={`cloud:${model}`}>{model}</option>)}
+                                        {/* Cloud Models Section - Only show if API key is provided */}
+                                        {localOllamaCloudApiKey && localOllamaCloudApiKey.trim() && availableCloudOllamaModels.length > 0 && (
+                                            <optgroup label="☁️ Cloud Models">
+                                                {availableCloudOllamaModels.map(model => (
+                                                    <option key={`cloud:${model}`} value={`cloud:${model}`}>
+                                                        {model} (Cloud)
+                                                    </option>
+                                                ))}
                                             </optgroup>
                                         )}
 
-                                        {availableLocalOllamaModels.length === 0 && availableCloudOllamaModels.length === 0 && ollamaConnectionStatus !== 'testing' && (
-                                            <option value="">{t('user_profile.ollama_no_models')}</option>
+                                        {/* Show helpful messages when no models are available */}
+                                        {ollamaConnectionStatus === 'error' && availableCloudOllamaModels.length === 0 && (
+                                            <option value="" disabled>
+                                                ❌ Local connection failed - check if Ollama is running
+                                            </option>
+                                        )}
+
+                                        {ollamaConnectionStatus === 'error' && availableCloudOllamaModels.length > 0 && (
+                                            <option value="" disabled>
+                                                💡 Local connection failed but {availableCloudOllamaModels.length} cloud model{availableCloudOllamaModels.length !== 1 ? 's are' : ' is'} available
+                                            </option>
+                                        )}
+
+                                        {ollamaConnectionStatus === 'success' && availableLocalOllamaModels.length === 0 && (!localOllamaCloudApiKey || !localOllamaCloudApiKey.trim()) && (
+                                            <option value="" disabled>
+                                                💡 Add API key above to access cloud models
+                                            </option>
+                                        )}
+
+                                        {ollamaConnectionStatus === 'success' && availableLocalOllamaModels.length === 0 && localOllamaCloudApiKey && localOllamaCloudApiKey.trim() && availableCloudOllamaModels.length === 0 && (
+                                            <option value="" disabled>
+                                                ⚠️ No models available - check your API key
+                                            </option>
+                                        )}
+
+                                        {ollamaConnectionStatus === 'idle' && (
+                                            <option value="" disabled>
+                                                🔌 Click test connection to load available models
+                                            </option>
                                         )}
                                     </select>
                                     <Tooltip text={t('user_profile.ollama_test_connection_tooltip')}>
@@ -231,8 +336,24 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
                                     </Tooltip>
                                 </div>
                                 <div className="mt-2 text-xs h-4">
-                                    {ollamaConnectionStatus === 'success' && <p className="text-green-600 dark:text-green-400">{t('user_profile.ollama_status_success', { count: availableLocalOllamaModels.length })}</p>}
-                                    {ollamaConnectionStatus === 'error' && <p className="text-red-600 dark:text-red-400">{t('user_profile.ollama_status_error')} {ollamaConnectionError}</p>}
+                                    {ollamaConnectionStatus === 'success' && (
+                                        <p className="text-green-600 dark:text-green-400">
+                                            ✅ Connected • {availableLocalOllamaModels.length} local model{availableLocalOllamaModels.length !== 1 ? 's' : ''}
+                                            {localOllamaCloudApiKey && localOllamaCloudApiKey.trim() && availableCloudOllamaModels.length > 0 && ` • ${availableCloudOllamaModels.length} cloud model${availableCloudOllamaModels.length !== 1 ? 's' : ''}`}
+                                        </p>
+                                    )}
+                                    {ollamaConnectionStatus === 'error' && (
+                                        <p className={`${
+                                            availableCloudOllamaModels.length > 0 && localOllamaCloudApiKey && localOllamaCloudApiKey.trim()
+                                                ? 'text-yellow-600 dark:text-yellow-400'
+                                                : 'text-red-600 dark:text-red-400'
+                                        }`}>
+                                            {availableCloudOllamaModels.length > 0 && localOllamaCloudApiKey && localOllamaCloudApiKey.trim()
+                                                ? `⚠️ Local connection failed • ${availableCloudOllamaModels.length} cloud model${availableCloudOllamaModels.length !== 1 ? 's' : ''} available`
+                                                : `❌ ${ollamaConnectionError}`
+                                            }
+                                        </p>
+                                    )}
                                 </div>
                                 <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">{t('user_profile.ollama_model_helper')}</p>
                             </div>

@@ -18,12 +18,21 @@ i18n
 
     backend: {
       loadPath: '/{{lng}}/translation.json',
+      // Add crossDomain option to handle CORS properly
+      crossDomain: false,
+      // Add request options for Next.js compatibility
+      requestOptions: {
+        cache: 'default',
+      },
     },
 
     detection: {
       order: ['localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
     },
+
+    // Prevent initialization during SSR
+    initImmediate: typeof window !== 'undefined',
   });
 
 export default i18n;

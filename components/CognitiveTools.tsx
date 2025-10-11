@@ -11,6 +11,29 @@ interface CognitiveToolsProps {
     searchQuery: string;
 }
 
+/**
+ * CognitiveTools component provides a user interface for managing and recording thought records.
+ * It allows users to start a new thought record, view their history of thought records, and interact
+ * with the cognitive tools feature.
+ *
+ * @component
+ * @param {CognitiveToolsProps} props - The props for the CognitiveTools component.
+ * @param {string} props.searchQuery - The search query used to filter the thought record history.
+ *
+ * @returns {JSX.Element} The rendered CognitiveTools component.
+ *
+ * @remarks
+ * - This component uses the `useTranslation` hook for internationalization.
+ * - Thought records are stored in local storage using the `useLocalStorage` hook.
+ * - The `handleSaveRecord` function is used to save a new thought record with a unique ID and timestamp.
+ * - When `isRecording` is true, the `ThoughtRecord` component is displayed for creating a new record.
+ * - The `ThoughtRecordHistory` component displays the history of thought records.
+ *
+ * @example
+ * ```tsx
+ * <CognitiveTools searchQuery="example query" />
+ * ```
+ */
 const CognitiveTools: React.FC<CognitiveToolsProps> = ({ searchQuery }) => {
     const { t } = useTranslation();
     const [isRecording, setIsRecording] = useState(false);

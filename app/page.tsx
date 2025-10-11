@@ -23,10 +23,86 @@ import MotivationalSlider from '../components/MotivationalSlider';
 import LiveCoach from '../components/LiveCoach';
 import OnboardingModal from '../components/OnboardingModal';
 import CalmImage from '../components/CalmImage';
-import { Exercise, ExerciseFeedback, FeedbackRating, PlanHistoryEntry, CompletedExerciseLog, FeedbackEntry } from '@/types';
+import { Exercise, ExerciseFeedback, FeedbackRating, PlanHistoryEntry, CompletedExerciseLog, FeedbackEntry } from '../types';
 import { useUser } from '../context/UserContext';
-import useLocalStorage from '../hooks/useLocalStorage';
+import useLocalStorage from '../lib/useLocalStorage';
 
+/**
+ * The `Home` component serves as the main page of the application, providing
+ * a user interface for generating personalized exercise plans based on user input.
+ * It includes features such as symptom input, exercise generation, feedback handling,
+ * and history tracking. The component also manages various UI states and interactions,
+ * such as onboarding, profile management, and crisis modal handling.
+ *
+ * @component
+ *
+ * @returns {JSX.Element} The rendered `Home` component.
+ *
+ * @remarks
+ * - This component uses multiple `useState` hooks to manage local state, including
+ *   user input, loading states, and UI visibility.
+ * - The `useLocalStorage` hook is used to persist certain states across sessions.
+ * - The `useTranslation` hook is used for internationalization support.
+ * - The `useEffect` hook is used to handle scroll-based UI changes.
+ *
+ * @example
+ * ```tsx
+ * import Home from './page';
+ *
+ * function App() {
+ *   return <Home />;
+ * }
+ * ```
+ *
+ * @dependencies
+ * - `useTranslation`: Provides translation functionality.
+ * - `useUser`: Retrieves user-related data such as profile and consent level.
+ * - `useLocalStorage`: Custom hook for persisting state in local storage.
+ *
+ * @state
+ * - `symptoms` (`string`): Tracks the user's symptom input.
+ * - `exercises` (`Exercise[]`): Stores the generated exercises.
+ * - `isLoading` (`boolean`): Indicates whether the exercise generation is in progress.
+ * - `error` (`string | null`): Stores error messages, if any.
+ * - `isProfileOpen` (`boolean`): Controls the visibility of the user profile modal.
+ * - `isCrisisModalOpen` (`boolean`): Controls the visibility of the crisis modal.
+ * - `feedback` (`ExerciseFeedback`): Stores user feedback on exercises.
+ * - `planHistory` (`PlanHistoryEntry[]`): Tracks the history of generated plans.
+ * - `exerciseHistory` (`CompletedExerciseLog[]`): Tracks the history of completed exercises.
+ * - `feedbackHistory` (`FeedbackEntry[]`): Tracks the history of user feedback entries.
+ * - `showHeaderBg` (`boolean`): Determines whether the header background is visible.
+ * - `searchQuery` (`string`): Tracks the current search query.
+ * - `hasCompletedOnboarding` (`boolean`): Indicates whether the user has completed onboarding.
+ * - `calmImageUrl` (`string | null`): Stores the URL of a calming image.
+ *
+ * @methods
+ * - `handleScroll`: Updates the `showHeaderBg` state based on the scroll position.
+ * - `handleSubmit`: Handles the submission of symptoms to generate exercises.
+ * - `handleFeedback`: Manages user feedback for specific exercises.
+ * - `handleSaveFeedback`: Saves user feedback to the feedback history.
+ * - `handleGetStartedClick`: Scrolls the page to the main content section.
+ * - `openCrisisModal`: Opens the crisis modal based on a trigger event.
+ *
+ * @layout
+ * - Displays a hero section with a title, subtitle, and "Get Started" button.
+ * - Renders either a dashboard layout (no plan generated) or a focused layout
+ *   (plan is loading or has been generated).
+ * - Includes additional sections such as live coaching, breathing exercises,
+ *   guided meditations, and more.
+ *
+ * @modals
+ * - `OnboardingModal`: Displays onboarding steps for new users.
+ * - `UserProfile`: Allows users to view and manage their profile and history.
+ * - `CrisisModal`: Provides crisis-related resources and support.
+ *
+ * @errorHandling
+ * - Displays error messages when exercise generation fails.
+ * - Clears exercises and calming images on error.
+ *
+ * @accessibility
+ * - Includes smooth scrolling for navigation.
+ * - Provides focus and hover states for interactive elements.
+ */
 export default function Home() {
   const { t, i18n } = useTranslation();
   const [symptoms, setSymptoms] = useState('');

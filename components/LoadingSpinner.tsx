@@ -1,6 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+/**
+ * A functional React component that renders a loading spinner with a message.
+ * 
+ * This component displays a spinning animation and a localized message
+ * indicating that a loading process is in progress. It uses the `useTranslation`
+ * hook to fetch the localized text for the message.
+ * 
+ * @returns {JSX.Element} The rendered loading spinner component.
+ */
 const LoadingSpinner: React.FC = () => {
     const { t } = useTranslation();
     return (

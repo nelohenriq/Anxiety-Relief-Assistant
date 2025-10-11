@@ -7,6 +7,21 @@ interface FeedbackHistoryProps {
     history: FeedbackEntry[];
 }
 
+/**
+ * A React functional component that displays a history of feedback entries.
+ * 
+ * @component
+ * @param {FeedbackHistoryProps} props - The props for the component.
+ * @param {Array} props.history - An array of feedback history entries to display.
+ * 
+ * @returns {JSX.Element} A rendered component that shows a list of feedback history cards
+ * if the `history` array is not empty, or an empty state message if it is empty.
+ * 
+ * @remarks
+ * - Uses the `useTranslation` hook for internationalization.
+ * - Displays a title and either a list of `FeedbackHistoryCard` components or an empty state message.
+ * - Applies Tailwind CSS classes for styling.
+ */
 const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({ history }) => {
     const { t } = useTranslation();
     return (

@@ -9,6 +9,27 @@ interface FeedbackModalProps {
     onSave: (feedback: Omit<FeedbackEntry, 'id' | 'timestamp'>) => void;
 }
 
+/**
+ * FeedbackModal is a React functional component that renders a modal dialog
+ * for collecting user feedback. The modal includes a form with fields for
+ * selecting feedback type and entering a message. It also provides options
+ * to submit the feedback or cancel the operation.
+ *
+ * @component
+ * @param {FeedbackModalProps} props - The props for the FeedbackModal component.
+ * @param {boolean} props.isOpen - Determines whether the modal is visible.
+ * @param {() => void} props.onClose - Callback function to close the modal.
+ * @param {(feedback: { type: 'suggestion' | 'bug' | 'general'; message: string }) => void} props.onSave - Callback function to handle saving the feedback.
+ *
+ * @returns {JSX.Element | null} The rendered modal component if `isOpen` is true, otherwise null.
+ *
+ * @example
+ * <FeedbackModal
+ *   isOpen={isModalOpen}
+ *   onClose={handleCloseModal}
+ *   onSave={handleSaveFeedback}
+ * />
+ */
 const FeedbackModal: React.FC<FeedbackModalProps> = ({ isOpen, onClose, onSave }) => {
     const { t } = useTranslation();
     const [type, setType] = useState<'suggestion' | 'bug' | 'general'>('suggestion');

@@ -1,3 +1,35 @@
+/**
+ * A React component that renders a card for an exercise, displaying its details, steps, and a star rating system for feedback.
+ *
+ * @component
+ * @param {ExerciseCardProps} props - The props for the ExerciseCard component.
+ * @param {Exercise} props.exercise - The exercise object containing details such as title, description, category, duration, and steps.
+ * @param {(exerciseId: string, exerciseTitle: string, rating: FeedbackRating) => void} props.onFeedback - Callback function triggered when a feedback rating is given.
+ * @param {FeedbackRating} [props.feedbackRating] - The current feedback rating for the exercise.
+ *
+ * @example
+ * ```tsx
+ * <ExerciseCard
+ *   exercise={{
+ *     id: '1',
+ *     title: 'Push-ups',
+ *     description: 'A basic upper body exercise.',
+ *     category: 'Strength',
+ *     duration_minutes: 10,
+ *     steps: ['Get into a plank position.', 'Lower your body.', 'Push back up.']
+ *   }}
+ *   onFeedback={(id, title, rating) => console.log(`Feedback for ${title}: ${rating}`)}
+ *   feedbackRating={4}
+ * />
+ * ```
+ *
+ * @remarks
+ * - The component supports accessibility features such as keyboard navigation and ARIA attributes.
+ * - The `StarRating` subcomponent is used to display and handle the star rating system.
+ * - The card expands and collapses to show or hide the exercise steps.
+ *
+ * @returns {JSX.Element} A styled card displaying the exercise details, steps, and a feedback rating system.
+ */
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Exercise, FeedbackRating } from '../types';

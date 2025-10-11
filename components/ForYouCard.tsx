@@ -2,6 +2,31 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useUser } from '../context/UserContext';
 
+/**
+ * ForYouCard is a React functional component that displays a personalized suggestion
+ * for the user based on their profile and preferences. It fetches the suggestion
+ * from an API and handles loading, error, and success states.
+ *
+ * The component respects user consent levels and does not render if the consent
+ * level is set to "essential". It also supports internationalization via the `useTranslation` hook.
+ *
+ * @component
+ *
+ * @returns {JSX.Element | null} The rendered ForYouCard component or null if consent is not given.
+ *
+ * @remarks
+ * - The component fetches suggestions from the `/api/suggestions` endpoint.
+ * - It uses the `useUser` hook to access user-related data such as profile, consent level,
+ *   and API credentials.
+ * - The `useTranslation` hook is used for internationalization support.
+ * - The component displays a loading state, an error message, or the fetched suggestion
+ *   based on the current state.
+ *
+ * @example
+ * ```tsx
+ * <ForYouCard />
+ * ```
+ */
 const ForYouCard: React.FC = () => {
     const { t, i18n } = useTranslation();
     const { profile, consentLevel, llmProvider, ollamaModel, ollamaCloudApiKey } = useUser();
@@ -12,6 +37,7 @@ const ForYouCard: React.FC = () => {
     useEffect(() => {
         if (consentLevel === 'essential') {
             setIsLoading(false);
+            setSuggestion('');
             return;
         }
 
@@ -19,6 +45,13 @@ const ForYouCard: React.FC = () => {
             setIsLoading(true);
             setError(null);
             try {
+                console.log('Fetching For You suggestion with:', {
+                    provider: llmProvider,
+                    model: ollamaModel,
+                    apiKey: ollamaCloudApiKey ? 'present' : 'missing',
+                    language: i18n.language
+                });
+
                 const response = await fetch('/api/suggestions', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -30,18 +63,26 @@ const ForYouCard: React.FC = () => {
                         language: i18n.language,
                     }),
                 });
+
+                console.log('API response status:', response.status);
+
                 if (!response.ok) {
-                    const errorData = await response.json();
+                    const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                    console.error('API error response:', errorData);
                     throw new Error(errorData.error || 'Failed to fetch suggestion');
                 }
+
                 const data = await response.json();
-                setSuggestion(data.suggestion);
+                console.log('API success response:', data);
+                setSuggestion(data.suggestion || 'No suggestion available');
             } catch (err) {
-                 if (err instanceof Error) {
+                console.error('For You card error:', err);
+                if (err instanceof Error) {
                     setError(err.message);
                 } else {
                     setError('An unknown error occurred.');
                 }
+                setSuggestion('');
             } finally {
                 setIsLoading(false);
             }
@@ -66,6 +107,10 @@ const ForYouCard: React.FC = () => {
 
         if (error) {
             return <p className="text-sm text-red-800 dark:text-red-300">{error}</p>;
+        }
+
+        if (!suggestion || suggestion.trim() === '') {
+            return <p className="text-sm text-neutral-500 dark:text-neutral-400 italic">No suggestion available</p>;
         }
 
         return <p className="text-lg text-primary-800 dark:text-primary-200 leading-relaxed">"{suggestion}"</p>;

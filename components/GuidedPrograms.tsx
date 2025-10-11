@@ -19,6 +19,37 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArray;
 };
 
+/**
+ * A React functional component that displays a list of guided programs
+ * and allows the user to select and interact with a specific program.
+ * 
+ * @component
+ * 
+ * @param {GuidedProgramsProps} props - The props for the component.
+ * @param {string} props.searchQuery - The search query used to filter the guided programs.
+ * 
+ * @returns {JSX.Element} The rendered component.
+ * 
+ * @remarks
+ * - This component uses `useTranslation` for internationalization.
+ * - It utilizes `useLocalStorage` to persist the active program ID and progress.
+ * - The guided programs are translated dynamically based on the current language.
+ * - The component supports filtering programs based on a search query.
+ * - If a program is active, it renders the `ProgramViewer` component to display the program details.
+ * - If no program is active, it displays a list of available programs.
+ * 
+ * @example
+ * ```tsx
+ * <GuidedPrograms searchQuery="mindfulness" />
+ * ```
+ * 
+ * @dependencies
+ * - `useTranslation` for translations.
+ * - `useLocalStorage` for local storage management.
+ * - `ProgramViewer` for rendering the active program.
+ * 
+ * @see {@link ProgramViewer}
+ */
 const GuidedPrograms: React.FC<GuidedProgramsProps> = ({ searchQuery }) => {
     const { t, i18n } = useTranslation();
     const [activeProgramId, setActiveProgramId] = useLocalStorage<string | null>('activeProgramId', null);

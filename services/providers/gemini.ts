@@ -32,6 +32,17 @@ const retrieveRelevantChunks = (symptoms: string, db: KnowledgeChunk[], topK: nu
     return sortedChunks.slice(0, topK).filter(chunk => chunk.score > 0).map(chunk => chunk.content);
 };
 
+/**
+ * Constructs a system instruction string for generating personalized coping exercises
+ * based on user profile data, consent level, feedback, language preference, and retrieved documents.
+ *
+ * @param profile - The user's profile data, including age, location, sleep habits, activity level, and interests.
+ * @param consentLevel - The level of data consent provided by the user, which determines the depth of personalization.
+ * @param feedback - Feedback on previously suggested exercises, including ratings and titles.
+ * @param language - The language in which the response should be generated.
+ * @param retrievedDocs - An array of retrieved knowledge base documents to prioritize when generating exercises.
+ * @returns A formatted instruction string for generating personalized coping exercises.
+ */
 const buildSystemInstruction = (
     profile: UserProfile, 
     consentLevel: DataConsentLevel, 
@@ -124,7 +135,7 @@ const generateArtisticPromptForImage = async (symptoms: string, language: string
 const generateCalmImage = async (prompt: string): Promise<string | null> => {
     try {
         const response = await ai.models.generateImages({
-            model: 'imagen-4.0-generate-001',
+            model: 'imagen-3.0-generate-001',
             prompt: `cinematic, professional photograph of ${prompt}, octane render, photorealistic, 8k, trending on artstation`,
             config: {
               numberOfImages: 1,

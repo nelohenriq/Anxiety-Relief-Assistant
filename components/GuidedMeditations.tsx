@@ -26,6 +26,28 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArray;
 };
 
+/**
+ * A React functional component that displays a list of guided meditations.
+ * Users can search for meditations, view their details, and start a meditation session.
+ *
+ * @component
+ * @param {GuidedMeditationsProps} props - The props for the component.
+ * @param {string} props.searchQuery - The search query used to filter meditations.
+ *
+ * @returns {JSX.Element} The rendered GuidedMeditations component.
+ *
+ * @remarks
+ * - The component uses `useTranslation` for internationalization.
+ * - Meditations are fetched from `guidedMeditationsData` and translated based on the current language.
+ * - The list of meditations is shuffled and limited to two by default.
+ * - Users can filter meditations by title or description using the `searchQuery` prop.
+ * - When a meditation is active, the `MeditationPlayer` component is displayed.
+ *
+ * @example
+ * ```tsx
+ * <GuidedMeditations searchQuery="relaxation" />
+ * ```
+ */
 const GuidedMeditations: React.FC<GuidedMeditationsProps> = ({ searchQuery }) => {
     const { t, i18n } = useTranslation();
     const [activeMeditation, setActiveMeditation] = useState<TranslatedMeditation | null>(null);

@@ -2,6 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useUser } from '../context/UserContext';
 
+/**
+ * A React functional component that displays a motivational quote slider.
+ * The component fetches quotes from an API and cycles through them with a fade-in/out animation.
+ *
+ * Features:
+ * - Fetches motivational quotes from a backend API using user-specific settings.
+ * - Displays one quote at a time, transitioning between quotes every 7 seconds.
+ * - Handles fade-in and fade-out animations for smooth transitions.
+ * - Adapts to the user's language preference using the `i18n` context.
+ * - Ensures layout stability by reserving space when no quotes are available.
+ *
+ * Dependencies:
+ * - `useTranslation` for language support.
+ * - `useUser` for retrieving user-specific settings like LLM provider, model, and API key.
+ * - `useState` and `useEffect` for managing state and side effects.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered motivational slider component.
+ */
 const MotivationalSlider: React.FC = () => {
     const { i18n } = useTranslation();
     const { llmProvider, ollamaModel, ollamaCloudApiKey } = useUser();

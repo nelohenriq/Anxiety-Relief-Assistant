@@ -6,6 +6,16 @@ interface ExerciseIconProps {
     className?: string;
 }
 
+/**
+ * A React functional component that renders an SVG icon based on the provided exercise category.
+ * Each category corresponds to a specific SVG icon, and a fallback icon is displayed for unknown categories.
+ *
+ * @component
+ * @param {ExerciseIconProps} props - The props for the ExerciseIcon component.
+ * @param {Exercise['category']} props.category - The category of the exercise, which determines the icon to display.
+ * @param {string} [props.className="h-12 w-12 text-primary-600 dark:text-primary-400"] - Optional CSS classes to style the SVG icons.
+ * @returns {React.ReactElement} The SVG icon corresponding to the provided category or a fallback icon.
+ */
 const ExerciseIcon: React.FC<ExerciseIconProps> = ({ category, className = "h-12 w-12 text-primary-600 dark:text-primary-400" }) => {
     // FIX: Replaced JSX.Element with React.ReactElement to resolve the "Cannot find namespace 'JSX'" error.
     const icons: Record<Exercise['category'], React.ReactElement> = {

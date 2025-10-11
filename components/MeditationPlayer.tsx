@@ -2,6 +2,17 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Tooltip from './Tooltip';
 
+/**
+ * Represents a meditation that has been translated into a specific language.
+ * 
+ * @interface TranslatedMeditation
+ * 
+ * @property {string} id - The unique identifier for the meditation.
+ * @property {string} title - The title of the meditation.
+ * @property {string} description - A brief description of the meditation.
+ * @property {number} duration_minutes - The duration of the meditation in minutes.
+ * @property {string[]} guidance - An array of guidance or instructions related to the meditation.
+ */
 interface TranslatedMeditation {
     id: string;
     title: string;
