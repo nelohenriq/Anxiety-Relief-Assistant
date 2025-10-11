@@ -83,6 +83,9 @@ export default function Home() {
           consentLevel,
           feedback,
           language: i18n.language,
+          provider: llmProvider,
+          model: ollamaModel,
+          apiKey: ollamaCloudApiKey,
         }),
       });
 

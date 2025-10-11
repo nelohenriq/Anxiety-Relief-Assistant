@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getMotivationalQuotes } from '../services/llmService';
 import { useUser } from '../context/UserContext';
 
 const MotivationalSlider: React.FC = () => {
@@ -13,8 +12,21 @@ const MotivationalSlider: React.FC = () => {
     useEffect(() => {
         const fetchQuotes = async () => {
             try {
-                const result = await getMotivationalQuotes(llmProvider, ollamaModel, ollamaCloudApiKey, i18n.language);
-                setQuotes(result);
+                const response = await fetch('/api/quotes', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        provider: llmProvider,
+                        model: ollamaModel,
+                        apiKey: ollamaCloudApiKey,
+                        language: i18n.language,
+                    }),
+                });
+                if (!response.ok) {
+                    throw new Error('Failed to fetch quotes');
+                }
+                const data = await response.json();
+                setQuotes(data.quotes);
             } catch (error) {
                 console.error("Failed to fetch motivational quotes:", error);
                 // Silently fail, don't show an error message on the hero screen.

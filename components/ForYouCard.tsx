@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useUser } from '../context/UserContext';
-import { getForYouSuggestion } from '../services/llmService';
 
 const ForYouCard: React.FC = () => {
     const { t, i18n } = useTranslation();
@@ -20,8 +19,23 @@ const ForYouCard: React.FC = () => {
             setIsLoading(true);
             setError(null);
             try {
-                const result = await getForYouSuggestion(llmProvider, ollamaModel, ollamaCloudApiKey, profile, i18n.language);
-                setSuggestion(result);
+                const response = await fetch('/api/suggestions', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        provider: llmProvider,
+                        model: ollamaModel,
+                        apiKey: ollamaCloudApiKey,
+                        profile,
+                        language: i18n.language,
+                    }),
+                });
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || 'Failed to fetch suggestion');
+                }
+                const data = await response.json();
+                setSuggestion(data.suggestion);
             } catch (err) {
                  if (err instanceof Error) {
                     setError(err.message);

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getPersonalizedExercises } from '../../../services/geminiService';
+import { getPersonalizedExercises } from '../../../services/llmService';
 import { UserProfile, DataConsentLevel, ExerciseFeedback } from '../../../types';
 
 export async function POST(request: NextRequest) {
@@ -10,7 +10,10 @@ export async function POST(request: NextRequest) {
       profile,
       consentLevel,
       feedback,
-      language
+      language,
+      provider,
+      model,
+      apiKey
     } = body;
 
     // Enhanced input validation
@@ -43,6 +46,9 @@ export async function POST(request: NextRequest) {
     }
 
     const result = await getPersonalizedExercises(
+       provider,
+       model,
+       apiKey,
        symptoms,
        profile,
        consentLevel,

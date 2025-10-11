@@ -1,83 +1,72 @@
-import * as gemini from './providers/gemini';
-import * as ollama from './providers/ollama';
+import { getPersonalizedExercises as getGeminiExercises, getJournalAnalysis as getGeminiJournalAnalysis, getForYouSuggestion as getGeminiForYouSuggestion, getThoughtChallengeHelp as getGeminiThoughtChallengeHelp, getMotivationalQuotes as getGeminiMotivationalQuotes } from './providers/gemini';
+import { getPersonalizedExercises as getOllamaExercises, getJournalAnalysis as getOllamaJournalAnalysis, getForYouSuggestion as getOllamaForYouSuggestion, getThoughtChallengeHelp as getOllamaThoughtChallengeHelp, getMotivationalQuotes as getOllamaMotivationalQuotes } from './providers/ollama';
 import { UserProfile, DataConsentLevel, ExerciseFeedback, Exercise } from '../types';
 
-type Provider = 'gemini' | 'ollama';
-
-export const getPersonalizedExercises = async (
-    provider: Provider,
-    ollamaModel: string,
-    ollamaCloudApiKey: string,
+export const getPersonalizedExercises = (
+    provider: 'gemini' | 'ollama',
+    model: string,
+    apiKey: string,
     symptoms: string,
     profile: UserProfile,
     consentLevel: DataConsentLevel,
     feedback: ExerciseFeedback,
     language: string
-): Promise<{ exercises: Exercise[]; sources: { url: string; title: string }[], calmImageUrl: string | null }> => {
+): Promise<{ exercises: Exercise[]; sources: {url: string, title: string}[]; calmImageUrl: string | null }> => {
     if (provider === 'ollama') {
-        try {
-            return await ollama.getPersonalizedExercises(ollamaModel, ollamaCloudApiKey, symptoms, profile, consentLevel, feedback, language);
-        } catch (error) {
-            console.warn('Ollama failed, falling back to Gemini:', error);
-            return gemini.getPersonalizedExercises(symptoms, profile, consentLevel, feedback, language);
-        }
+        return getOllamaExercises(model, apiKey, symptoms, profile, consentLevel, feedback, language);
     }
-    return gemini.getPersonalizedExercises(symptoms, profile, consentLevel, feedback, language);
+    // Default to Gemini
+    return getGeminiExercises(symptoms, profile, consentLevel, feedback, language);
 };
 
 export const getJournalAnalysis = (
-    provider: Provider,
-    ollamaModel: string,
-    ollamaCloudApiKey: string,
+    provider: 'gemini' | 'ollama',
+    model: string,
+    apiKey: string,
     entryText: string,
     language: string
 ): Promise<string> => {
-     if (provider === 'ollama') {
-        return ollama.getJournalAnalysis(ollamaModel, ollamaCloudApiKey, entryText, language);
+    if (provider === 'ollama') {
+        return getOllamaJournalAnalysis(model, apiKey, entryText, language);
     }
-    return gemini.getJournalAnalysis(entryText, language);
+    return getGeminiJournalAnalysis(entryText, language);
 };
 
 export const getForYouSuggestion = (
-    provider: Provider,
-    ollamaModel: string,
-    ollamaCloudApiKey: string,
+    provider: 'gemini' | 'ollama',
+    model: string,
+    apiKey: string,
     profile: UserProfile,
     language: string
 ): Promise<string> => {
     if (provider === 'ollama') {
-        return ollama.getForYouSuggestion(ollamaModel, ollamaCloudApiKey, profile, language);
+        return getOllamaForYouSuggestion(model, apiKey, profile, language);
     }
-    return gemini.getForYouSuggestion(profile, language);
+    return getGeminiForYouSuggestion(profile, language);
 };
 
 export const getThoughtChallengeHelp = (
-    provider: Provider,
-    ollamaModel: string,
-    ollamaCloudApiKey: string,
+    provider: 'gemini' | 'ollama',
+    model: string,
+    apiKey: string,
     situation: string,
     negativeThought: string,
     language: string
 ): Promise<string> => {
     if (provider === 'ollama') {
-        return ollama.getThoughtChallengeHelp(ollamaModel, ollamaCloudApiKey, situation, negativeThought, language);
+        return getOllamaThoughtChallengeHelp(model, apiKey, situation, negativeThought, language);
     }
-    return gemini.getThoughtChallengeHelp(situation, negativeThought, language);
+    return getGeminiThoughtChallengeHelp(situation, negativeThought, language);
 };
 
-export const getMotivationalQuotes = async (
-    provider: Provider,
-    ollamaModel: string,
-    ollamaCloudApiKey: string,
+export const getMotivationalQuotes = (
+    provider: 'gemini' | 'ollama',
+    model: string,
+    apiKey: string,
     language: string
 ): Promise<string[]> => {
     if (provider === 'ollama') {
-        try {
-            return await ollama.getMotivationalQuotes(ollamaModel, ollamaCloudApiKey, language);
-        } catch (error) {
-            console.warn('Ollama failed, falling back to Gemini:', error);
-            return gemini.getMotivationalQuotes(language);
-        }
+        return getOllamaMotivationalQuotes(model, apiKey, language);
     }
-    return gemini.getMotivationalQuotes(language);
+    return getGeminiMotivationalQuotes(language);
 };
