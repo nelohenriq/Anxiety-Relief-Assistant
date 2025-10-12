@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { usePathname, useRouter } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
 import SearchBar from './SearchBar';
 import Tooltip from './Tooltip';
@@ -28,8 +29,18 @@ interface HeaderProps {
  * @returns {JSX.Element} The rendered Header component.
  */
 const Header: React.FC<HeaderProps> = ({ onOpenProfile, showBackground, onOpenCrisisModal, searchQuery, onSearchQueryChange }) => {
-     const { t } = useTranslation();
-     const { isOnline } = useOnlineStatus();
+      const { t } = useTranslation();
+      const { isOnline } = useOnlineStatus();
+      const pathname = usePathname();
+      const router = useRouter();
+
+      const navigationItems = [
+        { name: 'Today', path: '/', active: pathname === '/' },
+        { name: 'Journal', path: '/journal', active: pathname === '/journal' },
+        { name: 'Meditate', path: '/meditate', active: pathname === '/meditate' },
+        { name: 'Breathe', path: '/breathe', active: pathname === '/breathe' },
+        { name: 'Sleep', path: '/sleep', active: pathname === '/sleep' },
+      ];
     return (
         <header className={`w-full fixed top-0 z-40 transition-all duration-500 ${showBackground ? 'bg-white/90 dark:bg-neutral-900/90 backdrop-blur-xl shadow-lg border-b border-neutral-200/50 dark:border-neutral-800/50' : 'bg-transparent'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,6 +56,23 @@ const Header: React.FC<HeaderProps> = ({ onOpenProfile, showBackground, onOpenCr
                          <span className="font-black text-xl bg-gradient-to-r from-primary-600 to-accent-600 dark:from-primary-400 dark:to-accent-400 bg-clip-text text-transparent">{t('header.title')}</span>
                     </div>
                     
+                    {/* Navigation Tabs */}
+                    <nav className="hidden md:flex items-center space-x-1">
+                        {navigationItems.map((item) => (
+                          <button
+                            key={item.path}
+                            onClick={() => router.push(item.path)}
+                            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                              item.active
+                                ? 'bg-primary-100 text-primary-700 dark:bg-primary-900/50 dark:text-primary-300'
+                                : 'text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                            }`}
+                          >
+                            {item.name}
+                          </button>
+                        ))}
+                    </nav>
+
                     {/* Search Bar (Desktop) */}
                     <div className="hidden lg:flex justify-center flex-1 px-4">
                         <SearchBar query={searchQuery} onQueryChange={onSearchQueryChange} />

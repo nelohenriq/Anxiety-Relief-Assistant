@@ -18,7 +18,7 @@ interface UserProfileProps {
     onSaveFeedback: (feedback: Omit<FeedbackEntry, 'id' | 'timestamp'>) => void;
 }
 
-type ActiveTab = 'settings' | 'history' | 'feedback';
+type ActiveTab = 'account' | 'history' | 'settings';
 
 /**
  * UserProfile component provides a user interface for managing user settings, preferences, and data.
@@ -180,7 +180,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
         setLocalOllamaModel(ollamaModel);
         setLocalOllamaCloudApiKey(ollamaCloudApiKey);
         if (isOpen) {
-            setActiveTab('settings');
+            setActiveTab('account');
         }
     }, [profile, reminderSettings, llmProvider, ollamaModel, ollamaCloudApiKey, isOpen]);
 
@@ -282,6 +282,70 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
     };
 
     if (!isOpen) return null;
+
+    const renderAccountTab = () => (
+        <div className="space-y-8">
+            {/* Personal Information */}
+            <div>
+                <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 mb-4">Personal Information</h3>
+                <div className="space-y-4">
+                    <div>
+                        <label htmlFor="name" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value="Sarah"
+                            onChange={handleChange}
+                            className="w-full px-3 py-2 bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400 dark:focus:ring-primary-600 focus:border-transparent"
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value="sarah@example.com"
+                            onChange={handleChange}
+                            className="w-full px-3 py-2 bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400 dark:focus:ring-primary-600 focus:border-transparent"
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="phone" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">Phone</label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            value="+1 (555) 123-4567"
+                            onChange={handleChange}
+                            className="w-full px-3 py-2 bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400 dark:focus:ring-primary-600 focus:border-transparent"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            {/* Security */}
+            <div>
+                <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 mb-4">Security</h3>
+                <div className="space-y-4">
+                    <div>
+                        <label htmlFor="password" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            value="••••••••"
+                            disabled
+                            className="w-full px-3 py-2 bg-neutral-100 dark:bg-neutral-700 border border-neutral-300 dark:border-neutral-600 rounded-lg text-neutral-500 dark:text-neutral-400"
+                        />
+                    </div>
+                    <button className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 text-sm font-medium">
+                        Change Password
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
 
     const renderSettingsTab = () => (
          <div className="space-y-6">
@@ -542,15 +606,15 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
                 <fieldset className="space-y-2">
                     <legend className="sr-only">Data Consent Level</legend>
                     <div>
-                        <input type="radio" id="essential" name="consent" value="essential" checked={consentLevel === 'essential'} onChange={() => setConsentLevel('essential')} className="h-4 w-4 text-primary-600 border-neutral-300 focus:ring-primary-500" />
+                        <input type="radio" id="essential" name="consent" value="essential" checked={consentLevel === 'essential'} onChange={() => setConsentLevel('essential' as DataConsentLevel)} className="h-4 w-4 text-primary-600 border-neutral-300 focus:ring-primary-500" />
                         <label htmlFor="essential" className="ml-3 text-sm font-medium text-neutral-700 dark:text-neutral-300">{t('user_profile.consent_essential')}</label>
                     </div>
                      <div>
-                        <input type="radio" id="enhanced" name="consent" value="enhanced" checked={consentLevel === 'enhanced'} onChange={() => setConsentLevel('enhanced')} className="h-4 w-4 text-primary-600 border-neutral-300 focus:ring-primary-500" />
+                        <input type="radio" id="enhanced" name="consent" value="enhanced" checked={consentLevel === 'enhanced'} onChange={() => setConsentLevel('enhanced' as DataConsentLevel)} className="h-4 w-4 text-primary-600 border-neutral-300 focus:ring-primary-500" />
                         <label htmlFor="enhanced" className="ml-3 text-sm font-medium text-neutral-700 dark:text-neutral-300">{t('user_profile.consent_enhanced')}</label>
                     </div>
                     <div>
-                        <input type="radio" id="complete" name="consent" value="complete" checked={consentLevel === 'complete'} onChange={() => setConsentLevel('complete')} className="h-4 w-4 text-primary-600 border-neutral-300 focus:ring-primary-500" />
+                        <input type="radio" id="complete" name="consent" value="complete" checked={consentLevel === 'complete'} onChange={() => setConsentLevel('complete' as DataConsentLevel)} className="h-4 w-4 text-primary-600 border-neutral-300 focus:ring-primary-500" />
                         <label htmlFor="complete" className="ml-3 text-sm font-medium text-neutral-700 dark:text-neutral-300">{t('user_profile.consent_complete')}</label>
                     </div>
                 </fieldset>
@@ -594,6 +658,63 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
                 )}
             </div>
             
+            {/* Notifications */}
+            <div>
+                <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 mb-4">Notifications</h3>
+                <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <div className="font-medium text-neutral-800 dark:text-neutral-200">Exercise Reminders</div>
+                            <div className="text-sm text-neutral-600 dark:text-neutral-400">Receive reminders for your daily exercises.</div>
+                        </div>
+                        <label className="relative inline-flex items-center cursor-pointer">
+                            <input
+                                type="checkbox"
+                                checked={localReminders.isEnabled}
+                                onChange={handleReminderChange}
+                                className="sr-only peer"
+                            />
+                            <div className="w-11 h-6 bg-neutral-200 dark:bg-neutral-700 rounded-full peer peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-neutral-600 peer-checked:bg-primary-600"></div>
+                        </label>
+                    </div>
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <div className="font-medium text-neutral-800 dark:text-neutral-200">App Updates</div>
+                            <div className="text-sm text-neutral-600 dark:text-neutral-400">Get notified about new content and updates.</div>
+                        </div>
+                        <label className="relative inline-flex items-center cursor-pointer">
+                            <input
+                                type="checkbox"
+                                className="sr-only peer"
+                                defaultChecked
+                            />
+                            <div className="w-11 h-6 bg-neutral-200 dark:bg-neutral-700 rounded-full peer peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-neutral-600 peer-checked:bg-primary-600"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            {/* App Settings */}
+            <div>
+                <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 mb-4">App Settings</h3>
+                <div className="space-y-4">
+                    <div>
+                        <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">Language</label>
+                        <select
+                            value={i18n.resolvedLanguage}
+                            onChange={handleLanguageChange}
+                            className="w-full px-3 py-2 bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400 dark:focus:ring-primary-600 focus:border-transparent"
+                        >
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                            <option value="pt-pt">Português (Portugal)</option>
+                            <option value="fr">Français</option>
+                            <option value="de">Deutsch</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
             <div>
                 <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200">{t('user_profile.feedback_title')}</h3>
                  <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3">{t('user_profile.feedback_subtitle')}</p>
@@ -750,14 +871,14 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
                         <div className="mt-4 border-b border-neutral-200 dark:border-neutral-700">
                             <nav className="-mb-px flex space-x-6" aria-label="Tabs">
                                 <button
-                                    onClick={() => setActiveTab('settings')}
+                                    onClick={() => setActiveTab('account')}
                                     className={`${
-                                        activeTab === 'settings'
+                                        activeTab === 'account'
                                             ? 'border-primary-500 text-primary-600 dark:text-primary-400'
                                             : 'border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300 dark:text-neutral-400 dark:hover:text-neutral-200 dark:hover:border-neutral-500'
                                     } whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm transition-colors`}
                                 >
-                                    {t('user_profile.tabs.settings')}
+                                    Account
                                 </button>
                                 <button
                                     onClick={() => setActiveTab('history')}
@@ -767,26 +888,39 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
                                             : 'border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300 dark:text-neutral-400 dark:hover:text-neutral-200 dark:hover:border-neutral-500'
                                     } whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm transition-colors`}
                                 >
-                                    {t('user_profile.tabs.activity_log')}
+                                    History
                                 </button>
                                 <button
-                                    onClick={() => setActiveTab('feedback')}
+                                    onClick={() => setActiveTab('settings')}
                                     className={`${
-                                        activeTab === 'feedback'
+                                        activeTab === 'settings'
                                             ? 'border-primary-500 text-primary-600 dark:text-primary-400'
                                             : 'border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300 dark:text-neutral-400 dark:hover:text-neutral-200 dark:hover:border-neutral-500'
                                     } whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm transition-colors`}
                                 >
-                                    {t('user_profile.tabs.feedback_history')}
+                                    Settings
                                 </button>
                             </nav>
                         </div>
                     </div>
 
                     <div className="p-6 overflow-y-auto flex-1">
+                        {activeTab === 'account' && renderAccountTab()}
+                        {activeTab === 'history' && (
+                            <div className="space-y-6">
+                                <div>
+                                    <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 mb-4">Exercise History</h3>
+                                    <ExerciseHistory history={exerciseHistory} />
+                                </div>
+                                {feedbackHistory.length > 0 && (
+                                    <div>
+                                        <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 mb-4">Feedback History</h3>
+                                        <FeedbackHistory history={feedbackHistory} />
+                                    </div>
+                                )}
+                            </div>
+                        )}
                         {activeTab === 'settings' && renderSettingsTab()}
-                        {activeTab === 'history' && <ExerciseHistory history={exerciseHistory} />}
-                        {activeTab === 'feedback' && <FeedbackHistory history={feedbackHistory} />}
                     </div>
                     
                     <div className="p-6 border-t border-neutral-200 dark:border-neutral-600 flex justify-end bg-neutral-50 dark:bg-neutral-800/50 rounded-b-lg">
