@@ -67,14 +67,17 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode
+  params: { lang: string }
 }>) {
   return (
-    <html lang="en">
+    <html lang={params.lang ?? 'en'}>
       <head>
         <meta name="theme-color" content="#0d9488" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Serene" />
         <link rel="apple-touch-icon" href="/icon-192.svg" />

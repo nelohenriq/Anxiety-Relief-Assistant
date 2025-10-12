@@ -1,6 +1,6 @@
 import { getPersonalizedExercises as getGeminiExercises, getJournalAnalysis as getGeminiJournalAnalysis, getForYouSuggestion as getGeminiForYouSuggestion, getThoughtChallengeHelp as getGeminiThoughtChallengeHelp, getMotivationalQuotes as getGeminiMotivationalQuotes } from './providers/gemini';
 import { getPersonalizedExercises as getOllamaExercises, getJournalAnalysis as getOllamaJournalAnalysis, getForYouSuggestion as getOllamaForYouSuggestion, getThoughtChallengeHelp as getOllamaThoughtChallengeHelp, getMotivationalQuotes as getOllamaMotivationalQuotes } from './providers/ollama';
-import { getForYouSuggestion as getGroqForYouSuggestion } from './providers/groq';
+import { getPersonalizedExercises as getGroqExercises, getForYouSuggestion as getGroqForYouSuggestion } from './providers/groq';
 import { UserProfile, DataConsentLevel, ExerciseFeedback, Exercise } from '../types';
 
 export const getPersonalizedExercises = (
@@ -13,11 +13,14 @@ export const getPersonalizedExercises = (
     feedback: ExerciseFeedback,
     language: string
 ): Promise<{ exercises: Exercise[]; sources: {url: string, title: string}[]; calmImageUrl: string | null }> => {
-    if (provider === 'ollama') {
-        return getOllamaExercises(model, apiKey, symptoms, profile, consentLevel, feedback, language);
+    switch (provider) {
+        case 'ollama':
+            return getOllamaExercises(model, apiKey, symptoms, profile, consentLevel, feedback, language);
+        case 'groq':
+            return getGroqExercises(model, apiKey, symptoms, profile, consentLevel, feedback, language);
+        default:
+            return getGeminiExercises(symptoms, profile, consentLevel, feedback, language);
     }
-    // Default to Gemini
-    return getGeminiExercises(symptoms, profile, consentLevel, feedback, language);
 };
 
 export const getJournalAnalysis = (

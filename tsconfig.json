@@ -29,7 +29,10 @@
         "./app/*",
         "./components/*",
         "./context/*",
-        "./services/*"
+        "./services/*",
+        "./data/*",
+        "./hooks/*",
+        "./lib/*"
       ]
     }
   },

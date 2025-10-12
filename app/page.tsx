@@ -109,15 +109,15 @@ export default function Home() {
   const [hasCompletedOnboarding, setHasCompletedOnboarding] = useLocalStorage<boolean>('hasCompletedOnboarding', false);
   const [calmImageUrl, setCalmImageUrl] = useState<string | null>(null);
 
-  // Missing variables used in API call - using default values
-  const consentLevel = 1; // Default consent level
-  const llmProvider = 'groq'; // Default provider
-  const groqModel = 'llama3-8b-8192'; // Default Groq model
-  const ollamaModel = 'llama2'; // Default Ollama model
-  const groqApiKey = process.env.NEXT_PUBLIC_GROQ_API_KEY || ''; // API key from env
-  const ollamaCloudApiKey = process.env.NEXT_PUBLIC_OLLAMA_CLOUD_API_KEY || ''; // API key from env
-
-  const { profile } = useUser();
+  const {
+    profile,
+    consentLevel,
+    llmProvider,
+    groqModel,
+    ollamaModel,
+    groqApiKey,
+    ollamaCloudApiKey,
+  } = useUser();
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
