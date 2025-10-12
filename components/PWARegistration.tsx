@@ -25,7 +25,7 @@ const PWARegistration = () => {
   useEffect(() => {
     // Register service worker
     const registerSW = async () => {
-      if ('serviceWorker' in navigator) {
+      if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
         try {
           const registration = await navigator.serviceWorker.register('/sw.js', {
             scope: '/',
@@ -107,6 +107,11 @@ const PWARegistration = () => {
 
   // Don't render anything if already installed or not installable
   if (isInstalled || !isInstallable) {
+    return null;
+  }
+
+  // Don't show install button if not in production or if deferredPrompt is not available
+  if (process.env.NODE_ENV !== 'production' || !deferredPrompt) {
     return null;
   }
 
