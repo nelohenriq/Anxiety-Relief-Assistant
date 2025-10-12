@@ -1,9 +1,10 @@
 import { getPersonalizedExercises as getGeminiExercises, getJournalAnalysis as getGeminiJournalAnalysis, getForYouSuggestion as getGeminiForYouSuggestion, getThoughtChallengeHelp as getGeminiThoughtChallengeHelp, getMotivationalQuotes as getGeminiMotivationalQuotes } from './providers/gemini';
 import { getPersonalizedExercises as getOllamaExercises, getJournalAnalysis as getOllamaJournalAnalysis, getForYouSuggestion as getOllamaForYouSuggestion, getThoughtChallengeHelp as getOllamaThoughtChallengeHelp, getMotivationalQuotes as getOllamaMotivationalQuotes } from './providers/ollama';
+import { getForYouSuggestion as getGroqForYouSuggestion } from './providers/groq';
 import { UserProfile, DataConsentLevel, ExerciseFeedback, Exercise } from '../types';
 
 export const getPersonalizedExercises = (
-    provider: 'gemini' | 'ollama',
+    provider: 'gemini' | 'groq' | 'ollama',
     model: string,
     apiKey: string,
     symptoms: string,
@@ -20,12 +21,16 @@ export const getPersonalizedExercises = (
 };
 
 export const getJournalAnalysis = (
-    provider: 'gemini' | 'ollama',
+    provider: 'gemini' | 'groq' | 'ollama',
     model: string,
     apiKey: string,
     entryText: string,
     language: string
 ): Promise<string> => {
+    if (provider === 'groq') {
+        // For now, fall back to Gemini for journal analysis since we haven't implemented it in Groq yet
+        return getGeminiJournalAnalysis(entryText, language);
+    }
     if (provider === 'ollama') {
         return getOllamaJournalAnalysis(model, apiKey, entryText, language);
     }
@@ -33,12 +38,15 @@ export const getJournalAnalysis = (
 };
 
 export const getForYouSuggestion = (
-    provider: 'gemini' | 'ollama',
+    provider: 'gemini' | 'groq' | 'ollama',
     model: string,
     apiKey: string,
     profile: UserProfile,
     language: string
 ): Promise<string> => {
+    if (provider === 'groq') {
+        return getGroqForYouSuggestion(model, apiKey, profile, language);
+    }
     if (provider === 'ollama') {
         return getOllamaForYouSuggestion(model, apiKey, profile, language);
     }
@@ -47,13 +55,17 @@ export const getForYouSuggestion = (
 };
 
 export const getThoughtChallengeHelp = (
-    provider: 'gemini' | 'ollama',
+    provider: 'gemini' | 'groq' | 'ollama',
     model: string,
     apiKey: string,
     situation: string,
     negativeThought: string,
     language: string
 ): Promise<string> => {
+    if (provider === 'groq') {
+        // For now, fall back to Gemini for thought challenge help since we haven't implemented it in Groq yet
+        return getGeminiThoughtChallengeHelp(situation, negativeThought, language);
+    }
     if (provider === 'ollama') {
         return getOllamaThoughtChallengeHelp(model, apiKey, situation, negativeThought, language);
     }

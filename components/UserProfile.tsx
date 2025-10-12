@@ -9,6 +9,7 @@ import FeedbackHistory from './FeedbackHistory';
 import { logInteraction } from '../services/interactionLogger';
 
 
+
 interface UserProfileProps {
     isOpen: boolean;
     onClose: () => void;
@@ -54,10 +55,12 @@ type ActiveTab = 'settings' | 'history' | 'feedback';
  */
 const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHistory, feedbackHistory, onSaveFeedback }) => {
     const { t, i18n } = useTranslation();
-    const { profile, setProfile, consentLevel, setConsentLevel, reminderSettings, setReminderSettings, llmProvider, setLlmProvider, ollamaModel, setOllamaModel, ollamaCloudApiKey, setOllamaCloudApiKey, clearAllData } = useUser();
+    const { profile, setProfile, consentLevel, setConsentLevel, reminderSettings, setReminderSettings, llmProvider, setLlmProvider, groqModel, setGroqModel, groqApiKey, setGroqApiKey, ollamaModel, setOllamaModel, ollamaCloudApiKey, setOllamaCloudApiKey, clearAllData } = useUser();
     const [localProfile, setLocalProfile] = useState<UserProfileType>(profile);
     const [localReminders, setLocalReminders] = useState<ReminderSettings>(reminderSettings);
     const [localLlmProvider, setLocalLlmProvider] = useState(llmProvider);
+    const [localGroqModel, setLocalGroqModel] = useState(groqModel);
+    const [localGroqApiKey, setLocalGroqApiKey] = useState(groqApiKey);
     const [localOllamaModel, setLocalOllamaModel] = useState(ollamaModel);
     const [localOllamaCloudApiKey, setLocalOllamaCloudApiKey] = useState(ollamaCloudApiKey);
     const [showConfirm, setShowConfirm] = useState(false);
@@ -65,10 +68,54 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
     const [activeTab, setActiveTab] = useState<ActiveTab>('settings');
     const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
     
+    const [groqConnectionStatus, setGroqConnectionStatus] = useState<'idle' | 'testing' | 'success' | 'error'>('idle');
+    const [groqConnectionError, setGroqConnectionError] = useState<string | null>(null);
+    const [availableGroqModels, setAvailableGroqModels] = useState<string[]>([]);
     const [ollamaConnectionStatus, setOllamaConnectionStatus] = useState<'idle' | 'testing' | 'success' | 'error'>('idle');
     const [ollamaConnectionError, setOllamaConnectionError] = useState<string | null>(null);
     const [availableLocalOllamaModels, setAvailableLocalOllamaModels] = useState<string[]>([]);
     const [availableCloudOllamaModels, setAvailableCloudOllamaModels] = useState<string[]>([]);
+
+    const fetchGroqModelsAndStatus = async () => {
+        setGroqConnectionStatus('testing');
+        setGroqConnectionError(null);
+
+        try {
+            console.log('Fetching Groq models with API key present:', !!localGroqApiKey);
+            const params = new URLSearchParams({
+                action: 'models',
+                ...(localGroqApiKey && { apiKey: localGroqApiKey })
+            });
+            console.log('API URL params:', params.toString());
+            const response = await fetch(`/api/groq/models?${params}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+            const data = await response.json();
+            const { models, error } = data;
+
+            if (error) {
+                setGroqConnectionStatus('error');
+                setGroqConnectionError(error);
+                setAvailableGroqModels([]);
+            } else {
+                setGroqConnectionStatus('success');
+                setGroqConnectionError(null);
+            }
+
+            setAvailableGroqModels(models.models || []);
+
+            if (!availableGroqModels.includes(localGroqModel) && models.models && models.models.length > 0) {
+                setLocalGroqModel(models.models[0]);
+            }
+        } catch (error) {
+            setGroqConnectionStatus('error');
+            setGroqConnectionError('Failed to fetch Groq models');
+            setAvailableGroqModels([]);
+        }
+    };
 
     const fetchOllamaModelsAndStatus = async () => {
         setOllamaConnectionStatus('testing');
@@ -84,31 +131,32 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
             const data = await response.json();
             const { models, error } = data;
 
-            // Set connection status based on local connection
-            if (error) {
+            // For cloud-only usage, we don't need local connection
+            // Only show error if user is trying to use local models
+            if (error && !localOllamaCloudApiKey?.trim()) {
                 setOllamaConnectionStatus('error');
-                setOllamaConnectionError(error);
+                setOllamaConnectionError('Local Ollama not available - use cloud models with API key');
             } else {
                 setOllamaConnectionStatus('success');
                 setOllamaConnectionError(null);
             }
 
             // Always set local models from the response (even if connection failed, might be empty array)
-            setAvailableLocalOllamaModels(models.local);
+            setAvailableLocalOllamaModels(models.local || []);
 
             // Set cloud models if API key is provided (these are static, not dependent on connection)
             if (localOllamaCloudApiKey && localOllamaCloudApiKey.trim()) {
-                setAvailableCloudOllamaModels(models.cloud);
+                setAvailableCloudOllamaModels(models.cloud || []);
             } else {
                 setAvailableCloudOllamaModels([]);
             }
 
             // Set default model based on what's available
             const availableModels: string[] = [];
-            if (models.local.length > 0) {
+            if (models.local && models.local.length > 0) {
                 availableModels.push(...models.local.map((m: string) => `local:${m}`));
             }
-            if (models.cloud.length > 0 && localOllamaCloudApiKey && localOllamaCloudApiKey.trim()) {
+            if (models.cloud && models.cloud.length > 0 && localOllamaCloudApiKey && localOllamaCloudApiKey.trim()) {
                 availableModels.push(...models.cloud.map((m: string) => `cloud:${m}`));
             }
 
@@ -127,6 +175,8 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
         setLocalProfile(profile);
         setLocalReminders(reminderSettings);
         setLocalLlmProvider(llmProvider);
+        setLocalGroqModel(groqModel);
+        setLocalGroqApiKey(groqApiKey);
         setLocalOllamaModel(ollamaModel);
         setLocalOllamaCloudApiKey(ollamaCloudApiKey);
         if (isOpen) {
@@ -135,6 +185,21 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
     }, [profile, reminderSettings, llmProvider, ollamaModel, ollamaCloudApiKey, isOpen]);
 
     useEffect(() => {
+        if (isOpen && localLlmProvider === 'groq') {
+            // Only fetch if we have an API key
+            if (localGroqApiKey && localGroqApiKey.trim()) {
+                fetchGroqModelsAndStatus();
+            } else {
+                // Set to idle state when no API key - UI will show message
+                setGroqConnectionStatus('idle');
+                setGroqConnectionError(null);
+                setAvailableGroqModels([]);
+            }
+        } else {
+            setGroqConnectionStatus('idle');
+            setGroqConnectionError(null);
+        }
+
         if (isOpen && localLlmProvider === 'ollama') {
             fetchOllamaModelsAndStatus();
         } else {
@@ -145,10 +210,14 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
 
     // Re-fetch models when API key changes
     useEffect(() => {
+        if (isOpen && localLlmProvider === 'groq' && groqConnectionStatus === 'success') {
+            fetchGroqModelsAndStatus();
+        }
+
         if (isOpen && localLlmProvider === 'ollama' && ollamaConnectionStatus === 'success') {
             fetchOllamaModelsAndStatus();
         }
-    }, [localOllamaCloudApiKey]);
+    }, [localGroqApiKey, localOllamaCloudApiKey]);
 
     const handleSave = () => {
         logInteraction({
@@ -162,6 +231,8 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
         setProfile(localProfile);
         setReminderSettings(localReminders);
         setLlmProvider(localLlmProvider);
+        setGroqModel(localGroqModel);
+        setGroqApiKey(localGroqApiKey);
         setOllamaModel(localOllamaModel);
         setOllamaCloudApiKey(localOllamaCloudApiKey);
         onClose();
@@ -230,12 +301,116 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
                      <div>
                         <label htmlFor="llmProvider" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">{t('user_profile.provider_label')}</label>
                         <select id="llmProvider" value={localLlmProvider} onChange={(e) => setLocalLlmProvider(e.target.value as any)} className="mt-1 block w-full rounded-md border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-200 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm">
+                            <option value="groq">🚀 Groq (Fastest)</option>
                             <option value="gemini">Gemini (Google)</option>
-                            <option value="ollama">Ollama (Local + Cloud)</option>
+                            <option value="ollama">Ollama Cloud</option>
                         </select>
-                    </div>
-                    {localLlmProvider === 'ollama' && (
-                        <div className="p-4 border border-neutral-200 dark:border-neutral-700 rounded-lg space-y-4">
+                     </div>
+
+                     {/* Groq Settings */}
+                     {localLlmProvider === 'groq' && (
+                         <div className="mt-4 space-y-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                             <h4 className="text-sm font-medium text-blue-900 dark:text-blue-100">🚀 Groq Settings (Fastest)</h4>
+
+                             <div>
+                                 <label htmlFor="groqApiKey" className="block text-sm font-medium text-blue-700 dark:text-blue-300">
+                                     Groq API Key
+                                 </label>
+                                 <input
+                                     type="password"
+                                     id="groqApiKey"
+                                     value={localGroqApiKey}
+                                     onChange={(e) => setLocalGroqApiKey(e.target.value)}
+                                     placeholder="gsk_..."
+                                     className="mt-1 block w-full rounded-md border-blue-300 bg-white dark:border-blue-600 dark:bg-blue-800 dark:text-blue-100 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                 />
+                                 <p className="mt-1 text-xs text-blue-600 dark:text-blue-400">
+                                     Get your free API key from{' '}
+                                     <a
+                                         href="https://console.groq.com/keys"
+                                         target="_blank"
+                                         rel="noopener noreferrer"
+                                         className="underline hover:no-underline"
+                                     >
+                                         console.groq.com/keys
+                                     </a>
+                                 </p>
+                             </div>
+
+                             <div>
+                                 <label htmlFor="groqModel" className="block text-sm font-medium text-blue-700 dark:text-blue-300">
+                                     Groq Model
+                                 </label>
+                                 <select
+                                     id="groqModel"
+                                     value={localGroqModel}
+                                     onChange={(e) => setLocalGroqModel(e.target.value)}
+                                     className="mt-1 block w-full rounded-md border-blue-300 bg-white dark:border-blue-600 dark:bg-blue-800 dark:text-blue-100 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                     disabled={availableGroqModels.length === 0}
+                                 >
+                                     {availableGroqModels.length === 0 ? (
+                                         <option value="">
+                                             {localGroqApiKey && localGroqApiKey.trim()
+                                                 ? 'Loading models...'
+                                                 : 'Add API key to load models'}
+                                         </option>
+                                     ) : (
+                                         availableGroqModels.map(model => (
+                                             <option key={model} value={model}>
+                                                 {model}
+                                                 {model.includes('8b-8192') ? ' (Fastest)' :
+                                                  model.includes('70b-8192') ? ' (Balanced)' :
+                                                  model.includes('405b') ? ' (Most Capable)' :
+                                                  model.includes('instant') ? ' (Ultra Fast)' :
+                                                  model.includes('versatile') ? ' (Versatile)' :
+                                                  model.includes('mixtral') ? ' (High Quality)' :
+                                                  ' (Efficient)'}
+                                             </option>
+                                         ))
+                                     )}
+                                 </select>
+                                 <p className="mt-1 text-xs text-blue-600 dark:text-blue-400">
+                                     Recommended: llama3.1-8b-instant for fastest "For You" card generation
+                                 </p>
+                             </div>
+
+                             {/* Connection Status for Groq */}
+                             <div className="pt-2">
+                                 {groqConnectionStatus === 'testing' && (
+                                     <p className="text-blue-600 dark:text-blue-400 text-sm">🔄 Testing connection...</p>
+                                 )}
+                                 {groqConnectionStatus === 'success' && (
+                                     <p className="text-green-600 dark:text-green-400 text-sm">
+                                         ✅ Connected • {availableGroqModels.length} model{availableGroqModels.length !== 1 ? 's' : ''} available
+                                     </p>
+                                 )}
+                                 {groqConnectionStatus === 'error' && (
+                                     <p className="text-red-600 dark:text-red-400 text-sm">
+                                         ❌ {groqConnectionError}
+                                     </p>
+                                 )}
+                             </div>
+
+                             <button
+                                 type="button"
+                                 onClick={fetchGroqModelsAndStatus}
+                                 disabled={groqConnectionStatus === 'testing'}
+                                 className="text-xs bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white px-3 py-1 rounded-md transition-colors"
+                             >
+                                 {groqConnectionStatus === 'testing' ? 'Testing...' : 'Test Connection'}
+                             </button>
+                         </div>
+                     )}
+
+                     {localLlmProvider === 'ollama' && (
+                         <div className="p-4 border border-neutral-200 dark:border-neutral-700 rounded-lg space-y-4">
+                             <div className="flex items-center gap-2">
+                                 <span className="text-lg">☁️</span>
+                                 <h4 className="text-sm font-medium text-neutral-900 dark:text-neutral-100">Ollama Cloud Models</h4>
+                             </div>
+                             <p className="text-xs text-neutral-600 dark:text-neutral-400">
+                                 Use cloud models without local installation. Just add your API key from ollama.com
+                             </p>
                             <div>
                                 <label htmlFor="ollamaCloudApiKey" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">{t('user_profile.ollama_cloud_api_key_label')}</label>
                                 <input 
@@ -286,13 +461,13 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
                                         {/* Show helpful messages when no models are available */}
                                         {ollamaConnectionStatus === 'error' && availableCloudOllamaModels.length === 0 && (
                                             <option value="" disabled>
-                                                ❌ Local connection failed - check if Ollama is running
+                                                💡 Add API key above to access cloud models (no local server needed)
                                             </option>
                                         )}
 
                                         {ollamaConnectionStatus === 'error' && availableCloudOllamaModels.length > 0 && (
                                             <option value="" disabled>
-                                                💡 Local connection failed but {availableCloudOllamaModels.length} cloud model{availableCloudOllamaModels.length !== 1 ? 's are' : ' is'} available
+                                                ✅ {availableCloudOllamaModels.length} cloud model{availableCloudOllamaModels.length !== 1 ? 's' : ''} available with your API key
                                             </option>
                                         )}
 
@@ -310,7 +485,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
 
                                         {ollamaConnectionStatus === 'idle' && (
                                             <option value="" disabled>
-                                                🔌 Click test connection to load available models
+                                                🔌 Add API key and click test connection to load cloud models
                                             </option>
                                         )}
                                     </select>
@@ -338,19 +513,19 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
                                 <div className="mt-2 text-xs h-4">
                                     {ollamaConnectionStatus === 'success' && (
                                         <p className="text-green-600 dark:text-green-400">
-                                            ✅ Connected • {availableLocalOllamaModels.length} local model{availableLocalOllamaModels.length !== 1 ? 's' : ''}
+                                            ✅ Ready • {availableLocalOllamaModels.length} local model{availableLocalOllamaModels.length !== 1 ? 's' : ''}
                                             {localOllamaCloudApiKey && localOllamaCloudApiKey.trim() && availableCloudOllamaModels.length > 0 && ` • ${availableCloudOllamaModels.length} cloud model${availableCloudOllamaModels.length !== 1 ? 's' : ''}`}
                                         </p>
                                     )}
                                     {ollamaConnectionStatus === 'error' && (
                                         <p className={`${
                                             availableCloudOllamaModels.length > 0 && localOllamaCloudApiKey && localOllamaCloudApiKey.trim()
-                                                ? 'text-yellow-600 dark:text-yellow-400'
-                                                : 'text-red-600 dark:text-red-400'
+                                                ? 'text-green-600 dark:text-green-400'
+                                                : 'text-yellow-600 dark:text-yellow-400'
                                         }`}>
                                             {availableCloudOllamaModels.length > 0 && localOllamaCloudApiKey && localOllamaCloudApiKey.trim()
-                                                ? `⚠️ Local connection failed • ${availableCloudOllamaModels.length} cloud model${availableCloudOllamaModels.length !== 1 ? 's' : ''} available`
-                                                : `❌ ${ollamaConnectionError}`
+                                                ? `✅ ${availableCloudOllamaModels.length} cloud model${availableCloudOllamaModels.length !== 1 ? 's' : ''} available`
+                                                : `💡 Add API key to access cloud models`
                                             }
                                         </p>
                                     )}

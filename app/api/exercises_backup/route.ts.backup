@@ -11,7 +11,7 @@ import { UserProfile, DataConsentLevel, ExerciseFeedback } from '../../../types'
  * ### Request Body:
  * - `symptoms` (string): A description of the user's symptoms. Must be a non-empty string.
  * - `profile` (UserProfile): The user's profile object containing relevant details.
- * - `consentLevel` (DataConsentLevel): The level of data consent provided by the user.
+ * - `consentLevel` (DataConsentLevel): The level of data consent provided by the user. 
  *   Must be one of: 'essential', 'enhanced', 'complete'.
  * - `feedback` (ExerciseFeedback): Optional feedback data for the exercise generation.
  * - `language` (string): The language in which the exercises should be generated. Must be a non-empty string.

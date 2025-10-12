@@ -14,7 +14,7 @@ interface ThoughtRecordProps {
 
 const ThoughtRecord: React.FC<ThoughtRecordProps> = ({ onSave, onClose }) => {
     const { t, i18n } = useTranslation();
-    const { llmProvider, ollamaModel, ollamaCloudApiKey } = useUser();
+    const { llmProvider, groqModel, groqApiKey, ollamaModel, ollamaCloudApiKey } = useUser();
     
     const steps = [
         t('thought_record.steps.situation'),
@@ -49,7 +49,14 @@ const ThoughtRecord: React.FC<ThoughtRecordProps> = ({ onSave, onClose }) => {
         setAiError(null);
         logInteraction({ type: 'REQUEST_THOUGHT_CHALLENGE_HELP', metadata: { provider: llmProvider } });
         try {
-            const helpText = await getThoughtChallengeHelp(llmProvider, ollamaModel, ollamaCloudApiKey, situation, negativeThought, i18n.language);
+            const helpText = await getThoughtChallengeHelp(
+                llmProvider,
+                llmProvider === 'groq' ? groqModel : ollamaModel,
+                llmProvider === 'groq' ? groqApiKey : ollamaCloudApiKey,
+                situation,
+                negativeThought,
+                i18n.language
+            );
             setChallenge(prev => `${prev ? prev + '\n\n' : ''}AI-Suggested Questions:\n${helpText}`);
         } catch (err) {
              if (err instanceof Error) setAiError(err.message);

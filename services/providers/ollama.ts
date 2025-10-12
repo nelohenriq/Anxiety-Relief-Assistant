@@ -1,80 +1,26 @@
 import { Exercise, UserProfile, DataConsentLevel, ExerciseFeedback } from '../../types';
 import knowledgeBase from '../../data/knowledgeBase';
 
-const OLLAMA_LOCAL_ENDPOINT = process.env.OLLAMA_BASE_URL ? `${process.env.OLLAMA_BASE_URL}` : 'http://127.0.0.1:11434';
-// Ollama Cloud API endpoint - using the documented endpoint
+// Ollama Cloud API endpoint and models
 const OLLAMA_CLOUD_ENDPOINT = 'https://ollama.com';
-
-// Actual available Ollama Cloud models from docs
-const OLLAMA_CLOUD_MODELS = ['deepseek-v3.1:671b-cloud', 'gpt-oss:20b-cloud', 'gpt-oss:120b-cloud', 'kimi-k2:1t-cloud', 'qwen3-coder:480b-cloud'].sort();
+const OLLAMA_CLOUD_MODELS = [
+    'deepseek-v3.1:671b-cloud',
+    'gpt-oss:20b-cloud',
+    'gpt-oss:120b-cloud',
+    'kimi-k2:1t-cloud',
+    'qwen3-coder:480b-cloud'
+].sort();
 
 export interface OllamaModelList {
-    local: string[];
     cloud: string[];
 }
 
 export const getOllamaModels = async (): Promise<{ models: OllamaModelList, error: string | null }> => {
-    let localModels: string[] = [];
-    let errorMessage: string | null = null;
-
-    // Try to connect to local Ollama instance
-    try {
-        console.log(`Attempting to connect to local Ollama at ${OLLAMA_LOCAL_ENDPOINT}/api/tags`);
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout
-
-        const response = await fetch(`${OLLAMA_LOCAL_ENDPOINT}/api/tags`, {
-            signal: controller.signal,
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-            }
-        });
-        clearTimeout(timeoutId);
-
-        if (!response.ok) {
-            if (response.status === 404) {
-                errorMessage = "Local Ollama server is running but the /api/tags endpoint is not available. Make sure you have models installed.";
-            } else {
-                errorMessage = `Local server responded with error (status: ${response.status}).`;
-            }
-        } else {
-            const data = await response.json();
-            console.log('Local Ollama response:', data);
-
-            // Handle different possible response formats
-            if (data.models && Array.isArray(data.models)) {
-                localModels = data.models.map((model: any) => model.name || model).sort();
-                console.log('Parsed models from data.models:', localModels);
-            } else if (data.tags && Array.isArray(data.tags)) {
-                localModels = data.tags.map((tag: any) => tag.name || tag).sort();
-                console.log('Parsed models from data.tags:', localModels);
-            } else {
-                console.warn('Unexpected response format from local Ollama:', data);
-                console.log('Available keys in response:', Object.keys(data));
-                errorMessage = "Local server returned unexpected response format.";
-            }
-        }
-    } catch (error: any) {
-        console.warn(`Could not connect to local Ollama instance at ${OLLAMA_LOCAL_ENDPOINT}:`, error.message);
-
-        if (error.name === 'AbortError') {
-            errorMessage = "Local server connection timed out. Make sure Ollama is running and accessible.";
-        } else if (error.message.includes('fetch')) {
-            errorMessage = "Cannot connect to local Ollama server. Please start Ollama by running 'ollama serve' in your terminal, or ensure it's running on port 11434.";
-        } else {
-            errorMessage = `Connection error: ${error.message}`;
-        }
-    }
-
-    console.log(`Local models found: ${localModels.length}, Cloud models: ${OLLAMA_CLOUD_MODELS.length}`);
-
     return {
         models: {
-            local: localModels,
             cloud: OLLAMA_CLOUD_MODELS
         },
-        error: errorMessage
+        error: null
     };
 };
 
@@ -82,62 +28,39 @@ const getOllamaConfig = (prefixedModel: string, apiKey: string): { endpoint: str
     const [type, ...modelParts] = prefixedModel.split(':');
     let model = modelParts.join(':');
 
-    console.log(`Configuring Ollama request - Type: ${type}, Model: ${model}, API Key present: ${!!apiKey}`);
 
-    if (type === 'cloud') {
-        // For cloud models, use the model name as-is (including -cloud suffix if present)
-        console.log(`Cloud model detected - Using model: ${model}`);
-
-        return {
-            endpoint: `${OLLAMA_CLOUD_ENDPOINT}/api/chat`,
-            model: model,
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`,
-            },
-        };
-    }
-
-    // Default to local
+    // Cloud-only configuration
     return {
-        endpoint: `${OLLAMA_LOCAL_ENDPOINT}/api/chat`,
-        model,
-        headers: { 'Content-Type': 'application/json' },
+        endpoint: `${OLLAMA_CLOUD_ENDPOINT}/api/chat`,
+        model: model,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`,
+        },
     };
 };
 
 const handleOllamaFetch = async (endpoint: string, options: RequestInit) => {
     try {
-        console.log(`Making Ollama request to: ${endpoint}`);
-        console.log(`Request options:`, { ...options, body: options.body ? '[REQUEST_BODY]' : undefined });
-
         const response = await fetch(endpoint, options);
-        console.log(`Response status: ${response.status}, content-type: ${response.headers.get('content-type')}`);
 
         if (!response.ok) {
             const errorText = await response.text().catch(() => 'Unknown error');
-            console.error(`API Error Response: ${errorText}`);
             throw new Error(`Ollama API error: ${response.status} ${response.statusText} - ${errorText}`);
         }
 
         const contentType = response.headers.get('content-type');
         if (contentType && contentType.includes('application/json')) {
-            const jsonData = await response.json();
-            console.log(`Response data:`, jsonData);
-            return jsonData;
+            return await response.json();
         } else {
-            const textData = await response.text();
-            console.log(`Response text:`, textData);
-            return textData;
+            return await response.text();
         }
     } catch (error: any) {
-        console.error(`Ollama fetch error for ${endpoint}:`, error);
-
         if (error instanceof TypeError && error.message.includes('fetch')) {
             if (endpoint.includes('ollama.com')) {
                 throw new Error("Cannot connect to Ollama Cloud. Please check your API key and internet connection.");
             }
-            throw new Error("Cannot connect to local Ollama server. Please ensure Ollama is running and accessible.");
+            throw new Error("Cannot connect to local Ollama server. Please ensure:\n1. Ollama is installed and running\n2. The server is accessible on the configured port\n3. No firewall or network issues are blocking the connection\n4. Try running 'ollama serve' in your terminal");
         }
 
         // Re-throw other errors
@@ -268,7 +191,6 @@ export const getPersonalizedExercises = async (
     // Handle Ollama response format (same for both local and cloud)
     let responseData;
     if (data.message && data.message.content) {
-        console.log('Ollama response content:', data.message.content);
         let content = data.message.content.trim();
 
         // Handle markdown code blocks that some models return
@@ -280,7 +202,6 @@ export const getPersonalizedExercises = async (
 
         responseData = JSON.parse(content);
     } else {
-        console.error('Unexpected Ollama response format:', data);
         throw new Error(`Unexpected response format from Ollama API. Response: ${JSON.stringify(data)}`);
     }
 
@@ -323,7 +244,6 @@ export const getJournalAnalysis = async (prefixedModel: string, apiKey: string, 
 
         // Remove reasoning/thinking content that some models include
         if (content.includes('"thinking":') || content.includes('thinking:')) {
-            console.log('Removing reasoning content from response');
             // Extract only the final answer, not the reasoning
             const thinkingMatch = content.match(/"thinking":\s*"[^"]*"/);
             if (thinkingMatch) {
@@ -333,14 +253,11 @@ export const getJournalAnalysis = async (prefixedModel: string, apiKey: string, 
 
         return content;
     } else {
-        console.error('Unexpected Ollama response format:', data);
         throw new Error(`Unexpected response format from Ollama API. Response: ${JSON.stringify(data)}`);
     }
 };
 
 export const getForYouSuggestion = async (prefixedModel: string, apiKey: string, profile: UserProfile, language: string): Promise<string> => {
-    console.log(`Generating For You suggestion in language: ${language}`);
-
     // Normalize language codes for better model compatibility
     const languageMap: Record<string, string> = {
         'en': 'English',
@@ -351,7 +268,6 @@ export const getForYouSuggestion = async (prefixedModel: string, apiKey: string,
     };
 
     const fullLanguageName = languageMap[language] || 'English';
-    console.log(`Using full language name: ${fullLanguageName} for code: ${language}`);
 
     const { endpoint, model, headers } = getOllamaConfig(prefixedModel, apiKey);
     const hours = new Date().getHours();
@@ -369,10 +285,21 @@ export const getForYouSuggestion = async (prefixedModel: string, apiKey: string,
     const timeLabels = timeContext[fullLanguageName as keyof typeof timeContext] || timeContext['English'];
     const currentTimeLabel = timeLabels[timeOfDay] || timeOfDay;
 
-    // Enhanced system instruction with stronger language enforcement
-    let systemInstruction = `You are a compassionate AI assistant providing a single, personalized piece of content for a "For You" card. Your response MUST be in ${fullLanguageName} language only. Do not use English. Generate ONE of the following in ${fullLanguageName}: a short quote, a 1-minute mindfulness prompt, or a gentle reflective question. Your response must be 1-3 sentences, direct text in ${fullLanguageName}, with no extra formatting. Context: Time is ${currentTimeLabel}.`;
+    // Enhanced system instruction with stronger language enforcement - focused and specific like Gemini
+    let systemInstruction = `You are a compassionate AI assistant. Your goal is to provide a single, concise, and personalized piece of content for a "For You" dashboard card.
 
-    // Add user profile information in target language
+Your response MUST be in the following language: ${fullLanguageName}.
+
+Based on the user's profile and the current time of day, generate ONE of the following:
+1. A short, encouraging quote that feels personal and relevant.
+2. A simple, 1-minute mindfulness prompt that can be done right now.
+3. A gentle, open-ended question for reflection.
+
+Your response must be short (1-3 sentences) and directly usable as text on a card. Do not include any extra conversational text, titles, or markdown formatting. Be creative and empathetic.
+
+--- PERSONALIZATION CONTEXT ---
+- Current time of day: ${currentTimeLabel}. For morning, be uplifting. For afternoon, suggest a reset. For evening, encourage winding down.`;
+
     if (profile.workEnvironment) {
         const workLabels = {
             'English': 'Work environment',
@@ -382,7 +309,7 @@ export const getForYouSuggestion = async (prefixedModel: string, apiKey: string,
             'Deutsch': 'Arbeitsumgebung'
         };
         const workLabel = workLabels[fullLanguageName as keyof typeof workLabels] || 'Work environment';
-        systemInstruction += `\n- ${workLabel}: ${profile.workEnvironment}.`;
+        systemInstruction += `\n- ${workLabel}: ${profile.workEnvironment}. A 'student' might need focus, someone 'remote' might need a break from their screen.`;
     }
 
     if (profile.activityLevel) {
@@ -394,10 +321,36 @@ export const getForYouSuggestion = async (prefixedModel: string, apiKey: string,
             'Deutsch': 'Aktivitätsniveau'
         };
         const activityLabel = activityLabels[fullLanguageName as keyof typeof activityLabels] || 'Activity level';
-        systemInstruction += `\n- ${activityLabel}: ${profile.activityLevel}.`;
+        systemInstruction += `\n- ${activityLabel}: ${profile.activityLevel}. An 'active' person might appreciate a prompt about their body, while a 'sedentary' person needs something achievable from a chair.`;
     }
 
-    const prompt = `Generate a personalized suggestion for the user in ${fullLanguageName} language based on the system instruction.`;
+    if (profile.accessToNature === 'yes') {
+        const natureLabels = {
+            'English': 'Access to nature',
+            'Español': 'Acceso a la naturaleza',
+            'Português': 'Acesso à natureza',
+            'Français': 'Accès à la nature',
+            'Deutsch': 'Zugang zur Natur'
+        };
+        const natureLabel = natureLabels[fullLanguageName as keyof typeof natureLabels] || 'Access to nature';
+        systemInstruction += `\n- ${natureLabel}: yes. You can incorporate nature into your suggestions.`;
+    }
+
+    if (profile.copingStyles) {
+        const copingLabels = {
+            'English': 'Previously helpful coping styles',
+            'Español': 'Estilos de afrontamiento previamente útiles',
+            'Português': 'Estilos de coping previamente úteis',
+            'Français': 'Styles d\'adaptation précédemment utiles',
+            'Deutsch': 'Früher hilfreiche Bewältigungsstile'
+        };
+        const copingLabel = copingLabels[fullLanguageName as keyof typeof copingLabels] || 'Previously helpful coping styles';
+        systemInstruction += `\n- ${copingLabel}: "${profile.copingStyles}". Your suggestion can align with these themes.`;
+    }
+
+    systemInstruction += "\n--- END OF CONTEXT ---";
+
+    const prompt = "Generate a personalized suggestion for the user based on my system instruction.";
 
     // Determine if this is a cloud request
     const isCloudRequest = endpoint.includes('ollama.com');
@@ -422,7 +375,6 @@ export const getForYouSuggestion = async (prefixedModel: string, apiKey: string,
     if (data.message && data.message.content) {
         return data.message.content.trim();
     } else {
-        console.error('Unexpected Ollama response format:', data);
         throw new Error(`Unexpected response format from Ollama API. Response: ${JSON.stringify(data)}`);
     }
 };
@@ -448,7 +400,6 @@ export const getThoughtChallengeHelp = async (prefixedModel: string, apiKey: str
     if (data.message && data.message.content) {
         return data.message.content.trim();
     } else {
-        console.error('Unexpected Ollama response format:', data);
         throw new Error(`Unexpected response format from Ollama API. Response: ${JSON.stringify(data)}`);
     }
 };
@@ -474,9 +425,167 @@ export const getThoughtChallengeHelp = async (prefixedModel: string, apiKey: str
  *   only valid JSON is returned.
  * - Logs are included for debugging purposes to trace the response handling process.
  */
-export const getMotivationalQuotes = async (prefixedModel: string, apiKey: string, language: string): Promise<string[]> => {
-    console.log(`Generating motivational quotes in language: ${language}`);
+// Fallback suggestion system for when context is insufficient
+export const getFallbackSuggestion = (language: string = 'en'): string => {
+    const fallbackMessages = {
+        'en': "I'm happy to help, but I don't see any information about your system or what kind of suggestions you'd like me to generate. Could you please provide more context or details about what you're looking for? If you'd like, we can start from scratch and go through a process together to figure out what type of suggestion might be most helpful to you. Here are some questions to get started: * What is the purpose of your system? * Who is it for (e.g., personal use, business, educational)? * Are there any specific requirements or constraints I should keep in mind? Let me know, and I'll do my best to provide a personalized suggestion!",
+        'es': "Estoy encantado de ayudar, pero no veo información sobre tu sistema o qué tipo de sugerencias te gustaría que generara. ¿Podrías proporcionar más contexto o detalles sobre lo que buscas? Si lo deseas, podemos empezar desde cero y pasar juntos por un proceso para determinar qué tipo de sugerencia podría ser más útil para ti. Aquí tienes algunas preguntas para empezar: * ¿Cuál es el propósito de tu sistema? * ¿Para quién es (por ejemplo, uso personal, empresarial, educativo)? * ¿Hay requisitos o restricciones específicos que deba tener en cuenta? ¡Házmelo saber y haré todo lo posible por proporcionar una sugerencia personalizada!",
+        'pt': "Fico feliz em ajudar, mas não vejo informações sobre o seu sistema ou que tipo de sugestões gostaria que eu gerasse. Você poderia fornecer mais contexto ou detalhes sobre o que está procurando? Se quiser, podemos começar do zero e passar juntos por um processo para descobrir que tipo de sugestão pode ser mais útil para você. Aqui estão algumas perguntas para começar: * Qual é o propósito do seu sistema? * Para quem é (por exemplo, uso pessoal, empresarial, educacional)? * Há requisitos ou restrições específicos que devo ter em mente? Me avise e farei o meu melhor para fornecer uma sugestão personalizada!",
+        'fr': "Je suis ravi de vous aider, mais je ne vois pas d'informations sur votre système ou le type de suggestions que vous aimeriez que je génère. Pourriez-vous fournir plus de contexte ou de détails sur ce que vous recherchez ? Si vous le souhaitez, nous pouvons repartir de zéro et passer ensemble par un processus pour déterminer quel type de suggestion pourrait vous être le plus utile. Voici quelques questions pour commencer : * Quel est l'objectif de votre système ? * À qui est-il destiné (par exemple, usage personnel, professionnel, éducatif) ? * Y a-t-il des exigences ou des contraintes spécifiques que je devrais garder à l'esprit ? Dites-le-moi et je ferai de mon mieux pour fournir une suggestion personnalisée !",
+        'de': "Ich helfe gerne weiter, sehe aber keine Informationen über Ihr System oder welche Art von Vorschlägen Sie gerne generiert haben möchten. Könnten Sie bitte mehr Kontext oder Details zu dem angeben, wonach Sie suchen? Wenn Sie möchten, können wir bei Null anfangen und gemeinsam einen Prozess durchgehen, um herauszufinden, welche Art von Vorschlag für Sie am hilfreichsten sein könnte. Hier sind einige Fragen, um zu beginnen: * Was ist der Zweck Ihres Systems? * Für wen ist es bestimmt (z.B. persönliche Nutzung, Geschäft, Bildung)? * Gibt es spezielle Anforderungen oder Einschränkungen, die ich beachten sollte? Lassen Sie es mich wissen, und ich werde mein Bestes tun, um einen personalisierten Vorschlag zu machen!"
+    };
 
+    return fallbackMessages[language as keyof typeof fallbackMessages] || fallbackMessages['en'];
+};
+
+export const getOllamaSetupInstructions = (language: string = 'en'): string => {
+    const setupInstructions = {
+        'en': "To use Ollama Cloud models, follow these simple steps:\n\n1. Create an account at https://ollama.com\n2. Go to Settings > API Keys\n3. Click 'Create new secret key'\n4. Copy your API key\n5. Paste it in the application settings\n\nAvailable cloud models:\n• deepseek-v3.1:671b-cloud (Recommended for complex tasks)\n• gpt-oss:20b-cloud (Good balance of speed and quality)\n• gpt-oss:120b-cloud (Best quality, slower)\n• kimi-k2:1t-cloud (Specialized for coding)\n• qwen3-coder:480b-cloud (Optimized for development)\n\nNo local installation required!",
+        'es': "Para usar modelos de Ollama Cloud, sigue estos pasos simples:\n\n1. Crea una cuenta en https://ollama.com\n2. Ve a Configuración > Claves API\n3. Haz clic en 'Crear nueva clave secreta'\n4. Copia tu clave API\n5. Pégala en la configuración de la aplicación\n\nModelos de nube disponibles:\n• deepseek-v3.1:671b-cloud (Recomendado para tareas complejas)\n• gpt-oss:20b-cloud (Buen equilibrio entre velocidad y calidad)\n• gpt-oss:120b-cloud (Mejor calidad, más lento)\n• kimi-k2:1t-cloud (Especializado para programación)\n• qwen3-coder:480b-cloud (Optimizado para desarrollo)\n\n¡No se requiere instalación local!",
+        'pt': "Para usar modelos do Ollama Cloud, siga estes passos simples:\n\n1. Crie uma conta em https://ollama.com\n2. Vá para Configurações > Chaves API\n3. Clique em 'Criar nova chave secreta'\n4. Copie sua chave API\n5. Cole-a nas configurações do aplicativo\n\nModelos de nuvem disponíveis:\n• deepseek-v3.1:671b-cloud (Recomendado para tarefas complexas)\n• gpt-oss:20b-cloud (Bom equilíbrio entre velocidade e qualidade)\n• gpt-oss:120b-cloud (Melhor qualidade, mais lento)\n• kimi-k2:1t-cloud (Especializado para programação)\n• qwen3-coder:480b-cloud (Otimizado para desenvolvimento)\n\nNão é necessária instalação local!",
+        'fr': "Pour utiliser les modèles Ollama Cloud, suivez ces étapes simples :\n\n1. Créez un compte sur https://ollama.com\n2. Allez dans Paramètres > Clés API\n3. Cliquez sur 'Créer une nouvelle clé secrète'\n4. Copiez votre clé API\n5. Collez-la dans les paramètres de l'application\n\nModèles cloud disponibles :\n• deepseek-v3.1:671b-cloud (Recommandé pour les tâches complexes)\n• gpt-oss:20b-cloud (Bon équilibre vitesse/qualité)\n• gpt-oss:120b-cloud (Meilleure qualité, plus lent)\n• kimi-k2:1t-cloud (Spécialisé pour le codage)\n• qwen3-coder:480b-cloud (Optimisé pour le développement)\n\nAucune installation locale requise !",
+        'de': "Um Ollama Cloud-Modelle zu verwenden, folgen Sie diesen einfachen Schritten:\n\n1. Erstellen Sie ein Konto auf https://ollama.com\n2. Gehen Sie zu Einstellungen > API-Schlüssel\n3. Klicken Sie auf 'Neuen geheimen Schlüssel erstellen'\n4. Kopieren Sie Ihren API-Schlüssel\n5. Fügen Sie ihn in den Anwendungseinstellungen ein\n\nVerfügbare Cloud-Modelle:\n• deepseek-v3.1:671b-cloud (Empfohlen für komplexe Aufgaben)\n• gpt-oss:20b-cloud (Gute Balance zwischen Geschwindigkeit und Qualität)\n• gpt-oss:120b-cloud (Beste Qualität, langsamer)\n• kimi-k2:1t-cloud (Spezialisiert für Programmierung)\n• qwen3-coder:480b-cloud (Optimiert für Entwicklung)\n\nKeine lokale Installation erforderlich!"
+    };
+
+    return setupInstructions[language as keyof typeof setupInstructions] || setupInstructions['en'];
+};
+
+export const getRecommendedModels = (): { local: string[], cloud: string[] } => {
+    return {
+        local: [
+            'llama3.2:3b',
+            'llama3.2:1b',
+            'mistral:7b',
+            'codellama:7b',
+            'vicuna:7b'
+        ],
+        cloud: [
+            'deepseek-v3.1:671b-cloud',
+            'gpt-oss:20b-cloud',
+            'qwen3-coder:480b-cloud'
+        ]
+    };
+};
+
+export const validateModelAvailability = async (modelName: string): Promise<{ available: boolean, error?: string }> => {
+    try {
+        const { models } = await getOllamaModels();
+
+        // Cloud-only validation
+        const isKnownCloudModel = OLLAMA_CLOUD_MODELS.some(cloudModel =>
+            cloudModel.toLowerCase().includes(modelName.toLowerCase())
+        );
+
+        return {
+            available: isKnownCloudModel,
+            error: isKnownCloudModel ? undefined : `Unknown cloud model '${modelName}'. Available cloud models: ${OLLAMA_CLOUD_MODELS.join(', ')}`
+        };
+    } catch (error) {
+        return {
+            available: false,
+            error: `Failed to validate model: ${error instanceof Error ? error.message : 'Unknown error'}`
+        };
+    }
+};
+
+export const diagnoseOllamaSetup = async (language: string = 'en'): Promise<{ status: 'healthy' | 'warning' | 'error', message: string, suggestions: string[] }> => {
+    const diagnostics = {
+        'en': {
+            healthy: 'Ollama Cloud is ready to use',
+            warning: 'Ollama Cloud API key may be missing',
+            error: 'Ollama Cloud setup needs attention',
+            suggestions: {
+                apikey: 'Get your API key from https://ollama.com/settings/keys',
+                models: 'Choose from available cloud models',
+                internet: 'Check your internet connection',
+                account: 'Ensure you have an Ollama.com account'
+            }
+        },
+        'es': {
+            healthy: 'Ollama Cloud está listo para usar',
+            warning: 'Es posible que falte la clave API de Ollama Cloud',
+            error: 'La configuración de Ollama Cloud necesita atención',
+            suggestions: {
+                apikey: 'Obtén tu clave API desde https://ollama.com/settings/keys',
+                models: 'Elige entre los modelos de nube disponibles',
+                internet: 'Verifica tu conexión a internet',
+                account: 'Asegúrate de tener una cuenta en Ollama.com'
+            }
+        },
+        'pt': {
+            healthy: 'Ollama Cloud está pronto para usar',
+            warning: 'A chave API do Ollama Cloud pode estar faltando',
+            error: 'A configuração do Ollama Cloud precisa de atenção',
+            suggestions: {
+                apikey: 'Obtenha sua chave API em https://ollama.com/settings/keys',
+                models: 'Escolha entre os modelos de nuvem disponíveis',
+                internet: 'Verifique sua conexão com a internet',
+                account: 'Certifique-se de ter uma conta no Ollama.com'
+            }
+        },
+        'fr': {
+            healthy: 'Ollama Cloud est prêt à être utilisé',
+            warning: 'La clé API Ollama Cloud peut être manquante',
+            error: 'La configuration Ollama Cloud nécessite une attention',
+            suggestions: {
+                apikey: 'Obtenez votre clé API depuis https://ollama.com/settings/keys',
+                models: 'Choisissez parmi les modèles cloud disponibles',
+                internet: 'Vérifiez votre connexion internet',
+                account: 'Assurez-vous d\'avoir un compte Ollama.com'
+            }
+        },
+        'de': {
+            healthy: 'Ollama Cloud ist bereit zur Nutzung',
+            warning: 'Ollama Cloud API-Schlüssel könnte fehlen',
+            error: 'Ollama Cloud-Setup braucht Aufmerksamkeit',
+            suggestions: {
+                apikey: 'Holen Sie sich Ihren API-Schlüssel von https://ollama.com/settings/keys',
+                models: 'Wählen Sie aus verfügbaren Cloud-Modellen',
+                internet: 'Überprüfen Sie Ihre Internetverbindung',
+                account: 'Stellen Sie sicher, dass Sie ein Ollama.com-Konto haben'
+            }
+        }
+    };
+
+    const texts = diagnostics[language as keyof typeof diagnostics] || diagnostics['en'];
+
+    try {
+        const { models, error } = await getOllamaModels();
+
+        if (error) {
+            return {
+                status: 'error',
+                message: texts.error,
+                suggestions: [
+                    texts.suggestions.account,
+                    texts.suggestions.internet,
+                    texts.suggestions.apikey
+                ]
+            };
+        }
+
+        return {
+            status: 'healthy',
+            message: texts.healthy,
+            suggestions: [
+                `Found ${models.cloud.length} cloud models available`,
+                texts.suggestions.apikey,
+                texts.suggestions.models
+            ]
+        };
+    } catch (error) {
+        return {
+            status: 'error',
+            message: texts.error,
+            suggestions: [
+                texts.suggestions.internet,
+                texts.suggestions.account
+            ]
+        };
+    }
+};
+
+export const getMotivationalQuotes = async (prefixedModel: string, apiKey: string, language: string): Promise<string[]> => {
     // Normalize language codes for better model compatibility
     const languageMap: Record<string, string> = {
         'en': 'English',
@@ -487,7 +596,6 @@ export const getMotivationalQuotes = async (prefixedModel: string, apiKey: strin
     };
 
     const fullLanguageName = languageMap[language] || 'English';
-    console.log(`Using full language name: ${fullLanguageName} for code: ${language}`);
 
     const { endpoint, model, headers } = getOllamaConfig(prefixedModel, apiKey);
     const systemInstruction = `You are a compassionate AI assistant. Provide a JSON array of 3-5 unique, short, uplifting motivational quotes related to mental well-being. Your response MUST be in ${fullLanguageName} language. Generate the quotes in ${fullLanguageName} only. Your response must be ONLY the valid JSON array.`;
@@ -517,49 +625,34 @@ export const getMotivationalQuotes = async (prefixedModel: string, apiKey: strin
 
     // Handle Ollama response format
     if (data.message && data.message.content) {
-        console.log('Motivational quotes raw response:', data.message.content);
-        console.log('Response type - isCloud:', isCloudRequest ? 'CLOUD' : 'LOCAL');
-
         // For local models, try different parsing approaches
         if (!isCloudRequest) {
-            console.log('Trying local model parsing approaches...');
-
             // First try: direct JSON parse (if format parameter worked)
             try {
-                const directParse = JSON.parse(data.message.content.trim());
-                console.log('Local model direct JSON parse successful:', directParse);
-                return directParse;
+                return JSON.parse(data.message.content.trim());
             } catch (directError) {
-                console.log('Direct JSON parse failed, trying alternative approaches...');
-
                 // Second try: extract JSON from markdown or text
                 let content = data.message.content.trim();
-                console.log('Content to process:', content);
 
                 // Handle markdown code blocks
                 if (content.startsWith('```json') && content.endsWith('```')) {
                     content = content.slice(7, -3).trim();
-                    console.log('Removed markdown code blocks:', content);
                 } else if (content.startsWith('```') && content.endsWith('```')) {
                     content = content.slice(3, -3).trim();
-                    console.log('Removed generic code blocks:', content);
                 }
 
                 // Try to find JSON array in the content
                 const jsonMatch = content.match(/\[[\s\S]*\]/);
                 if (jsonMatch) {
-                    console.log('Found JSON array match:', jsonMatch[0]);
                     try {
-                        const parsed = JSON.parse(jsonMatch[0]);
-                        console.log('JSON array parse successful:', parsed);
-                        return parsed;
+                        return JSON.parse(jsonMatch[0]);
                     } catch (arrayError) {
-                        console.error('JSON array parse failed:', arrayError);
+                        // Last resort: return empty array to prevent crashes
+                        return [];
                     }
                 }
 
                 // Last resort: return empty array to prevent crashes
-                console.error('All parsing attempts failed, returning empty array');
                 return [];
             }
         } else {
@@ -574,17 +667,12 @@ export const getMotivationalQuotes = async (prefixedModel: string, apiKey: strin
                     content = content.slice(3, -3).trim(); // Remove generic code blocks
                 }
 
-                const parsed = JSON.parse(content);
-                console.log('Motivational quotes parsed:', parsed);
-                return parsed;
+                return JSON.parse(content);
             } catch (parseError) {
-                console.error('Failed to parse motivational quotes JSON:', parseError);
-                console.error('Raw content that failed to parse:', data.message.content);
                 throw new Error(`Invalid JSON response from Ollama API: ${data.message.content}`);
             }
         }
     } else {
-        console.error('Unexpected Ollama response format:', data);
         throw new Error(`Unexpected response format from Ollama API. Response: ${JSON.stringify(data)}`);
     }
 };

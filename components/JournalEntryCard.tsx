@@ -50,7 +50,7 @@ interface JournalEntryCardProps {
 
 const JournalEntryCard: React.FC<JournalEntryCardProps> = ({ entry }) => {
     const { t, i18n } = useTranslation();
-    const { llmProvider, ollamaModel, ollamaCloudApiKey } = useUser();
+    const { llmProvider, groqModel, groqApiKey, ollamaModel, ollamaCloudApiKey } = useUser();
     const [analysis, setAnalysis] = useState<string | null>(null);
     const [isAnalyzing, setIsAnalyzing] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -61,7 +61,13 @@ const JournalEntryCard: React.FC<JournalEntryCardProps> = ({ entry }) => {
         setAnalysis(null);
         logInteraction({ type: 'REQUEST_JOURNAL_ANALYSIS', metadata: { provider: llmProvider } });
         try {
-            const result = await getJournalAnalysis(llmProvider, ollamaModel, ollamaCloudApiKey, entry.text, i18n.language);
+            const result = await getJournalAnalysis(
+                llmProvider,
+                llmProvider === 'groq' ? groqModel : ollamaModel,
+                llmProvider === 'groq' ? groqApiKey : ollamaCloudApiKey,
+                entry.text,
+                i18n.language
+            );
             setAnalysis(result);
         } catch (err) {
             if (err instanceof Error) {

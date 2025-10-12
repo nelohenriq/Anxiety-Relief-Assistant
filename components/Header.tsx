@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import ThemeToggle from './ThemeToggle';
 import SearchBar from './SearchBar';
 import Tooltip from './Tooltip';
+import { useOnlineStatus } from '../hooks/useOnlineStatus';
 
 interface HeaderProps {
     onOpenProfile: () => void;
@@ -27,18 +28,21 @@ interface HeaderProps {
  * @returns {JSX.Element} The rendered Header component.
  */
 const Header: React.FC<HeaderProps> = ({ onOpenProfile, showBackground, onOpenCrisisModal, searchQuery, onSearchQueryChange }) => {
-    const { t } = useTranslation();
+     const { t } = useTranslation();
+     const { isOnline } = useOnlineStatus();
     return (
-        <header className={`w-full fixed top-0 z-40 transition-all duration-300 ${showBackground ? 'bg-white/80 dark:bg-neutral-900/80 backdrop-blur-sm shadow-md border-b border-neutral-200 dark:border-neutral-800' : 'bg-transparent'}`}>
+        <header className={`w-full fixed top-0 z-40 transition-all duration-500 ${showBackground ? 'bg-white/90 dark:bg-neutral-900/90 backdrop-blur-xl shadow-lg border-b border-neutral-200/50 dark:border-neutral-800/50' : 'bg-transparent'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-16">
-                    {/* Logo and Title */}
-                    <div className="flex items-center space-x-3">
-                         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                           <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.25278C12 6.25278 10.8295 3 7.5 3C4.17048 3 3 6.25278 3 6.25278C3 6.25278 3 8.87327 5.25 10.5C7.5 12.1267 12 15 12 15C12 15 16.5 12.1267 18.75 10.5C21 8.87327 21 6.25278 21 6.25278C21 6.25278 19.8295 3 16.5 3C13.1705 3 12 6.25278 12 6.25278Z" stroke="currentColor" />
-                           <path strokeLinecap="round" strokeLinejoin="round" d="M12 15V21" stroke="currentColor"/>
-                         </svg>
-                        <span className="font-bold text-lg text-neutral-800 dark:text-neutral-100">{t('header.title')}</span>
+                <div className="flex items-center justify-between h-18">
+                    {/* Enhanced Logo and Title */}
+                    <div className="flex items-center space-x-4">
+                          <div className="p-2 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.25278C12 6.25278 10.8295 3 7.5 3C4.17048 3 3 6.25278 3 6.25278C3 6.25278 3 8.87327 5.25 10.5C7.5 12.1267 12 15 12 15C12 15 16.5 12.1267 18.75 10.5C21 8.87327 21 6.25278 21 6.25278C21 6.25278 19.8295 3 16.5 3C13.1705 3 12 6.25278 12 6.25278Z" stroke="currentColor" />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 15V21" stroke="currentColor"/>
+                            </svg>
+                          </div>
+                         <span className="font-black text-xl bg-gradient-to-r from-primary-600 to-accent-600 dark:from-primary-400 dark:to-accent-400 bg-clip-text text-transparent">{t('header.title')}</span>
                     </div>
                     
                     {/* Search Bar (Desktop) */}
@@ -46,14 +50,30 @@ const Header: React.FC<HeaderProps> = ({ onOpenProfile, showBackground, onOpenCr
                         <SearchBar query={searchQuery} onQueryChange={onSearchQueryChange} />
                     </div>
 
-                    {/* Controls */}
-                    <div className="flex items-center space-x-2">
-                        <Tooltip text={t('header.crisis_support_aria_label')}>
-                            <button
-                                onClick={onOpenCrisisModal}
-                                className="relative p-2 rounded-full text-red-500 hover:bg-red-100 dark:hover:bg-red-900/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-offset-neutral-900 transition-colors"
-                                aria-label={t('header.crisis_support_aria_label')}
-                            >
+                    {/* Enhanced Controls */}
+                    <div className="flex items-center space-x-3">
+                         {/* Network Status Indicator */}
+                         <Tooltip text={isOnline ? t('header.online', 'Online') : t('header.offline', 'Offline')}>
+                             <div className={`p-2.5 rounded-xl transition-all duration-300 ${isOnline ? 'text-green-600 bg-green-100 dark:bg-green-900/30 dark:text-green-400' : 'text-red-600 bg-red-100 dark:bg-red-900/30 dark:text-red-400'} hover:scale-110`}>
+                                 {isOnline ? (
+                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                         <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                     </svg>
+                                 ) : (
+                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                         <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 5.636l-12.728 12.728M5.636 5.636l12.728 12.728" />
+                                     </svg>
+                                 )}
+                             </div>
+                         </Tooltip>
+
+                         {/* Enhanced Crisis Support Button */}
+                         <Tooltip text={t('header.crisis_support_aria_label')}>
+                             <button
+                                 onClick={onOpenCrisisModal}
+                                 className="relative p-2.5 rounded-xl text-red-600 bg-red-100 dark:bg-red-900/30 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-900/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-offset-neutral-900 transition-all duration-300 hover:scale-110 shadow-sm"
+                                 aria-label={t('header.crisis_support_aria_label')}
+                             >
                                 <span className="absolute top-1.5 right-1.5 flex h-3 w-3">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
@@ -63,11 +83,13 @@ const Header: React.FC<HeaderProps> = ({ onOpenProfile, showBackground, onOpenCr
                                 </svg>
                             </button>
                         </Tooltip>
-                        <ThemeToggle />
+                        <div className="p-1 bg-neutral-100 dark:bg-neutral-800 rounded-lg">
+                            <ThemeToggle />
+                        </div>
                         <Tooltip text={t('header.settings_aria_label')}>
                             <button
                                 onClick={onOpenProfile}
-                                className="p-2 rounded-full text-neutral-500 hover:bg-neutral-200 hover:text-neutral-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-200 dark:focus:ring-offset-neutral-900 transition-colors"
+                                className="p-2.5 rounded-xl text-neutral-600 bg-neutral-100 hover:bg-neutral-200 hover:text-neutral-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 dark:text-neutral-400 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:hover:text-neutral-200 dark:focus:ring-offset-neutral-900 transition-all duration-300 hover:scale-110 shadow-sm"
                                 aria-label={t('header.settings_aria_label')}
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

@@ -23,7 +23,7 @@ import { useUser } from '../context/UserContext';
  */
 const MotivationalSlider: React.FC = () => {
     const { i18n } = useTranslation();
-    const { llmProvider, ollamaModel, ollamaCloudApiKey } = useUser();
+    const { llmProvider, groqModel, groqApiKey, ollamaModel, ollamaCloudApiKey } = useUser();
     const [quotes, setQuotes] = useState<string[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFading, setIsFading] = useState(false);
@@ -36,8 +36,8 @@ const MotivationalSlider: React.FC = () => {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         provider: llmProvider,
-                        model: ollamaModel,
-                        apiKey: ollamaCloudApiKey,
+                        model: llmProvider === 'groq' ? groqModel : ollamaModel,
+                        apiKey: llmProvider === 'groq' ? groqApiKey : ollamaCloudApiKey,
                         language: i18n.language,
                     }),
                 });
@@ -52,7 +52,7 @@ const MotivationalSlider: React.FC = () => {
             }
         };
         fetchQuotes();
-    }, [i18n.language, llmProvider, ollamaModel, ollamaCloudApiKey]);
+    }, [i18n.language, llmProvider, groqModel, groqApiKey, ollamaModel, ollamaCloudApiKey]);
     
     useEffect(() => {
         if (quotes.length > 1) {
