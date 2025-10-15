@@ -29,3 +29,6 @@ dist-ssr
 /lib
 
 .lightning_studio
+.next
+
+/node_modules
