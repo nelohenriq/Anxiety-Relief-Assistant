@@ -6,8 +6,18 @@ const APP_SHELL_CACHE = [
   '/',
   '/manifest.json',
   '/icon.svg',
-  '/icon-192.png',
-  '/icon-512.png'
+  '/icon-192.svg',
+  '/icon-512.svg'
+];
+
+// Audio files that should be cached for offline functionality
+const AUDIO_CACHE_PATTERNS = [
+  /\/audio\//,
+  /\.webm$/,
+  /\.mp3$/,
+  /\.wav$/,
+  /\.ogg$/,
+  /\.m4a$/
 ];
 
 // API routes that should be cached for offline functionality
@@ -22,19 +32,32 @@ self.addEventListener('install', (event) => {
   console.log('[SW] Installing service worker...');
 
   event.waitUntil(
-    Promise.all([
-      caches.open(CACHE_NAME).then((cache) => {
+    (async () => {
+      try {
+        const cache = await caches.open(CACHE_NAME);
         console.log('[SW] Caching app shell');
-        return cache.addAll(APP_SHELL_CACHE);
-      }),
-      caches.open(RUNTIME_CACHE).then((cache) => {
+
+        // Cache files one by one to handle failures gracefully
+        for (const url of APP_SHELL_CACHE) {
+          try {
+            await cache.add(url);
+            console.log(`[SW] Cached: ${url}`);
+          } catch (error) {
+            console.warn(`[SW] Failed to cache ${url}:`, error);
+            // Continue with other files even if one fails
+          }
+        }
+
+        const runtimeCache = await caches.open(RUNTIME_CACHE);
         console.log('[SW] Runtime cache ready');
-        return Promise.resolve();
-      })
-    ]).then(() => {
-      console.log('[SW] Skip waiting');
-      return self.skipWaiting();
-    })
+
+        console.log('[SW] Skip waiting');
+        return self.skipWaiting();
+      } catch (error) {
+        console.error('[SW] Installation failed:', error);
+        throw error;
+      }
+    })()
   );
 });
 
@@ -77,6 +100,13 @@ self.addEventListener('fetch', (event) => {
   // Handle API requests with network-first strategy
   if (API_CACHE_PATTERNS.some(pattern => pattern.test(request.url))) {
     event.respondWith(networkFirstStrategy(request));
+    return;
+  }
+
+  // Handle audio files with cache-first strategy for better offline experience
+  if (AUDIO_CACHE_PATTERNS.some(pattern => pattern.test(request.url)) ||
+      request.destination === 'audio') {
+    event.respondWith(audioCacheStrategy(request));
     return;
   }
 
@@ -180,6 +210,40 @@ async function staleWhileRevalidateStrategy(request) {
 
   // If no cache, wait for network
   return networkPromise;
+}
+
+// Audio cache strategy: cache-first for better performance and offline support
+async function audioCacheStrategy(request) {
+  try {
+    // Try cache first for audio files
+    const cachedResponse = await caches.match(request);
+    if (cachedResponse) {
+      return cachedResponse;
+    }
+
+    // If not in cache, fetch from network
+    const networkResponse = await fetch(request);
+
+    // Cache successful audio responses
+    if (networkResponse.ok) {
+      const cache = await caches.open(RUNTIME_CACHE);
+      cache.put(request, networkResponse.clone());
+    }
+
+    return networkResponse;
+  } catch (error) {
+    console.error('[SW] Audio cache strategy failed:', error);
+
+    // For audio files, we can return a more specific offline message
+    return new Response(JSON.stringify({
+      error: 'Offline',
+      message: 'Audio content is not available offline',
+      type: 'audio'
+    }), {
+      status: 503,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
 }
 
 // Background sync for offline actions

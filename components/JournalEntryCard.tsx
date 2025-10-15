@@ -43,6 +43,8 @@ import { getJournalAnalysis } from '../services/llmService';
 import { logInteraction } from '../services/interactionLogger';
 import Tooltip from './Tooltip';
 import { useUser } from '../context/UserContext';
+import AudioPlayer from './AudioPlayer';
+import AudioVisualizer from './AudioVisualizer';
 
 interface JournalEntryCardProps {
     entry: JournalEntry;
@@ -88,7 +90,31 @@ const JournalEntryCard: React.FC<JournalEntryCardProps> = ({ entry }) => {
     return (
         <div className="bg-neutral-100 dark:bg-neutral-900 p-4 rounded-lg shadow-sm">
             <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-2">{formattedDate}</p>
-            <p className="text-neutral-700 dark:text-neutral-300 whitespace-pre-wrap">{entry.text}</p>
+
+            {/* Text Content */}
+            {entry.text && (
+                <p className="text-neutral-700 dark:text-neutral-300 whitespace-pre-wrap mb-3">{entry.text}</p>
+            )}
+
+            {/* Audio Content */}
+            {entry.audioUrl && (
+                <div className="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700/50">
+                    <div className="mb-2">
+                        <AudioVisualizer
+                            isRecording={false}
+                            isPaused={false}
+                            audioUrl={entry.audioUrl}
+                            height={30}
+                            barCount={15}
+                        />
+                    </div>
+                    <AudioPlayer
+                        audioUrl={entry.audioUrl}
+                        audioBlob={entry.audioBlob}
+                        showDownload={true}
+                    />
+                </div>
+            )}
             
             <div className="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700/50">
                 {isAnalyzing && (

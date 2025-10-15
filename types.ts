@@ -49,6 +49,10 @@ export interface JournalEntry {
     id: string;
     text: string;
     timestamp: string;
+    audioBlob?: Blob;
+    audioUrl?: string;
+    audioDuration?: number; // in milliseconds
+    transcription?: string;
 }
 
 export interface PlanHistoryEntry {

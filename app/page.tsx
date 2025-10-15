@@ -312,14 +312,14 @@ export default function Home() {
           </div>
 
           {/* Enhanced subtitle with better typography */}
-          <p className="mt-6 text-xl md:text-2xl max-w-3xl mx-auto text-neutral-700 dark:text-neutral-300 leading-relaxed font-light animate-fade-in delay-200">
+          <div className="mt-6 text-xl md:text-2xl max-w-3xl mx-auto text-neutral-700 dark:text-neutral-300 leading-relaxed font-light animate-fade-in delay-200">
             Describe how you're feeling, and let our AI create a
             <span className="font-semibold text-primary-600 dark:text-primary-400 relative">
               personalized plan
               <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full opacity-60"></div>
             </span>
             with coping exercises to guide you toward relief.
-          </p>
+          </div>
 
           {/* Enhanced CTA button with more sophisticated effects */}
           <button
