@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useUser } from '../context/UserContext';
 import { UserProfile, DataConsentLevel } from '../types';
 import { logInteraction } from '../services/interactionLogger';
+import * as api from '../services/apiService';
 
 interface OnboardingModalProps {
     onComplete: () => void;
@@ -124,7 +125,7 @@ const ProfileStep: React.FC<{localProfile: UserProfile, handleProfileChange: (e:
 
 const OnboardingModal: React.FC<OnboardingModalProps> = ({ onComplete }) => {
     const { t } = useTranslation();
-    const { setConsentLevel, profile, setProfile } = useUser();
+    const { userId, setConsentLevel, profile, setProfile } = useUser();
     const [currentStep, setCurrentStep] = useState(0);
     const [localConsent, setLocalConsent] = useState<DataConsentLevel>('enhanced');
     const [localProfile, setLocalProfile] = useState<UserProfile>({});
@@ -141,10 +142,18 @@ const OnboardingModal: React.FC<OnboardingModalProps> = ({ onComplete }) => {
         }
     }
 
-    const handleFinish = () => {
+    const handleFinish = async () => {
+        const fullProfile = { ...profile, ...localProfile };
         logInteraction({ type: 'COMPLETE_ONBOARDING', metadata: { consent_level: localConsent } });
+        
+        try {
+            await api.saveUser(userId, { profile: fullProfile, consentLevel: localConsent });
+        } catch (error) {
+            console.error('Failed to sync user data onto server during onboarding', error);
+        }
+
         setConsentLevel(localConsent);
-        setProfile({ ...profile, ...localProfile });
+        setProfile(fullProfile);
         onComplete();
     };
     

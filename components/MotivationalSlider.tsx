@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getMotivationalQuotes } from '../services/llmService';
 import { useUser } from '../context/UserContext';
+import * as api from '../services/apiService';
 
 const MotivationalSlider: React.FC = () => {
     const { i18n } = useTranslation();
-    const { llmProvider, ollamaModel, ollamaCloudApiKey } = useUser();
+    const { llmProvider, ollamaModel, ollamaCloudApiKey, geminiApiKey, customLlmModel, customLlmApiKey, customLlmBaseUrl } = useUser();
     const [quotes, setQuotes] = useState<string[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFading, setIsFading] = useState(false);
@@ -13,7 +13,13 @@ const MotivationalSlider: React.FC = () => {
     useEffect(() => {
         const fetchQuotes = async () => {
             try {
-                const result = await getMotivationalQuotes(llmProvider, ollamaModel, ollamaCloudApiKey, i18n.language);
+                const result = await api.aiMotivationalQuotes({
+                    provider: llmProvider,
+                    language: i18n.language,
+                    model: llmProvider === 'ollama' ? ollamaModel : customLlmModel,
+                    apiKey: llmProvider === 'ollama' ? ollamaCloudApiKey : (llmProvider === 'gemini' ? geminiApiKey : customLlmApiKey),
+                    baseURL: customLlmBaseUrl
+                });
                 setQuotes(result);
             } catch (error) {
                 console.error("Failed to fetch motivational quotes:", error);
@@ -21,7 +27,7 @@ const MotivationalSlider: React.FC = () => {
             }
         };
         fetchQuotes();
-    }, [i18n.language, llmProvider, ollamaModel, ollamaCloudApiKey]);
+    }, [i18n.language, llmProvider, ollamaModel, ollamaCloudApiKey, geminiApiKey, customLlmModel, customLlmApiKey, customLlmBaseUrl]);
     
     useEffect(() => {
         if (quotes.length > 1) {

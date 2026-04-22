@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { MoodLog } from '../types';
 import MoodChart from './MoodChart';
 import Tooltip from './Tooltip';
 import { logInteraction } from '../services/interactionLogger';
+
+import { useUser } from '../context/UserContext';
+import * as api from '../services/apiService';
 
 interface MoodTrackerProps {
     searchQuery: string;
@@ -20,10 +23,19 @@ const moodOptions: { rating: MoodLog['rating']; emoji: string; labelKey: string 
 
 const MoodTracker: React.FC<MoodTrackerProps> = ({ searchQuery }) => {
     const { t } = useTranslation();
+    const { userId } = useUser();
     const [logs, setLogs] = useLocalStorage<MoodLog[]>('moodLogs', []);
     const [showConfirmation, setShowConfirmation] = useState(false);
+
+    useEffect(() => {
+        const loadMoods = async () => {
+            const history = await api.fetchUserHistory(userId);
+            if (history.moods.length > 0) setLogs(history.moods);
+        };
+        loadMoods();
+    }, [userId]);
     
-    const handleMoodSelect = (rating: MoodLog['rating']) => {
+    const handleMoodSelect = async (rating: MoodLog['rating']) => {
         logInteraction({ type: 'LOG_MOOD', metadata: { rating } });
         const newLog: MoodLog = {
             id: crypto.randomUUID(),
@@ -31,6 +43,7 @@ const MoodTracker: React.FC<MoodTrackerProps> = ({ searchQuery }) => {
             timestamp: new Date().toISOString(),
         };
         setLogs([newLog, ...logs]);
+        await api.saveMood(userId, newLog);
         setShowConfirmation(true);
         setTimeout(() => setShowConfirmation(false), 2000);
     };

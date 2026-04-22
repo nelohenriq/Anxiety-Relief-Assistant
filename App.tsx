@@ -21,13 +21,15 @@ import MotivationalSlider from './components/MotivationalSlider';
 import LiveCoach from './components/LiveCoach';
 import OnboardingModal from './components/OnboardingModal';
 import CalmImage from './components/CalmImage';
-import { getPersonalizedExercises } from './services/llmService';
 import { logInteraction } from './services/interactionLogger';
 import { Exercise, ExerciseFeedback, FeedbackRating, PlanHistoryEntry, CompletedExerciseLog, FeedbackEntry } from './types';
 import { useUser } from './context/UserContext';
 import useLocalStorage from './hooks/useLocalStorage';
+import { useSync } from './hooks/useSync';
+import * as api from './services/apiService';
 
 const App: React.FC = () => {
+    useSync(); // Ensure data is synced to backend
     const { t, i18n } = useTranslation();
     const [symptoms, setSymptoms] = useState('');
     const [exercises, setExercises] = useState<Exercise[]>([]);
@@ -44,7 +46,22 @@ const App: React.FC = () => {
     const [hasCompletedOnboarding, setHasCompletedOnboarding] = useLocalStorage('hasCompletedOnboarding', false);
     const [calmImageUrl, setCalmImageUrl] = useState<string | null>(null);
 
-    const { profile, consentLevel, llmProvider, ollamaModel, ollamaCloudApiKey } = useUser();
+    const { userId, profile, consentLevel, llmProvider, ollamaModel, ollamaCloudApiKey, geminiApiKey, customLlmModel, customLlmApiKey, customLlmBaseUrl } = useUser();
+
+    useEffect(() => {
+        const loadHistory = async () => {
+            try {
+                // Ensure user exists in backend
+                await api.saveUser(userId, { profile, consentLevel });
+                
+                const history = await api.fetchUserHistory(userId);
+                if (history.plans.length > 0) setPlanHistory(history.plans);
+            } catch (error) {
+                console.error('Failed to sync with backend:', error);
+            }
+        };
+        loadHistory();
+    }, [userId]);
 
     const handleScroll = () => {
         if (window.scrollY > 50) {
@@ -75,7 +92,22 @@ const App: React.FC = () => {
         logInteraction({ type: 'GENERATE_PLAN', metadata: { provider: llmProvider } });
 
         try {
-            const { exercises: result, sources, calmImageUrl: imageUrl } = await getPersonalizedExercises(llmProvider, ollamaModel, ollamaCloudApiKey, symptoms, profile, consentLevel, feedback, i18n.language);
+            const resultData = await api.aiGeneratePlan({
+                provider: llmProvider,
+                symptoms,
+                profile,
+                consentLevel,
+                feedback,
+                language: i18n.language,
+                model: llmProvider === 'ollama' ? ollamaModel : customLlmModel,
+                apiKey: llmProvider === 'ollama' ? ollamaCloudApiKey : (llmProvider === 'gemini' ? geminiApiKey : customLlmApiKey),
+                baseURL: customLlmBaseUrl
+            });
+
+            const result = resultData.exercises;
+            const sources = resultData.sources;
+            const imageUrl = resultData.calmImageUrl || null;
+            
             setExercises(result);
             setCalmImageUrl(imageUrl);
 
@@ -88,6 +120,7 @@ const App: React.FC = () => {
                 calmImageUrl: imageUrl || undefined,
             };
             setPlanHistory([newHistoryEntry, ...planHistory]);
+            await api.savePlan(userId, newHistoryEntry);
             
             logInteraction({
                 type: 'RECEIVE_PLAN_SUCCESS',
@@ -287,9 +320,9 @@ const App: React.FC = () => {
                             {exercises.length > 0 && (
                                 <div className="space-y-6 mt-8 animate-fade-in">
                                     <h2 className="text-3xl font-bold text-center text-neutral-800 dark:text-neutral-100">{t('personalized_plan.title')}</h2>
-                                    {filteredExercises.map((exercise) => (
+                                    {filteredExercises.map((exercise, idx) => (
                                         <ExerciseCard
-                                            key={exercise.id}
+                                            key={exercise.id || idx}
                                             exercise={exercise}
                                             onFeedback={handleFeedback}
                                             feedbackRating={feedback[exercise.id]?.rating}

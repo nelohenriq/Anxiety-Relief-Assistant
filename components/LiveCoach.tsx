@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { GoogleGenAI, LiveServerMessage, Modality, Blob as GenAI_Blob } from '@google/genai';
 import Tooltip from './Tooltip';
 import { logInteraction } from '../services/interactionLogger';
+import { useUser } from '../context/UserContext';
 
 // --- Audio Helper Functions from @google/genai guidelines ---
 function decode(base64: string): Uint8Array {
@@ -59,6 +60,7 @@ interface Transcript {
 
 const LiveCoach: React.FC<{ searchQuery: string }> = ({ searchQuery }) => {
     const { t, i18n } = useTranslation();
+    const { llmProvider, geminiApiKey } = useUser();
     const [isSessionActive, setIsSessionActive] = useState(false);
     const [status, setStatus] = useState<'idle' | 'connecting' | 'listening' | 'speaking' | 'error'>('idle');
     const [transcripts, setTranscripts] = useState<Transcript[]>([]);
@@ -75,9 +77,13 @@ const LiveCoach: React.FC<{ searchQuery: string }> = ({ searchQuery }) => {
     const currentInputRef = useRef('');
     const currentOutputRef = useRef('');
 
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    const ai = new GoogleGenAI({ apiKey: geminiApiKey || process.env.API_KEY || '' });
     
     const handleStartSession = () => {
+        if (llmProvider !== 'gemini') {
+            alert('Live Coach features are currently only optimized for Gemini. Please switch your provider in Settings to use this feature.');
+            return;
+        }
         logInteraction({ type: 'START_LIVE_COACH_SESSION' });
         setStatus('connecting');
         setIsSessionActive(true);

@@ -7,7 +7,7 @@ import ExerciseHistory from './ExerciseHistory';
 import FeedbackModal from './FeedbackModal';
 import FeedbackHistory from './FeedbackHistory';
 import { logInteraction } from '../services/interactionLogger';
-import { getOllamaModels } from '../services/providers/ollama';
+import * as api from '../services/apiService';
 
 interface UserProfileProps {
     isOpen: boolean;
@@ -21,12 +21,16 @@ type ActiveTab = 'settings' | 'history' | 'feedback';
 
 const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHistory, feedbackHistory, onSaveFeedback }) => {
     const { t, i18n } = useTranslation();
-    const { profile, setProfile, consentLevel, setConsentLevel, reminderSettings, setReminderSettings, llmProvider, setLlmProvider, ollamaModel, setOllamaModel, ollamaCloudApiKey, setOllamaCloudApiKey, clearAllData } = useUser();
+    const { userId, profile, setProfile, consentLevel, setConsentLevel, reminderSettings, setReminderSettings, llmProvider, setLlmProvider, ollamaModel, setOllamaModel, ollamaCloudApiKey, setOllamaCloudApiKey, geminiApiKey, setGeminiApiKey, customLlmModel, setCustomLlmModel, customLlmApiKey, setCustomLlmApiKey, customLlmBaseUrl, setCustomLlmBaseUrl, clearAllData } = useUser();
     const [localProfile, setLocalProfile] = useState<UserProfileType>(profile);
     const [localReminders, setLocalReminders] = useState<ReminderSettings>(reminderSettings);
     const [localLlmProvider, setLocalLlmProvider] = useState(llmProvider);
     const [localOllamaModel, setLocalOllamaModel] = useState(ollamaModel);
     const [localOllamaCloudApiKey, setLocalOllamaCloudApiKey] = useState(ollamaCloudApiKey);
+    const [localGeminiApiKey, setLocalGeminiApiKey] = useState(geminiApiKey);
+    const [localCustomLlmModel, setLocalCustomLlmModel] = useState(customLlmModel);
+    const [localCustomLlmApiKey, setLocalCustomLlmApiKey] = useState(customLlmApiKey);
+    const [localCustomLlmBaseUrl, setLocalCustomLlmBaseUrl] = useState(customLlmBaseUrl);
     const [showConfirm, setShowConfirm] = useState(false);
     const [notificationPermission, setNotificationPermission] = useState(Notification.permission);
     const [activeTab, setActiveTab] = useState<ActiveTab>('settings');
@@ -40,25 +44,24 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
     const fetchOllamaModelsAndStatus = async () => {
         setOllamaConnectionStatus('testing');
         setOllamaConnectionError(null);
-        const { models, error } = await getOllamaModels();
-        setAvailableLocalOllamaModels(models.local);
-        setAvailableCloudOllamaModels(models.cloud);
-
-        if (error) {
-            setOllamaConnectionStatus('error');
-            setOllamaConnectionError(error);
-        } else {
+        try {
+            const models = await api.fetchOllamaModels();
+            setAvailableLocalOllamaModels(models.local);
+            setAvailableCloudOllamaModels(models.cloud);
             setOllamaConnectionStatus('success');
-        }
 
-        const allModels = [
-            ...models.local.map(m => `local:${m}`),
-            ...models.cloud.map(m => `cloud:${m}`)
-        ];
+            const allModels = [
+                ...models.local.map((m: string) => `local:${m}`),
+                ...models.cloud.map((m: string) => `cloud:${m}`)
+            ];
 
-        if (!allModels.includes(localOllamaModel)) {
-            const newDefaultModel = models.local[0] ? `local:${models.local[0]}` : models.cloud[0] ? `cloud:${models.cloud[0]}` : '';
-            setLocalOllamaModel(newDefaultModel);
+            if (!allModels.includes(localOllamaModel)) {
+                const newDefaultModel = models.local[0] ? `local:${models.local[0]}` : models.cloud[0] ? `cloud:${models.cloud[0]}` : '';
+                setLocalOllamaModel(newDefaultModel);
+            }
+        } catch (error) {
+            setOllamaConnectionStatus('error');
+            setOllamaConnectionError(error instanceof Error ? error.message : 'Unknown error');
         }
     };
 
@@ -68,10 +71,14 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
         setLocalLlmProvider(llmProvider);
         setLocalOllamaModel(ollamaModel);
         setLocalOllamaCloudApiKey(ollamaCloudApiKey);
+        setLocalGeminiApiKey(geminiApiKey);
+        setLocalCustomLlmModel(customLlmModel);
+        setLocalCustomLlmApiKey(customLlmApiKey);
+        setLocalCustomLlmBaseUrl(customLlmBaseUrl);
         if (isOpen) {
             setActiveTab('settings');
         }
-    }, [profile, reminderSettings, llmProvider, ollamaModel, ollamaCloudApiKey, isOpen]);
+    }, [profile, reminderSettings, llmProvider, ollamaModel, ollamaCloudApiKey, geminiApiKey, customLlmModel, customLlmApiKey, customLlmBaseUrl, isOpen]);
 
     useEffect(() => {
         if (isOpen && localLlmProvider === 'ollama') {
@@ -82,21 +89,32 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
         }
     }, [isOpen, localLlmProvider]);
 
-    const handleSave = () => {
-        logInteraction({
-            type: 'SAVE_SETTINGS',
-            metadata: {
-                provider: localLlmProvider,
-                ollamaModel: localLlmProvider === 'ollama' ? localOllamaModel : undefined,
-                reminders_enabled: localReminders.isEnabled
-            }
-        });
-        setProfile(localProfile);
-        setReminderSettings(localReminders);
-        setLlmProvider(localLlmProvider);
-        setOllamaModel(localOllamaModel);
-        setOllamaCloudApiKey(localOllamaCloudApiKey);
-        onClose();
+    const handleSave = async () => {
+        try {
+            logInteraction({
+                type: 'SAVE_SETTINGS',
+                metadata: {
+                    provider: localLlmProvider,
+                    ollamaModel: localLlmProvider === 'ollama' ? localOllamaModel : undefined,
+                    reminders_enabled: localReminders.isEnabled
+                }
+            });
+            setProfile(localProfile);
+            setReminderSettings(localReminders);
+            setLlmProvider(localLlmProvider);
+            setOllamaModel(localOllamaModel);
+            setOllamaCloudApiKey(localOllamaCloudApiKey);
+            setGeminiApiKey(localGeminiApiKey);
+            setCustomLlmModel(localCustomLlmModel);
+            setCustomLlmApiKey(localCustomLlmApiKey);
+            setCustomLlmBaseUrl(localCustomLlmBaseUrl);
+            
+            await api.saveUser(userId, { profile: localProfile, consentLevel });
+        } catch (error) {
+            console.error('Failed to save settings:', error);
+        } finally {
+            onClose();
+        }
     };
     
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -164,8 +182,26 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
                         <select id="llmProvider" value={localLlmProvider} onChange={(e) => setLocalLlmProvider(e.target.value as any)} className="mt-1 block w-full rounded-md border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-200 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm">
                             <option value="gemini">Gemini (Google)</option>
                             <option value="ollama">Ollama (Local + Cloud)</option>
+                            <option value="nvidia">NVIDIA NIM (OpenAI Compatible)</option>
+                            <option value="openai">OpenAI (GPT-4/3.5)</option>
                         </select>
                     </div>
+                    {localLlmProvider === 'gemini' && (
+                        <div className="p-4 border border-neutral-200 dark:border-neutral-700 rounded-lg space-y-4">
+                            <div>
+                                <label htmlFor="geminiApiKey" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">Gemini API Key (Optional)</label>
+                                <input 
+                                    type="password"
+                                    id="geminiApiKey"
+                                    value={localGeminiApiKey}
+                                    onChange={(e) => setLocalGeminiApiKey(e.target.value)}
+                                    placeholder="Enter your Google AI Studio API key"
+                                    className="mt-1 block w-full rounded-md border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-200 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                />
+                                <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">If left blank, the application will use the default system key. Leave blank if you are not using your own key.</p>
+                            </div>
+                        </div>
+                    )}
                     {localLlmProvider === 'ollama' && (
                         <div className="p-4 border border-neutral-200 dark:border-neutral-700 rounded-lg space-y-4">
                             <div>
@@ -235,6 +271,44 @@ const UserProfile: React.FC<UserProfileProps> = ({ isOpen, onClose, exerciseHist
                                     {ollamaConnectionStatus === 'error' && <p className="text-red-600 dark:text-red-400">{t('user_profile.ollama_status_error')} {ollamaConnectionError}</p>}
                                 </div>
                                 <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">{t('user_profile.ollama_model_helper')}</p>
+                            </div>
+                        </div>
+                    )}
+                    {(localLlmProvider === 'nvidia' || localLlmProvider === 'openai') && (
+                        <div className="p-4 border border-neutral-200 dark:border-neutral-700 rounded-lg space-y-4">
+                            <div>
+                                <label htmlFor="customLlmBaseUrl" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
+                                    {localLlmProvider === 'nvidia' ? 'NVIDIA NIM Base URL' : 'OpenAI Base URL (Optional)'}
+                                </label>
+                                <input 
+                                    type="text"
+                                    id="customLlmBaseUrl"
+                                    value={localCustomLlmBaseUrl}
+                                    onChange={(e) => setLocalCustomLlmBaseUrl(e.target.value)}
+                                    placeholder={localLlmProvider === 'nvidia' ? 'https://integrate.api.nvidia.com/v1' : 'https://api.openai.com/v1'}
+                                    className="mt-1 block w-full rounded-md border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-200 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="customLlmApiKey" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">API Key</label>
+                                <input 
+                                    type="password"
+                                    id="customLlmApiKey"
+                                    value={localCustomLlmApiKey}
+                                    onChange={(e) => setLocalCustomLlmApiKey(e.target.value)}
+                                    className="mt-1 block w-full rounded-md border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-200 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="customLlmModel" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">Model Name</label>
+                                <input 
+                                    type="text"
+                                    id="customLlmModel"
+                                    value={localCustomLlmModel}
+                                    onChange={(e) => setLocalCustomLlmModel(e.target.value)}
+                                    placeholder={localLlmProvider === 'nvidia' ? 'meta/llama3-70b-instruct' : 'gpt-4'}
+                                    className="mt-1 block w-full rounded-md border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-200 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                />
                             </div>
                         </div>
                     )}

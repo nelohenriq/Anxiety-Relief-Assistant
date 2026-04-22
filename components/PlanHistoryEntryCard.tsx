@@ -127,8 +127,8 @@ const PlanHistoryEntryCard: React.FC<PlanHistoryEntryCardProps> = ({ entry }) =>
                     <div className="border-t border-neutral-200 dark:border-neutral-700 pt-4">
                         <p className="text-xs font-semibold uppercase text-neutral-500 dark:text-neutral-400 tracking-wider mb-2">{t('plan_history_card.generated_plan')}</p>
                         <ul className="space-y-4">
-                            {entry.generatedExercises.map(ex => (
-                                <li key={ex.id} className="p-3 bg-neutral-100 dark:bg-neutral-900/70 rounded-md">
+                            {entry.generatedExercises.map((ex, idx) => (
+                                <li key={ex.id || idx} className="p-3 bg-neutral-100 dark:bg-neutral-900/70 rounded-md">
                                     <div className="flex justify-between items-start">
                                         <p className="font-bold text-neutral-800 dark:text-neutral-100">{ex.title}</p>
                                         <span className="text-xs text-neutral-500 dark:text-neutral-400 flex-shrink-0 ml-2">

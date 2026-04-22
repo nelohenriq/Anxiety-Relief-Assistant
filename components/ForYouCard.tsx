@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useUser } from '../context/UserContext';
-import { getForYouSuggestion } from '../services/llmService';
+import * as api from '../services/apiService';
 
 const ForYouCard: React.FC = () => {
     const { t, i18n } = useTranslation();
-    const { profile, consentLevel, llmProvider, ollamaModel, ollamaCloudApiKey } = useUser();
+    const { profile, consentLevel, llmProvider, ollamaModel, ollamaCloudApiKey, geminiApiKey, customLlmModel, customLlmApiKey, customLlmBaseUrl } = useUser();
     const [suggestion, setSuggestion] = useState<string>('');
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
@@ -20,7 +20,14 @@ const ForYouCard: React.FC = () => {
             setIsLoading(true);
             setError(null);
             try {
-                const result = await getForYouSuggestion(llmProvider, ollamaModel, ollamaCloudApiKey, profile, i18n.language);
+                const result = await api.aiForYou({
+                    provider: llmProvider,
+                    profile,
+                    language: i18n.language,
+                    model: llmProvider === 'ollama' ? ollamaModel : customLlmModel,
+                    apiKey: llmProvider === 'ollama' ? ollamaCloudApiKey : (llmProvider === 'gemini' ? geminiApiKey : customLlmApiKey),
+                    baseURL: customLlmBaseUrl
+                });
                 setSuggestion(result);
             } catch (err) {
                  if (err instanceof Error) {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ThoughtRecordEntry } from '../types';
 import { cognitiveDistortions } from '../data/cognitiveDistortions';
-import { getThoughtChallengeHelp } from '../services/llmService';
+import * as api from '../services/apiService';
 import { logInteraction } from '../services/interactionLogger';
 import Tooltip from './Tooltip';
 import { useUser } from '../context/UserContext';
@@ -14,7 +14,7 @@ interface ThoughtRecordProps {
 
 const ThoughtRecord: React.FC<ThoughtRecordProps> = ({ onSave, onClose }) => {
     const { t, i18n } = useTranslation();
-    const { llmProvider, ollamaModel, ollamaCloudApiKey } = useUser();
+    const { llmProvider, ollamaModel, ollamaCloudApiKey, geminiApiKey, customLlmModel, customLlmApiKey, customLlmBaseUrl } = useUser();
     
     const steps = [
         t('thought_record.steps.situation'),
@@ -49,7 +49,15 @@ const ThoughtRecord: React.FC<ThoughtRecordProps> = ({ onSave, onClose }) => {
         setAiError(null);
         logInteraction({ type: 'REQUEST_THOUGHT_CHALLENGE_HELP', metadata: { provider: llmProvider } });
         try {
-            const helpText = await getThoughtChallengeHelp(llmProvider, ollamaModel, ollamaCloudApiKey, situation, negativeThought, i18n.language);
+            const helpText = await api.aiChallengeThought({
+                provider: llmProvider,
+                situation,
+                negativeThought,
+                language: i18n.language,
+                model: llmProvider === 'ollama' ? ollamaModel : customLlmModel,
+                apiKey: llmProvider === 'ollama' ? ollamaCloudApiKey : (llmProvider === 'gemini' ? geminiApiKey : customLlmApiKey),
+                baseURL: customLlmBaseUrl
+            });
             setChallenge(prev => `${prev ? prev + '\n\n' : ''}AI-Suggested Questions:\n${helpText}`);
         } catch (err) {
              if (err instanceof Error) setAiError(err.message);

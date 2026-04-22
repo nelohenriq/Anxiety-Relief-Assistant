@@ -29,12 +29,16 @@ function createBlob(data: Float32Array): GenAI_Blob {
 }
 
 
+import { useUser } from '../context/UserContext';
+import * as api from '../services/apiService';
+
 interface JournalProps {
     searchQuery: string;
 }
 
 const Journal: React.FC<JournalProps> = ({ searchQuery }) => {
     const { t } = useTranslation();
+    const { userId } = useUser();
     const [entries, setEntries] = useLocalStorage<JournalEntry[]>('journalEntries', []);
     const [newEntry, setNewEntry] = useState('');
     const [showConfirmation, setShowConfirmation] = useState(false);
@@ -45,9 +49,18 @@ const Journal: React.FC<JournalProps> = ({ searchQuery }) => {
     const scriptProcessorRef = useRef<ScriptProcessorNode | null>(null);
     const mediaStreamSourceRef = useRef<MediaStreamAudioSourceNode | null>(null);
     const streamRef = useRef<MediaStream | null>(null);
-    const ai = new GoogleGenAI({apiKey: process.env.API_KEY});
+    const { llmProvider, geminiApiKey } = useUser();
+    const ai = new GoogleGenAI({apiKey: geminiApiKey || process.env.API_KEY || ''});
 
-    const handleSave = () => {
+    useEffect(() => {
+        const loadJournal = async () => {
+            const history = await api.fetchUserHistory(userId);
+            if (history.journal.length > 0) setEntries(history.journal);
+        };
+        loadJournal();
+    }, [userId]);
+
+    const handleSave = async () => {
         if (!newEntry.trim()) return;
 
         logInteraction({ type: 'SAVE_JOURNAL_ENTRY', metadata: { entry_length: newEntry.trim().length } });
@@ -59,6 +72,7 @@ const Journal: React.FC<JournalProps> = ({ searchQuery }) => {
         };
 
         setEntries([entry, ...entries]); // Prepend new entry
+        await api.saveJournalEntry(userId, entry);
         setNewEntry('');
         setShowConfirmation(true);
         setTimeout(() => setShowConfirmation(false), 2000);
@@ -85,6 +99,10 @@ const Journal: React.FC<JournalProps> = ({ searchQuery }) => {
     };
 
     const startRecording = async () => {
+        if (llmProvider !== 'gemini') {
+            alert('Voice journaling is currently only optimized for Gemini. Please switch your provider in Settings to use this feature.');
+            return;
+        }
         setIsRecording(true);
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
