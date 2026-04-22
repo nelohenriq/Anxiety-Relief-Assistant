@@ -62,11 +62,7 @@
     "physical": "Físicos",
     "cognitive": "Cognitivos",
     "mood": "Anímicos",
-    "behavioral": "Conductuales",
-    "physical_full": "Síntomas Físicos",
-    "cognitive_full": "Síntomas Cognitivos",
-    "mood_full": "Síntomas Anímicos",
-    "behavioral_full": "Síntomas Conductuales"
+    "behavioral": "Conductuales"
   },
   "symptoms": {
     "heart_palpitations": "Palpitaciones",
@@ -636,12 +632,17 @@
     "ai_provider_title": "Proveedor de IA",
     "provider_label": "Proveedor",
     "ollama_model_label": "Modelo de Ollama",
+    "ollama_cloud_api_key_label": "Clave de API de Ollama Cloud",
+    "ollama_cloud_api_key_placeholder": "Introduce tu clave de API de ollama.com",
+    "ollama_cloud_api_key_helper": "Necesaria para usar los modelos en la nube.",
     "ollama_model_helper": "Asegúrate de que tu servidor local de Ollama esté en funcionamiento. La aplicación intentará conectarse a http://localhost:11434.",
     "ollama_test_connection_tooltip": "Actualizar lista de modelos",
     "ollama_status_testing": "Probando conexión...",
-    "ollama_status_success": "Conexión exitosa. Se encontraron {{count}} modelos.",
-    "ollama_status_error": "Falló la conexión:",
+    "ollama_status_success": "Conexión local exitosa. Se encontraron {{count}} modelos locales.",
+    "ollama_status_error": "Falló la conexión local:",
     "ollama_no_models": "No se encontraron modelos",
+    "ollama_local_models": "Modelos Locales",
+    "ollama_cloud_models": "Modelos en la Nube",
     "about_you_title": "Sobre Ti",
     "age_label": "Edad",
     "location_label": "Ubicación / Zona Horaria",
@@ -655,6 +656,8 @@
       "moderate": "Moderado",
       "high": "Alto"
     },
+    "interests_title": "Tus Intereses y Aficiones",
+    "interests_placeholder": "p. ej., Pintura, tocar la guitarra, jardinería, leer...",
     "conditions_label": "Condiciones de Ansiedad o Ánimo Diagnosticadas (opcional)",
     "conditions_placeholder": "p. ej., TAG, Trastorno de Pánico. Sé general.",
     "conditions_help_text": "Esta información se almacena solo en tu dispositivo y puede ayudar a generar ejercicios más específicos.",
@@ -745,7 +748,8 @@
     "collapse_details": "Ocultar detalles",
     "view_source": "Ver sitio web de origen",
     "close": "Cerrar",
-    "get_ai_help": "Obtener ayuda de la IA para desafiar este pensamiento"
+    "get_ai_help": "Obtener ayuda de la IA para desafiar este pensamiento",
+    "download_plan": "Descargar Plan"
   },
   "mood_tracker": {
     "title": "Registro de Ánimo",

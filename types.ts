@@ -3,7 +3,7 @@ export interface Exercise {
     id: string;
     title: string;
     description: string;
-    category: 'Mindfulness' | 'Cognitive' | 'Somatic' | 'Behavioral' | 'Grounding';
+    category: 'Mindfulness' | 'Cognitive' | 'Somatic' | 'Behavioral' | 'Grounding' | 'Interest-Based';
     steps: string[];
     duration_minutes: number;
 }
@@ -42,6 +42,7 @@ export interface UserProfile {
     workEnvironment?: 'office' | 'remote' | 'student' | 'outdoors_manual' | 'other' | '';
     accessToNature?: 'yes' | 'limited' | 'no' | '';
     activityLevel?: 'sedentary' | 'lightly_active' | 'moderately_active' | 'very_active' | '';
+    interests?: string;
 }
 
 export interface JournalEntry {
@@ -56,6 +57,7 @@ export interface PlanHistoryEntry {
     userInput: string;
     generatedExercises: Exercise[];
     sources?: { url: string; title: string }[];
+    calmImageUrl?: string;
 }
 
 // Types for Guided Programs

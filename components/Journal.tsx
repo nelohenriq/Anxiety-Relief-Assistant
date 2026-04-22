@@ -4,6 +4,7 @@ import useLocalStorage from '../hooks/useLocalStorage';
 import { JournalEntry } from '../types';
 import JournalEntryCard from './JournalEntryCard';
 import { GoogleGenAI, LiveServerMessage, Modality, Blob as GenAI_Blob } from '@google/genai';
+import { logInteraction } from '../services/interactionLogger';
 
 // --- Audio Helper Functions for Gemini Live API ---
 function encode(bytes: Uint8Array): string {
@@ -48,6 +49,8 @@ const Journal: React.FC<JournalProps> = ({ searchQuery }) => {
 
     const handleSave = () => {
         if (!newEntry.trim()) return;
+
+        logInteraction({ type: 'SAVE_JOURNAL_ENTRY', metadata: { entry_length: newEntry.trim().length } });
 
         const entry: JournalEntry = {
             id: Date.now().toString(),

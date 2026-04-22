@@ -62,11 +62,7 @@
     "physical": "Physiques",
     "cognitive": "Cognitifs",
     "mood": "Humeur",
-    "behavioral": "Comportementaux",
-    "physical_full": "Symptômes Physiques",
-    "cognitive_full": "Symptômes Cognitifs",
-    "mood_full": "Symptômes d'Humeur",
-    "behavioral_full": "Symptômes Comportementaux"
+    "behavioral": "Comportementaux"
   },
   "symptoms": {
     "heart_palpitations": "Palpitations cardiaques",
@@ -320,7 +316,7 @@
       "guidance": [
         "Trouvez une position confortable, assis ou allongé. Fermez doucement les yeux et prenez quelques respirations profondes et apaisantes.",
         "Portez votre attention sur le sommet de votre tête. Remarquez les sensations sans jugement. Picotements, pression, ou rien du tout - tout est acceptable.",
-        "Déplacez lentement votre attention vers votre visage. Détendez votre mâchoire, vos joues, et les petits muscles autour de vos yeux. Lâchez toute tension que vous y trouvez.",
+        "Déplacez lentamente votre attention vers votre visage. Détendez votre mâchoire, vos joues, et les petits muscles autour de vos yeux. Lâchez toute tension que vous y trouvez.",
         "Continuez ce balayage doux le long de votre cou et de vos épaules, le long de vos bras jusqu'au bout de vos doigts, à travers votre poitrine et votre abdomen, et le long de votre dos.",
         "Déplacez votre conscience le long de vos jambes, vers vos pieds, et jusqu'au bout de vos orteils. Remarquez la sensation de vos pieds en contact avec le sol ou la surface sous-jacente.",
         "Enfin, prenez une dernière respiration profonde, apportant un sentiment d'unité à tout votre corps. Quand vous êtes prêt(e), ouvrez lentement les yeux."
@@ -383,7 +379,7 @@
         "Mentalement, appliquez une étiquette douce et légère à la pensée. Une simple étiquette comme \"pensée\" ou \"inquiétude\" suffit. Pas besoin d'analyser le contenu.",
         "Après avoir noté la pensée, ramenez doucement votre attention sur votre respiration. Votre respiration est votre ancre.",
         "Répétez ce processus chaque fois qu'une pensée capte votre attention. Le but n'est pas d'arrêter de penser, mais de changer votre relation avec vos pensées.",
-        "Continuez pendant la durée indiquée. Quand vous êtes prêt(e), ramenez votre conscience dans la pièce et ouvrez lentement les yeux."
+        "Continuez pendant la durée indiquée. Quand vous êtes prêt(e), ramenez votre conscience dans la pièce et ouvrez lentamente les yeux."
       ]
     }
   },
@@ -410,7 +406,7 @@
             "Portez votre attention sur la sensation de votre respiration. Remarquez l'air qui entre par vos narines et remplit vos poumons.",
             "Observez la sensation de votre poitrine ou de votre ventre qui se soulève et s'abaisse.",
             "Si votre esprit s'égare, ramenez doucement et sans jugement votre attention sur votre respiration.",
-            "Continuez pendant 3 minutes. Quand vous êtes prêt(e), ouvrez lentement les yeux."
+            "Continuez pendant 3 minutes. Quand vous êtes prêt(e), ouvrez lentamente les yeux."
           ]
         }
       },
@@ -423,7 +419,7 @@
           "steps": [
             "Allongez-vous ou asseyez-vous confortablement. Fermez les yeux.",
             "Portez votre attention sur les orteils de votre pied gauche. Remarquez les sensations — chaleur, fraîcheur, picotements — sans avoir besoin de les changer.",
-            "Déplacez lentement votre attention le long de votre jambe gauche, vers votre jambe droite, à travers votre torse, et le long de vos bras jusqu'au bout des doigts.",
+            "Déplacez lentamente votre attention le long de votre jambe gauche, vers votre jambe droite, à travers votre torse, et le long de vos bras jusqu'au bout des doigts.",
             "Enfin, portez votre attention sur votre cou, votre visage et votre tête.",
             "Prenez une dernière respiration profonde et ouvrez doucement les yeux."
           ]
@@ -745,7 +741,8 @@
     "collapse_details": "Masquer les détails",
     "view_source": "Voir le site source",
     "close": "Fermer",
-    "get_ai_help": "Obtenir de l'aide de l'IA pour remettre en question cette pensée"
+    "get_ai_help": "Obtenir de l'aide de l'IA pour remettre en question cette pensée",
+    "download_plan": "Télécharger le Plan"
   },
   "mood_tracker": {
     "title": "Suivi d'Humeur",

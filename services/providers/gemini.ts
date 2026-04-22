@@ -9,16 +9,7 @@ interface KnowledgeChunk {
     content: string;
 }
 
-/**
- * A simple keyword-based retrieval function to simulate a vector search.
- * It scores chunks based on the number of overlapping keywords from the user's symptoms.
- * @param symptoms The user's input string.
- * @param db The knowledge base of text chunks.
- * @param topK The number of top chunks to retrieve.
- * @returns An array of the most relevant chunk contents.
- */
 const retrieveRelevantChunks = (symptoms: string, db: KnowledgeChunk[], topK: number = 5): string[] => {
-    // A simple list of common English stop words.
     const stopWords = new Set(['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', 'your', 'yours', 'he', 'him', 'his', 'she', 'her', 'it', 'its', 'they', 'them', 'their', 'what', 'which', 'who', 'whom', 'this', 'that', 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', 'should', 'now']);
     
     const queryWords = symptoms
@@ -27,29 +18,19 @@ const retrieveRelevantChunks = (symptoms: string, db: KnowledgeChunk[], topK: nu
         .split(/\s+/)
         .filter(word => word.length > 2 && !stopWords.has(word));
 
-    if (queryWords.length === 0) {
-        return [];
-    }
+    if (queryWords.length === 0) return [];
 
     const scoredChunks = db.map(chunk => {
         let score = 0;
         const chunkTextLower = chunk.content.toLowerCase();
-        queryWords.forEach(word => {
-            if (chunkTextLower.includes(word)) {
-                score++;
-            }
-        });
+        queryWords.forEach(word => { if (chunkTextLower.includes(word)) score++; });
         return { ...chunk, score };
     });
 
     const sortedChunks = scoredChunks.sort((a, b) => b.score - a.score);
 
-    return sortedChunks
-        .slice(0, topK)
-        .filter(chunk => chunk.score > 0) // Only return chunks that actually matched
-        .map(chunk => chunk.content);
+    return sortedChunks.slice(0, topK).filter(chunk => chunk.score > 0).map(chunk => chunk.content);
 };
-
 
 const buildSystemInstruction = (
     profile: UserProfile, 
@@ -62,14 +43,12 @@ const buildSystemInstruction = (
 
 --- RETRIEVED KNOWLEDGE BASE DOCUMENTS ---
 You MUST prioritize the information from the following retrieved documents as your primary source of truth. Synthesize your response based on these documents.
-
 ${retrievedDocs.map((doc, i) => `Document ${i+1}:\n${doc}`).join('\n\n')}
-
 --- END OF RETRIEVED DOCUMENTS ---
 
 Your response MUST be in the following language: ${language}.
 
-After consulting the retrieved documents, you may use Google Search to supplement the information if necessary, especially for finding details not covered in the provided texts.
+After consulting the retrieved documents, you may use Google Search to supplement the information if necessary.
 
 Your FINAL and ONLY output must be a single, valid JSON array of exercise objects. Do not include any introductory text, closing remarks, markdown formatting, or any content outside of the JSON array.
 
@@ -77,7 +56,7 @@ The JSON schema for each exercise object is:
 {
   "title": "string",
   "description": "string (A brief, encouraging explanation of the exercise and its benefits.)",
-  "category": "string (Enum: 'Mindfulness', 'Cognitive', 'Somatic', 'Behavioral', 'Grounding')",
+  "category": "string (Enum: 'Mindfulness', 'Cognitive', 'Somatic', 'Behavioral', 'Grounding', 'Interest-Based')",
   "steps": ["string", "string", ...],
   "duration_minutes": "number (Estimated time to complete the exercise)"
 }
@@ -100,6 +79,9 @@ Provide 2-4 diverse exercises. Prioritize simple, actionable techniques that can
         }
         if (profile.copingStyles) instruction += `\n- Previously helpful coping styles: "${profile.copingStyles}". Lean into these styles and techniques.`;
         if (profile.learningModality) instruction += `\n- Preferred Learning Style: ${profile.learningModality}. Frame exercise steps accordingly. For 'visual', use descriptive imagery. For 'kinesthetic', focus on bodily sensations. For 'auditory', emphasize sounds.`;
+        if (profile.interests) {
+            instruction += `\n- User Interests: "${profile.interests}". You have the option to generate ONE 'Interest-Based' exercise. This involves reframing one of their hobbies as a structured mindfulness, grounding, or behavioral activation exercise. Provide clear, actionable steps on how to engage with their hobby in a therapeutic way. For example, for 'painting', steps could be '1. Choose one color. 2. Make a single brushstroke. 3. Watch the paint dry, noticing the change in texture.' Do not just tell them to 'go paint'.`;
+        }
     }
     if (consentLevel === 'complete' && profile.diagnosedDisorders) {
          instruction += `\n- Diagnosed Conditions: "${profile.diagnosedDisorders}". Be extra sensitive and ensure suggestions are safe and appropriate for this context.`;
@@ -119,11 +101,48 @@ Provide 2-4 diverse exercises. Prioritize simple, actionable techniques that can
         }
     }
     instruction += "\n--- END OF CONTEXT ---";
-
-
     return instruction;
 };
 
+const generateArtisticPromptForImage = async (symptoms: string, language: string): Promise<string> => {
+    const systemInstruction = `You are an artistic prompt creator. Based on the user's feelings, create a short, evocative prompt for an AI image generator. The prompt must be in English. The prompt should describe a beautiful, abstract, and metaphorical image representing a feeling of calm and relief from their symptoms. Focus on concepts like light, color, texture, and gentle movement. Do not describe people or concrete objects. The prompt should be a single, concise sentence.`;
+    const prompt = `User feelings (in ${language}): "${symptoms}". Generate an artistic prompt.`;
+
+    try {
+        const response = await ai.models.generateContent({
+            model: "gemini-2.5-flash",
+            contents: prompt,
+            config: { systemInstruction },
+        });
+        return response.text.trim();
+    } catch (error) {
+        console.error("Error generating artistic prompt:", error);
+        return "A tranquil, abstract image with soft colors and gentle light.";
+    }
+};
+
+const generateCalmImage = async (prompt: string): Promise<string | null> => {
+    try {
+        const response = await ai.models.generateImages({
+            model: 'imagen-4.0-generate-001',
+            prompt: `cinematic, professional photograph of ${prompt}, octane render, photorealistic, 8k, trending on artstation`,
+            config: {
+              numberOfImages: 1,
+              outputMimeType: 'image/jpeg',
+              aspectRatio: '16:9',
+            },
+        });
+
+        if (response.generatedImages && response.generatedImages.length > 0) {
+            const base64ImageBytes: string = response.generatedImages[0].image.imageBytes;
+            return `data:image/jpeg;base64,${base64ImageBytes}`;
+        }
+        return null;
+    } catch (error) {
+        console.error("Error generating image with Imagen:", error);
+        return null; // Fail gracefully
+    }
+}
 
 export const getPersonalizedExercises = async (
     symptoms: string,
@@ -131,17 +150,13 @@ export const getPersonalizedExercises = async (
     consentLevel: DataConsentLevel,
     feedback: ExerciseFeedback,
     language: string
-): Promise<{ exercises: Exercise[]; sources: {url: string, title: string}[] }> => {
-    // 1. Retrieve relevant knowledge chunks based on symptoms (RAG Step 1: Retrieve)
+): Promise<{ exercises: Exercise[]; sources: {url: string, title: string}[], calmImageUrl: string | null }> => {
     const relevantDocs = retrieveRelevantChunks(symptoms, knowledgeBase, 5);
-    
-    // 2. Build the system instruction with the retrieved chunks (RAG Step 2: Augment)
     const systemInstruction = buildSystemInstruction(profile, consentLevel, feedback, language, relevantDocs);
     const prompt = `Generate coping exercises for the following symptoms: "${symptoms}"`;
 
     try {
-        // 3. Generate the response (RAG Step 3: Generate)
-        const response = await ai.models.generateContent({
+        const exercisePromise = ai.models.generateContent({
             model: "gemini-2.5-flash",
             contents: prompt,
             config: {
@@ -150,31 +165,30 @@ export const getPersonalizedExercises = async (
             }
         });
 
-        const responseText = response.text.trim();
+        const imagePromptPromise = generateArtisticPromptForImage(symptoms, language);
+
+        const [exerciseResponse, imagePrompt] = await Promise.all([exercisePromise, imagePromptPromise]);
+
+        const imageUrl = await generateCalmImage(imagePrompt);
+
+        const responseText = exerciseResponse.text.trim();
         const startIndex = responseText.indexOf('[');
         const endIndex = responseText.lastIndexOf(']');
-
         if (startIndex === -1 || endIndex === -1 || endIndex < startIndex) {
             console.error("Could not find a valid JSON array in the API response:", responseText);
             throw new Error("The AI model returned an invalid response format.");
         }
-        
         const jsonText = responseText.substring(startIndex, endIndex + 1);
-        
         const exercisesFromApi: Omit<Exercise, 'id'>[] = JSON.parse(jsonText);
-
-        const exercises: Exercise[] = exercisesFromApi.map(ex => ({
-            ...ex,
-            id: crypto.randomUUID(),
-        }));
+        const exercises: Exercise[] = exercisesFromApi.map(ex => ({ ...ex, id: crypto.randomUUID() }));
         
-        const groundingMetadata = response.candidates?.[0]?.groundingMetadata;
+        const groundingMetadata = exerciseResponse.candidates?.[0]?.groundingMetadata;
         const sources = groundingMetadata?.groundingChunks?.map((chunk: any) => ({
             url: chunk.web.uri,
             title: chunk.web.title
-        })).filter((s: any) => s.url && s.title) || [];
+        })) || [];
 
-        return { exercises, sources };
+        return { exercises, sources, calmImageUrl: imageUrl };
 
     } catch (error) {
         console.error("Error fetching exercises from Gemini API:", error);

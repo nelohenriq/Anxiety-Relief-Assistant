@@ -20,6 +20,7 @@ import SearchBar from './components/SearchBar';
 import MotivationalSlider from './components/MotivationalSlider';
 import LiveCoach from './components/LiveCoach';
 import OnboardingModal from './components/OnboardingModal';
+import CalmImage from './components/CalmImage';
 import { getPersonalizedExercises } from './services/llmService';
 import { logInteraction } from './services/interactionLogger';
 import { Exercise, ExerciseFeedback, FeedbackRating, PlanHistoryEntry, CompletedExerciseLog, FeedbackEntry } from './types';
@@ -41,8 +42,9 @@ const App: React.FC = () => {
     const [showHeaderBg, setShowHeaderBg] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [hasCompletedOnboarding, setHasCompletedOnboarding] = useLocalStorage('hasCompletedOnboarding', false);
+    const [calmImageUrl, setCalmImageUrl] = useState<string | null>(null);
 
-    const { profile, consentLevel, llmProvider, ollamaModel } = useUser();
+    const { profile, consentLevel, llmProvider, ollamaModel, ollamaCloudApiKey } = useUser();
 
     const handleScroll = () => {
         if (window.scrollY > 50) {
@@ -66,15 +68,16 @@ const App: React.FC = () => {
 
         setIsLoading(true);
         setError(null);
-        // Do not clear exercises immediately, so the layout doesn't flash
-        // setExercises([]);
         setSearchQuery(''); // Clear search on new submission
+        setCalmImageUrl(null);
+        setExercises([]);
         
         logInteraction({ type: 'GENERATE_PLAN', metadata: { provider: llmProvider } });
 
         try {
-            const { exercises: result, sources } = await getPersonalizedExercises(llmProvider, ollamaModel, symptoms, profile, consentLevel, feedback, i18n.language);
+            const { exercises: result, sources, calmImageUrl: imageUrl } = await getPersonalizedExercises(llmProvider, ollamaModel, ollamaCloudApiKey, symptoms, profile, consentLevel, feedback, i18n.language);
             setExercises(result);
+            setCalmImageUrl(imageUrl);
 
             const newHistoryEntry: PlanHistoryEntry = {
                 id: crypto.randomUUID(),
@@ -82,11 +85,31 @@ const App: React.FC = () => {
                 userInput: symptoms,
                 generatedExercises: result,
                 sources: sources,
+                calmImageUrl: imageUrl || undefined,
             };
             setPlanHistory([newHistoryEntry, ...planHistory]);
+            
+            logInteraction({
+                type: 'RECEIVE_PLAN_SUCCESS',
+                metadata: {
+                    provider: llmProvider,
+                    num_exercises: result.length,
+                    categories: result.map(e => e.category),
+                    used_search: sources && sources.length > 0,
+                    generated_image: !!imageUrl,
+                }
+            });
 
         } catch (err) {
             setExercises([]); // Clear exercises on error
+            setCalmImageUrl(null);
+             logInteraction({
+                type: 'RECEIVE_PLAN_ERROR',
+                metadata: {
+                    provider: llmProvider,
+                    error_message: err instanceof Error ? err.message : String(err),
+                }
+            });
             if (err instanceof Error) {
                 setError(err.message);
             } else {
@@ -130,6 +153,7 @@ const App: React.FC = () => {
     };
 
     const handleSaveFeedback = (newFeedback: Omit<FeedbackEntry, 'id' | 'timestamp'>) => {
+        logInteraction({ type: 'SAVE_APP_FEEDBACK', metadata: { feedback_type: newFeedback.type } });
         const feedbackEntry: FeedbackEntry = {
             id: crypto.randomUUID(),
             timestamp: new Date().toISOString(),
@@ -144,6 +168,11 @@ const App: React.FC = () => {
         if (mainContent) {
             mainContent.scrollIntoView({ behavior: 'smooth' });
         }
+    };
+
+    const openCrisisModal = (trigger: 'manual_click' | 'keyword_detection') => {
+        logInteraction({ type: 'OPEN_CRISIS_MODAL', metadata: { trigger } });
+        setIsCrisisModalOpen(true);
     };
 
     const lowerCaseQuery = searchQuery.toLowerCase();
@@ -162,6 +191,8 @@ const App: React.FC = () => {
         )
     );
 
+    const showFocusedLayout = isLoading || exercises.length > 0;
+
     return (
         <div className="min-h-screen bg-neutral-100 dark:bg-neutral-900 font-sans transition-colors duration-300 text-neutral-800 dark:text-neutral-300">
             {!hasCompletedOnboarding && (
@@ -170,7 +201,7 @@ const App: React.FC = () => {
             <Header
                 onOpenProfile={() => setIsProfileOpen(true)}
                 showBackground={showHeaderBg}
-                onOpenCrisisModal={() => setIsCrisisModalOpen(true)}
+                onOpenCrisisModal={() => openCrisisModal('manual_click')}
                 searchQuery={searchQuery}
                 onSearchQueryChange={setSearchQuery}
             />
@@ -196,7 +227,7 @@ const App: React.FC = () => {
                     <SearchBar query={searchQuery} onQueryChange={setSearchQuery} />
                 </div>
                 
-                {exercises.length === 0 && !isLoading ? (
+                {!showFocusedLayout ? (
                     // === DASHBOARD LAYOUT (No plan generated) ===
                     <div className="space-y-12">
                         <div className="space-y-12">
@@ -207,7 +238,7 @@ const App: React.FC = () => {
                                     setSymptoms={setSymptoms}
                                     onSubmit={handleSubmit}
                                     isLoading={isLoading}
-                                    onCrisisDetect={() => setIsCrisisModalOpen(true)}
+                                    onCrisisDetect={() => openCrisisModal('keyword_detection')}
                                 />
                             </div>
                             {error && <p className="text-center text-red-500 mt-4">{error}</p>}
@@ -241,7 +272,7 @@ const App: React.FC = () => {
                                     setSymptoms={setSymptoms}
                                     onSubmit={handleSubmit}
                                     isLoading={isLoading}
-                                    onCrisisDetect={() => setIsCrisisModalOpen(true)}
+                                    onCrisisDetect={() => openCrisisModal('keyword_detection')}
                                 />
                             </div>
 
@@ -249,8 +280,12 @@ const App: React.FC = () => {
 
                             {error && <p className="text-center text-red-500 mt-4">{error}</p>}
 
+                            {(isLoading || calmImageUrl) && llmProvider === 'gemini' && (
+                                <CalmImage imageUrl={calmImageUrl} isLoading={isLoading} />
+                            )}
+
                             {exercises.length > 0 && (
-                                <div className="space-y-6">
+                                <div className="space-y-6 mt-8 animate-fade-in">
                                     <h2 className="text-3xl font-bold text-center text-neutral-800 dark:text-neutral-100">{t('personalized_plan.title')}</h2>
                                     {filteredExercises.map((exercise) => (
                                         <ExerciseCard

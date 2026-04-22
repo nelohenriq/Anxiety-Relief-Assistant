@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useUser } from '../context/UserContext';
 import { UserProfile, DataConsentLevel } from '../types';
+import { logInteraction } from '../services/interactionLogger';
 
 interface OnboardingModalProps {
     onComplete: () => void;
@@ -141,6 +142,7 @@ const OnboardingModal: React.FC<OnboardingModalProps> = ({ onComplete }) => {
     }
 
     const handleFinish = () => {
+        logInteraction({ type: 'COMPLETE_ONBOARDING', metadata: { consent_level: localConsent } });
         setConsentLevel(localConsent);
         setProfile({ ...profile, ...localProfile });
         onComplete();

@@ -1,6 +1,7 @@
 import React, { createContext, useContext, ReactNode } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { UserProfile, DataConsentLevel, ReminderSettings } from '../types';
+import { logInteraction } from '../services/interactionLogger';
 
 type LlmProvider = 'gemini' | 'ollama';
 
@@ -15,6 +16,8 @@ interface UserContextType {
     setLlmProvider: (provider: LlmProvider) => void;
     ollamaModel: string;
     setOllamaModel: (model: string) => void;
+    ollamaCloudApiKey: string;
+    setOllamaCloudApiKey: (key: string) => void;
     clearAllData: () => void;
 }
 
@@ -30,8 +33,11 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     });
     const [llmProvider, setLlmProvider] = useLocalStorage<LlmProvider>('llmProvider', 'gemini');
     const [ollamaModel, setOllamaModel] = useLocalStorage<string>('ollamaModel', 'llama3');
+    const [ollamaCloudApiKey, setOllamaCloudApiKey] = useLocalStorage<string>('ollamaCloudApiKey', '');
     
     const clearAllData = () => {
+        logInteraction({ type: 'CLEAR_ALL_DATA' });
+
         // This is a list of all keys managed by useLocalStorage in the app.
         const keysToRemove = [
             'userProfile',
@@ -49,7 +55,9 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             'feedbackHistory',
             'interactionLog',
             'llmProvider',
-            'ollamaModel'
+            'ollamaModel',
+            'ollamaCloudApiKey',
+            'hasCompletedOnboarding'
         ];
         
         keysToRemove.forEach(key => {
@@ -60,7 +68,7 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         window.location.reload();
     };
 
-    const value = { profile, setProfile, consentLevel, setConsentLevel, reminderSettings, setReminderSettings, llmProvider, setLlmProvider, ollamaModel, setOllamaModel, clearAllData };
+    const value = { profile, setProfile, consentLevel, setConsentLevel, reminderSettings, setReminderSettings, llmProvider, setLlmProvider, ollamaModel, setOllamaModel, ollamaCloudApiKey, setOllamaCloudApiKey, clearAllData };
 
     return (
         <UserContext.Provider value={value}>

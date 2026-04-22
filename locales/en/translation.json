@@ -62,11 +62,7 @@
     "physical": "Physical",
     "cognitive": "Cognitive",
     "mood": "Mood",
-    "behavioral": "Behavioral",
-    "physical_full": "Physical Symptoms",
-    "cognitive_full": "Cognitive Symptoms",
-    "mood_full": "Mood Symptoms",
-    "behavioral_full": "Behavioral Symptoms"
+    "behavioral": "Behavioral"
   },
   "symptoms": {
     "heart_palpitations": "Heart palpitations",
@@ -620,7 +616,7 @@
     }
   },
   "user_profile": {
-    "title": "User Profile & Settings",
+    "title": "Profile & Settings",
     "tabs": {
       "settings": "Settings",
       "activity_log": "Activity Log",
@@ -636,16 +632,21 @@
     "ai_provider_title": "AI Provider",
     "provider_label": "Provider",
     "ollama_model_label": "Ollama Model",
+    "ollama_cloud_api_key_label": "Ollama Cloud API Key",
+    "ollama_cloud_api_key_placeholder": "Enter your ollama.com API key",
+    "ollama_cloud_api_key_helper": "Required for using cloud models.",
     "ollama_model_helper": "Ensure your local Ollama server is running. The app will attempt to connect to http://localhost:11434.",
     "ollama_test_connection_tooltip": "Refresh model list",
     "ollama_status_testing": "Testing connection...",
-    "ollama_status_success": "Connection successful. {{count}} models found.",
-    "ollama_status_error": "Connection failed:",
+    "ollama_status_success": "Connection successful. {{count}} local models found.",
+    "ollama_status_error": "Local connection failed:",
     "ollama_no_models": "No models found",
+    "ollama_local_models": "Local Models",
+    "ollama_cloud_models": "Cloud Models",
     "about_you_title": "About You",
     "age_label": "Age",
     "location_label": "Location / Time Zone",
-    "location_placeholder": "e.g., San Francisco / PST",
+    "location_placeholder": "e.g. New York / EST",
     "wellness_profile_title": "Wellness Profile",
     "sleep_label": "Average sleep per night (hours)?",
     "caffeine_label": "Typical Caffeine Intake",
@@ -655,33 +656,35 @@
       "moderate": "Moderate",
       "high": "High"
     },
+    "interests_title": "Your Interests & Hobbies",
+    "interests_placeholder": "e.g. Painting, playing guitar, gardening, reading...",
     "conditions_label": "Diagnosed Anxiety or Mood Conditions (optional)",
-    "conditions_placeholder": "e.g., GAD, Panic Disorder. Be general.",
+    "conditions_placeholder": "e.g. GAD, Panic Disorder. Keep it general.",
     "conditions_help_text": "This information is stored only on your device and can help generate more specific exercises.",
     "lifestyle_title": "Lifestyle & Preferences",
     "work_env_label": "Work/School Environment",
     "work_env_options": {
-      "office": "Office / Indoor",
-      "remote": "Work from Home",
+      "office": "Office / Indoors",
+      "remote": "Work from home",
       "student": "Student",
       "outdoors_manual": "Outdoors / Manual Labor",
       "other": "Other"
     },
     "nature_access_label": "Access to Nature/Parks",
     "nature_access_options": {
-      "yes": "Easy Access",
-      "limited": "Limited Access",
-      "no": "No Access"
+      "yes": "Easy access",
+      "limited": "Limited access",
+      "no": "No access"
     },
     "activity_level_label": "Typical Activity Level",
     "activity_level_options": {
       "sedentary": "Sedentary (mostly sitting)",
       "lightly_active": "Lightly Active (some walking/standing)",
-      "moderately_active": "Moderately Active (exercise 3-5 times/week)",
+      "moderately_active": "Moderately Active (exercise 3-5x/week)",
       "very_active": "Very Active (intense exercise most days)"
     },
     "coping_styles_label": "What has helped you in the past?",
-    "coping_styles_placeholder": "e.g., talking to friends, going for a walk, mindfulness apps",
+    "coping_styles_placeholder": "e.g. talking to friends, going for a walk, mindfulness apps",
     "learning_style_label": "Preferred Learning Style",
     "learning_style_options": {
       "visual": "Visual",
@@ -701,7 +704,7 @@
     "feedback_subtitle": "Have a suggestion or found a bug? Let us know!",
     "provide_feedback_button": "Provide Feedback",
     "data_privacy_title": "Data & Privacy",
-    "data_privacy_subtitle": "All your data (profile, history, journal) is stored exclusively on your device's local storage. Clearing your data is permanent and cannot be undone.",
+    "data_privacy_subtitle": "All of your data (profile, history, journal) is stored exclusively on your device's local storage. Deleting your data is permanent and cannot be undone.",
     "download_log_subtitle": "To help improve the app, you can voluntarily download your anonymous interaction log and share it with the development team.",
     "download_log_button": "Download Interaction Log",
     "clear_data_button": "Clear My Data...",
@@ -723,11 +726,11 @@
     "message_label": "Message",
     "message_placeholder": "Please provide as much detail as possible...",
     "submit_button": "Submit Feedback",
-    "submitted_message": "Thank You!"
+    "submitted_message": "Thank you!"
   },
   "crisis_modal": {
     "title": "It sounds like you're going through a lot.",
-    "body": "If you are in immediate distress or danger, please reach out for help. You are not alone.",
+    "body": "If you are in distress or immediate danger, please reach out for help. You are not alone.",
     "cta_button_call": "Call {{name}} ({{number}})",
     "cta_button_web": "Visit {{name}}",
     "close_button": "Close this window"
@@ -745,10 +748,11 @@
     "collapse_details": "Hide details",
     "view_source": "View source website",
     "close": "Close",
-    "get_ai_help": "Get AI Help with challenging this thought"
+    "get_ai_help": "Get AI help to challenge this thought",
+    "download_plan": "Download Plan"
   },
   "mood_tracker": {
-    "title": "Mood Check-in",
+    "title": "Mood Tracker",
     "subtitle": "Log your current emotional state.",
     "prompt": "How are you feeling right now?",
     "logged_confirmation": "Mood logged!",
@@ -763,6 +767,6 @@
   "mood_chart": {
     "title": "Your Week in Moods",
     "empty_state": "Log your mood to see your trends here.",
-    "avg_mood": "Avg. Mood"
+    "avg_mood": "Avg Mood"
   }
 }

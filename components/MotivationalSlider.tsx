@@ -5,7 +5,7 @@ import { useUser } from '../context/UserContext';
 
 const MotivationalSlider: React.FC = () => {
     const { i18n } = useTranslation();
-    const { llmProvider, ollamaModel } = useUser();
+    const { llmProvider, ollamaModel, ollamaCloudApiKey } = useUser();
     const [quotes, setQuotes] = useState<string[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFading, setIsFading] = useState(false);
@@ -13,7 +13,7 @@ const MotivationalSlider: React.FC = () => {
     useEffect(() => {
         const fetchQuotes = async () => {
             try {
-                const result = await getMotivationalQuotes(llmProvider, ollamaModel, i18n.language);
+                const result = await getMotivationalQuotes(llmProvider, ollamaModel, ollamaCloudApiKey, i18n.language);
                 setQuotes(result);
             } catch (error) {
                 console.error("Failed to fetch motivational quotes:", error);
@@ -21,7 +21,7 @@ const MotivationalSlider: React.FC = () => {
             }
         };
         fetchQuotes();
-    }, [i18n.language, llmProvider, ollamaModel]);
+    }, [i18n.language, llmProvider, ollamaModel, ollamaCloudApiKey]);
     
     useEffect(() => {
         if (quotes.length > 1) {

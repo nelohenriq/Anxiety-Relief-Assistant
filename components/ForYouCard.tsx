@@ -5,7 +5,7 @@ import { getForYouSuggestion } from '../services/llmService';
 
 const ForYouCard: React.FC = () => {
     const { t, i18n } = useTranslation();
-    const { profile, consentLevel, llmProvider, ollamaModel } = useUser();
+    const { profile, consentLevel, llmProvider, ollamaModel, ollamaCloudApiKey } = useUser();
     const [suggestion, setSuggestion] = useState<string>('');
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
@@ -20,7 +20,7 @@ const ForYouCard: React.FC = () => {
             setIsLoading(true);
             setError(null);
             try {
-                const result = await getForYouSuggestion(llmProvider, ollamaModel, profile, i18n.language);
+                const result = await getForYouSuggestion(llmProvider, ollamaModel, ollamaCloudApiKey, profile, i18n.language);
                 setSuggestion(result);
             } catch (err) {
                  if (err instanceof Error) {
@@ -34,7 +34,7 @@ const ForYouCard: React.FC = () => {
         };
 
         fetchSuggestion();
-    }, [profile, consentLevel, i18n.language, llmProvider, ollamaModel]);
+    }, [profile, consentLevel, i18n.language, llmProvider, ollamaModel, ollamaCloudApiKey]);
 
     if (consentLevel === 'essential') {
         return null; // Don't render the card if consent is not given
